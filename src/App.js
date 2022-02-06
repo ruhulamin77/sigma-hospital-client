@@ -1,7 +1,9 @@
+import AboutSigma from "./components/Home/AboutSigma/AboutSigma";
+
 function App() {
   return (
-    <div className="App">
-      <h1>hello</h1>
+    <div>
+      <AboutSigma></AboutSigma>
     </div>
   );
 }
