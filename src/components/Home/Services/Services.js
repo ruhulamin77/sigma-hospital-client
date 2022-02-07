@@ -38,7 +38,7 @@ const Services = () => {
                     </Card>
                     <Card className='service-middle-card rounded-0'>
                         <div className='service-card-icon'>
-                            <i className="fas fa-users fa-3x"></i>
+                            <i class="fas fa-notes-medical fa-3x"></i>
                         </div>
                         <Card.Body>
                             <h2>Home Health Services</h2>
@@ -52,10 +52,10 @@ const Services = () => {
                     </Card>
                     <Card className='border-0 rounded-0'>
                         <div className='service-card-icon'>
-                            <i className="fas fa-users fa-3x"></i>
+                            <i class="fas fa-thumbs-up fa-3x"></i>
                         </div>
                         <Card.Body>
-                            <h2>Family Consultation</h2>
+                            <h2>Minor Procedures</h2>
                             <Card.Text className='mt-4 mb-4 text-secondary'>
                                 It is a long established fact that a will be distracted by the readable content of a page looking at its layout.
                             </Card.Text>
