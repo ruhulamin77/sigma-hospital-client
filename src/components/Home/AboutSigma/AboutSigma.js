@@ -47,44 +47,44 @@ const AboutSigma = () => {
         <div className="col-lg-4 col-md-6 col-sm-12 ml-5">
           <ul>
             <li>
-              <i class="far fa-check-square checkbox-icon"></i>
+              <i className="far fa-check-square checkbox-icon"></i>
               Treats minor illnesses
             </li>
             <li>
-              <i class="far fa-check-square checkbox-icon"></i>
+              <i className="far fa-check-square checkbox-icon"></i>
               Answers health questions
             </li>
             <li>
-              <i class="far fa-check-square checkbox-icon"></i>
+              <i className="far fa-check-square checkbox-icon"></i>
               Conducts health checkups
             </li>
             <li>
-              <i class="far fa-check-square checkbox-icon"></i>
+              <i className="far fa-check-square checkbox-icon"></i>
               Performs routine health tests
             </li>
             <li>
-              <i class="far fa-check-square checkbox-icon"></i>
+              <i className="far fa-check-square checkbox-icon"></i>
               Orthopaedic surgeon
             </li>
             <li>
-              <i class="far fa-check-square checkbox-icon"></i>
+              <i className="far fa-check-square checkbox-icon"></i>
               Endocrinologist
             </li>
             <li>
-              <i class="far fa-check-square checkbox-icon"></i>
+              <i className="far fa-check-square checkbox-icon"></i>
               Cardiothoracic surgeon
             </li>
 
             <li>
-              <i class="far fa-check-square checkbox-icon"></i>
+              <i className="far fa-check-square checkbox-icon"></i>
               Specialty physicians
             </li>
             <li>
-              <i class="far fa-check-square checkbox-icon"></i>
+              <i className="far fa-check-square checkbox-icon"></i>
               Best in class equipment's
             </li>
             <li>
-              <i class="far fa-check-square checkbox-icon"></i>
+              <i className="far fa-check-square checkbox-icon"></i>
               Answers health questions
             </li>
           </ul>
@@ -92,7 +92,7 @@ const AboutSigma = () => {
           <p className="co-funder">CEO & FOUNDER</p>
           <img src={signature} alt="" className="signature" /> <br />
           <button className="appointment-btn">
-            Get Appointment <i class="fas fa-plus btn-icon"></i>
+            Get Appointment <i className="fas fa-plus btn-icon"></i>
           </button>
         </div>
         <div className="col-lg-4 col-md-6 col-sm-12 ">
