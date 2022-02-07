@@ -1,6 +1,10 @@
-.service-left{
+.service-section{
+    margin-bottom: 10rem;
     background-color: #FDF4F4;
+}
+.service-left{
     padding: 10rem;
+    background: transparent;
 }
 .service-left h6{
     color: #7093E5;
@@ -23,7 +27,6 @@
     background-color: #F68685;
     color: white;
     margin-bottom: 27px;
-
 }
 .service-btn:hover{
     background-color: #7093E5;
@@ -80,3 +83,24 @@
       transform: scale(1, 1);
     }
   }
+
+@media only screen and (max-width: 480px) {
+    .service-section{
+        margin-bottom: 0rem;
+    }
+    .service-left{
+        padding: 0rem;
+    }
+    .service-btn{
+        margin-top: 10px;
+        /* border: none;
+        padding: 8px 10px;
+        background-color: #F68685;
+        color: white;
+        margin-bottom: 27px; */
+    }
+    .service-card{
+        margin-top: -0rem;
+        padding: 0 0rem;
+    }
+}
