@@ -140,6 +140,7 @@
   flex-direction: column;
   height: 100%;
   text-align: right;
+  cursor: default;
 }
 .banner_right .moto h4 {
   color: #7093e5;
