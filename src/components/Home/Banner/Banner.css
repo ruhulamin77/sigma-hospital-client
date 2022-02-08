@@ -1,0 +1,92 @@
+.banner_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 550px;
+  margin: 100px 0;
+  position: relative;
+  background-image: url("../../../images/banner.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.banner_container::before {
+  /* content: "SIGMA ARE";
+  position: absolute;
+  font-weight: 700;
+  letter-spacing: -10px;
+  font-size: 15vw;
+  z-index: -1;
+  left: 5%; */
+  /* transform: translateX(-30%); */
+  /* color: #f68685; */
+  color: #ededee;
+}
+.banner_container::after {
+  /* content: "C";
+  position: absolute;
+  font-weight: 700;
+  left: 40%;
+  bottom: -160px;
+  transform: translateX(-0%);
+  font-size: 50vw;
+  z-index: -1;
+
+  color: #f68685; */
+}
+.banner_top_hidden {
+}
+.banner_left {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+}
+.banner_left_social {
+}
+.banner_left_social ul {
+}
+.banner_left_social ul li {
+}
+.banner_left_social ul a {
+  text-decoration: none;
+  color: #ededee;
+  transition: 1s;
+  font-size: 20px;
+  margin-bottom: 20px;
+  display: block;
+}
+.banner_left_social ul li a:hover {
+  color: #f68685;
+}
+.banner_middle {
+  position: relative;
+}
+
+.banner_right {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+}
+/* #F68685 */
+
+@media screen and (max-width: 992px) {
+  .banner_container {
+    height: 450px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .banner_container {
+    height: 370px;
+  }
+  .banner_left_bottom {
+    display: none;
+  }
+  .banner_container {
+    /* padding-top: 200px; */
+  }
+  .banner_right .moto,
+  .specialization {
+    visibility: hidden;
+  }
+}
