@@ -31,6 +31,10 @@
   background-image: url("../../../images/banner.png");
   background-size: contain;
   background-repeat: no-repeat;
+  transition: ease-in-out 1s;
+}
+.banner_container:hover {
+  background-position: -20px;
 }
 .banner_container::before {
   content: "";
@@ -40,7 +44,6 @@
   background-color: #7093e5;
   top: 45%;
   left: 10px;
-
   transform: translateY(-100%);
 }
 .banner_container::after {
@@ -49,7 +52,6 @@
   top: 45%;
   left: 10px;
   height: 60px;
-
   width: 1px;
   background-color: #f68685;
 }
@@ -59,12 +61,6 @@
   justify-content: space-between;
   flex-direction: column;
   height: 100%;
-}
-.banner_left_social {
-}
-.banner_left_social ul {
-}
-.banner_left_social ul li {
 }
 .banner_left_social ul a {
   text-decoration: none;
@@ -198,9 +194,6 @@
   }
   .banner_left_bottom {
     display: none;
-  }
-  .banner_container {
-    /* padding-top: 200px; */
   }
   .banner_right .moto,
   .specialization {
