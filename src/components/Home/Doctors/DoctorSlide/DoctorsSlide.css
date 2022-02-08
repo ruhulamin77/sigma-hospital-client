@@ -1,0 +1,32 @@
+.doctor-card{
+    margin: 15px;
+    padding: 7px;
+}
+.icon-setup{
+    position: relative;
+    right: 17rem;
+}
+.icon-setup i{
+    padding: 15px;
+    margin: 5px;
+    background-color: #7093E5;
+    cursor: pointer;
+    color: #FFFFFF;
+}
+
+@media only screen and (max-width: 480px) {
+    .doctor-card{
+        margin: 0;
+        padding: 0;
+    }
+    .icon-setup{
+        position: relative;
+        top: -1rem;
+        left: 3rem;
+    }
+    .icon-setup i{
+        padding: 0px;
+        margin: 0px;
+        background-color: transparent;
+    }
+}

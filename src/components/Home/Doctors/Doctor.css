@@ -1,0 +1,11 @@
+.doctor-section{
+    padding: 10rem;
+}
+.doctor-section h5{
+    color: #7093E5;
+}
+@media only screen and (max-width: 480px) {
+    .doctor-section{
+        padding: 0rem;
+    }
+}

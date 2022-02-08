@@ -25,19 +25,6 @@ const Services = () => {
                     </Card>
                 </Col>
             </Row>
-            {/* <div className='row'>
-                <div className='col-12 col-md-8 service-left'>
-                    <h6 style={{ letterSpacing: "3px" }}>SERVICES</h6>
-                    <h1>We Provide <br /> <span className='fw-light'> Medical Services</span></h1>
-                    <p className='text-secondary lh-2 mt-3'>It is a long established fact that a reader will be distracted by the <br /> readable content of a page when looking at its layout.</p>
-                    <button className="service-btn">
-                        Services <i className="fas fa-plus btn-icon"></i>
-                    </button>
-                </div>
-                <div className='col-12 col-md-4 service-right'>
-                    <img src={serviceImg} alt="" />
-                </div>
-            </div> */}
 
             <div>
                 <CardGroup className='service-card'>
@@ -57,7 +44,7 @@ const Services = () => {
                     </Card>
                     <Card className='service-middle-card rounded-0'>
                         <div className='service-card-icon'>
-                            <i class="fas fa-notes-medical fa-3x"></i>
+                            <i className="fas fa-notes-medical fa-3x"></i>
                         </div>
                         <Card.Body>
                             <h2>Home Health Services</h2>
@@ -71,7 +58,7 @@ const Services = () => {
                     </Card>
                     <Card className='border-0 rounded-0'>
                         <div className='service-card-icon'>
-                            <i class="fas fa-thumbs-up fa-3x"></i>
+                            <i className="fas fa-thumbs-up fa-3x"></i>
                         </div>
                         <Card.Body>
                             <h2>Minor Procedures</h2>
