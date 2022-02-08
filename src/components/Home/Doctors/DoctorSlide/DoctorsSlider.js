@@ -30,9 +30,13 @@ export default class OurWorks extends Component {
                                 <img src={carosel1} className="card-img" alt="..." />
                                 <div className="card-img-overlay">
                                     <div className='icon-setup'>
-                                        <i class="fab fa-facebook-square"></i><br />
+                                        <i className="fab fa-facebook-square"></i><br />
                                         <i className="fab fa-twitter-square"></i><br />
                                         <i className="fab fa-google"></i>
+                                    </div>
+                                    <div className='about-doctor'>
+                                        <h2>Name</h2>
+                                        <h5>Position</h5>
                                     </div>
                                 </div>
                             </div>
@@ -42,9 +46,13 @@ export default class OurWorks extends Component {
                                 <img src={carosel2} className="card-img" alt="..." />
                                 <div className="card-img-overlay">
                                     <div className='icon-setup'>
-                                        <i class="fab fa-facebook-square"></i><br />
+                                        <i className="fab fa-facebook-square"></i><br />
                                         <i className="fab fa-twitter-square"></i><br />
                                         <i className="fab fa-google"></i>
+                                    </div>
+                                    <div className='about-doctor'>
+                                        <h2>Name</h2>
+                                        <h5>Position</h5>
                                     </div>
                                 </div>
                             </div>
@@ -54,9 +62,13 @@ export default class OurWorks extends Component {
                                 <img src={carosel3} className="card-img" alt="..." />
                                 <div className="card-img-overlay">
                                     <div className='icon-setup'>
-                                        <i class="fab fa-facebook-square"></i><br />
+                                        <i className="fab fa-facebook-square"></i><br />
                                         <i className="fab fa-twitter-square"></i><br />
                                         <i className="fab fa-google"></i>
+                                    </div>
+                                    <div className='about-doctor'>
+                                        <h2>Name</h2>
+                                        <h5>Position</h5>
                                     </div>
                                 </div>
                             </div>
@@ -66,9 +78,13 @@ export default class OurWorks extends Component {
                                 <img src={carosel4} className="card-img" alt="..." />
                                 <div className="card-img-overlay">
                                     <div className='icon-setup'>
-                                        <i class="fab fa-facebook-square"></i><br />
+                                        <i className="fab fa-facebook-square"></i><br />
                                         <i className="fab fa-twitter-square"></i><br />
                                         <i className="fab fa-google"></i>
+                                    </div>
+                                    <div className='about-doctor'>
+                                        <h2>Name</h2>
+                                        <h5>Position</h5>
                                     </div>
                                 </div>
                             </div>
@@ -78,9 +94,13 @@ export default class OurWorks extends Component {
                                 <img src={carosel5} className="card-img" alt="..." />
                                 <div className="card-img-overlay">
                                     <div className='icon-setup'>
-                                        <i class="fab fa-facebook-square"></i><br />
+                                        <i className="fab fa-facebook-square"></i><br />
                                         <i className="fab fa-twitter-square"></i><br />
                                         <i className="fab fa-google"></i>
+                                    </div>
+                                    <div className='about-doctor'>
+                                        <h2>Name</h2>
+                                        <h5>Position</h5>
                                     </div>
                                 </div>
                             </div>
