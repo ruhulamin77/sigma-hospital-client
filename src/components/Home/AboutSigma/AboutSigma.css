@@ -109,8 +109,14 @@ ul li{
     font-size: 15px;
     margin-left: 10px;
     color: white;
+    background-color: #f59d9c;
+    padding: 15px;
 }
 .appointment-btn:hover{
     background-color: #7093E5;
+    transition: all 0.5s ease-in;
+}
+.appointment-btn:hover .btn-icon{
+    background-color: #a9c0f5;
     transition: all 0.5s ease-in;
 }
