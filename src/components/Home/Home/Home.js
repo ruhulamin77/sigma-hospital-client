@@ -1,8 +1,9 @@
 import React from "react";
 import AboutSigma from "../AboutSigma/AboutSigma";
 import Banner from "../Banner/Banner";
-import Footer from "../Footer/Footer";
+import ChooseUs from "../ChooseUs/ChooseUs";
 import Doctors from "../Doctors/Doctors";
+import Footer from "../Footer/Footer";
 import Services from "../Services/Services";
 
 const Home = () => {
@@ -10,7 +11,7 @@ const Home = () => {
     <div>
       <Banner />
       <AboutSigma />
-
+      <ChooseUs/>
       <Services />
       <Doctors />
       <Footer />
