@@ -2,6 +2,7 @@ import React from 'react';
 import './Services.css';
 import serviceImg from '../../../images/ki-020.png';
 import { Card, CardGroup, Col, Nav, Row } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 
 const Services = () => {
     return (
@@ -13,15 +14,17 @@ const Services = () => {
                             <h6 style={{ letterSpacing: "3px" }}>SERVICES</h6>
                             <h1>We Provide <br /> <span className='fw-light'> Medical Services</span></h1>
                             <p className='text-secondary lh-2 mt-3'>It is a long established fact that a reader will be distracted by the <br /> readable content of a page when looking at its layout.</p>
-                            <button className="service-btn">
-                                Services <i className="fas fa-plus btn-icon"></i>
-                            </button>
+                            <NavLink to="">
+                                <button className="service-btn mt-5 mb-3">
+                                    Services <i className="fas fa-plus btn-icon"></i>
+                                </button>
+                            </NavLink>
                         </Card.Body>
                     </Card>
                 </Col>
                 <Col className='col-12 col-md-5'>
                     <Card className='service-right border-0 rounded-0'>
-                        <Card.Img variant="top" src={serviceImg} />
+                        <img variant="top" alt='servicePhoto' src={serviceImg} />
                     </Card>
                 </Col>
             </Row>
