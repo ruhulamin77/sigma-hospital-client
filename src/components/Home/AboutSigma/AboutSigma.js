@@ -96,7 +96,7 @@ const AboutSigma = () => {
           </button>
         </div>
         <div className="col-lg-4 col-md-6 col-sm-12 ">
-          <img src={doctor} alt="" className="doctor-image img-fluid " />
+          <img src={doctor} alt="" className="img-fluid image" />
         </div>
       </div>
     </div>

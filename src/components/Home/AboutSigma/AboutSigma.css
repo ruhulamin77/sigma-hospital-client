@@ -1,122 +1,110 @@
-.sigma-about-fild{
-    background-color: #FEF5F5;
+.sigma-about-fild {
+  background-color: #fef5f5;
 }
 
-.about-heding{
-    text-transform: uppercase;
-    color: #4676e3;
-    font-size: 12px;
-    letter-spacing: 2px;
-    font-weight: 500;
-
+.about-heding {
+  text-transform: uppercase;
+  color: #4676e3;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 500;
 }
 
-.welcome-msg{
-   
-    font-weight: 300;
-    letter-spacing: 1px;
-
-
+.welcome-msg {
+  font-weight: 300;
+  letter-spacing: 1px;
 }
 
-.bold-welcome{
-    font-size: 37px;
-    font-weight: 500;
-    font-family: serif;
-
+.bold-welcome {
+  font-size: 37px;
+  font-weight: 500;
+  font-family: serif;
 }
-.content{
-    color: #00000094;
-    font-size: 14px;
-    letter-spacing: 1px;
-    margin: 24px 0px;
-
+.content {
+  color: #00000094;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin: 24px 0px;
 }
 
-.opning-time{
-    background-color: #7093E5;
-    border-radius: 4px;
-
+.opning-time {
+  background-color: #7093e5;
+  border-radius: 4px;
 }
-.opning-time ,td{
-    color: aliceblue;
+.opning-time,
+td {
+  color: aliceblue;
 }
-.time{
-    color: white;
-    padding-left: 11px;
-    font-size: 30px;
-    font-family: auto;
-    letter-spacing: 1px;
-} 
-
-
-.watch{
-    width: 110px;
-    
-}
-.table-data{
-    padding: 19px 4px;
-    padding-bottom: 46px;
+.time {
+  color: white;
+  padding-left: 11px;
+  font-size: 30px;
+  font-family: auto;
+  letter-spacing: 1px;
 }
 
-.checkbox-icon{
-    color: #F68685;
-    margin-right: 8px;
-    padding-top: 15px;
-    font-size: 12px;
-
+.watch {
+  width: 110px;
+}
+.table-data {
+  padding: 19px 4px;
+  padding-bottom: 46px;
 }
 
-ul li{
-    list-style: none;
-    font-size: 13px;
-    font-family: inherit;
-    margin-left: 3px;
+.checkbox-icon {
+  color: #f68685;
+  margin-right: 8px;
+  padding-top: 15px;
+  font-size: 12px;
 }
 
-.name{
-    margin-left: 33px;
-    font-size: 20px;
-    font-family: fangsong;
-    letter-spacing: 3px;
-    margin-top: 45px;
-
-}
-.co-funder{
-    margin-left: 31px;
-    font-size: 11px;
-    letter-spacing: 2px;
-    color: #4E87F2;
-    font-weight: 700;
-
-}
-.signature{
-    width: 138px;
-    margin-left: 23px;
+ul li {
+  list-style: none;
+  font-size: 13px;
+  font-family: inherit;
+  margin-left: 3px;
 }
 
-.appointment-btn{
-    margin-top: 50px;
-    margin-left: 28px;
-    border: none;
-    padding: 8px 10px;
-    background-color: #F68685;
-    color: white;
-    margin-bottom: 27px;
+.name {
+  margin-left: 33px;
+  font-size: 20px;
+  font-family: fangsong;
+  letter-spacing: 3px;
+  margin-top: 45px;
+}
+.co-funder {
+  margin-left: 31px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #4e87f2;
+  font-weight: 700;
+}
+.signature {
+  width: 138px;
+  margin-left: 23px;
+}
 
+.appointment-btn {
+  margin-top: 50px;
+  margin-left: 28px;
+  border: none;
+  padding: 8px 10px;
+  background-color: #f68685;
+  color: white;
+  margin-bottom: 27px;
 }
-.btn-icon{
-    font-size: 15px;
-    margin-left: 10px;
-    color: white;
-    background-color: #f59d9c;
-    padding: 15px;
+.btn-icon {
+  font-size: 15px;
+  margin-left: 10px;
+  color: white;
+  background-color: #f59d9c;
+  padding: 15px;
 }
-.appointment-btn:hover{
-    background-color: #7093E5;
-    transition: all 0.5s ease-in;
+.appointment-btn:hover {
+  background-color: #7093e5;
+  transition: all 0.5s ease-in;
 }
-.appointment-btn:hover .btn-icon{
-    background-color: #a9c0f5;
-    transition: all 0.5s ease-in;
+.appointment-btn:hover .btn-icon {
+  background-color: #a9c0f5;
+  transition: all 0.5s ease-in;
 }
