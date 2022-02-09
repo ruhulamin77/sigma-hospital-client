@@ -1,78 +1,80 @@
 import React from 'react';
 import './Services.css';
 import serviceImg from '../../../images/ki-020.png';
-import { Card, CardGroup, Col, Nav, Row } from 'react-bootstrap';
+import { Card, CardGroup, Col, Container, Nav, Row } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
 const Services = () => {
     return (
-        <div className='service-section'>
-            <Row className="g-0">
-                <Col className='col-12 col-md-7'>
-                    <Card className='service-left border-0 rounded-0'>
+        <div style={{ backgroundColor: "#FDF4F4" }}>
+            <Container className='service-section'>
+                <Row className="g-0">
+                    <Col className='col-12 col-md-7'>
+                        <Card className='service-left border-0 rounded-0'>
+                            <Card.Body>
+                                <h6 style={{ letterSpacing: "3px" }}>SERVICES</h6>
+                                <h1>We Provide <br /> <span className='fw-light'> Medical Services</span></h1>
+                                <p className='text-secondary lh-2 mt-3'>It is a long established fact that a reader will be distracted by the <br /> readable content of a page when looking at its layout.</p>
+                                <NavLink to="">
+                                    <button className="service-btn mt-5 mb-3">
+                                        <span>Services</span><i className="fas fa-plus btn-icon"></i>
+                                    </button>
+                                </NavLink>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                    <Col className='col-12 col-md-5'>
+                        <Card className='service-right border-0 rounded-0'>
+                            <img variant="top" alt='servicePhoto' src={serviceImg} />
+                        </Card>
+                    </Col>
+                </Row>
+
+                <CardGroup className='service-card'>
+                    <Card className='service-first-card rounded-0'>
+                        <div className='service-card-icon'>
+                            <i className="fas fa-users fa-3x"></i>
+                        </div>
                         <Card.Body>
-                            <h6 style={{ letterSpacing: "3px" }}>SERVICES</h6>
-                            <h1>We Provide <br /> <span className='fw-light'> Medical Services</span></h1>
-                            <p className='text-secondary lh-2 mt-3'>It is a long established fact that a reader will be distracted by the <br /> readable content of a page when looking at its layout.</p>
-                            <NavLink to="">
-                                <button className="service-btn mt-5 mb-3">
-                                    Services <i className="fas fa-plus btn-icon"></i>
-                                </button>
-                            </NavLink>
+                            <h2>Family Consultation</h2>
+                            <Card.Text className='mt-4 mb-4 text-secondary'>
+                                It is a long established fact that a will be distracted by the readable content of a page looking at its layout.
+                            </Card.Text>
+                            <Nav.Link className='read-more-link'>
+                                READ MORE <i className="fas fa-plus"></i>
+                            </Nav.Link>
                         </Card.Body>
                     </Card>
-                </Col>
-                <Col className='col-12 col-md-5'>
-                    <Card className='service-right border-0 rounded-0'>
-                        <img variant="top" alt='servicePhoto' src={serviceImg} />
+                    <Card className='service-middle-card rounded-0'>
+                        <div className='service-card-icon'>
+                            <i className="fas fa-notes-medical fa-3x"></i>
+                        </div>
+                        <Card.Body>
+                            <h2>Home Health Services</h2>
+                            <Card.Text className='mt-4 mb-4 text-secondary'>
+                                It is a long established fact that a will be distracted by the readable content of a page looking at its layout.
+                            </Card.Text>
+                            <Nav.Link className='read-more-link'>
+                                READ MORE <i className="fas fa-plus"></i>
+                            </Nav.Link>
+                        </Card.Body>
                     </Card>
-                </Col>
-            </Row>
-
-            <CardGroup className='service-card'>
-                <Card className='service-first-card rounded-0'>
-                    <div className='service-card-icon'>
-                        <i className="fas fa-users fa-3x"></i>
-                    </div>
-                    <Card.Body>
-                        <h2>Family Consultation</h2>
-                        <Card.Text className='mt-4 mb-4 text-secondary'>
-                            It is a long established fact that a will be distracted by the readable content of a page looking at its layout.
-                        </Card.Text>
-                        <Nav.Link className='read-more-link'>
-                            READ MORE <i className="fas fa-plus"></i>
-                        </Nav.Link>
-                    </Card.Body>
-                </Card>
-                <Card className='service-middle-card rounded-0'>
-                    <div className='service-card-icon'>
-                        <i className="fas fa-notes-medical fa-3x"></i>
-                    </div>
-                    <Card.Body>
-                        <h2>Home Health Services</h2>
-                        <Card.Text className='mt-4 mb-4 text-secondary'>
-                            It is a long established fact that a will be distracted by the readable content of a page looking at its layout.
-                        </Card.Text>
-                        <Nav.Link className='read-more-link'>
-                            READ MORE <i className="fas fa-plus"></i>
-                        </Nav.Link>
-                    </Card.Body>
-                </Card>
-                <Card className='border-0 rounded-0'>
-                    <div className='service-card-icon'>
-                        <i className="fas fa-thumbs-up fa-3x"></i>
-                    </div>
-                    <Card.Body>
-                        <h2>Minor Procedures</h2>
-                        <Card.Text className='mt-4 mb-4 text-secondary'>
-                            It is a long established fact that a will be distracted by the readable content of a page looking at its layout.
-                        </Card.Text>
-                        <Nav.Link className='read-more-link'>
-                            READ MORE <i className="fas fa-plus"></i>
-                        </Nav.Link>
-                    </Card.Body>
-                </Card>
-            </CardGroup>
+                    <Card className='border-0 rounded-0'>
+                        <div className='service-card-icon'>
+                            <i className="fas fa-thumbs-up fa-3x"></i>
+                        </div>
+                        <Card.Body>
+                            <h2>Minor Procedures</h2>
+                            <Card.Text className='mt-4 mb-4 text-secondary'>
+                                It is a long established fact that a will be distracted by the readable content of a page looking at its layout.
+                            </Card.Text>
+                            <Nav.Link className='read-more-link'>
+                                READ MORE <i className="fas fa-plus"></i>
+                            </Nav.Link>
+                        </Card.Body>
+                    </Card>
+                </CardGroup>
+            </Container>
         </div>
     );
 };
