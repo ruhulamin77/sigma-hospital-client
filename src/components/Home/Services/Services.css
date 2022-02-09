@@ -2,7 +2,6 @@
     background-color: #FDF4F4;
 }
 .service-left{
-    border: 3px solid rgb(24, 22, 22);
     padding: 10rem;
     background: transparent;
 }
@@ -10,7 +9,6 @@
     color: #7093E5;
 }
 .service-right{
-    border: 3px solid rgb(15, 13, 13);
     background-color: #F68685;
 }
 .service-right img{
