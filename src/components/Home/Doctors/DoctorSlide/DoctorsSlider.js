@@ -23,7 +23,7 @@ export default class DoctorsSlide extends Component {
         };
         return (
             <div>
-                <Container className='doctors-slider'>
+                <Container className='mt-2'>
                     <Slider {...settings}>
                         <div>
                             <div className="card doctor-card">
