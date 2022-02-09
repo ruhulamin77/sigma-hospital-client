@@ -1,5 +1,5 @@
 .service-section{
-    margin-bottom: 10rem;
+    height: 80rem;
     background-color: #FDF4F4;
 }
 .service-left{
@@ -86,21 +86,49 @@
 
 @media only screen and (max-width: 480px) {
     .service-section{
-        margin-bottom: 0rem;
+        height: 130rem;
+        background-color: #FDF4F4;
     }
     .service-left{
         padding: 0rem;
     }
     .service-btn{
         margin-top: 10px;
-        /* border: none;
-        padding: 8px 10px;
-        background-color: #F68685;
-        color: white;
-        margin-bottom: 27px; */
     }
     .service-card{
-        margin-top: -0rem;
+        margin-top: 0rem;
         padding: 0 0rem;
+    }
+}
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+    .service-section{
+        height: 60rem;
+        background-color: #FDF4F4;
+    }
+    .service-left{
+        padding: 5rem;
+    }
+    .service-btn{
+        margin-top: 10px;
+    }
+    .service-card{
+        margin-top: -10rem;
+        padding: 0 5rem;
+    }
+}
+@media only screen and (min-width: 993px) and (max-width: 1280px) {
+    .service-section{
+        height: 60rem;
+        background-color: #FDF4F4;
+    }
+    .service-left{
+        padding: 5rem;
+    }
+    .service-btn{
+        margin-top: 10px;
+    }
+    .service-card{
+        margin-top: -20rem;
+        padding: 0 5rem;
     }
 }
