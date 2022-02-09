@@ -1,24 +1,18 @@
 .service-section{
+    width: 100%;
+    height: 973px;
     background-color: #FDF4F4;
 }
+
 .service-left{
-    padding: 10rem;
     background: transparent;
+    margin: 8.6rem 0 0 9.3rem;
 }
+
 .service-left h6{
     color: #7093E5;
 }
-.service-right{
-    background-color: #F68685;
-}
-.service-right img{
-    transition: transform 0.5s ease-in-out;
-}
-.service-right img:hover{
-    transform: rotate(5deg);
-    transform-origin: center;
-    transition: transform 0.5s ease-in-out;
-}
+
 .service-btn{
     margin-top: 50px;
     border: none;
@@ -27,6 +21,7 @@
     color: white;
     margin-bottom: 27px;
 }
+
 .service-btn:hover{
     background-color: #7093E5;
     transition: all 0.5s ease-in;
@@ -35,11 +30,31 @@
     background-color: #a9c0f5;
     transition: all 0.5s ease-in;
 }
-.service-section > .service-card{
-    position: relative;
-    top: -30rem;
-    padding: 0 10rem;
+
+
+.service-right{
+    background-color: #F68685;
+    height: 853px;
+    width: 90%;
+    margin: auto;
 }
+
+.service-right img{
+    width: 80%;
+    margin: auto;
+    transition: transform 0.5s ease-in-out;
+}
+
+.service-right img:hover{
+    transform: rotate(5deg);
+    transform-origin: center;
+    transition: transform 0.5s ease-in-out;
+}
+
+.service-card{
+    margin: -20rem 9.3rem 0 9.3rem;
+}
+
 .read-more-link{
     color: #7093E5;
     font-weight: 500;
@@ -48,6 +63,7 @@
     color: #F68685;
     font-weight: 500;
 }
+
 .service-card-icon{
     background-color: #7093E5;
     padding: 1rem;
@@ -58,15 +74,7 @@
 .service-card-icon i{
     color: #FDF4F4;
 }
-.service-first-card{
-    border-left: none;
-    border-top: none;
-    border-bottom: none;
-}
-.service-middle-card{
-    border-top: none;
-    border-bottom: none;
-}
+
 .service-card-icon:hover {
     background: #7093E5;
     animation: zoom-in-zoom-out 1s ease infinite;
@@ -84,51 +92,43 @@
     }
   }
 
+  .service-first-card{
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+}
+.service-middle-card{
+    border-top: none;
+    border-bottom: none;
+}
+
 @media only screen and (max-width: 600px) {
     .service-section{
-        margin-bottom: 0rem;
+        width: 100%;
+        height: 100%;
     }
     .service-left{
-        padding: 0rem;
+        margin: 0 0px 0 0px;
     }
-    .service-btn{
-        margin-top: 10px;
+    .service-card{
+        margin: -54rem 0rem 0 0rem;
     }
-    .service-section > .service-card{
-        position: relative;
-        top: 0;
-        padding: 0 0;
+    .service-right{
+        width: 100%;
     }
 }
-@media only screen and (min-width: 601px) and (max-width: 992px) {
+@media only screen and (max-width: 1280px) {
     .service-section{
-        margin-bottom: 0rem;
+        width: 100%;
+        height: 100%;
     }
     .service-left{
-        padding: 5rem;
+        margin: 0 20px 0 20px;
     }
-    .service-btn{
-        margin-top: 10px;
+    .service-card{
+        margin: -30rem 20px 0 20px;
     }
-    .service-section > .service-card{
-        position: relative;
-        top: -10rem;
-        padding: 0 5rem;
-    }
-}
-@media only screen and (min-width: 993px) and (max-width: 1280px) {
-    .service-section{
-        margin-bottom: 0rem;
-    }
-    .service-left{
-        padding: 5rem;
-    }
-    .service-btn{
-        margin-top: 10px;
-    }
-    .service-section > .service-card{
-        position: relative;
-        top: -20rem;
-        padding: 0 5rem;
+    .service-right{
+        width: 100%;
     }
 }

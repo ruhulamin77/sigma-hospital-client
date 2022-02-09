@@ -13,9 +13,13 @@
     cursor: pointer;
     color: #FFFFFF;
 }
+.icon-setup i:hover{
+    background-color: #F68685;
+    transition: .5s;
+}
 .about-doctor{
     position: relative;
-    bottom: -7rem;
+    bottom: -8rem;
     background-color: #FFFFFF;
     border-left: 5px solid #7093E5;
     display: none;
@@ -29,43 +33,29 @@
     .doctor-card{
         margin: 0;
         padding: 0;
-    }
-    .icon-setup{
-        width: 10%;
-    }
-    .icon-setup i{
-        padding: 0px;
-        margin: 0px;
-        background-color: transparent;
+        border: none;
     }
 }
-@media only screen and (min-width: 601px) and (max-width: 992px) {
+@media only screen and (max-width: 992px) {
     .doctor-card{
-        margin: 0;
+        margin: 0 0px;
         padding: 0;
-    }
-    .icon-setup{
-        width: 10%;
-        margin-left: auto;
-    }
-    .icon-setup i{
-        padding: 0px;
-        margin: 0px;
-        background-color: transparent;
+        border: none;
     }
 }
-@media only screen and (min-width: 993px) and (max-width: 1280px) {
+@media only screen and (max-width: 1025px) {
     .doctor-card{
         margin: 0;
-        padding: 0;
-    }
-    .icon-setup{
-        width: 15%;
-        margin-left: auto;
-    }
-    .icon-setup i{
         padding: 5px;
-        margin: 5px;
-        background-color: #7093E5;
+    }
+}
+@media only screen and (max-width: 1281px) {
+    .doctor-card{
+        margin: 10px;
+        padding: 5px;
+    }
+    .about-doctor{
+        position: relative;
+        bottom: -3rem;
     }
 }
