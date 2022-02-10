@@ -3,6 +3,9 @@
   text-align: center;
   display: none;
 }
+.banner {
+  display: block !important;
+}
 .banner_top_hidden h4 {
   font-size: 18px;
   color: #f68685;

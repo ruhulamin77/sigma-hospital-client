@@ -70,7 +70,6 @@ const AboutSigma = () => {
                             <i className="far fa-check-square checkbox-icon"></i>
                             Conducts health checkups
 
-
                         </li>
                         <li>
                             <i className="far fa-check-square checkbox-icon"></i>
