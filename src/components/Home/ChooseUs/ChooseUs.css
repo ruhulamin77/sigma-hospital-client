@@ -1,161 +1,187 @@
-.chooseUs-Fild{
-    background-color: #ECF2FF;
-    background-image: url(http://wordpress.iqonic.design/kivicare/wp-content/uploads/2020/10/ki-04.jpg);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
+.chooseUs-Fild {
+  background-color: #ecf2ff;
+  background-image: url(http://wordpress.iqonic.design/kivicare/wp-content/uploads/2020/10/ki-04.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.why-choose{
-   
-    /* padding-left: 177px; */
+.outer-why-content {
+  /* width: 970px; */
+}
+.why-choose {
+  /* padding-left: 177px; */
 }
 
-.why-content{
-    width: 350px;
-    margin-left: 191px;
-    padding-top: 21px;
-
+.why-content {
+  width: 400px;
+  margin-left: 40px;
+  padding-top: 21px;
 }
-.why-choose-pragraph{
-    text-transform: uppercase;
-    color: #85A3E8;
-    font-size: 11px;
-    letter-spacing: 2px;
-
+.why-content p {
+  font-size: 15px;
+  margin-top: 15px;
 }
-.Turst-people{
-    margin: 0px;
-    font-size: 35px;
-    letter-spacing: 3px;
-    font-weight: 400;
-
+.why-choose-pragraph {
+  text-transform: uppercase;
+  color: #85a3e8;
+  font-size: 18px;
+  letter-spacing: 2px;
 }
-.Treatment{
-    font-size: 33px;
-    font-weight: 100;
-
+.Turst-people {
+  margin: 0px;
+  font-size: 35px;
+  letter-spacing: 3px;
+  font-weight: 400;
 }
-.sigma-text{
-    margin: 0px;
-    font-size: 13px;
-    color: #00000094;
-    font-family: monospace;
-    margin-bottom: 36px;
-
+.Treatment {
+  font-size: 33px;
+  font-weight: 100;
+}
+.sigma-text {
+  margin: 0px;
+  font-size: 13px;
+  color: #00000094;
+  font-family: monospace;
+  margin-bottom: 36px;
 }
 
-.peaper{
-    margin-left: 208px;
+.peaper {
+  /* margin-left: 80px; */
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  padding-bottom: 76px;
+  justify-content: space-around;
+}
+.paper-item {
+  /* flex-basis: 350px; */
+  background-color: white;
+  text-align: center;
+  margin-top: 25px;
+  margin-left: 20px;
+  transition: 0.5s;
+}
+.paper-item:hover {
+  margin-top: -10px;
+}
+.paper-item p {
+  font-size: 15px;
+  margin: 10px 0;
+}
+
+/* .peaper-one {
+  width: 232px;
+  flex-basis: 300px;
+  background-color: white;
+  text-align: center;
+  margin-top: 25px;
+  margin-left: 20px;
+}
+.peaper-two {
+  width: 232px;
+  background-color: white;
+  text-align: center;
+  margin-left: 20px;
+  margin-top: 25px;
+}
+.peaper-three {
+  width: 232px;
+  background-color: white;
+  text-align: center;
+  margin-left: 20px;
+  margin-top: 25px;
+} */
+.image-icon {
+  width: 112px;
+  position: relative;
+  margin-top: -23px;
+}
+.read-btn {
+  color: #7093e5;
+  border: navajowhite;
+  background-color: white;
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+}
+.read-btn:hover {
+  color: #f68685;
+}
+
+.content-pragraph {
+  font-size: 12px;
+  font-family: monospace;
+  color: #00000094;
+}
+
+@media screen and (max-width: 992px) {
+  .peaper {
+    margin-left: 2px;
     display: flex;
     flex-wrap: wrap;
     margin-top: 10px;
     padding-bottom: 76px;
+  }
+  .outer-why-content {
+    /* max-width: 900px; */
+    margin: 0 auto;
+  }
+  .why-content {
+    width: 350px;
+    /* margin-left: 90px; */
+    padding-top: 21px;
+  }
+  .peaper-one {
+    width: 80%;
+  }
+  .peaper-two {
+    width: 80%;
+  }
+  .peaper-three {
+    width: 80%;
+  }
 }
-
-.peaper-one{
-    width: 232px;
-    background-color: white;
-    text-align: center;
-    margin-top: 25px;
-    margin-left: 20px;
-   
-}
-.peaper-two{
-    width: 232px;
-    background-color: white;
-    text-align: center;
-    margin-left: 20px;
-    margin-top: 25px;
-}
-.peaper-three{
-    width: 232px;
-    background-color: white;
-    text-align: center;
-    margin-left: 20px;
-    margin-top: 25px;
-}
-.image-icon{
-    width: 112px;
-    position: relative;
-    margin-top: -23px;
-}
-.read-btn{
-    color: #7093E5;
-    border: navajowhite;
-    background-color: white;
-    font-size: 11px;
-    letter-spacing: 2px;
-    margin-bottom: 25px;
-   
-
-}
-.read-btn:hover{
-    color: #F68685;
-}
-
-.content-pragraph{
-    font-size: 12px;
-    font-family: monospace;
-    color: #00000094;
-}
-
-
 @media screen and (max-width: 768px) {
-    .peaper{
-        margin-left: 2px;
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 10px;
-        padding-bottom: 76px;
-    }
-    .why-content {
-        width: 350px;
-        margin-left: 10px;
-        padding-top: 21px;
-    }
-    .peaper-one{
-        width: 120px;
-
-    }
-    .peaper-two{
-        width: 80%;
-
-    }
-    .peaper-three{
-        width: 80%;
-
-    }
-    
-   
-
-
+  .peaper {
+    margin-left: 2px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    padding-bottom: 76px;
+  }
+  .why-content {
+    max-width: 350px;
+    margin-left: 10px;
+    padding-top: 21px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .peaper-one {
+    width: 80%;
+  }
+  .peaper-two {
+    width: 80%;
+  }
+  .peaper-three {
+    width: 80%;
+  }
 }
 @media screen and (max-width: 600px) {
-    .peaper{
-        margin-left: 1px;
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 10px;
-        padding-bottom: 76px;
-    }
-    .why-content {
-        width: 350px;
-        margin-left: 10px;
-        padding-top: 21px;
-    }
-    .peaper-one{
-        width: 87%;
-
-    }
-    .peaper-two{
-        width: 87%;
-    }
-    .peaper-three{
-        width: 87%;
-
-    }
-
-
+  .peaper {
+    margin-left: 1px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    padding-bottom: 76px;
+  }
+  .peaper-one {
+    width: 87%;
+  }
+  .peaper-two {
+    width: 87%;
+  }
+  .peaper-three {
+    width: 87%;
+  }
 }
