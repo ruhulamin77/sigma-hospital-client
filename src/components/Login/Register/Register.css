@@ -1,0 +1,24 @@
+.regi {
+  text-align: center;
+}
+.regi form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.regi form input {
+  width: 50%;
+  margin-bottom: 10px;
+}
+.log {
+  display: flex;
+}
+.mr1 {
+  margin-right: 20px;
+}
+.mr2 {
+  margin-right: 20px;
+}
