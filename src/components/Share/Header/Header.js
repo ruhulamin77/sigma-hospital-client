@@ -10,7 +10,7 @@ const Header = () => {
     return (
         <header className='header'>
             <Navbar expand="lg">
-                <Container>
+                <Container fuild>
                     <Link className="logo" to="/"><img className='img-fluid' src="https://wordpress.iqonic.design/kivicare/wp-content/themes/kivicare/assets/images/logo.png" alt="sigma" /></Link>
                     <Navbar.Toggle cl aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">

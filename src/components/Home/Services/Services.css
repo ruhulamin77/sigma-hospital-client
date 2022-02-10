@@ -6,7 +6,7 @@
 
 .service-left{
     background: transparent;
-    margin: 8.6rem 0 0 9.3rem;
+    margin: 8.6rem 0 0 0;
 }
 
 .service-left h6{
@@ -16,10 +16,12 @@
 .service-btn{
     margin-top: 50px;
     border: none;
-    padding: 8px 10px;
     background-color: #F68685;
     color: white;
     margin-bottom: 27px;
+}
+.service-btn span{
+    padding: 0 0 0 10px;
 }
 
 .service-btn:hover{
@@ -31,16 +33,15 @@
     transition: all 0.5s ease-in;
 }
 
-
 .service-right{
     background-color: #F68685;
     height: 853px;
-    width: 90%;
+    width: 100%;
     margin: auto;
 }
 
 .service-right img{
-    width: 80%;
+    height: 105%;
     margin: auto;
     transition: transform 0.5s ease-in-out;
 }
@@ -52,7 +53,7 @@
 }
 
 .service-card{
-    margin: -20rem 9.3rem 0 9.3rem;
+    margin: -25rem 9.3rem 0 1rem;
 }
 
 .read-more-link{
@@ -116,8 +117,29 @@
     .service-right{
         width: 100%;
     }
+    .service-right img{
+        width: 100%;
+    }
 }
-@media only screen and (max-width: 1280px) {
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+    .service-section{
+        width: 100%;
+        height: 900px;
+    }
+    .service-left{
+        margin: 3rem 0px 0 0px;
+    }
+    .service-right{
+        width: 100%;
+    }
+    .service-right img{
+        width: 100%;
+    }
+    .service-card{
+        margin: -27rem 0rem 0 1rem;
+    }
+}
+@media only screen and (min-width: 993px) and (max-width: 1280px) {
     .service-section{
         width: 100%;
         height: 100%;
@@ -129,6 +151,9 @@
         margin: -30rem 20px 0 20px;
     }
     .service-right{
+        width: 100%;
+    }
+    .service-right img{
         width: 100%;
     }
 }

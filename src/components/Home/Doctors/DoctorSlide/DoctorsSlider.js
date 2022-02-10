@@ -55,7 +55,7 @@ export default class DoctorsSlide extends Component {
                         <div>
                             <div className="card doctor-card">
                                 <img src={carosel1} className="card-img" alt="..." />
-                                <div className="card-img-overlay">
+                                <div className="row card-img-overlay">
                                     <div className='icon-setup'>
                                         <a href="/" target="_blank" rel="noreferrer"><i className="fab fa-facebook-square"></i></a>
                                         <br />
@@ -63,7 +63,7 @@ export default class DoctorsSlide extends Component {
                                         <br />
                                         <a href="/" target="_blank" rel="noreferrer"><i className="fab fa-google"></i></a>
                                     </div>
-                                    <div className='about-doctor'>
+                                    <div className='mt-auto about-doctor'>
                                         <h2>
                                             <NavLink to="" className="text-decoration-none">Name</NavLink>
                                         </h2>
@@ -75,7 +75,7 @@ export default class DoctorsSlide extends Component {
                         <div>
                             <div className="card doctor-card">
                                 <img src={carosel2} className="card-img" alt="..." />
-                                <div className="card-img-overlay">
+                                <div className="row card-img-overlay">
                                     <div className='icon-setup'>
                                         <a href="/" target="_blank" rel="noreferrer"><i className="fab fa-facebook-square"></i></a>
                                         <br />
@@ -83,7 +83,7 @@ export default class DoctorsSlide extends Component {
                                         <br />
                                         <a href="/" target="_blank" rel="noreferrer"><i className="fab fa-google"></i></a>
                                     </div>
-                                    <div className='about-doctor'>
+                                    <div className='mt-auto about-doctor'>
                                         <h2>
                                             <NavLink to="" className="text-decoration-none">Name</NavLink>
                                         </h2>
@@ -95,7 +95,7 @@ export default class DoctorsSlide extends Component {
                         <div>
                             <div className="card doctor-card">
                                 <img src={carosel3} className="card-img" alt="..." />
-                                <div className="card-img-overlay">
+                                <div className="row card-img-overlay">
                                     <div className='icon-setup'>
                                         <a href="/" target="_blank" rel="noreferrer"><i className="fab fa-facebook-square"></i></a>
                                         <br />
@@ -103,7 +103,7 @@ export default class DoctorsSlide extends Component {
                                         <br />
                                         <a href="/" target="_blank" rel="noreferrer"><i className="fab fa-google"></i></a>
                                     </div>
-                                    <div className='about-doctor'>
+                                    <div className=' mt-auto about-doctor'>
                                         <h2>
                                             <NavLink to="" className="text-decoration-none">Name</NavLink>
                                         </h2>
@@ -115,7 +115,7 @@ export default class DoctorsSlide extends Component {
                         <div>
                             <div className="card doctor-card">
                                 <img src={carosel4} className="card-img" alt="..." />
-                                <div className="card-img-overlay">
+                                <div className="row card-img-overlay">
                                     <div className='icon-setup'>
                                         <a href="/" target="_blank" rel="noreferrer"><i className="fab fa-facebook-square"></i></a>
                                         <br />
@@ -123,7 +123,7 @@ export default class DoctorsSlide extends Component {
                                         <br />
                                         <a href="/" target="_blank" rel="noreferrer"><i className="fab fa-google"></i></a>
                                     </div>
-                                    <div className='about-doctor'>
+                                    <div className='mt-auto about-doctor'>
                                         <h2>
                                             <NavLink to="" className="text-decoration-none">Name</NavLink>
                                         </h2>
@@ -135,7 +135,7 @@ export default class DoctorsSlide extends Component {
                         <div>
                             <div className="card doctor-card">
                                 <img src={carosel5} className="card-img" alt="..." />
-                                <div className="card-img-overlay">
+                                <div className="row card-img-overlay">
                                     <div className='icon-setup'>
                                         <a href="/" target="_blank" rel="noreferrer"><i className="fab fa-facebook-square"></i></a>
                                         <br />
@@ -143,7 +143,7 @@ export default class DoctorsSlide extends Component {
                                         <br />
                                         <a href="/" target="_blank" rel="noreferrer"><i className="fab fa-google"></i></a>
                                     </div>
-                                    <div className='about-doctor'>
+                                    <div className='mt-auto about-doctor'>
                                         <h2>
                                             <NavLink to="" className="text-decoration-none">Name</NavLink>
                                         </h2>
