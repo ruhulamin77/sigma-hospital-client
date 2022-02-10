@@ -40,7 +40,7 @@ const Banner = () => {
               <h2>Make Your</h2>
               <p>Life Helthy</p>
 
-              <a href="#" className="appointment_btn">
+              <a href="#"  className="appointment_btn">
                 <span>Get Appointment</span> <i className="fas fa-plus"></i>
               </a>
             </div>
