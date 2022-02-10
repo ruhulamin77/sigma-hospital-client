@@ -5,24 +5,20 @@
 .about-heding {
   text-transform: uppercase;
   color: #4676e3;
-  font-size: 12px;
-  letter-spacing: 2px;
+  font-size: 17px;
+  letter-spacing: 3px;
   font-weight: 500;
+  line-height: 50px;
 }
 
 .welcome-msg {
-  font-weight: 300;
-  letter-spacing: 1px;
-}
-
-.bold-welcome {
-  font-size: 37px;
   font-weight: 500;
-  font-family: serif;
+  letter-spacing: 1px;
+  font-size: 55px;
 }
 .content {
   color: #00000094;
-  font-size: 14px;
+  font-size: 18px;
   letter-spacing: 1px;
   margin: 24px 0px;
 }
@@ -30,6 +26,7 @@
 .opning-time {
   background-color: #7093e5;
   border-radius: 4px;
+  padding: 30px 20px;
 }
 .opning-time,
 td {
@@ -48,39 +45,33 @@ td {
 }
 .table-data {
   padding: 19px 4px;
-  padding-bottom: 46px;
 }
 
 .checkbox-icon {
   color: #f68685;
   margin-right: 8px;
-  padding-top: 15px;
-  font-size: 12px;
+  padding-top: 10px;
 }
 
 ul li {
   list-style: none;
-  font-size: 13px;
-  font-family: inherit;
+  font-size: 18px;
   margin-left: 3px;
 }
 
 .name {
   margin-left: 33px;
   font-size: 20px;
-  font-family: fangsong;
   letter-spacing: 3px;
   margin-top: 45px;
 }
 .co-funder {
-  margin-left: 31px;
-  font-size: 11px;
+  font-size: 17px;
   letter-spacing: 2px;
   color: #4e87f2;
   font-weight: 700;
 }
 .signature {
-  width: 138px;
   margin-left: 23px;
 }
 
@@ -94,7 +85,7 @@ ul li {
   margin-bottom: 27px;
 }
 .btn-icon {
-  font-size: 15px;
+  font-size: 18px;
   margin-left: 10px;
   color: white;
   background-color: #f59d9c;
@@ -108,20 +99,6 @@ ul li {
   background-color: #a9c0f5;
   transition: all 0.5s ease-in;
 }
-
-
-/* .doctor-image {
-    background-image: url(http://wordpress.iqonic.design/kivicare/wp-content/uploads/2020/11/ki-01-3.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-  
-} */
-/* .image{
-    /* width: 100%; */
-
-/* 
-.video-btn{
-    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
-} */
+.img-about img {
+  width: 100%;
+}

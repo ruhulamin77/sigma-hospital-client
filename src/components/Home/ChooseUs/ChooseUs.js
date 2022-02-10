@@ -3,7 +3,7 @@ import './ChooseUs.css'
 
 const ChooseUs = () => {
     return (
-        <div className='section  chooseUs-Fild '>
+        <div className='section   chooseUs-Fild '>
             <div className='why-choose'>
                 <div className='why-content'>
                     <p className='why-choose-pragraph'>why choose us</p>
