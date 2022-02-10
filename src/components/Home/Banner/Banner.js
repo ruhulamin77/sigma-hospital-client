@@ -3,6 +3,7 @@ import "./Banner.css";
 import bannerImg from "../../../images/doc-img.png";
 import signature from "../../../images/signature.png";
 import { Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
