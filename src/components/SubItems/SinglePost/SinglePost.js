@@ -3,7 +3,7 @@ import { Card } from 'react-bootstrap';
 import './SinglePost.css'
 
 const SinglePost = (props) => {
-    const { displayName, role, text, comments, img} = props?.postItem;
+    const { displayName, text, comments, img } = props?.postItem;
     return (
         <>
             <Card className='mt-3 p-4'>
