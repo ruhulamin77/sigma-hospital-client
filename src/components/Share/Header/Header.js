@@ -11,11 +11,11 @@ const Header = () => {
         <header className='header'>
             <Navbar expand="lg">
                 <Container fuild>
-                    <Link className="logo" to="/"><img className='img-fluid' src="https://wordpress.iqonic.design/kivicare/wp-content/themes/kivicare/assets/images/logo.png" alt="sigma" /></Link>
+                    <NavLink className="logo" to="/"><img className='img-fluid' src="https://wordpress.iqonic.design/kivicare/wp-content/themes/kivicare/assets/images/logo.png" alt="sigma" /></NavLink>
                     <Navbar.Toggle cl aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="ms-auto custom-menu align-items-center">
-                            <NavLink className='custom-nav' to="/home">Home</NavLink>
+                        <Nav className="ms-auto custom-menu align-items-center header-nav">
+                            <Link className='custom-nav' to="/home">Home</Link>
 
                             <NavDropdown className="custom-dropdown " title="Doctor" id="basic-nav-dropdown">
                                 <NavLink className='dropdown-item dropdownitem' to="/">Action</NavLink>
@@ -24,19 +24,10 @@ const Header = () => {
                                 <NavLink className='dropdown-item dropdownitem' to="/">Action</NavLink>
                                 <NavLink className='dropdown-item dropdownitem' to="/">Action</NavLink>
                                 <NavLink className='dropdown-item dropdownitem' to="/">Action</NavLink>
-
                             </NavDropdown>
-                            <NavDropdown className="custom-dropdown " title="Doctor" id="basic-nav-dropdown">
-                                <NavLink className='dropdown-item dropdownitem' to="/">Action</NavLink>
-                                <NavLink className='dropdown-item dropdownitem' to="/">Action</NavLink>
-                                <NavLink className='dropdown-item dropdownitem' to="/">Action</NavLink>
-                                <NavLink className='dropdown-item dropdownitem' to="/">Action</NavLink>
-                                <NavLink className='dropdown-item dropdownitem' to="/">Action</NavLink>
-                                <NavLink className='dropdown-item dropdownitem' to="/">Action</NavLink>
-
-                            </NavDropdown>
-
-                            <NavLink className='custom-nav' to="/admin">Admin</NavLink>
+                            <Link className='custom-nav' to="/commonity">Community</Link>
+                            <Link className='custom-nav' to="/login">Log in</Link>
+                            <Link className='custom-nav' to="/register">Register</Link>
                             <button className='header-btn'>Get Appointment <i className="fas fa-plus header-icon"></i>
 
                             </button>

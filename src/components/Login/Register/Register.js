@@ -2,13 +2,16 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import { NavLink } from 'react-router-dom';
+import Header from '../../Share/Header/Header';
 import "./Register.css";
 
 const Register = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => console.log(data);
 return (
-    <div className='regi'>
+    <>
+        <Header />
+        <div className='regi'>
         <h4 className="m-3">New User? Register Here</h4>
         <form onSubmit={handleSubmit(onSubmit)}>
               <h5>Your Image</h5>  
@@ -29,6 +32,7 @@ return (
             </NavLink>
     </form>
     </div>
+    </>
     );
 };
 
