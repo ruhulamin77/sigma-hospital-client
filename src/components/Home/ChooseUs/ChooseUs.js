@@ -22,7 +22,7 @@ const ChooseUs = () => {
         <div className=" row">
           <div className="col-lg-2"></div>
           <div className="peaper col-lg-10 row">
-            <div className="paper-item col-lg-3 col-sm-12">
+            <div className="paper-item col-lg-3 col-md-5 col-sm-12">
               <img
                 src="https://wordpress.iqonic.design/kivicare/wp-content/uploads/2021/01/icon-3-1.png"
                 alt=""
@@ -38,7 +38,7 @@ const ChooseUs = () => {
                 READ MORE <i className="fas fa-plus btn-red"></i>
               </button>
             </div>
-            <div className="paper-item col-lg-3 col-sm-12">
+            <div className="paper-item col-lg-3 col-md-5 col-sm-12 ">
               <img
                 src="https://wordpress.iqonic.design/kivicare/wp-content/uploads/2020/10/icon-2-1.png"
                 alt=""
@@ -54,7 +54,7 @@ const ChooseUs = () => {
                 READ MORE <i className="fas fa-plus btn-red"></i>
               </button>
             </div>
-            <div className="paper-item col-lg-3 col-sm-12">
+            <div className="paper-item col-lg-3 col-md-5 col-sm-12">
               <img
                 src="https://wordpress.iqonic.design/kivicare/wp-content/uploads/2020/10/icon-1-1.png"
                 alt=""
