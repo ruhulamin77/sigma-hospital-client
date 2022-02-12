@@ -131,7 +131,7 @@ const AboutSigma = () => {
 
 
                     </div>
-                    <div className='col-lg-4 col-md-6 col-sm-12'>
+                    <div className='col-lg-4 col-md-12 d-lg-block d-none col-sm-12'>
                         <div className='img-about w-100' style={{backgroundImage:`url(${doctor})`}}>
                             {/* <img src="{doctor}" alt="" className='img-fluid' /> */}
                             </div>

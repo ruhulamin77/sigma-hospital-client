@@ -130,3 +130,12 @@ ul li {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+@media only screen and (max-width: 993px) {
+  .sigma-about-fild h1,
+  .chooseUs-Fild h2,
+  .our-service h3,
+  .doctors h3 {
+    font-size: 60px;
+  }
+}
