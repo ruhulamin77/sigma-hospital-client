@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Services.css';
 import serviceImg from '../../../images/ki-020.png';
 import { Card, CardGroup, Col, Container, Nav, Row } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
 const Services = () => {
+    const [pageServices, setPageServices] = useState(0)
+    const handleHight = () => setPageServices(window.pageYOffset);
+    useEffect(() => {
+        window.addEventListener("scroll", handleHight)
+    }, [])
+    console.log((pageServices -pageServices)+ 1);
     return (
-        <div style={{ backgroundColor: "#FDF4F4" }}>
+        <div className='our-service' style={{ backgroundColor: "#FDF4F4" }}>
+            <h3 style={{transform: `translateX(${(pageServices -2000 ) * .5}px)`}}>OUR SERVICE</h3>
             <Container className='service-section'>
                 <Row className="g-0">
                     <Col className='col-12 col-md-7'>

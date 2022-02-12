@@ -1,15 +1,24 @@
-import React from 'react';
-import './AboutSigma.css'
-import watch from '../../../image/watch.png'
-import signature from '../../../image/signature.png'
-import doctor from '../../../image/Doctor.jpg'
-import { Image, Table } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Table } from 'react-bootstrap';
+import doctor from '../../../image/Doctor.jpg';
+import signature from '../../../image/signature.png';
+import watch from '../../../image/watch.png';
+
+import './AboutSigma.css';
 
 const AboutSigma = () => {
+    const [pageHight, setPageHight] = useState(0)
+    const handleHight = () => setPageHight(window.pageYOffset);
+    useEffect(() => {
+        window.addEventListener("scroll", handleHight)
+    }, [])
+
     return (
         <section className='sigma-about-fild'>
-            <div className=' container pb-5 pt-5 '>
-                <div className='row align-items-center mx-2 pt-3   '>
+          <h1  style={{transform: `translateX(${(pageHight -500) * .5}px)`}}>ABOUTUS</h1>
+            <div className=' container padding-container '>
+                <div className='row align-items-center pt-3'>
+               
                     <div className='col-lg-4 col-md-6 col-sm-12'>
                         <p className='about-heding '>About Sigma Central Hospital</p>
                         <h3 className='welcome-msg'>
@@ -122,13 +131,10 @@ const AboutSigma = () => {
 
 
                     </div>
-                    <div className='col-lg-4 col-md-6 col-sm-12'>
-                        <div className='img-about'>
-                            <img src={doctor} alt="" className='img-fluid' /></div>
-
-
-
-
+                    <div className='col-lg-4 col-md-12 d-lg-block d-none col-sm-12'>
+                        <div className='img-about w-100' style={{backgroundImage:`url(${doctor})`}}>
+                            {/* <img src="{doctor}" alt="" className='img-fluid' /> */}
+                            </div>
                     </div>
 
                 </div>

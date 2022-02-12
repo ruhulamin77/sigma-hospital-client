@@ -11,6 +11,7 @@ import {
   FaPhone,
   FaEnvelope,
   FaMapMarkerAlt,
+  FaShoppingBasket,
 } from "react-icons/fa";
 import { IoAddOutline } from "react-icons/io";
 import { GiShoppingCart } from "react-icons/gi";
@@ -79,25 +80,38 @@ const Header = () => {
                 </NavLink>
               </NavDropdown>
 
-              <NavLink className="custom-nav" to="/admin">
-                Admin
-              </NavLink>
-              <button className="header-btn">
-                Get Appointment <i className="fas fa-plus header-icon"></i>
-              </button>
-              <button className="header-btn btn-hover">
-                Get Appointment <i className="fas fa-plus header-icon"></i>
-              </button>
-              <span>{FaPaperPlane}</span>
-              <span className="header-icon">
-                <GiShoppingCart />
-              </span>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-    </header>
-  );
+               
+                            <NavDropdown className="custom-dropdown " title="Doctor" id="basic-nav-dropdown">
+                                <NavLink className='dropdown-item dropdownitem' to="/">Action</NavLink>
+                                <NavLink className='dropdown-item dropdownitem' to="/">Action</NavLink>
+                                <NavLink className='dropdown-item dropdownitem' to="/">Action</NavLink>
+                                <NavLink className='dropdown-item dropdownitem' to="/">Action</NavLink>
+                                <NavLink className='dropdown-item dropdownitem' to="/">Action</NavLink>
+                                <NavLink className='dropdown-item dropdownitem' to="/">Action</NavLink>
+
+                            </NavDropdown>
+
+                            <NavLink className='custom-nav' to="/admin">Admin</NavLink>
+                            <button className='header-btn'>Get Appointment <i className="fas fa-plus header-icon"></i>
+
+                            </button>
+                            <button className='header-btn btn-hover'>Get Appointment <i className="fas fa-plus header-icon"></i>
+
+                            </button>
+                            <span className='icon position-relative'><FaShoppingBasket />
+                            <ul className='position-absolute icon-position'>
+                                <li><FaShoppingBasket /></li>
+                                <li><FaShoppingBasket /></li>
+                            </ul>
+                            </span>
+                            
+                            <span className='icon'><FaShoppingBasket /></span>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+        </header>
+    );
 };
 
 export default Header;
