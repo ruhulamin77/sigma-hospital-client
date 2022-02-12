@@ -2,15 +2,14 @@ import React from 'react';
 import { Container, Nav, Navbar, NavDropdown, NavLink } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import "./Header.css"
-import { FaPaperPlane, FaFacebookF, FaTwitter, FaInstagram, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import { IoAddOutline } from 'react-icons/io';
-import { GiShoppingCart } from 'react-icons/gi';
+import { FaShoppingBasket } from 'react-icons/fa';
 
 const Header = () => {
     return (
         <header className='header'>
             <Navbar expand="lg">
-                <Container fuild>
+                <Container fluid className='px-5' >
                     <Link className="logo" to="/"><img className='img-fluid' src="https://wordpress.iqonic.design/kivicare/wp-content/themes/kivicare/assets/images/logo.png" alt="sigma" /></Link>
                     <Navbar.Toggle cl aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
@@ -43,8 +42,14 @@ const Header = () => {
                             <button className='header-btn btn-hover'>Get Appointment <i className="fas fa-plus header-icon"></i>
 
                             </button>
-                            <span>{FaPaperPlane }</span>
-                            <span className='header-icon'><GiShoppingCart /></span>
+                            <span className='icon position-relative'><FaShoppingBasket />
+                            <ul className='position-absolute icon-position'>
+                                <li><FaShoppingBasket /></li>
+                                <li><FaShoppingBasket /></li>
+                            </ul>
+                            </span>
+                            
+                            <span className='icon'><FaShoppingBasket /></span>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
