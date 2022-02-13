@@ -10,13 +10,11 @@ import Header from "../../Share/Header/Header";
 const Home = () => {
   return (
     <div>
-      <Header />
       <Banner />
       <AboutSigma />
       <ChooseUs/>
       <Services />
       <Doctors />
-      <Footer />
     </div>
   );
 };
