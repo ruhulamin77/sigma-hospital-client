@@ -1,0 +1,11 @@
+.displayImage {
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+}
+.info-width {
+    width: 15%;
+}
+.w-90 {
+    width: 90%;
+}

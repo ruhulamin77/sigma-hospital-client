@@ -5,7 +5,10 @@ import Footer from "./components/Home/Footer/Footer";
 import Home from "./components/Home/Home/Home";
 import Login from "./components/Login/Login/Login";
 import Register from "./components/Login/Register/Register";
+import Community from "./components/Community/Community";
+
 import Header from "./components/Share/Header/Header";
+
 
 function App() {
   return (
@@ -14,6 +17,10 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+        </Routes>
+        <Routes>
+
+          <Route path="/commonity" element={<Community />} />
         </Routes>
         <Routes>
           <Route path="/home" element={<Home />} />
