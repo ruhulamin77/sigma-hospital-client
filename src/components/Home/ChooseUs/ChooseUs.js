@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
+import PageScroll from "../../../hooks/PageScroll";
 import "./ChooseUs.css";
 
 const ChooseUs = () => {
+  const [pageUs, setPageUs] = useState(0)
+    const handleHight = () => setPageUs(window.pageYOffset);
+    useEffect(() => {
+        window.addEventListener("scroll", handleHight)
+    }, [])
+  // const  {pageHight}= PageScroll()
   return (
     <div className="section chooseUs-Fild ">
-      <Container className="why-choose">
+      <h2 style={{transform: `translateX(${(pageUs -1000)* .5}px)`}}>WHY CHOOSE US</h2>
+      <Container className="why-choose padding-container">
         <div className="outer-why-content row">
           <div className="col-lg-2"></div>
           <div className="why-content col-lg-10">
