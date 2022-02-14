@@ -12,6 +12,10 @@ const SinglePost = (props) => {
                     <h5>{displayName}</h5>
                 </div>
                 <Card.Body>{text}</Card.Body>
+                <div className="input-group mb-3">
+                    <input type="text" className="form-control" placeholder="Write a Comment . . ." aria-label="Recipient's username" aria-describedby="button-addon2" />
+                    <button className="btn header-btn" type="button" id="button-addon2">Submit</button>
+                </div>        
                 <div className='d-flex justify-content-end'>
                     <div className='w-90'>
                         {comments.map(comment =><Card className='mt-3 p-4'><div className='d-flex justify-content-evenly align-items-center w-25'>

@@ -12,11 +12,7 @@ const Header = () => {
         <header className='header'>
             <Navbar expand="lg">
                 <Container fuild>
-<<<<<<< HEAD
-                    <NavLink className="logo" to="/"><img className='img-fluid' src="https://wordpress.iqonic.design/kivicare/wp-content/themes/kivicare/assets/images/logo.png" alt="sigma" /></NavLink>
-=======
                     <Link className="logo" to="/"><img className='img-fluid' src={logo} alt="sigma" />SigmaCare</Link>
->>>>>>> 7fc3dc047fd4fba492273f76b066352540d3c432
                     <Navbar.Toggle cl aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto custom-menu align-items-center header-nav">
