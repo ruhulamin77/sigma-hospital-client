@@ -1,0 +1,62 @@
+.single-doctor-header{
+    background-image: url('../../images/ki-14-1.jpg');
+    background-color: #ecf2ff;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.header-text{
+    padding: 8rem 0;
+}
+.header-text h1{
+    font-size: 48px;
+    font-weight: 400;
+}
+.single-doctor-body{
+    margin: 5rem 0;
+}
+.opning-time2 {
+    background-color: #FEF6F6;
+    border-radius: 4px;
+    padding: 30px 20px;
+    margin: 0 1rem;
+}
+  .opning-time2,
+  td {
+    color: black;
+}
+  .time2 {
+    color: black;
+    padding-left: 11px;
+    font-size: 30px;
+    font-family: auto;
+    letter-spacing: 1px;
+}
+  
+  .service-card-icon2{
+    background-color: #FEF6F6;
+    padding: 1rem;
+    width: 30%;
+    margin-right: auto;
+}
+    .service-card-icon2 i{
+    color: black;
+}
+    .service-card-icon2:hover {
+    animation: zoom-in-zoom-out 1s ease infinite;
+    }
+  
+  @keyframes zoom-in-zoom-out {
+    0% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(.7, .7);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+  .table-data2 {
+    padding: 19px 4px;
+  }

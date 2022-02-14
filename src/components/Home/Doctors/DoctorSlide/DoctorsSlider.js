@@ -3,11 +3,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { Container } from 'react-bootstrap';
-import carosel1 from '../../../../images/doctors/01.jpg';
-import carosel2 from '../../../../images/doctors/3.jpg';
-import carosel3 from '../../../../images/doctors/6.jpg';
-import carosel4 from '../../../../images/doctors/07.jpg';
-import carosel5 from '../../../../images/doctors/11.jpg';
 import './DoctorsSlide.css';
 import { NavLink } from 'react-router-dom';
 
@@ -75,7 +70,7 @@ const DoctorsSlider = () => {
                                         </div>
                                         <div className='mt-auto about-doctor'>
                                             <h2>
-                                                <NavLink to="" className="text-decoration-none">{doctor?.name}</NavLink>
+                                                <NavLink to={`/singleDoctor/${doctor._id}`} className="text-decoration-none">{doctor?.name}</NavLink>
                                             </h2>
                                             <h5>{doctor?.title}</h5>
                                         </div>
