@@ -19,7 +19,6 @@ function App() {
           <Route path="/" element={<Home />} />
         </Routes>
         <Routes>
-
           <Route path="/commonity" element={<Community />} />
         </Routes>
         <Routes>
