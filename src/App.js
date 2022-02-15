@@ -31,9 +31,9 @@ function App() {
         <Routes>
           <Route path="/register" element={<Register />} />
         </Routes>
-        {/* <Routes>
+        <Routes>
           <Route path="/singleDoctor/:id" element={<SingleDoctor />} />
-        </Routes> */}
+        </Routes>
         <Footer />
       </Router>
     </div>
