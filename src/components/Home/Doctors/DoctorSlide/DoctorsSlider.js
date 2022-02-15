@@ -62,7 +62,7 @@ const DoctorsSlider = () => {
                                     <img src={doctor?.photo} className="card-img" alt="..." />
                                     <div className="row card-img-overlay">
                                         <div className='icon-setup'>
-                                            <a href="/" target="_blank" rel="noreferrer"><i className="fab fa-facebook-square"></i></a>
+                                            <a href={doctor.social.facebook} target="_blank" rel="noreferrer"><i className="fab fa-facebook-square"></i></a>
                                             <br />
                                             <a href="/" target="_blank" rel="noreferrer"><i className="fab fa-twitter-square"></i></a>
                                             <br />
