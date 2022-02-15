@@ -1,0 +1,19 @@
+.test-info {
+    margin-top: 20%;
+}
+.testimoneal-right {
+    height: 500px;
+    background-color: #F68685;
+    width: 100%;
+    margin: auto;
+    padding: 15% 15% 15% 15%;
+}
+.text-data {
+    width: 100%;
+    color: #fff;
+}
+.text-data img {
+    height: 60px;
+    width: 60px;
+    margin-right: 2.5rem;
+}
