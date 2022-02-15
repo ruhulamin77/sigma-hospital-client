@@ -3,7 +3,7 @@ import './AboutSigma.css'
 import watch from '../../../image/watch.png'
 import signature from '../../../image/signature.png'
 import doctor from '../../../image/Doctor.jpg'
-import { Image, Table } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 
 const AboutSigma = () => {
     return (
