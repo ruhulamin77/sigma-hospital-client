@@ -8,6 +8,7 @@ import Register from "./components/Login/Register/Register";
 import Community from "./components/Community/Community";
 
 import Header from "./components/Share/Header/Header";
+import SingleDoctor from "./components/SingleDoctor/SingleDoctor";
 
 
 function App() {
@@ -30,6 +31,9 @@ function App() {
         <Routes>
           <Route path="/register" element={<Register />} />
         </Routes>
+        {/* <Routes>
+          <Route path="/singleDoctor/:id" element={<SingleDoctor />} />
+        </Routes> */}
         <Footer />
       </Router>
     </div>
