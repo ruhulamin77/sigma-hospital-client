@@ -4,6 +4,7 @@ import './ChooseUs.css'
 const ChooseUs = () => {
     return (
         <div className='section chooseUs-Fild '>
+            <div className='container'>
             <div className='why-choose'>
                 <div className='why-content'>
                     <p className='why-choose-pragraph'>why choose us</p>
@@ -32,7 +33,7 @@ const ChooseUs = () => {
 
 
                     </div>
-                    <div className='peaper-three col-lg-3 col-sm-12'>
+                    <div className='peaper-two col-lg-3 col-sm-12'>
                         <img src="https://wordpress.iqonic.design/kivicare/wp-content/uploads/2020/10/icon-1-1.png" alt="" className='image-icon' />
 
                         <h5>24/7 Services</h5>
@@ -47,6 +48,9 @@ const ChooseUs = () => {
 
 
             </div>
+
+            </div>
+            
 
         </div>
     );
