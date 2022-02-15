@@ -1,0 +1,134 @@
+
+.input-field-name{
+    margin-top: 22px;
+    margin-left: 26px;
+    width: 464px;
+    height: 31px;
+    font-family: 'Font Awesome 5 Brands';
+}
+
+
+.service-doctor-shift{
+    font-size: 16px;
+    width: 219px;
+    margin-left: 26px;
+    height: 33px;
+    margin-top: 27px;
+    font-family: 'Font Awesome 5 Brands';
+}
+
+.description-box{
+    margin-top: 20px;
+    margin-left: 27px;
+    width: 85%;
+    height: 93px;
+    font-family: 'Font Awesome 5 Brands';
+}
+
+.appointment{
+    margin-top: 53px;
+    margin-left: 26px;
+    font-family: math;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.submit-btn{
+    margin-top: 11px;
+    margin-bottom: 28px;
+    margin-left: 26px;
+    padding: 2px 34px;
+    font-family: -webkit-body;
+    font-size: 18px;
+    letter-spacing: 3px;
+    background-color: #e21f1fcc;
+    border: none;
+    border-radius: 5px;
+    color: white;
+
+}
+
+
+@media screen and (max-width: 992px) {
+    .input-field-name{
+        width: 47%;
+        margin-left: 10px;
+        border: 1px solid rgb(27, 24, 24);
+    }
+
+    .service-doctor-shift{     
+        width: 47%; 
+        margin-left: 10px;   
+        border: 1px solid rgb(27, 24, 24);
+    }
+    .description-box{
+        margin-left: 10px;
+        width: 96%;
+        height: 93px;
+        border: 1px solid rgb(27, 24, 24);
+        
+    }
+    .appointment{
+        
+        margin-left: 10px;
+    }
+    .submit-btn{
+        margin-left: 10px;
+    }
+
+    
+        
+
+    
+
+
+}
+
+@media screen and (max-width: 768px) {
+    .input-field-name{
+        width: 40%;
+        margin-left: 10px;
+    }
+
+    .description-box{
+        margin-left: 10px;
+        width: 95%;
+        height: 93px;
+        
+    }
+    .appointment{
+        
+        margin-left: 10px;}
+        .submit-btn{
+            margin-left: 10px;
+        }
+
+}
+
+
+@media screen and (max-width: 600px) {
+    .service-doctor-shift{     
+        width: 95%; 
+        margin-left: 10px;   
+    }
+    .input-field-name{
+        width: 95%;
+        margin-left: 10px;
+    }
+
+    .description-box{
+       
+        margin-left: 10px;
+        width: 95%;
+        height: 93px;
+        
+    }
+    .appointment{
+        
+        margin-left: 10px;}
+        .submit-btn{
+            margin-left: 10px;
+        }
+
+
+}
