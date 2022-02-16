@@ -1,0 +1,17 @@
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+
+export const sigmaApi = createApi({
+    reducerPath: 'sigmaApi',
+    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:7050/' }),
+    endpoints: (builder) => ({
+        getDoctors: builder.query({
+            query: () => ({
+                url: 'doctors',
+                method: 'GET'
+            }),
+        }),
+    }),
+})
+
+
+export const { useGetDoctorsQuery } = sigmaApi
