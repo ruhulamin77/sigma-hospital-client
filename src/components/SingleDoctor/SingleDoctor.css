@@ -100,33 +100,33 @@
     color: #7283A2;
 }
 
-  .contact2 nav a{
+  .contact-nav a{
     margin-right: 10px;
 }
 
-  .contact2 nav a:hover{
+  .contact-nav a:hover{
     color: #FEF6F6;
 }
 
-  .contact2 nav a:first-child{
+  .contact-nav a:first-child{
     background-color: #4867AA;
     color: #FEF6F6;
     padding: 10px 7px;
 }
 
-  .contact2 nav a:nth-child(2){
+  .contact-nav a:nth-child(2){
     background-color: #3EB5EC;
     color: #FEF6F6;
     padding: 10px 7px;
 }
 
-  .contact2 nav a:nth-child(3){
+  .contact-nav a:nth-child(3){
     background-color:crimson;
     color: #FEF6F6;
     padding: 10px 7px;
 }
 
-  .contact2 nav a:last-child{
+  .contact-nav a:last-child{
     background-color: #0270AD;
     color: #FEF6F6;
     padding: 10px;
