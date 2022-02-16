@@ -8,7 +8,8 @@ const Register = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => console.log(data);
 return (
-    <div className='regi'>
+    <>
+        <div className='regi'>
         <h4 className="m-3">New User? Register Here</h4>
         <form onSubmit={handleSubmit(onSubmit)}>
               <h5>Your Image</h5>  
@@ -29,6 +30,7 @@ return (
             </NavLink>
     </form>
     </div>
+    </>
     );
 };
 

@@ -7,6 +7,7 @@ const Login = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => console.log(data);
     return (
+        <>
         <div className='regi'>
         <h4 className="m-3">Login Here! </h4>
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -26,8 +27,9 @@ const Login = () => {
         <div className='mr2'><Button>Facebook</Button></div>
         <div className='mr3'><Button>Twitter</Button></div>
         </div>
-    </form>
-    </div>
+        </form>
+        </div>
+        </>
     );
 };
 

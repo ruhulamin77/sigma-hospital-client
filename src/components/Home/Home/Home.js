@@ -1,22 +1,22 @@
 import React from "react";
 import AboutSigma from "../AboutSigma/AboutSigma";
+import Appointment from "../Appointment/Appointment";
 import Banner from "../Banner/Banner";
 import ChooseUs from "../ChooseUs/ChooseUs";
 import Doctors from "../Doctors/Doctors";
-import Footer from "../Footer/Footer";
 import Services from "../Services/Services";
-import Header from "../../Share/Header/Header";
+import Testimonial from "../Testimonial/Testimonial";
 
 const Home = () => {
   return (
     <div>
-      <Header />
       <Banner />
       <AboutSigma />
-      <ChooseUs/>
+      <ChooseUs />
       <Services />
       <Doctors />
-      <Footer />
+      <Testimonial />
+      <Appointment />
     </div>
   );
 };

@@ -15,10 +15,10 @@ const AboutSigma = () => {
 
     return (
         <section className='sigma-about-fild'>
-          <h1  style={{transform: `translateX(${(pageHight -500) * .5}px)`}}>ABOUTUS</h1>
+            <h1 style={{ transform: `translateX(${(pageHight - 500) * .5}px)` }}>ABOUTUS</h1>
             <div className=' container padding-container '>
                 <div className='row align-items-center pt-3'>
-               
+
                     <div className='col-lg-4 col-md-6 col-sm-12'>
                         <p className='about-heding '>About Sigma Central Hospital</p>
                         <h3 className='welcome-msg'>
@@ -132,9 +132,9 @@ const AboutSigma = () => {
 
                     </div>
                     <div className='col-lg-4 col-md-12 d-lg-block d-none col-sm-12'>
-                        <div className='img-about w-100' style={{backgroundImage:`url(${doctor})`}}>
+                        <div className='img-about w-100' style={{ backgroundImage: `url(${doctor})` }}>
                             {/* <img src="{doctor}" alt="" className='img-fluid' /> */}
-                            </div>
+                        </div>
                     </div>
 
                 </div>
