@@ -1,0 +1,57 @@
+.service {
+  padding: 30px;
+  width: 360px;
+  height: 570px;
+  text-align: justify;
+  box-shadow: 0 6px 20px 0 rgba(128, 128, 128, 0.658);
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 50px;
+  transition: 0.5s;
+}
+
+.service:hover {
+  transform: translateY(-0.5em);
+  margin-top: 40px;
+}
+.sr {
+  color: #6ec1e4;
+}
+span {
+  color: #2c3238;
+  font-weight: 300;
+}
+.para {
+  color: #6c757d;
+  font-weight: 400;
+}
+.service-btn {
+  margin-left: 42px;
+  border: none;
+  padding: 10px 15px;
+  background-color: #f68685;
+  color: white;
+  text-transform: uppercase;
+}
+
+.services {
+  margin: auto;
+}
+@media screen and (max-width: 467px) {
+  .service {
+    width: 90%;
+    height: 530px;
+  }
+  .service:hover {
+    height: 535px;
+    margin-top: 20px;
+  }
+  .service-btn {
+    margin-left: 36px;
+    border: none;
+    padding: 10px 15px;
+    background-color: #f68685;
+    color: white;
+    margin-bottom: 27px;
+  }
+}
