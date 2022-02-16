@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Container, ProgressBar, Table } from 'react-bootstrap';
+import { Container, ProgressBar, Table } from 'react-bootstrap';
 import { NavLink, useParams } from 'react-router-dom';
 import logo from '../../images/logo/logo1.png';
-import DoctorsSlider from '../Home/Doctors/DoctorSlide/DoctorsSlider';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import './SingleDoctor.css';
+import { useGetDoctorsQuery } from '../../features/sigmaApi';
 
 const SingleDoctor = () => {
     let settings = {
@@ -46,19 +46,13 @@ const SingleDoctor = () => {
     };
 
     const { id } = useParams();
-    const [doctorsInfo, setDoctorsInfo] = useState([]);
     const [singleDoctor, setSingleDoctor] = useState([]);
+    const doctorsInfo = useGetDoctorsQuery();
 
     useEffect(() => {
-        fetch('http://localhost:7050/doctors')
-            .then(res => res.json())
-            .then(data => setDoctorsInfo(data))
-    }, []);
-
-    useEffect(() => {
-        const foundDoctor = doctorsInfo?.find(doctors => doctors?._id === id);
+        const foundDoctor = doctorsInfo?.data?.find(doctors => doctors?._id === id);
         setSingleDoctor(foundDoctor);
-    }, [doctorsInfo, id]);
+    }, [doctorsInfo?.data, id]);
 
     return (
         <div>
@@ -122,12 +116,12 @@ const SingleDoctor = () => {
                                     <p><b>Mail</b> : support@example.com</p>
                                     <p><b>Address</b> : 1234 North Avenue Luke Lane, South Bend, IN 360001</p>
                                 </div>
-                                <nav>
-                                    <a href="https://www.facebook.com/" target="_blank" rel="noreferrer"><i className="fab fa-facebook fa-lg"></i></a>
-                                    <a href="https://www.twitter.com/" target="_blank" rel="noreferrer"><i className="fab fa-twitter fa-lg"></i></a>
-                                    <a href="https://www.youtube.com/" target="_blank" rel="noreferrer"><i className="fab fa-youtube fa-lg"></i></a>
-                                    <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer"><i className="fab fa-linkedin fa-lg"></i></a>
-                                </nav>
+                                <div className='contact-nav'>
+                                    <a href={singleDoctor?.social?.facebook} target="_blank" rel="noreferrer"><i className="fab fa-facebook fa-lg"></i></a>
+                                    <a href={singleDoctor?.social?.twiter} target="_blank" rel="noreferrer"><i className="fab fa-twitter fa-lg"></i></a>
+                                    <a href={singleDoctor?.social?.youtube} target="_blank" rel="noreferrer"><i className="fab fa-youtube fa-lg"></i></a>
+                                    <a href={singleDoctor?.social?.likedin} target="_blank" rel="noreferrer"><i className="fab fa-linkedin fa-lg"></i></a>
+                                </div>
                             </div>
                         </div>
 
@@ -200,17 +194,17 @@ const SingleDoctor = () => {
                                     <h2>Recommended Colleague Doctors</h2>
                                     <Slider {...settings}>
                                         {
-                                            doctorsInfo.map(doctor =>
+                                            doctorsInfo?.data?.map(doctor =>
                                                 <div key={doctor._id}>
                                                     <div className="card doctor-card">
                                                         <img src={doctor?.photo} className="card-img" alt="..." />
                                                         <div className="row card-img-overlay">
                                                             <div className='icon-setup'>
-                                                                <a href={doctor.social.facebook} target="_blank" rel="noreferrer"><i className="fab fa-facebook-square"></i></a>
+                                                                <a href={doctor?.social?.facebook} target="_blank" rel="noreferrer"><i className="fab fa-facebook-square"></i></a>
                                                                 <br />
-                                                                <a href="/" target="_blank" rel="noreferrer"><i className="fab fa-twitter-square"></i></a>
+                                                                <a href={doctor.social.twiter} target="_blank" rel="noreferrer"><i className="fab fa-twitter-square"></i></a>
                                                                 <br />
-                                                                <a href="/" target="_blank" rel="noreferrer"><i className="fab fa-google"></i></a>
+                                                                <a href={doctor.social.gmail} target="_blank" rel="noreferrer"><i className="fab fa-google"></i></a>
                                                             </div>
                                                             <div className='mt-auto about-doctor'>
                                                                 <h2>
