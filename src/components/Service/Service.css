@@ -1,18 +1,21 @@
 .service {
   padding: 30px;
   width: 360px;
-  height: 570px;
-  text-align: justify;
+  height: 360px;
   box-shadow: 0 6px 20px 0 rgba(128, 128, 128, 0.658);
   border-radius: 5px;
   margin: auto;
   margin-top: 50px;
   transition: 0.5s;
 }
+.service img {
+  margin-left: 75px;
+  margin-top: -65px;
+}
 
 .service:hover {
   transform: translateY(-0.5em);
-  margin-top: 40px;
+  margin-top: 35px;
 }
 .sr {
   color: #6ec1e4;
@@ -40,10 +43,10 @@ span {
 @media screen and (max-width: 467px) {
   .service {
     width: 90%;
-    height: 530px;
+    height: 355px;
   }
   .service:hover {
-    height: 535px;
+    height: 355px;
     margin-top: 20px;
   }
   .service-btn {
