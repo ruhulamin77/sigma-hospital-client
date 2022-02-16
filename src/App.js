@@ -9,6 +9,7 @@ import Community from "./components/Community/Community";
 
 import Header from "./components/Share/Header/Header";
 import SingleDoctor from "./components/SingleDoctor/SingleDoctor";
+import Service from "./components/Service/Service";
 
 
 function App() {
@@ -24,6 +25,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/home" element={<Home />} />
+        </Routes>
+        <Routes>
+          <Route path="/service" element={<Service />} />
         </Routes>
         <Routes>
           <Route path="/login" element={<Login />} />
