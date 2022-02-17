@@ -19,6 +19,8 @@
 }
 .sr {
   color: #6ec1e4;
+  text-transform: uppercase;
+  letter-spacing: 3px;
 }
 .kivi span {
   color: #2c3238;
