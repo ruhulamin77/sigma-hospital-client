@@ -1,0 +1,87 @@
+
+
+.dashbord-fild{
+    background-color: #F4F7F6;
+}
+.card-control{
+    border: none;
+    background-color: white;
+    width: 278px;
+    box-shadow: 0px 0px 4px 1px #dee2e6;
+    padding: 19px;
+    border-radius: 12px;
+}
+
+.item{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 29px;
+}
+
+.user-icon-admin{
+    font-size: 22px;
+    margin-right: 20px;
+}
+
+.total-Patient{
+    font-size: 16px;
+    font-family: initial;
+    letter-spacing: 1px;
+}
+
+hr{
+    color: black;
+    border: 1px solid gainsboro;
+}
+
+.Total-Revenue{
+    margin-left: 19px;
+    margin-top: 36px;
+    font-size: 17px;
+    font-family: auto;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 29px;
+
+}
+
+.income-fild{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+
+.Operation,.Pharmacy,.Hospital{
+    padding: 23px 56px;
+    margin-bottom: 39px;
+    color: white;
+    font-family: system-ui;
+    letter-spacing: 1px;
+
+}
+.Operation p h4,.Pharmacy p h4,.Hospital p h4{
+    margin-top: 10px;
+}
+
+.Operation{ background-color: #28A745;   
+}
+.Pharmacy{
+    background-color: #f88519;  
+}
+.Hospital{
+  background-color: #f81919d6;
+
+}
+.card-chart-fild{
+    box-shadow: 0px 0px 3px 0px #acb3bf;
+    border-radius: 7px;
+    margin-left: 27px;
+}
+.charts{
+    width: 100%;
+    height: 341px;
+}

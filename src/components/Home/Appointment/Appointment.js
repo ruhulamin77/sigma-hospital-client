@@ -9,6 +9,8 @@ const Appointment = () => {
         console.log(data)
     };
     console.log(errors);
+    // let today = new Date().toLocaleDateString()
+    // console.log(today)
     return (
         <div>
             <div className='container'>
@@ -18,7 +20,7 @@ const Appointment = () => {
                     <input type="text" placeholder="Last name" {...register("Last-name", { required: true, maxLength: 100 })} className="input-field-name" /> <br />
                     {/* 2nd Line Start */}
 
-                    <input type="date" placeholder="Date of Birth" {...register("Date-of-Birth", { required: true })} className="service-doctor-shift" />
+                    <input type="number" placeholder="Age" {...register("Age", { required: true })} className="service-doctor-shift" />
                     <select aria-label="Default select example"{...register("Gender", { required: true })} className="service-doctor-shift">
                         <option>- Gender -</option>
                         <option value="Male">Male</option>
@@ -54,7 +56,8 @@ const Appointment = () => {
                         <option>- Doctor -</option>
 
                     </select>
-                    <input type="date" placeholder="Date of Birth" {...register("Date", { required: true })} className="service-doctor-shift" />
+
+                    <input type="date"   {...register("Date", { required: true })} className="service-doctor-shift" />
                     {/* 3rd Line end */}
                     <br />
                     <textarea placeholder="Please type what you want..." {...register("description", { required: true })} className="description-box" ></textarea> <br />
