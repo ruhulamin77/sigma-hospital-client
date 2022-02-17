@@ -67,22 +67,22 @@ const Header = () => {
                   className="dropdown-item dropdownitem"
                   to="/specialization"
                 >
-                  Action
+                  Oncologist
                 </Link>
                 <Link as NavLink className="dropdown-item dropdownitem" to="/">
-                  Action
+                  Neurologist
                 </Link>
                 <Link as NavLink className="dropdown-item dropdownitem" to="/">
-                  Action
+                  ENT specialist
                 </Link>
                 <Link as NavLink className="dropdown-item dropdownitem" to="/">
-                  Action
+                  Cardiologist
                 </Link>
                 <Link as NavLink className="dropdown-item dropdownitem" to="/">
-                  Action
+                  Audiologist
                 </Link>
                 <Link as NavLink className="dropdown-item dropdownitem" to="/">
-                  Action
+                  Psychiatrists
                 </Link>
               </NavDropdown>
 
