@@ -15,7 +15,7 @@ const AboutSigma = () => {
 
     return (
         <section className='sigma-about-fild'>
-            <h1 style={{ transform: `translateX(${(pageHight - 500) * .5}px)` }}>ABOUTUS</h1>
+
             <div className=' container padding-container '>
                 <div className='row align-items-center pt-3'>
 
