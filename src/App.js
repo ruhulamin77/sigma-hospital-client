@@ -9,6 +9,7 @@ import Header from "./components/Share/Header/Header";
 import SingleDoctor from "./components/SingleDoctor/SingleDoctor";
 import Service from "./components/Service/Service";
 import Specialization from "./components/Specialization/Specialization";
+import AdminHomeMain from "./components/Dashboard/AdminDashboard/AdminHome/AdminHomeMain/AdminHomeMain";
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/service" element={<Service />} />
+        </Routes>
+        <Routes>
+          <Route path="/adminhome" element={<AdminHomeMain />} />
         </Routes>
         <Routes>
           <Route path="/login" element={<Login />} />
