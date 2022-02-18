@@ -95,14 +95,11 @@
   cursor: default;
 }
 .banner_left_bottom .appointment_btn {
-  border: none;
-  outline: none;
   background-color: #7093e5;
   height: 50px;
   width: 230px;
   text-decoration: none;
   color: #fff;
-  display: inline-block;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -10,10 +10,10 @@ const Services = () => {
     useEffect(() => {
         window.addEventListener("scroll", handleHight)
     }, [])
-    console.log((pageServices -pageServices)+ 1);
+    console.log((pageServices - pageServices) + 1);
     return (
         <div className='our-service' style={{ backgroundColor: "#FDF4F4" }}>
-            <h3 style={{transform: `translateX(${(pageServices -2000 ) * .5}px)`}}>OUR SERVICE</h3>
+            <h3 style={{ transform: `translateX(${(pageServices - 2000) * .5}px)` }}>OUR SERVICE</h3>
             <Container className='service-section'>
                 <Row className="g-0">
                     <Col className='col-12 col-md-7'>
@@ -22,9 +22,9 @@ const Services = () => {
                                 <h6 style={{ letterSpacing: "3px" }}>SERVICES</h6>
                                 <h1>We Provide <br /> <span className='fw-light'> Medical Services</span></h1>
                                 <p className='text-secondary lh-2 mt-3'>It is a long established fact that a reader will be distracted by the <br /> readable content of a page when looking at its layout.</p>
-                                <NavLink to="">
-                                    <button className="service-btn mt-5 mb-3">
-                                        <span>Services</span><i className="fas fa-plus btn-icon"></i>
+                                <NavLink to="/service">
+                                    <button className="services-btn mt-5 mb-3">
+                                       <span>Services</span><i className="fas fa-plus btn-icon"></i>
                                     </button>
                                 </NavLink>
                             </Card.Body>
