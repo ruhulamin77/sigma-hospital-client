@@ -6,8 +6,8 @@ const initialState = {
 }
 
 const userSlice = createSlice({
-  name: 'user',
-  initialState,
+    name: 'user',
+    initialState,
     reducer: {
         setActiveUser: (state, action) => {
             state.userName = action.payload.userName
@@ -17,10 +17,10 @@ const userSlice = createSlice({
             state.userName = null
             state.userEmail = null
         }
-  }
+    }
 });
 
-export const {setActiveUser, setLogoutUser} = userSlice.actions
+export const { setActiveUser, setLogoutUser } = userSlice.actions
 
 export const selectUserName = state => state.user.userName
 export const selectUserEmail = state => state.user.userEmail

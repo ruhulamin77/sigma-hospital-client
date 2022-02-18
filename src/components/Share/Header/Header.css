@@ -202,3 +202,8 @@ header .navbar ul li .sub-menu li a:hover {
     width: 100%;
   }
 }
+.header-nav a {
+  text-decoration: none;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}

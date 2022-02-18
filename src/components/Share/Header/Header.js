@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Nav, Navbar, NavDropdown, NavLink, Offcanvas } from "react-bootstrap";
+import { Container, Nav, Navbar, NavDropdown, Offcanvas } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import logo from "../../../images/logo/logo.png";
@@ -126,6 +126,7 @@ const Header = () => {
       </Navbar>
     </header>
   );
+
 };
 
 export default Header;
