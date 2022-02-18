@@ -1,4 +1,6 @@
+
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Community from "./components/Community/Community";
 import AdminHomeMain from "./components/Dashboard/AdminDashboard/AdminHome/AdminHomeMain/AdminHomeMain";
 import Footer from "./components/Home/Footer/Footer";
 import Home from "./components/Home/Home/Home";
@@ -9,7 +11,7 @@ import Service from "./components/Service/Service";
 import Header from "./components/Share/Header/Header";
 import SingleDoctor from "./components/SingleDoctor/SingleDoctor";
 import Specialization from "./components/Specialization/Specialization";
-import Community from "./components/Community/Community"
+
 
 function App() {
   return (
@@ -20,20 +22,13 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/commonity" element={<Community />} />
           <Route path="/home" element={<Home />} />
-        </Routes>
-        <Routes>
           <Route path="/service" element={<Service />} />
-        </Routes>
-        <Routes>
           <Route path="/adminhome" element={<AdminHomeMain />} />
-        </Routes>
-        <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/singleDoctor/:id" element={<SingleDoctor />} />
-        </Routes>
-        <Routes>
+          <Route path="/specialization" element={<Specialization />} />
           <Route path="/specialization" element={<Specialization />} />
         </Routes>
         <Footer />
