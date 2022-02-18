@@ -16,7 +16,7 @@ const Login = () => {
       const {
         register: register2,
           handleSubmit: handleSubmit2,
-          formState: { errors },
+          formState: { errors:errors2 },
       } = useForm({
         mode: "onBlur",
       });
@@ -43,9 +43,8 @@ const Login = () => {
                         <span>or use your email for registration</span>
                         <input {...register("displayName", { required: true})} type="text" placeholder="Name" />
                         <input type="email" placeholder="Email"  {...register("Email", { required: true, pattern: /^\S+@\S+$/i })} />
-                        {errors.email && errors.email.type === "required" && <span className='text-danger pt-2  d-inline-block'>Email Address is required</span>}
-                        {errors.email && errors.email.type === "pattern" && <span className='text-danger pt-2  d-inline-block'>Please provide a valide Email </span>}
-                        <input type="password" placeholder="Password" {...register("password", { min: 8, max: 18 })} />
+                     
+                        <input type="password" placeholder="Password" {...register("password",)} />
                         {errors.password && "Password is required"}
                         {errors.password && errors.password.type === "min" && <span className='text-danger pt-2  d-inline-block'>Please add 8 digit. </span>}
                         <button type='submit'>Sign Up</button>
@@ -61,11 +60,11 @@ const Login = () => {
                         </div>
                         <span>or use your account</span>
                         <input type="email" placeholder="Email"  {...register2("Email", { required: true, pattern: /^\S+@\S+$/i })} />
-                        {errors.email && errors.email.type === "required" && <span className='text-danger pt-2  d-inline-block'>Email Address is required</span>}
-                        {errors.email && errors.email.type === "pattern" && <span className='text-danger pt-2  d-inline-block'>Please provide a valide Email </span>}
-                        <input type="password" placeholder="Password" {...register2("password", { min: 8, max: 18 })} />
-                        {errors.password && "Password is required"}
-                        {errors.password && errors.password.type === "min" && <span className='text-danger pt-2  d-inline-block'>Please add 8 digit. </span>}
+                        {errors2.email && errors2.email.type === "required" && <span className='text-danger pt-2  d-inline-block'>Email Address is required</span>}
+                        {errors2.email && errors2.email.type === "pattern" && <span className='text-danger pt-2  d-inline-block'>Please provide a valide Email </span>}
+                        <input type="password" placeholder="Password" {...register2("password",)} />
+                        {errors2.password && "Password is required"}
+                        {errors2.password && errors2.password.type === "min" && <span className='text-danger pt-2  d-inline-block'>Please add 8 digit. </span>}
                         <span className='py-2'>Forgot your password?</span>
                         <button type='submit'>Sign In</button>
                     </form>
