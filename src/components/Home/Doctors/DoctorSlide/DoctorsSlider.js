@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { Container } from 'react-bootstrap';
 import './DoctorsSlide.css';
 import { NavLink } from 'react-router-dom';
+import { useGetDoctorsQuery } from '../../../../features/sigmaApi';
 
 const DoctorsSlider = () => {
+    const doctorInfo = useGetDoctorsQuery();
+
     let settings = {
         dots: true,
         infinite: true,
@@ -43,30 +46,22 @@ const DoctorsSlider = () => {
         ]
     };
 
-    const [doctorInfo, setDoctorInfo] = useState([]);
-    console.log(doctorInfo);
-    useEffect(() => {
-        fetch('http://localhost:7050/doctors')
-            .then(res => res.json())
-            .then(data => setDoctorInfo(data))
-    }, []);
-
     return (
         <div>
             <Container className='mt-5 mb-5'>
                 <Slider {...settings}>
                     {
-                        doctorInfo.map(doctor =>
+                        doctorInfo?.data?.map(doctor =>
                             <div key={doctor._id}>
                                 <div className="card doctor-card">
                                     <img src={doctor?.photo} className="card-img" alt="..." />
                                     <div className="row card-img-overlay">
                                         <div className='icon-setup'>
-                                            <a href="/" target="_blank" rel="noreferrer"><i className="fab fa-facebook-square"></i></a>
+                                            <a href={doctor?.social?.facebook} target="_blank" rel="noreferrer"><i className="fab fa-facebook-square"></i></a>
                                             <br />
-                                            <a href="/" target="_blank" rel="noreferrer"><i className="fab fa-twitter-square"></i></a>
+                                            <a href={doctor?.social?.twiter} target="_blank" rel="noreferrer"><i className="fab fa-twitter-square"></i></a>
                                             <br />
-                                            <a href="/" target="_blank" rel="noreferrer"><i className="fab fa-google"></i></a>
+                                            <a href={doctor?.social?.gmail} target="_blank" rel="noreferrer"><i className="fab fa-google"></i></a>
                                         </div>
                                         <div className='mt-auto about-doctor'>
                                             <h2>

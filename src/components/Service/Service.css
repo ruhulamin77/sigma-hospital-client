@@ -1,0 +1,63 @@
+.service {
+  padding: 30px;
+  width: 360px;
+  height: 317px;
+  box-shadow: 0 6px 20px 0 rgba(124, 124, 124, 0.562);
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 50px;
+  transition: 0.5s;
+}
+.service img {
+  margin-left: 75px;
+  margin-top: -65px;
+}
+
+.service:hover {
+  transform: translateY(-0.5em);
+  margin-top: 35px;
+}
+.sr {
+  color: #6ec1e4;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+.kivi span {
+  color: #2c3238;
+  font-weight: 300;
+}
+.para {
+  color: #6c757d;
+  font-weight: 400;
+}
+.service-btn {
+  margin-top: 25px;
+  margin-left: 45px;
+  border: none;
+  padding-left: 15px;
+  background-color: #f68685;
+  color: white;
+  text-transform: uppercase;
+}
+
+.services {
+  margin: auto;
+}
+@media screen and (max-width: 467px) {
+  .service {
+    width: 90%;
+    height: 355px;
+  }
+  .service:hover {
+    height: 355px;
+    margin-top: 20px;
+  }
+  .service-btn {
+    margin-left: 45px;
+    border: none;
+    padding: 10px 15px;
+    background-color: #f68685;
+    color: white;
+    margin-bottom: 27px;
+  }
+}
