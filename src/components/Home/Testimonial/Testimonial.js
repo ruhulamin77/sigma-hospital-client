@@ -4,6 +4,7 @@ import { Card, Col, Container, Row } from 'react-bootstrap';
 import manager from '../../../icons/performance.png';
 import packages from '../../../icons/packaging.png';
 import award from '../../../icons/trophy.png';
+import TestimonialSlider from './TestimonialSlider/TestimonialSlider';
 
 const Testimonial = () => {
     const [pageServices, setPageServices] = useState(0)
@@ -22,9 +23,11 @@ const Testimonial = () => {
                             <Card.Body>
                                 <h6 style={{ letterSpacing: "3px" }}>TESTIMONIAL</h6>
                                 <h1>What Our <br /> <span className='fw-light'> Patients Says</span></h1>
-                                <p className='text-secondary lh-2 mt-3'>It is a long established fact that a reader will be distracted by the <br /> readable content of a page when looking at its layout.</p>
                             </Card.Body>
                         </Card>
+                            <Card.Body>
+                                <TestimonialSlider />
+                            </Card.Body>
                     </Col>
                     <Col className='col-12 col-md-4 test-info'>
                         <div className='testimoneal-right d-flex align-items-center flex-wrap'>

@@ -1,0 +1,58 @@
+.card-control2{
+    border: none;
+    background-color: white;
+    box-shadow: 0px 0px 4px 1px #dee2e6;
+    padding: 19px;
+    border-radius: 12px;
+}
+.visitors-Headline{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.visitorTopLeft{
+    width: 8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.visitorTopLeft h6{
+    background-color: #f1f5f1;
+    padding: 10px 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .5s;
+}
+.visitorTopLeft h6:last-child{
+    background-color: #01B2C6;
+    padding: 10px 15px;
+}
+.visitorTopLeft h6:hover{
+    background-color: #01B2C6;
+    transition: .5s;
+}
+.visitorTopLeft p{
+    font-weight: 900;
+    color: #01B2C6;
+    cursor: pointer;
+}
+.todo-board div:nth-child(1){
+    margin: 10px 0;
+}
+.todo-board div:nth-child(2){
+    margin: 10px 0;
+}
+.todo-board div:nth-child(3){
+    margin: 10px 0;
+}
+.todo-board div:nth-child(4){
+    margin: 10px 0;
+}
+.todo-check{
+    display: flex;
+    align-items: center;
+}
+.todo-check p{
+    margin-left: 20px;
+}

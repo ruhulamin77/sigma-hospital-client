@@ -1,0 +1,43 @@
+.testimonial-img {
+    border-radius: 50%;
+    height: 3.5rem;
+    width: auto;
+}
+.testimoneal-name {
+    font-size: 20px;
+    font-weight: 500;
+    color: #7093e5;
+}
+.testimoneal-role {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    color: #F46462;
+}
+.testimonial-arrow {
+    font-size: 24px;
+    padding: 7px 15px 7px;
+    border: none;
+    background-color: #F46462;
+    color: white;
+    transition: all 0.5s ease-in;
+    font-weight: 600;
+}
+.fz-1 {
+    font-size: 1.2rem;
+}
+ @media only screen and (min-width: 1400px) and (max-width: 1900px) {
+    .testimonial-slider {
+        max-width: 70%;
+    }
+}
+@media only screen and (min-width: 767px) and (max-width: 1399px) {
+    .testimonial-slider {
+        max-width: 70%;
+    }
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .testimonial-slider {
+        max-width: 100%;
+    }
+}
