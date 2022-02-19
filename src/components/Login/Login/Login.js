@@ -16,7 +16,6 @@ const Login = () => {
       const {
         register: register2,
           handleSubmit: handleSubmit2,
-          formState: { errors },
       } = useForm({
         mode: "onBlur",
       });
