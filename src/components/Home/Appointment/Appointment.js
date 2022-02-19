@@ -1,16 +1,47 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import './Appointment.css'
 
 const Appointment = () => {
+    const [doctor, setDoctor] = useState([]);
+    const [shiftDoctor, setShiftDoctor] = useState([]);
+
+    // console.log(shiftDoctor, "hello")
+
+
+
+    useEffect(() => {
+        fetch("https://shrouded-headland-44423.herokuapp.com/doctors")
+            .then(res => res.json())
+            .then(data => {
+                setShiftDoctor(data)
+                setDoctor(data)
+            })
+    }, [])
+
+
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
+
+
+
         reset()
-        console.log(data)
+
     };
-    console.log(errors);
-    // let today = new Date().toLocaleDateString()
-    // console.log(today)
+
+
+
+
+    const handalonblure = (e) => {
+        const seacredoctor = doctor.filter(doctors => doctors?.shift.toLowerCase() === e.target.value);
+        setShiftDoctor(seacredoctor)
+
+
+    }
+
+
+
+
     return (
         <div>
             <div className='container'>
@@ -39,21 +70,26 @@ const Appointment = () => {
 
                     <select aria-label="Default select example"{...register("Service", { required: true })} className="service-doctor-shift" >
                         <option>- Service -</option>
-                        {
+                        {/* {
+                            doctor.map(doctor => <option>{doctor.time}</option>)
 
-                        }
+                        } */}
 
                     </select>
-                    <select aria-label="Default select example"{...register("Shift", { required: true })} className="service-doctor-shift" >
+                    <select aria-label="Default select example"{...register("Shift", { required: true })} onBlur={handalonblure} className="service-doctor-shift" >
                         <option>- Shift -</option>
-                        <option value="Morning">Morning</option>
-                        <option value="Noon">Noon</option>
-                        <option value="Evening">Evening</option>
+                        <option value="morning">Morning</option>
+                        <option value="evening">Evening</option>
+                        <option value="night">Night</option>
 
                     </select>
 
                     <select aria-label="Default select example"{...register("Doctor", { required: true })} className="service-doctor-shift" >
                         <option>- Doctor -</option>
+                        {
+                            shiftDoctor.map(doctor => <option>{doctor.name}</option>)
+
+                        }
 
                     </select>
 
