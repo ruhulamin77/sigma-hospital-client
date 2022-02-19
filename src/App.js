@@ -5,8 +5,8 @@ import AdminHomeMain from "./components/Dashboard/AdminDashboard/AdminHome/Admin
 import Footer from "./components/Home/Footer/Footer";
 import Home from "./components/Home/Home/Home";
 import Login from "./components/Login/Login/Login";
-import Register from "./components/Login/Register/Register";
 import Contact from "./components/Pages/Contact/Contact";
+import FAQ from "./components/Pages/FAQ/FAQ";
 import Service from "./components/Service/Service";
 import Header from "./components/Share/Header/Header";
 import SingleDoctor from "./components/SingleDoctor/SingleDoctor";
@@ -25,7 +25,7 @@ function App() {
           <Route path="/service" element={<Service />} />
           <Route path="/adminhome" element={<AdminHomeMain />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/faq" element={<FAQ />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/singleDoctor/:id" element={<SingleDoctor />} />
           <Route path="/specialization" element={<Specialization />} />

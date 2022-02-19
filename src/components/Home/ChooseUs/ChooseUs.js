@@ -10,7 +10,7 @@ const ChooseUs = () => {
     }, [])
 
   return (
-    <div className="section chooseUs-Fild ">
+    <div className="section chooseUs-Fild">
       <h2 style={{transform: `translateX(${(pageUs - 1000)* .5}px)`}}>WHY CHOOSE US</h2>
       <Container className="why-choose padding-container">
         <div className="outer-why-content row">

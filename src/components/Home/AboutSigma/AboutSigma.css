@@ -106,13 +106,15 @@ ul li {
 .sigma-about-fild,
 .chooseUs-Fild,
 .our-service,
-.doctors {
+.doctors,
+.faq {
   position: relative;
 }
 .sigma-about-fild h1,
 .chooseUs-Fild h2,
 .our-service h3,
-.doctors h3 {
+.doctors h3,
+.faq h4 {
   position: absolute;
   top: 20px;
   color: #171c2615;

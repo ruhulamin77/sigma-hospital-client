@@ -45,7 +45,7 @@ const Login = () => {
                         <input type="email" placeholder="Email"  {...register("Email", { required: true, pattern: /^\S+@\S+$/i })} />
                      
                         <input type="password" placeholder="Password" {...register("password",)} />
-                        {errors.password && "Password is required"}
+                        {errors.password && <span className='text-danger pt-2  d-inline-block'>Please add 8 digit. </span>}
                         {errors.password && errors.password.type === "min" && <span className='text-danger pt-2  d-inline-block'>Please add 8 digit. </span>}
                         <button type='submit'>Sign Up</button>
                     </form>
