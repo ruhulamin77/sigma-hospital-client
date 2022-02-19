@@ -11,7 +11,7 @@ const Service = () => {
     return (
         <div className="container mt-4 pb-5 mb-2">
       <h6 className="text-center pt-3 sr">services</h6>
-      <h1 className="text-center pt-3 kivi">Kivicare <span>Medical Services</span></h1>
+      <h1 className="text-center pt-3 kivi">SigmaCare <span>Medical Services</span></h1>
         <p className="text-center pt-3 para mb-3">It is a long established fact that a reader will be distracted by the readable <br />
             content of a page when looking at its layout.
         </p>
