@@ -37,22 +37,31 @@
     color: #01B2C6;
     cursor: pointer;
 }
-.todo-board div:nth-child(1){
-    margin: 10px 0;
-}
-.todo-board div:nth-child(2){
-    margin: 10px 0;
-}
-.todo-board div:nth-child(3){
-    margin: 10px 0;
-}
-.todo-board div:nth-child(4){
-    margin: 10px 0;
-}
-.todo-check{
+
+.todo1, .todo2, .todo3, .todo4 { 
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    margin-bottom: 20px;
 }
-.todo-check p{
+.todo1 div, .todo2 div, .todo3 div, .todo4 div{ 
+    display: flex;
+    flex-direction: column;
     margin-left: 20px;
 }
+
+.todo1 img, .todo2 img, .todo3 img, .todo4 img{ 
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.edit-check{
+    width: 25px;
+    height: 25px;
+    accent-color: #01B2C6;
+}
+
+.edit-check:checked + div p{
+    text-decoration: line-through;
+}
+

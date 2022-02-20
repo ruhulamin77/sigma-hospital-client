@@ -1,10 +1,11 @@
 import React from 'react';
 import "./SecondSection.css";
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Legend, Tooltip } from 'recharts';
-import { Card, Carousel, Col, Container, Form, FormControl, InputGroup, Row } from 'react-bootstrap';
+import { Card, Col, Container, Row } from 'react-bootstrap';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import photo from '../../../../../images/doctors/07.jpg'
 
 const SecondSection = () => {
     const VisitorsStatistics = [
@@ -150,6 +151,10 @@ const SecondSection = () => {
         arrows: false
     };
 
+    // const handleCheckPoint = () => {
+    //     console.log('clicked');
+    // }
+
     return (
         <div style={{ backgroundColor: "#F4F7F6" }}>
             <Container>
@@ -218,11 +223,7 @@ const SecondSection = () => {
                                                     </div>
                                                 </Slider>
                                             </div>
-
                                         </Card>
-
-
-
                                     </div>
                                 </div>
 
@@ -254,8 +255,6 @@ const SecondSection = () => {
 
                                         </Card>
 
-
-
                                     </div>
                                 </div>
 
@@ -266,22 +265,48 @@ const SecondSection = () => {
                         <Card className='card-control2'>
                             <h6>ToDo List</h6>
                             <small className='text-secondary'>This Month task list</small>
-                            <div className='todo-board'>
-                                <div className='todo-check'>
-                                    <Form.Check aria-label="option 1" /> <p>A Brief History Of Anesthetics</p>
-                                </div>
+                            <div className='todo-board mt-3'>
+                                {/* {
+                                        BsArrowsFullscreen.map(asdf => {
 
-                                <div className='todo-check'>
-                                    <Form.Check aria-label="option 1" /> <p>A Brief History Of Anesthetics</p>
-                                </div>
+                                        })
+                                    } */}
+                                <label className='todo1'>
+                                    <input type="checkbox" name="packersOff" class="edit-check" value="1" />
+                                    <div>
+                                        <p>A Brief History Of Anesthetics</p>
+                                        <small className='text-secondary'>Scheduled for ...</small>
+                                        <img src={photo} alt="DoctorPhoto" />
+                                    </div>
 
-                                <div className='todo-check'>
-                                    <Form.Check aria-label="option 1" /> <p>A Brief History Of Anesthetics</p>
-                                </div>
+                                </label>
+                                <label className='todo2'>
+                                    <input type="checkbox" name="packersOff" class="edit-check" value="1" />
+                                    <div>
+                                        <p>Using Laser Teatment to Help</p>
+                                        <small>Scheduled for ...</small>
+                                        <img src={photo} alt="DoctorPhoto" />
+                                    </div>
 
-                                <div className='todo-check'>
-                                    <Form.Check aria-label="option 1" /> <p>A Brief History Of Anesthetics</p>
-                                </div>
+                                </label>
+                                <label className='todo3'>
+                                    <input type="checkbox" name="packersOff" class="edit-check" value="1" />
+                                    <div>
+                                        <p>Selecting the Apnea Treatment</p>
+                                        <small>Scheduled for ...</small>
+                                        <img src={photo} alt="DoctorPhoto" />
+                                    </div>
+
+                                </label>
+                                <label className='todo4'>
+                                    <input type="checkbox" name="packersOff" class="edit-check" value="1" />
+                                    <div>
+                                        <p>Using Laser Teatment to Help</p>
+                                        <small>Scheduled for ...</small>
+                                        <img src={photo} alt="DoctorPhoto" />
+                                    </div>
+                                </label>
+
                             </div>
                         </Card>
                     </Col>
