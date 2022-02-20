@@ -28,10 +28,6 @@ footer .container .row:first-child {
   opacity: 0.5;
   transition: 0.3s all ease-in-out;
 }
-::placeholder {
-  color: var(--body-color);
-  font-weight: 600;
-}
 .form-cover input:hover,
 .form-cover input:focus {
   opacity: 1;

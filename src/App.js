@@ -2,6 +2,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Community from "./components/Community/Community";
 import AdminHomeMain from "./components/Dashboard/AdminDashboard/AdminHome/AdminHomeMain/AdminHomeMain";
+import AddDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AddDoctors/AddDoctors";
 import AllDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AllDoctors/AllDoctors";
 import DoctorProfile from "./components/Dashboard/DoctorsDashboard/DoctorProfile/DoctorProfile";
 import Footer from "./components/Home/Footer/Footer";
@@ -36,6 +37,7 @@ function App() {
           {/* optional */}
           <Route path="/allDoctors" element={<AllDoctors />} />
           <Route path="/allDoctors/:id" element={<DoctorProfile />} />
+          <Route path="/addDoctors" element={<AddDoctors />} />
         </Routes>
         <Footer />
       </Router>
