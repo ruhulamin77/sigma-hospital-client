@@ -12,7 +12,7 @@ const SingleCardDoctor = ({ doc }) => {
                     <Card.Img className='doctor-image' variant="top" src={photo} />
                     <Card.Body>
                         <NavLink to={`/allDoctors/${_id}`} style={{ textDecoration: "none" }}><Card.Title>{name}</Card.Title></NavLink>
-                        <small>{title}</small>
+                        <small className='text-secondary'>{title}</small>
                         <div className='doctor-social-media'>
                             <a href={social?.facebook} target="_blank" rel="noreferrer"><i className="fab fa-facebook-f text-secondary"></i></a>
                             <br />
