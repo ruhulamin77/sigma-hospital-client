@@ -1,0 +1,14 @@
+.doctor-image{
+    width: 100px;
+    height: 100px;
+    margin: 20px auto 0;
+    border-radius: 50%;
+}
+
+.doctor-social-media{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 30%;
+    margin: 10px auto;
+}
