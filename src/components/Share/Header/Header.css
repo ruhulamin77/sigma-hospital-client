@@ -49,7 +49,7 @@
   min-width: 16rem;
   border: none;
 }
-.nav-link {
+.custom-menu .nav-link {
   padding: 33px 1rem;
 }
 .dropdown-item {

@@ -7,6 +7,7 @@ import Home from "./components/Home/Home/Home";
 import Login from "./components/Login/Login/Login";
 import Contact from "./components/Pages/Contact/Contact";
 import FAQ from "./components/Pages/FAQ/FAQ";
+import Team from "./components/Pages/Team/Team";
 import Service from "./components/Service/Service";
 import Header from "./components/Share/Header/Header";
 import SingleDoctor from "./components/SingleDoctor/SingleDoctor";
@@ -26,6 +27,7 @@ function App() {
           <Route path="/adminhome" element={<AdminHomeMain />} />
           <Route path="/login" element={<Login />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/team" element={<Team />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/singleDoctor/:id" element={<SingleDoctor />} />
           <Route path="/specialization" element={<Specialization />} />
