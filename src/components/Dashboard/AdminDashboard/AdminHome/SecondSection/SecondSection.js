@@ -267,12 +267,12 @@ const SecondSection = () => {
                             <small className='text-secondary'>This Month task list</small>
                             <div className='todo-board mt-3'>
                                 {/* {
-                                        BsArrowsFullscreen.map(asdf => {
+                                        doctrwe.map(asdf => {
 
                                         })
                                     } */}
                                 <label className='todo1'>
-                                    <input type="checkbox" name="packersOff" class="edit-check" value="1" />
+                                    <input type="checkbox" name="packersOff" className="edit-check" value="1" />
                                     <div>
                                         <p>A Brief History Of Anesthetics</p>
                                         <small className='text-secondary'>Scheduled for ...</small>
@@ -281,7 +281,7 @@ const SecondSection = () => {
 
                                 </label>
                                 <label className='todo2'>
-                                    <input type="checkbox" name="packersOff" class="edit-check" value="1" />
+                                    <input type="checkbox" name="packersOff" className="edit-check" value="1" />
                                     <div>
                                         <p>Using Laser Teatment to Help</p>
                                         <small>Scheduled for ...</small>
@@ -290,7 +290,7 @@ const SecondSection = () => {
 
                                 </label>
                                 <label className='todo3'>
-                                    <input type="checkbox" name="packersOff" class="edit-check" value="1" />
+                                    <input type="checkbox" name="packersOff" className="edit-check" value="1" />
                                     <div>
                                         <p>Selecting the Apnea Treatment</p>
                                         <small>Scheduled for ...</small>
@@ -299,7 +299,7 @@ const SecondSection = () => {
 
                                 </label>
                                 <label className='todo4'>
-                                    <input type="checkbox" name="packersOff" class="edit-check" value="1" />
+                                    <input type="checkbox" name="packersOff" className="edit-check" value="1" />
                                     <div>
                                         <p>Using Laser Teatment to Help</p>
                                         <small>Scheduled for ...</small>

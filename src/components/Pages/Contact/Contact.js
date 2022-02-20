@@ -24,10 +24,10 @@ const Contact = () => {
 
                 <nav aria-label="breadcrumb">
                     <h3>Contact Us</h3>
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><Link to="/">Home</Link></li>
-                   
-                        <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+                    <ol className="breadcrumb">
+                        <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+
+                        <li className="breadcrumb-item active" aria-current="page">Contact Us</li>
                     </ol>
                 </nav>
             </div>
