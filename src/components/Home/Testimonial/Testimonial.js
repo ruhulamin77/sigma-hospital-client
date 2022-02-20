@@ -12,7 +12,7 @@ const Testimonial = () => {
     useEffect(() => {
         window.addEventListener("scroll", handleHight)
     }, [])
-    console.log((pageServices -pageServices)+ 1);
+    // console.log((pageServices -pageServices)+ 1);
     return (
         <div className='our-service' style={{ backgroundColor: "#FDF4F4" }}>
             <h3 style={{ transform: `translateX(${(pageServices - 3000) * .5}px)` }}>TESTIMONIAL</h3>
