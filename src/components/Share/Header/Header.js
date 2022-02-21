@@ -65,23 +65,48 @@ const Header = () => {
                   as
                   NavLink
                   className="dropdown-item dropdownitem"
-                  to="/specialization"
+                  to="/specialization/oncologist"
                 >
                   Oncologist
                 </Link>
-                <Link as NavLink className="dropdown-item dropdownitem" to="/">
+                <Link
+                  as
+                  NavLink
+                  className="dropdown-item dropdownitem"
+                  to="/specialization/neurologist"
+                >
                   Neurologist
                 </Link>
-                <Link as NavLink className="dropdown-item dropdownitem" to="/">
+                <Link
+                  as
+                  NavLink
+                  className="dropdown-item dropdownitem"
+                  to="/specialization/ent-specialist"
+                >
                   ENT specialist
                 </Link>
-                <Link as NavLink className="dropdown-item dropdownitem" to="/">
+                <Link
+                  as
+                  NavLink
+                  className="dropdown-item dropdownitem"
+                  to="/specialization/cardiologist"
+                >
                   Cardiologist
                 </Link>
-                <Link as NavLink className="dropdown-item dropdownitem" to="/">
+                <Link
+                  as
+                  NavLink
+                  className="dropdown-item dropdownitem"
+                  to="/specialization/audiologist"
+                >
                   Audiologist
                 </Link>
-                <Link as NavLink className="dropdown-item dropdownitem" to="/">
+                <Link
+                  as
+                  NavLink
+                  className="dropdown-item dropdownitem"
+                  to="/specialization/psychiatrists"
+                >
                   Psychiatrists
                 </Link>
               </NavDropdown>

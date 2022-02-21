@@ -1,4 +1,3 @@
-
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Community from "./components/Community/Community";
 import AdminHomeMain from "./components/Dashboard/AdminDashboard/AdminHome/AdminHomeMain/AdminHomeMain";
@@ -14,8 +13,13 @@ import Team from "./components/Pages/Team/Team";
 import Service from "./components/Service/Service";
 import Header from "./components/Share/Header/Header";
 import SingleDoctor from "./components/SingleDoctor/SingleDoctor";
-import Specialization from "./components/Specialization/Specialization";
-
+import Audiologist from "./components/Specialization/Audiologist/Audiologist";
+import Cardiologist from "./components/Specialization/Cardiologist/Cardiologist";
+import ENTspecialist from "./components/Specialization/ENTspecialist/ENTspecialist";
+import Neurologist from "./components/Specialization/Neurologist/Neurologist";
+import neurologist from "./components/Specialization/Neurologist/Neurologist";
+import Oncologist from "./components/Specialization/Oncologist/Oncologist";
+import Psychiatrists from "./components/Specialization/Psychiatrists/Psychiatrists";
 
 function App() {
   return (
@@ -33,8 +37,21 @@ function App() {
           <Route path="/team" element={<Team />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/singleDoctor/:id" element={<SingleDoctor />} />
-          <Route path="/specialization" element={<Specialization />} />
-          <Route path="/specialization" element={<Specialization />} />
+          <Route path="/specialization/oncologist" element={<Oncologist />} />
+          <Route path="/specialization/neurologist" element={<Neurologist />} />
+          <Route
+            path="/specialization/ent-specialist"
+            element={<ENTspecialist />}
+          />
+          <Route
+            path="/specialization/cardiologist"
+            element={<Cardiologist />}
+          />
+          <Route path="/specialization/audiologist" element={<Audiologist />} />
+          <Route
+            path="/specialization/psychiatrists"
+            element={<Psychiatrists />}
+          />
 
           {/* optional */}
           <Route path="/allDoctors" element={<AllDoctors />} />
