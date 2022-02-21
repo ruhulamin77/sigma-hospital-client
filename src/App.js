@@ -4,6 +4,7 @@ import AdminHomeMain from "./components/Dashboard/AdminDashboard/AdminHome/Admin
 import AddDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AddDoctors/AddDoctors";
 import AllDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AllDoctors/AllDoctors";
 import DoctorProfile from "./components/Dashboard/DoctorsDashboard/DoctorProfile/DoctorProfile";
+import PharmacyHome from "./components/Dashboard/Pharmacy/PharmacyHome/PharmacyHome";
 import Footer from "./components/Home/Footer/Footer";
 import Home from "./components/Home/Home/Home";
 import Login from "./components/Login/Login/Login";
@@ -51,6 +52,10 @@ function App() {
           <Route
             path="/specialization/psychiatrists"
             element={<Psychiatrists />}
+          />
+          <Route
+            path="/Pharmacy"
+            element={<PharmacyHome />}
           />
 
           {/* optional */}
