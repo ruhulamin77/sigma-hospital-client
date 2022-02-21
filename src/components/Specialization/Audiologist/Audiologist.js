@@ -1,34 +1,32 @@
 import React from "react";
-import "./Specialization.css";
-
-import specializationOncologist from "../../images/blogs/blog-1.jpg";
-import serviceLogo from "../../images/logo/logo1.png";
 import { Link } from "react-router-dom";
+import odiologistImg from "../../../images/blogs/blog-11.jpg";
+import serviceLogo from "../../../images/logo/logo1.png";
 
-const Specialization = () => {
+const Audiologist = () => {
   return (
     <div className="specialization_container">
       <div className="specialization_banner">
-        <h2>Oncologist</h2>
+        <h2>Audiologist</h2>
         <div className="specialization_navigation">
           <Link to="/">Home </Link>
           <span>&#62;</span>
-          <Link to="/"> Oncologist</Link>
+          <Link to="/specialization/audiologist"> Audiologist</Link>
         </div>
       </div>
       <div className="container">
         <div className=" inner_specialization">
           <div className="specialization_left ">
             <div className="special_img">
-              <img src={specializationOncologist} alt="" />
+              <img src={odiologistImg} alt="" />
             </div>
             <div className="department">
               <h5>DEPARTMENT</h5>
               <h2>
-                <span>Oncologist</span> Treatments
+                <span>Audiologist</span> Treatments
               </h2>
               <p>
-                A cardiologist is a doctor that deals with the cardiovascular
+                A audiologist is a doctor that deals with the cardiovascular
                 system. This means he or she treats any abnormality in our blood
                 vessels and heart. This can include heart disease or condition
                 which requires diagnosis and treatment.
@@ -138,7 +136,10 @@ const Specialization = () => {
             </div>
             <hr />
             <div className="accordion">
-              <div className="accordion accordion-flush" id="accordionFlushExample">
+              <div
+                className="accordion accordion-flush"
+                id="accordionFlushExample"
+              >
                 <div className="accordion-item">
                   <h2 className="accordion-header" id="flush-headingOne">
                     <button
@@ -230,37 +231,37 @@ const Specialization = () => {
               <h3>Specialization</h3>
               <ul>
                 <li>
-                  <Link to="/">
+                  <Link to="/specialization/oncologist">
                     <span>Oncologist</span>
                     <span className="fas fa-plus"></span>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/">
+                  <Link to="/specialization/neurologist">
                     <span>Neurologist</span>
                     <span className="fas fa-plus"></span>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/">
+                  <Link to="/specialization/ent-specialist">
                     <span>ENT specialist</span>
                     <span className="fas fa-plus"></span>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/">
+                  <Link to="/specialization/cardiologist">
                     <span>Cardiologist</span>
                     <span className="fas fa-plus"></span>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/">
+                  <Link to="/specialization/audiologist">
                     <span>Audiologist</span>
                     <span className="fas fa-plus"></span>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/">
+                  <Link to="/specialization/psychiatrists">
                     <span>Psychiatrists</span>
                     <span className="fas fa-plus"></span>
                   </Link>
@@ -319,4 +320,4 @@ const Specialization = () => {
   );
 };
 
-export default Specialization;
+export default Audiologist;
