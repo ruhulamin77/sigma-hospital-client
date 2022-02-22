@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Community from "./components/Community/Community";
 import AdminHomeMain from "./components/Dashboard/AdminDashboard/AdminHome/AdminHomeMain/AdminHomeMain";
+import DashboardMain from "./components/Dashboard/DashboardMain/DashboardMain";
 import AddDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AddDoctors/AddDoctors";
 import AllDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AllDoctors/AllDoctors";
 import DoctorProfile from "./components/Dashboard/DoctorsDashboard/DoctorProfile/DoctorProfile";
@@ -57,6 +58,10 @@ function App() {
           <Route path="/allDoctors" element={<AllDoctors />} />
           <Route path="/allDoctors/:id" element={<DoctorProfile />} />
           <Route path="/addDoctors" element={<AddDoctors />} />
+
+          {/* dashboard */}
+
+          <Route path="/dashboard" element={<DashboardMain />} />
         </Routes>
         <Footer />
       </Router>

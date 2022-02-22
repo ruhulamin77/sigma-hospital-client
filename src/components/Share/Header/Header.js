@@ -193,6 +193,9 @@ const Header = () => {
               <Link as NavLink className="custom-nav" to="/login">
                 Admin
               </Link>
+              <Link as NavLink className="custom-nav" to="/dashboard">
+                Dashboard
+              </Link>
               <button className="header-btn">
                 Appointment <i className="fas fa-plus header-icon"></i>
               </button>
