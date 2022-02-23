@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { Button, Form, NavDropdown, Offcanvas } from "react-bootstrap";
+import {
+  Accordion,
+  Button,
+  Form,
+  NavDropdown,
+  Offcanvas,
+} from "react-bootstrap";
 import { GiSettingsKnobs } from "react-icons/gi";
 import { RiSearchLine, RiWechatLine } from "react-icons/ri";
 import { ImStack } from "react-icons/im";
@@ -35,20 +41,6 @@ const DashboardMain = () => {
   const handleShow = () => setShow(true);
   return (
     <div>
-      {/* <Button variant="primary" onClick={handleShow}>
-        Launch
-      </Button>
-
-      <Offcanvas show={show} onHide={handleClose}>
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body>
-          Some text as placeholder. In real life you can have the elements you
-          have chosen. Like, text, images, lists, etc.
-        </Offcanvas.Body>
-      </Offcanvas> */}
-
       <div className="dashboardHeader container-fluid">
         <div className="logo_area">
           <img src={logo} alt="" />
