@@ -21,7 +21,7 @@ const AllDoctors = () => {
                         <Card.Body className='row'>
                             <div className='my-auto'>
                                 <Card.Text className='text-secondary'><b>Add New Docter</b></Card.Text>
-                                <NavLink to="/addDoctors">
+                                <NavLink to="/addDoctor2">
                                     <Card.Text className='adddoctor-icon'><i class="fas fa-plus-circle"></i></Card.Text>
                                 </NavLink>
                             </div>

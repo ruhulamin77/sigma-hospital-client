@@ -1,9 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Community from "./components/Community/Community";
 import AdminHomeMain from "./components/Dashboard/AdminDashboard/AdminHome/AdminHomeMain/AdminHomeMain";
-import SecondSection from "./components/Dashboard/AdminDashboard/AdminHome/SecondSection/SecondSection";
 import DashboardMain from "./components/Dashboard/DashboardMain/DashboardMain";
-import AddDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AddDoctors/AddDoctors";
 import AllDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AllDoctors/AllDoctors";
 import DoctorProfile from "./components/Dashboard/DoctorsDashboard/DoctorProfile/DoctorProfile";
 import Appointment from "./components/Home/Appointment/Appointment";
@@ -62,7 +60,7 @@ function App() {
           {/* optional */}
           <Route path="/allDoctors" element={<AllDoctors />} />
           <Route path="/allDoctors/:id" element={<DoctorProfile />} />
-          <Route path="/addDoctors" element={<AddDoctors />} />
+          <Route path="/addDoctor2" element={<AddDoctor2 />} />
 
           {/* dashboard */}
           <Route path="/dashboard" element={<DashboardMain />}>
@@ -76,8 +74,6 @@ function App() {
               element={<AllDoctors />}
             ></Route>
           </Route>
-          {/* dashboard */}
-          <Route path="/addDoctor2" element={<AddDoctor2 />} />
         </Routes>
         <Footer />
       </Router>
