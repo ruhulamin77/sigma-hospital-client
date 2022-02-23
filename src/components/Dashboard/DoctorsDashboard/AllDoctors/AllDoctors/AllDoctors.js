@@ -10,7 +10,7 @@ const AllDoctors = () => {
     return (
         <div style={{ backgroundColor: "#F4F7F6" }}>
             <Container>
-                <Row xs={1} md={4} className="g-4">
+                <Row xs={1} sm={2} md={2} lg={4} className="g-4">
                     {doctorsCollection?.data?.map((doc) => (
                         <SingleCardDoctor
                             key={doc._id}
