@@ -66,7 +66,7 @@ const AddDoctor2 = () => {
                                         <Form.Group className="mb-3">
                                             <Form.Control
                                                 className='text-secondary'
-                                                placeholder="Date of Birth. Ex -"
+                                                placeholder="Date of Birth."
                                                 name="birthday"
                                                 type="date"
                                                 onChange={handleAddDoctor}
@@ -106,7 +106,7 @@ const AddDoctor2 = () => {
                                     <Form.Control
                                         className='text-secondary'
                                         placeholder="Linkedin URL"
-                                        name="website"
+                                        name="linkedin"
                                         type="url"
                                         onChange={handleAddDoctor}
                                         required
@@ -128,8 +128,8 @@ const AddDoctor2 = () => {
                                             <Form.Control
                                                 className='text-secondary'
                                                 placeholder="Education - 1"
-                                                name="website"
-                                                type="url"
+                                                name="eduLine1"
+                                                type="text"
                                                 onChange={handleAddDoctor}
                                                 required
                                             />
@@ -140,8 +140,8 @@ const AddDoctor2 = () => {
                                             <Form.Control
                                                 className='text-secondary'
                                                 placeholder="Education - 2"
-                                                name="website"
-                                                type="url"
+                                                name="eduLine2"
+                                                type="text"
                                                 onChange={handleAddDoctor}
                                                 required
                                             />
@@ -152,8 +152,8 @@ const AddDoctor2 = () => {
                                             <Form.Control
                                                 className='text-secondary'
                                                 placeholder="Education - 3"
-                                                name="website"
-                                                type="url"
+                                                name="eduLine3"
+                                                type="text"
                                                 onChange={handleAddDoctor}
                                                 required
                                             />
@@ -210,7 +210,7 @@ const AddDoctor2 = () => {
                                         <Form.Control
                                             className='text-secondary'
                                             placeholder="Twitter URL"
-                                            name="website"
+                                            name="twitter"
                                             type="url"
                                             onChange={handleAddDoctor}
                                         />
@@ -219,7 +219,7 @@ const AddDoctor2 = () => {
                                         <Form.Control
                                             className='text-secondary'
                                             placeholder="Facebook URL"
-                                            name="website"
+                                            name="facebook"
                                             type="url"
                                             onChange={handleAddDoctor}
                                         />
@@ -240,8 +240,8 @@ const AddDoctor2 = () => {
                                             <Form.Control
                                                 className='text-secondary'
                                                 placeholder="Honors and Awards - 1"
-                                                name="website"
-                                                type="url"
+                                                name="awardFirst"
+                                                type="text"
                                                 onChange={handleAddDoctor}
                                                 required
                                             />
@@ -252,8 +252,8 @@ const AddDoctor2 = () => {
                                             <Form.Control
                                                 className='text-secondary'
                                                 placeholder="Honors and Awards - 2"
-                                                name="website"
-                                                type="url"
+                                                name="awardSecond"
+                                                type="text"
                                                 onChange={handleAddDoctor}
                                                 required
                                             />
@@ -264,8 +264,8 @@ const AddDoctor2 = () => {
                                             <Form.Control
                                                 className='text-secondary'
                                                 placeholder="Honors and Awards - 3"
-                                                name="website"
-                                                type="url"
+                                                name="awardThird"
+                                                type="text"
                                                 onChange={handleAddDoctor}
                                                 required
                                             />
