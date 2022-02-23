@@ -71,6 +71,10 @@ function App() {
               path="/dashboard/appointment"
               element={<Appointment />}
             ></Route>
+            <Route
+              path="/dashboard/alldoctors"
+              element={<AllDoctors />}
+            ></Route>
           </Route>
           {/* dashboard */}
           {/* <Route path="/addDoctors" element={<AddDoctors />} /> */}
