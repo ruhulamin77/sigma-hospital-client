@@ -7,7 +7,7 @@ import {
   Offcanvas,
 } from "react-bootstrap";
 import { GiSettingsKnobs } from "react-icons/gi";
-import { RiSearchLine, RiWechatLine } from "react-icons/ri";
+import { RiLogoutCircleLine, RiSearchLine, RiWechatLine } from "react-icons/ri";
 import { ImStack } from "react-icons/im";
 import {
   AiOutlineMail,
@@ -16,7 +16,16 @@ import {
 } from "react-icons/ai";
 import { GrHome, GrLocation } from "react-icons/gr";
 import { MdKeyboardArrowLeft, MdOutlinePayment } from "react-icons/md";
-import { HiOutlineLockClosed, HiOutlinePuzzle } from "react-icons/hi";
+import {
+  HiMailOpen,
+  HiOutlineLockClosed,
+  HiOutlinePuzzle,
+} from "react-icons/hi";
+import { IoMdNotificationsOutline } from "react-icons/io";
+import { BiLogIn } from "react-icons/bi";
+import { FaRegCalendarAlt, FaUser } from "react-icons/fa";
+import { BsListTask } from "react-icons/bs";
+import { IoSettingsSharp } from "react-icons/io5";
 
 import "./DashboardMain.css";
 import logo from "../../../images/logo/logo.png";
@@ -29,11 +38,6 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import { IoMdNotificationsOutline } from "react-icons/io";
-import { BiLogIn } from "react-icons/bi";
-
-import { FaRegCalendarAlt } from "react-icons/fa";
-import { BsListTask } from "react-icons/bs";
 
 const DashboardMain = () => {
   const [show, setShow] = useState(false);
@@ -41,6 +45,20 @@ const DashboardMain = () => {
   const handleShow = () => setShow(true);
   return (
     <div>
+      {/* <Button variant="primary" onClick={handleShow}>
+        Launch
+      </Button>
+
+      <Offcanvas show={show} onHide={handleClose}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          Some text as placeholder. In real life you can have the elements you
+          have chosen. Like, text, images, lists, etc.
+        </Offcanvas.Body>
+      </Offcanvas> */}
+
       <div className="dashboardHeader container-fluid">
         <div className="logo_area">
           <img src={logo} alt="" />
@@ -83,21 +101,37 @@ const DashboardMain = () => {
             <div>
               <span>Welcome, </span>
               <p>
-                <NavDropdown title="Dr. Arifuzzaman" id="basic-nav-dropdown">
+                <NavDropdown
+                  title="Dr. Arifuzzaman"
+                  id="basic-nav-dropdown"
+                  className="basic_nav_dropdown_custom"
+                >
                   <NavDropdown.Item
                     href="#action/3.1"
                     className="dash_drop_item"
                   >
-                    My Profile
+                    <FaUser />
+                    <span>My Profile</span>
                   </NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.2">
-                    Messages
+                  <NavDropdown.Item
+                    href="#action/3.2"
+                    className="dash_drop_item"
+                  >
+                    <HiMailOpen />
+                    <span>Messages</span>
                   </NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.3">
-                    Settings
+                  <NavDropdown.Item
+                    href="#action/3.3"
+                    className="dash_drop_item"
+                  >
+                    <IoSettingsSharp />
+                    <span>Settings</span>
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action/3.4">Logout</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="" className="dash_drop_item">
+                    <RiLogoutCircleLine />
+                    <span>Logout</span>
+                  </NavDropdown.Item>
                 </NavDropdown>
               </p>
             </div>
@@ -141,7 +175,7 @@ const DashboardMain = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/">
+              <Link to="/dashboard">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <BsListTask />
@@ -151,7 +185,7 @@ const DashboardMain = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/">
+              <Link to="/dashboard">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <AiOutlineMail />
@@ -161,7 +195,7 @@ const DashboardMain = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/">
+              <Link to="/dashboard">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <RiWechatLine />
@@ -172,7 +206,7 @@ const DashboardMain = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/">
+              <Link to="/dashboard">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <AiOutlineUser />
@@ -183,7 +217,7 @@ const DashboardMain = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/">
+              <Link to="/dashboard">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <AiOutlineUsergroupDelete />
@@ -194,7 +228,7 @@ const DashboardMain = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/">
+              <Link to="/dashboard">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <MdOutlinePayment />
@@ -205,7 +239,7 @@ const DashboardMain = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/">
+              <Link to="/dashboard">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <ImStack />
@@ -216,7 +250,7 @@ const DashboardMain = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/">
+              <Link to="/dashboard">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <GrLocation />
@@ -227,7 +261,7 @@ const DashboardMain = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/">
+              <Link to="/dashboard">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <HiOutlineLockClosed />
@@ -238,7 +272,7 @@ const DashboardMain = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/">
+              <Link to="/dashboard">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <HiOutlinePuzzle />
