@@ -77,7 +77,6 @@ function App() {
             ></Route>
           </Route>
           {/* dashboard */}
-          {/* <Route path="/addDoctors" element={<AddDoctors />} /> */}
           <Route path="/addDoctor2" element={<AddDoctor2 />} />
         </Routes>
         <Footer />
