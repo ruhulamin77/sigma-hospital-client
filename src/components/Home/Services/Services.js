@@ -24,7 +24,7 @@ const Services = () => {
                                 <p className='text-secondary lh-2 mt-3'>It is a long established fact that a reader will be distracted by the <br /> readable content of a page when looking at its layout.</p>
                                 <NavLink to="/service">
                                     <button className="services-btn mt-5 mb-3">
-                                       <span>Services</span><i className="fas fa-plus btn-icon"></i>
+                                        <span>Services</span><i className="fas fa-plus btn-icon"></i>
                                     </button>
                                 </NavLink>
                             </Card.Body>
