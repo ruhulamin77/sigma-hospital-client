@@ -54,7 +54,7 @@ const DoctorsSlider = () => {
                         doctorInfo?.data?.map(doctor =>
                             <div key={doctor._id}>
                                 <div className="card doctor-card">
-                                    <img src={doctor?.photo} className="card-img" alt="..." />
+                                    <img src={`data:image/jpg;base64,${doctor?.photo}`} className="card-img" alt="..." />
                                     <div className="row card-img-overlay">
                                         <div className='icon-setup'>
                                             <a href={doctor?.social?.facebook} target="_blank" rel="noreferrer"><i className="fab fa-facebook-square"></i></a>
