@@ -8,9 +8,6 @@ import AllDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AllDo
 import DoctorProfile from "./components/Dashboard/DoctorsDashboard/DoctorProfile/DoctorProfile";
 import Appointment from "./components/Home/Appointment/Appointment";
 import AddDoctor2 from "./components/Dashboard/DoctorsDashboard/AllDoctors/AddDoctors/AddDoctor2";
-import AddDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AddDoctors/AddDoctors";
-import AllDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AllDoctors/AllDoctors";
-import DoctorProfile from "./components/Dashboard/DoctorsDashboard/DoctorProfile/DoctorProfile";
 import PharmacyHome from "./components/Dashboard/Pharmacy/PharmacyHome/PharmacyHome";
 import Footer from "./components/Home/Footer/Footer";
 import Home from "./components/Home/Home/Home";
@@ -60,10 +57,7 @@ function App() {
             path="/specialization/psychiatrists"
             element={<Psychiatrists />}
           />
-          <Route
-            path="/Pharmacy"
-            element={<PharmacyHome />}
-          />
+          <Route path="/Pharmacy" element={<PharmacyHome />} />
 
           {/* optional */}
           <Route path="/allDoctors" element={<AllDoctors />} />

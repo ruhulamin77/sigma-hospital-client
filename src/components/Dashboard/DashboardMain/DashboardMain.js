@@ -149,7 +149,7 @@ const DashboardMain = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/ent-specialist">
+              <Link to="/dashboard/">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <BsListTask />
@@ -159,7 +159,7 @@ const DashboardMain = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/cardiologist">
+              <Link to="/dashboard/">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <AiOutlineMail />
@@ -169,7 +169,7 @@ const DashboardMain = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/audiologist">
+              <Link to="/dashboard/">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <RiWechatLine />
@@ -180,7 +180,7 @@ const DashboardMain = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/psychiatrists">
+              <Link to="/dashboard/">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <AiOutlineUser />
@@ -191,7 +191,7 @@ const DashboardMain = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/psychiatrists">
+              <Link to="/dashboard/">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <AiOutlineUsergroupDelete />
@@ -202,7 +202,7 @@ const DashboardMain = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/psychiatrists">
+              <Link to="/dashboard/">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <MdOutlinePayment />
@@ -213,7 +213,7 @@ const DashboardMain = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/psychiatrists">
+              <Link to="/dashboard/">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <ImStack />
@@ -224,7 +224,7 @@ const DashboardMain = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/psychiatrists">
+              <Link to="/dashboard/">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <GrLocation />
@@ -235,7 +235,7 @@ const DashboardMain = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/psychiatrists">
+              <Link to="/dashboard/">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <HiOutlineLockClosed />
@@ -246,7 +246,7 @@ const DashboardMain = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/psychiatrists">
+              <Link to="/dashboard/">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <HiOutlinePuzzle />
