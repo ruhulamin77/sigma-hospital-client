@@ -1,17 +1,33 @@
 import React, { useState } from "react";
-import { Button, Form, Offcanvas } from "react-bootstrap";
+import { Button, Form, NavDropdown, Offcanvas } from "react-bootstrap";
 import { GiSettingsKnobs } from "react-icons/gi";
 import { RiSearchLine, RiWechatLine } from "react-icons/ri";
-import { VscCalendar } from "react-icons/vsc";
-import { AiOutlineMail } from "react-icons/ai";
-import { GrHome } from "react-icons/gr";
+import { ImStack } from "react-icons/im";
+import {
+  AiOutlineMail,
+  AiOutlineUser,
+  AiOutlineUsergroupDelete,
+} from "react-icons/ai";
+import { GrHome, GrLocation } from "react-icons/gr";
+import { MdKeyboardArrowLeft, MdOutlinePayment } from "react-icons/md";
+import { HiOutlineLockClosed, HiOutlinePuzzle } from "react-icons/hi";
+
 import "./DashboardMain.css";
 import logo from "../../../images/logo/logo.png";
-import { Link } from "react-router-dom";
+import user from "../../../images/user.png";
+
+import {
+  BrowserRouter as Router,
+  Link,
+  Outlet,
+  Route,
+  Routes,
+} from "react-router-dom";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { BiLogIn } from "react-icons/bi";
-import SecondSection from "../AdminDashboard/AdminHome/SecondSection/SecondSection";
-import Footer from "../../Home/Footer/Footer";
+
+import { FaRegCalendarAlt } from "react-icons/fa";
+import { BsListTask } from "react-icons/bs";
 
 const DashboardMain = () => {
   const [show, setShow] = useState(false);
@@ -45,7 +61,7 @@ const DashboardMain = () => {
           <div className="right_icon_area">
             <ul>
               <li>
-                <VscCalendar />
+                <FaRegCalendarAlt />
               </li>
               <li data-noti>
                 <RiWechatLine />
@@ -70,103 +86,180 @@ const DashboardMain = () => {
       {/* left side bar */}
       <div className="dashboard_main">
         <div className="dashboard_left_side_bar">
-          <h2>side bar</h2>
-          <ul>
-            <li>
-              <Link to="/dashboard/oncologist">
-                <apan className="btn-left">
-                  <GrHome /> <span>Dashboard</span>
-                </apan>
-                <GrHome />
+          <div className="dasboard_user">
+            <img src={user} alt="doctor or user" />
+            <div>
+              <span>Welcome, </span>
+              <p>
+                <NavDropdown title="Dr. Arifuzzaman" id="basic-nav-dropdown">
+                  <NavDropdown.Item
+                    href="#action/3.1"
+                    className="dash_drop_item"
+                  >
+                    My Profile
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.2">
+                    Messages
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.3">
+                    Settings
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="#action/3.4">Logout</NavDropdown.Item>
+                </NavDropdown>
+              </p>
+            </div>
+          </div>
+          <hr />
+          <div className="dasboard_leftbar_counter">
+            <div>
+              <p>Exp</p>
+              <span className="dasboard_leftbar_count">18</span>
+            </div>
+            <div>
+              <p>Awards</p>
+              <span className="dasboard_leftbar_count">13</span>
+            </div>
+            <div>
+              <p>Clients</p>
+              <span className="dasboard_leftbar_count">213</span>
+            </div>
+          </div>
+
+          <ul className="dashboard_left_nav">
+            <li className="dashboard_nav_item">
+              <Link to="/dashboard">
+                <span className="dashboard_nav_icon">
+                  <span className="nav_icon">
+                    <GrHome />
+                  </span>
+                  <span>Dashboard</span>
+                </span>
               </Link>
             </li>
             <li>
-              <Link to="/specialization/neurologist">
-                <span>Appointment</span>
-                <span className="fas fa-plus"></span>
+              <Link to="/dashboard/appointment">
+                <span className="dashboard_nav_icon">
+                  <span className="nav_icon">
+                    <FaRegCalendarAlt />
+                  </span>
+                  <span>Appointment</span>
+                </span>
+                <MdKeyboardArrowLeft />
               </Link>
             </li>
             <li>
-              <Link to="/specialization/ent-specialist">
-                <span>Taskboard</span>
-                <span className="fas fa-plus"></span>
+              <Link to="/dashboard/ent-specialist">
+                <span className="dashboard_nav_icon">
+                  <span className="nav_icon">
+                    <BsListTask />
+                  </span>
+                  <span>Taskboard</span>
+                </span>
               </Link>
             </li>
             <li>
-              <Link to="/specialization/cardiologist">
-                <span>Inbox App</span>
-                <span className="fas fa-plus"></span>
+              <Link to="/dashboard/cardiologist">
+                <span className="dashboard_nav_icon">
+                  <span className="nav_icon">
+                    <AiOutlineMail />
+                  </span>
+                  <span>Inbox App</span>
+                </span>
               </Link>
             </li>
             <li>
-              <Link to="/specialization/audiologist">
-                <span>Chat App</span>
-                <span className="fas fa-plus"></span>
+              <Link to="/dashboard/audiologist">
+                <span className="dashboard_nav_icon">
+                  <span className="nav_icon">
+                    <RiWechatLine />
+                  </span>
+
+                  <span>Chat App</span>
+                </span>
               </Link>
             </li>
             <li>
-              <Link to="/specialization/psychiatrists">
-                <span>Doctors</span>
-                <span className="fas fa-plus"></span>
+              <Link to="/dashboard/psychiatrists">
+                <span className="dashboard_nav_icon">
+                  <span className="nav_icon">
+                    <AiOutlineUser />
+                  </span>
+
+                  <span>Doctors</span>
+                </span>
               </Link>
             </li>
             <li>
-              <Link to="/specialization/psychiatrists">
-                <span>Patients</span>
-                <span className="fas fa-plus"></span>
+              <Link to="/dashboard/psychiatrists">
+                <span className="dashboard_nav_icon">
+                  <span className="nav_icon">
+                    <AiOutlineUsergroupDelete />
+                  </span>
+
+                  <span>Patients</span>
+                </span>
               </Link>
             </li>
             <li>
-              <Link to="/specialization/psychiatrists">
-                <span>Departments</span>
-                <span className="fas fa-plus"></span>
+              <Link to="/dashboard/psychiatrists">
+                <span className="dashboard_nav_icon">
+                  <span className="nav_icon">
+                    <MdOutlinePayment />
+                  </span>
+
+                  <span>Payments</span>
+                </span>
               </Link>
             </li>
             <li>
-              <Link to="/specialization/psychiatrists">
-                <span>Worlwide Centres</span>
-                <span className="fas fa-plus"></span>
+              <Link to="/dashboard/psychiatrists">
+                <span className="dashboard_nav_icon">
+                  <span className="nav_icon">
+                    <ImStack />
+                  </span>
+
+                  <span>Departments</span>
+                </span>
               </Link>
             </li>
             <li>
-              <Link to="/specialization/psychiatrists">
-                <span>Authentications</span>
-                <span className="fas fa-plus"></span>
+              <Link to="/dashboard/psychiatrists">
+                <span className="dashboard_nav_icon">
+                  <span className="nav_icon">
+                    <GrLocation />
+                  </span>
+
+                  <span>Worlwide Centres</span>
+                </span>
               </Link>
             </li>
             <li>
-              <Link to="/specialization/psychiatrists">
-                <span>Widgets</span>
-                <span className="fas fa-plus"></span>
+              <Link to="/dashboard/psychiatrists">
+                <span className="dashboard_nav_icon">
+                  <span className="nav_icon">
+                    <HiOutlineLockClosed />
+                  </span>
+
+                  <span>Authentications</span>
+                </span>
               </Link>
             </li>
             <li>
-              <Link to="/specialization/psychiatrists">
-                <span>Payments</span>
-                <span className="fas fa-plus"></span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/specialization/psychiatrists">
-                <span>Payments</span>
-                <span className="fas fa-plus"></span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/specialization/psychiatrists">
-                <span>Payments</span>
-                <span className="fas fa-plus"></span>
+              <Link to="/dashboard/psychiatrists">
+                <span className="dashboard_nav_icon">
+                  <span className="nav_icon">
+                    <HiOutlinePuzzle />
+                  </span>
+
+                  <span>Widgets</span>
+                </span>
               </Link>
             </li>
           </ul>
         </div>
         <div className="dashboard_content_area">
-          <h2>content bar</h2>
-          <SecondSection />
-          <SecondSection />
-          <SecondSection />
-          <SecondSection />
-          <SecondSection />
+          <Outlet />
         </div>
       </div>
     </div>
