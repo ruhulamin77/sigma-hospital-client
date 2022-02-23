@@ -57,10 +57,7 @@ function App() {
             path="/specialization/psychiatrists"
             element={<Psychiatrists />}
           />
-          <Route
-            path="/Pharmacy"
-            element={<PharmacyHome />}
-          />
+          <Route path="/Pharmacy" element={<PharmacyHome />} />
 
           {/* optional */}
           <Route path="/allDoctors" element={<AllDoctors />} />
