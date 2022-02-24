@@ -271,12 +271,16 @@ const AddDoctors = () => {
                                     </div>
                                 </div>
                             </div>
-
-                            <Button
-                                className='btn btn-primary mx-auto'
-                                type='submit'
-                                style={{ width: "30%" }}
-                            >Submit</Button>
+                            <div className='col-12 col-sm-6 col-md-6 col-lg-6'>
+                                <Button
+                                    className='btn btn-primary mx-auto doctor-update'
+                                    type='submit'
+                                >Submit</Button>
+                                <Button
+                                    className='btn btn-primary mx-auto ms-3 doctor-delete'
+                                    type='reset'
+                                >Reset</Button>
+                            </div>
                         </Form>
                     </Card.Body>
                 </Card>

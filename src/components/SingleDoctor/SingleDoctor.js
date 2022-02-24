@@ -48,6 +48,7 @@ const SingleDoctor = () => {
     const { id } = useParams();
     const [singleDoctor, setSingleDoctor] = useState([]);
     const doctorsInfo = useGetDoctorsQuery();
+    console.log(doctorsInfo.data);
 
     useEffect(() => {
         const foundDoctor = doctorsInfo?.data?.find(doctors => doctors?._id === id);
@@ -68,7 +69,7 @@ const SingleDoctor = () => {
                     <div className='row'>
                         <div className='col-md-4 col-12'>
                             <div className="card doctor-card">
-                                <img src={singleDoctor?.photo} className="card-img" alt="..." />
+                                <img src={`data:image/*;base64,${singleDoctor?.photo}`} className="card-img" alt="..." />
                                 <div className="row card-img-overlay">
                                     <div className='icon-setup'>
                                         <a href="/" target="_blank" rel="noreferrer"><i className="fab fa-facebook-square"></i></a>
@@ -89,23 +90,23 @@ const SingleDoctor = () => {
                                 </div>
                                 <h4 className='time2'>Opening Time</h4>
                                 <div className='table-data2'>
-                                    <Table>
+                                    {/* <Table>
                                         <tbody>
 
                                             <tr>
-                                                <td>{singleDoctor?.day?.day1}</td>
-                                                <td>{singleDoctor?.time?.morning}</td>
+                                                <td>{singleDoctor}</td>
+                                                <td>{singleDoctor}</td>
                                             </tr>
                                             <tr>
-                                                <td>{singleDoctor?.day?.day2}</td>
-                                                <td>{singleDoctor?.time?.afternoon}</td>
+                                                <td>{singleDoctor}</td>
+                                                <td>{singleDoctor}</td>
                                             </tr>
                                             <tr>
-                                                <td>{singleDoctor?.day?.day3}</td>
-                                                <td>{singleDoctor?.time?.night}</td>
+                                                <td>{singleDoctor}</td>
+                                                <td>{singleDoctor}</td>
                                             </tr>
                                         </tbody>
-                                    </Table>
+                                    </Table> */}
                                 </div>
                             </div>
                             <div className='contact2'>
@@ -117,10 +118,10 @@ const SingleDoctor = () => {
                                     <p><b>Address</b> : 1234 North Avenue Luke Lane, South Bend, IN 360001</p>
                                 </div>
                                 <div className='contact-nav'>
-                                    <a href={singleDoctor?.social?.facebook} target="_blank" rel="noreferrer"><i className="fab fa-facebook fa-lg"></i></a>
-                                    <a href={singleDoctor?.social?.twiter} target="_blank" rel="noreferrer"><i className="fab fa-twitter fa-lg"></i></a>
-                                    <a href={singleDoctor?.social?.youtube} target="_blank" rel="noreferrer"><i className="fab fa-youtube fa-lg"></i></a>
-                                    <a href={singleDoctor?.social?.likedin} target="_blank" rel="noreferrer"><i className="fab fa-linkedin fa-lg"></i></a>
+                                    <a href={singleDoctor?.facebook} target="_blank" rel="noreferrer"><i className="fab fa-facebook fa-lg"></i></a>
+                                    <a href={singleDoctor?.twitter} target="_blank" rel="noreferrer"><i className="fab fa-twitter fa-lg"></i></a>
+                                    {/* <a href={singleDoctor?.twitter} target="_blank" rel="noreferrer"><i className="fab fa-youtube fa-lg"></i></a> */}
+                                    <a href={singleDoctor?.linkedin} target="_blank" rel="noreferrer"><i className="fab fa-linkedin fa-lg"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -138,7 +139,7 @@ const SingleDoctor = () => {
                                                 <i className="fas fa-award fa-3x"></i>
                                             </div>
                                             <div className='col-md-10 col-12'>
-                                                {singleDoctor?.honorsandawards?.first}
+                                                {singleDoctor?.awardFirst}
                                             </div>
                                         </div>
                                         <div className='row award-setup'>
@@ -146,19 +147,19 @@ const SingleDoctor = () => {
                                                 <i className="fas fa-award fa-3x"></i>
                                             </div>
                                             <div className='col-md-10 col-12'>
-                                                {singleDoctor?.honorsandawards?.second}
+                                                {singleDoctor?.awardSecond}
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='col-md-6 col-12 Skillset'>
+                                    {/* <div className='col-md-6 col-12 Skillset'>
                                         <h4 className='mb-5'>Skillset</h4>
                                         <p>Technique</p>
-                                        <ProgressBar now={singleDoctor?.skillset?.technique} label={`${singleDoctor?.skillset?.technique}%`} />
+                                        <ProgressBar now={singleDoctor} label={`${singleDoctor}%`} />
                                         <p>Empathy</p>
-                                        <ProgressBar now={singleDoctor?.skillset?.empathy} label={`${singleDoctor?.skillset?.empathy}%`} />
+                                        <ProgressBar now={singleDoctor} label={`${singleDoctor}%`} />
                                         <p>Operation</p>
-                                        <ProgressBar now={singleDoctor?.skillset?.operation} label={`${singleDoctor?.skillset?.operation}%`} />
-                                    </div>
+                                        <ProgressBar now={singleDoctor} label={`${singleDoctor}%`} />
+                                    </div> */}
                                 </div>
                                 <div className='row award-setup'>
                                     <div className='col-md-3'>
@@ -173,11 +174,11 @@ const SingleDoctor = () => {
                                         <h4>Education</h4>
                                     </div>
                                     <div className='col-md-9'>
-                                        <i className="fas fa-check"></i> {singleDoctor?.education?.line1}
+                                        <i className="fas fa-check"></i> {singleDoctor?.eduLine1}
                                         <br /> <br />
-                                        <i className="fas fa-check"></i> {singleDoctor?.education?.line2}
+                                        <i className="fas fa-check"></i> {singleDoctor?.eduLine2}
                                         <br /> <br />
-                                        <i className="fas fa-check"></i> {singleDoctor?.education?.line3}
+                                        <i className="fas fa-check"></i> {singleDoctor?.eduLine3}
                                     </div>
                                 </div>
                                 <div className='row award-setup'>
@@ -185,7 +186,7 @@ const SingleDoctor = () => {
                                         <h4>Experience</h4>
                                     </div>
                                     <div className='col-md-9'>
-                                        <i className="fas fa-file-alt"></i> {singleDoctor?.experience}
+                                        <i className="fas fa-file-alt"></i> {singleDoctor?.experience} Years of experience as a {singleDoctor?.speciality}
                                     </div>
                                 </div>
 
@@ -197,20 +198,20 @@ const SingleDoctor = () => {
                                             doctorsInfo?.data?.map(doctor =>
                                                 <div key={doctor._id}>
                                                     <div className="card doctor-card">
-                                                        <img src={doctor?.photo} className="card-img" alt="..." />
+                                                        <img src={`data:image/*;base64,${doctor?.photo}`} className="card-img" alt="..." />
                                                         <div className="row card-img-overlay">
                                                             <div className='icon-setup'>
-                                                                <a href={doctor?.social?.facebook} target="_blank" rel="noreferrer"><i className="fab fa-facebook-square"></i></a>
+                                                                <a href={doctor?.facebook} target="_blank" rel="noreferrer"><i className="fab fa-facebook-square"></i></a>
                                                                 <br />
-                                                                <a href={doctor.social.twiter} target="_blank" rel="noreferrer"><i className="fab fa-twitter-square"></i></a>
+                                                                <a href={doctor?.twitter} target="_blank" rel="noreferrer"><i className="fab fa-twitter-square"></i></a>
                                                                 <br />
-                                                                <a href={doctor.social.gmail} target="_blank" rel="noreferrer"><i className="fab fa-google"></i></a>
+                                                                <a href={doctor?.email} target="_blank" rel="noreferrer"><i className="fab fa-google"></i></a>
                                                             </div>
                                                             <div className='mt-auto about-doctor'>
                                                                 <h2>
                                                                     <NavLink to={`/singleDoctor/${doctor._id}`} className="text-decoration-none">{doctor?.name}</NavLink>
                                                                 </h2>
-                                                                <h5>{doctor?.title}</h5>
+                                                                {/* <h5>{doctor?.title}</h5> */}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -221,7 +222,7 @@ const SingleDoctor = () => {
                                 <div className='single-doctor-right-footer'>
                                     <h6 style={{ letterSpacing: "3px" }}>DOCTOR MOTO</h6>
                                     <h2>Health and Wellness For Everyone</h2>
-                                    <p>{singleDoctor?.moto}</p>
+                                    {/* <p>{singleDoctor?.moto}</p> */}
                                 </div>
                             </div>
                         </div>
