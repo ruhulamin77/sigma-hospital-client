@@ -13,7 +13,7 @@ const Doctors = () => {
             <h3 style={{ transform: `translateX(${(pageDoctors - 3000) * .7}px)` }}>OUR DOCTORS</h3>
             <div className='doctor-section text-center'>
                 <h5 style={{ letterSpacing: "3px" }}>Doctors</h5>
-                <h1>Our outstanding doctors <br /> <span className='fw-light'> are active to help you!</span></h1>
+                <h1>Our outstanding doctors <br /> <span> are active to help you!</span></h1>
                 <DoctorsSlider />
             </div>
         </div>

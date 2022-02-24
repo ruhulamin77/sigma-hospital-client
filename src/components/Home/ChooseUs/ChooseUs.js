@@ -4,14 +4,14 @@ import "./ChooseUs.css";
 
 const ChooseUs = () => {
   const [pageUs, setPageUs] = useState(0)
-    const handleHight = () => setPageUs(window.pageYOffset);
-    useEffect(() => {
-        window.addEventListener("scroll", handleHight)
-    }, [])
+  const handleHight = () => setPageUs(window.pageYOffset);
+  useEffect(() => {
+    window.addEventListener("scroll", handleHight)
+  }, [])
 
   return (
     <div className="section chooseUs-Fild">
-      <h2 style={{transform: `translateX(${(pageUs - 1000)* .5}px)`}}>WHY CHOOSE US</h2>
+      <h2 style={{ transform: `translateX(${(pageUs - 1000) * .5}px)` }}>WHY CHOOSE US</h2>
       <Container className="why-choose padding-container">
         <div className="outer-why-content row">
           <div className="col-lg-2"></div>
@@ -26,57 +26,75 @@ const ChooseUs = () => {
           </div>
         </div>
 
-        <div className=" row">
+        <div className=" row mt-5">
           <div className="col-lg-2"></div>
-          <div className="peaper col-lg-10 row">
-            <div className="paper-item col-lg-3 col-md-5 col-sm-12">
-              <img
-                src="https://wordpress.iqonic.design/kivicare/wp-content/uploads/2021/01/icon-3-1.png"
-                alt=""
-                className="image-icon"
-              />
+          <div className="peaper col-lg-10">
+            <div className="row gy-5 gx-4">
+              <div className="col-lg-4 col-md-6 col-sm-12">
+                <div className="paper-item">
+                  <div className="paper-hover">
+                  <img
+                    src="https://wordpress.iqonic.design/kivicare/wp-content/uploads/2021/01/icon-3-1.png"
+                    alt=""
+                    className="image-icon"
+                  />
 
-              <h5>Qualified Doctors</h5>
-              <p className="content-pragraph">
-                Contrary to popular belief, Lorem Ipsum is not simply random
-                text. It has roots in a piece of classical Latin.
-              </p>
-              <button className="read-btn">
-                READ MORE <i className="fas fa-plus btn-red"></i>
-              </button>
-            </div>
-            <div className="paper-item col-lg-3 col-md-5 col-sm-12 ">
-              <img
-                src="https://wordpress.iqonic.design/kivicare/wp-content/uploads/2020/10/icon-2-1.png"
-                alt=""
-                className="image-icon"
-              />
+                  <h5>Qualified Doctors</h5>
+                  <p className="content-pragraph">
+                    Contrary to popular belief, Lorem Ipsum is not simply random
+                    text. It has roots in a piece of classical Latin.
+                  </p>
+                  <button className="read-btn">
+                    READ MORE <i className="fas fa-plus btn-red"></i>
+                  </button>
+                  </div>
+                </div>
 
-              <h5>Trusted Treatment</h5>
-              <p className="content-pragraph">
-                Contrary to popular belief, Lorem Ipsum is not simply random
-                text. It has roots in a piece of classical Latin.
-              </p>
-              <button className="read-btn">
-                READ MORE <i className="fas fa-plus btn-red"></i>
-              </button>
-            </div>
-            <div className="paper-item col-lg-3 col-md-5 col-sm-12">
-              <img
-                src="https://wordpress.iqonic.design/kivicare/wp-content/uploads/2020/10/icon-1-1.png"
-                alt=""
-                className="image-icon"
-              />
+              </div>
+              <div className="  col-lg-4 col-md-6 col-sm-12 ">
+                <div className="paper-item">
+                <div className="paper-hover">
+                  <img
+                    src="https://wordpress.iqonic.design/kivicare/wp-content/uploads/2020/10/icon-2-1.png"
+                    alt=""
+                    className="image-icon"
+                  />
 
-              <h5>24/7 Services</h5>
-              <p className="content-pragraph">
-                Contrary to popular belief, Lorem Ipsum is not simply random
-                text. It has roots in a piece of classical Latin.
-              </p>
-              <button className="read-btn">
-                READ MORE <i className="fas fa-plus btn-red"></i>
-              </button>
+                  <h5>Trusted Treatment</h5>
+                  <p className="content-pragraph">
+                    Contrary to popular belief, Lorem Ipsum is not simply random
+                    text. It has roots in a piece of classical Latin.
+                  </p>
+                  <button className="read-btn">
+                    READ MORE <i className="fas fa-plus btn-red"></i>
+                  </button>
+                  </div>
+                  </div>
+              </div>
+              <div className="col-lg-4 col-md-6 col-sm-12">
+                <div className="paper-item">
+                <div className="paper-hover">
+                <img
+                  src="https://wordpress.iqonic.design/kivicare/wp-content/uploads/2020/10/icon-1-1.png"
+                  alt=""
+                  className="image-icon"
+                />
+
+                <h5>24/7 Services</h5>
+                <p className="content-pragraph">
+                  Contrary to popular belief, Lorem Ipsum is not simply random
+                  text. It has roots in a piece of classical Latin.
+                </p>
+                <button className="read-btn">
+                  READ MORE <i className="fas fa-plus btn-red"></i>
+                </button>
+                  </div>
+                  </div>
+                
+              </div>
             </div>
+
+
           </div>
         </div>
       </Container>

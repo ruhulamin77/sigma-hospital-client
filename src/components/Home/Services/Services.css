@@ -12,6 +12,13 @@
 .service-left h6 {
   color: #7093e5;
 }
+.service-left h1 {
+  font-weight: 400;
+  font-size: 45px;
+}
+.service-left h1 span {
+  font-weight: 300;
+}
 
 .service-left a {
   text-decoration: none;
@@ -60,7 +67,7 @@
 }
 
 .service-card {
-  margin: -25rem 9.3rem 0 1rem;
+  margin: -23rem 9.3rem 0 1rem;
 }
 
 .read-more-link {
