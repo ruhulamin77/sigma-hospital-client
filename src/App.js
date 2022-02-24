@@ -5,7 +5,6 @@ import DashboardMain from "./components/Dashboard/DashboardMain/DashboardMain";
 import AllDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AllDoctors/AllDoctors";
 import DoctorProfile from "./components/Dashboard/DoctorsDashboard/DoctorProfile/DoctorProfile";
 import Appointment from "./components/Home/Appointment/Appointment";
-import AddDoctor2 from "./components/Dashboard/DoctorsDashboard/AllDoctors/AddDoctors/AddDoctor2";
 import PharmacyHome from "./components/Dashboard/Pharmacy/PharmacyHome/PharmacyHome";
 import Footer from "./components/Home/Footer/Footer";
 import Home from "./components/Home/Home/Home";
@@ -23,6 +22,7 @@ import Neurologist from "./components/Specialization/Neurologist/Neurologist";
 import neurologist from "./components/Specialization/Neurologist/Neurologist";
 import Oncologist from "./components/Specialization/Oncologist/Oncologist";
 import Psychiatrists from "./components/Specialization/Psychiatrists/Psychiatrists";
+import AddDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AddDoctors/AddDoctors";
 
 function App() {
   return (
@@ -60,7 +60,7 @@ function App() {
           {/* optional */}
           <Route path="/allDoctors" element={<AllDoctors />} />
           <Route path="/allDoctors/:id" element={<DoctorProfile />} />
-          <Route path="/addDoctor2" element={<AddDoctor2 />} />
+          <Route path="/addDoctors" element={<AddDoctors />} />
 
           {/* dashboard */}
           <Route path="/dashboard" element={<DashboardMain />}>

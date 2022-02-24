@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Alert, Button, Card, Container, Form } from 'react-bootstrap';
 import './AddDoctors.css';
 
-const AddDoctor2 = () => {
+const AddDoctors = () => {
     const [doctorData, setDoctorData] = useState({});
     const [image, setImage] = useState(null);
     const [success, setSuccess] = useState(false);
@@ -109,7 +109,6 @@ const AddDoctor2 = () => {
                                         name="linkedin"
                                         type="url"
                                         onChange={handleAddDoctor}
-                                        required
                                     />
                                 </Form.Group>
                                 <Form.Group className="mb-3">
@@ -155,7 +154,6 @@ const AddDoctor2 = () => {
                                                 name="eduLine3"
                                                 type="text"
                                                 onChange={handleAddDoctor}
-                                                required
                                             />
                                         </Form.Group>
                                     </div>
@@ -231,6 +229,7 @@ const AddDoctor2 = () => {
                                             name="address"
                                             type="text"
                                             onChange={handleAddDoctor}
+                                            required
                                         />
                                     </Form.Group>
                                 </div>
@@ -267,7 +266,6 @@ const AddDoctor2 = () => {
                                                 name="awardThird"
                                                 type="text"
                                                 onChange={handleAddDoctor}
-                                                required
                                             />
                                         </Form.Group>
                                     </div>
@@ -287,4 +285,4 @@ const AddDoctor2 = () => {
     );
 };
 
-export default AddDoctor2;
+export default AddDoctors;

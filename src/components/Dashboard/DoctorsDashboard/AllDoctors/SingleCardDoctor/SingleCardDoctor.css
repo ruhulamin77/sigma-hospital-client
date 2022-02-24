@@ -12,3 +12,17 @@
     width: 30%;
     margin: 10px auto;
 }
+
+.doctor-update{
+  border: none;
+  background-color: #7093e5;
+  color: white;
+  transition: all 0.5s ease-in;
+}
+
+.doctor-delete{
+  border: none;
+  background-color: #f68685;
+  color: white;
+  transition: all 0.5s ease-in;
+}
