@@ -21,15 +21,9 @@ const DoctorProfile = () => {
                 <div className='row'>
                     <div className='col-12 col-sm-6 col-md-6 col-lg-4'>
                         <Card className="text-center">
-                            <Card.Img className="w-50 mx-auto rounded-circle mt-3" variant="top" src={singleDoctorInfo.photo} />
+                            <Card.Img className="w-50 mx-auto rounded-circle mt-3" variant="top" src={`data:image/*;base64,${singleDoctorInfo?.photo}`} />
                             <Card.Body>
-                                <Card.Title>Card Title</Card.Title>
-                                <Card.Text>
-                                    Some quick example text to build on the card title and make up the bulk of
-                                    the card's content.
-                                </Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
-                                <Button variant="primary">Go somewhere</Button>
+                                <Card.Title>{singleDoctorInfo?.name}</Card.Title>
                             </Card.Body>
                         </Card>
                     </div>
