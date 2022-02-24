@@ -17,9 +17,9 @@ const Team = () => {
             <div style={{ background: `url(${backPic})` }} className="backcrumb-my ">
                 <nav aria-label="breadcrumb">
                     <h3>OUR TEAM</h3>
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><Link to="/">Home</Link></li>
-                        <li class="breadcrumb-item active" aria-current="page">OUR TEAM</li>
+                    <ol className="breadcrumb">
+                        <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+                        <li className="breadcrumb-item active" aria-current="page">OUR TEAM</li>
                     </ol>
                 </nav>
             </div>
@@ -33,29 +33,29 @@ const Team = () => {
                         </div>
                     </Row>
                     <Row xs={1} sm={1} md={2} lg={3}>
-                    {
-                        doctorInfo?.data?.map(doctor =>
-                            <Col key={doctor._id}>
-                                <div className="card my-doctor doctor-card my-3">
-                                    <img src={doctor?.photo} className="card-img" alt="..." />
-                                    <div className="row card-img-overlay">
-                                        <div className='icon-setup'>
-                                            <a href={doctor?.social?.facebook} target="_blank" rel="noreferrer"><i className="fab fa-facebook-square"></i></a>
-                                            <br />
-                                            <a href={doctor?.social?.twiter} target="_blank" rel="noreferrer"><i className="fab fa-twitter-square"></i></a>
-                                            <br />
-                                            <a href={doctor?.social?.gmail} target="_blank" rel="noreferrer"><i className="fab fa-google"></i></a>
-                                        </div>
-                                        <div className='mt-auto about-doctor'>
-                                            <h2>
-                                                <NavLink to={`/singleDoctor/${doctor._id}`} className="text-decoration-none">{doctor?.name}</NavLink>
-                                            </h2>
-                                            <h5>{doctor?.title}</h5>
+                        {
+                            doctorInfo?.data?.map(doctor =>
+                                <Col key={doctor._id}>
+                                    <div className="card my-doctor doctor-card my-3">
+                                        <img src={doctor?.photo} className="card-img" alt="..." />
+                                        <div className="row card-img-overlay">
+                                            <div className='icon-setup'>
+                                                <a href={doctor?.social?.facebook} target="_blank" rel="noreferrer"><i className="fab fa-facebook-square"></i></a>
+                                                <br />
+                                                <a href={doctor?.social?.twiter} target="_blank" rel="noreferrer"><i className="fab fa-twitter-square"></i></a>
+                                                <br />
+                                                <a href={doctor?.social?.gmail} target="_blank" rel="noreferrer"><i className="fab fa-google"></i></a>
+                                            </div>
+                                            <div className='mt-auto about-doctor'>
+                                                <h2>
+                                                    <NavLink to={`/singleDoctor/${doctor._id}`} className="text-decoration-none">{doctor?.name}</NavLink>
+                                                </h2>
+                                                <h5>{doctor?.title}</h5>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </Col>
-                        )}
+                                </Col>
+                            )}
                     </Row>
                 </Container>
             </div>
