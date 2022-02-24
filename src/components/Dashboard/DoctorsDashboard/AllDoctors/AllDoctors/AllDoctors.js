@@ -17,12 +17,12 @@ const AllDoctors = () => {
                             doc={doc}
                         ></SingleCardDoctor>
                     ))}
-                    <Card className='text-center card-control2'>
+                    <Card style={{ width: '10rem' }} className='text-center card-control2'>
                         <Card.Body className='row'>
                             <div className='my-auto'>
                                 <Card.Text className='text-secondary'><b>Add New Docter</b></Card.Text>
                                 <NavLink to="/addDoctors">
-                                    <Card.Text className='adddoctor-icon'><i class="fas fa-plus-circle"></i></Card.Text>
+                                    <Card.Text className='adddoctor-icon'><i className="fas fa-plus-circle"></i></Card.Text>
                                 </NavLink>
                             </div>
                         </Card.Body>
