@@ -8,7 +8,7 @@ import './AllDoctors.css';
 const AllDoctors = () => {
     const doctorsCollection = useGetDoctorsQuery() || {};
     return (
-        <div style={{ backgroundColor: "#F4F7F6" }}>
+        <div style={{ backgroundColor: "#F4F7F6", padding: "20px 0" }}>
             <Container>
                 <Row xs={1} sm={2} md={2} lg={4} className="g-4">
                     {doctorsCollection?.data?.map((doc) => (
