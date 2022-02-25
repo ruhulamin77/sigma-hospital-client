@@ -10,7 +10,7 @@ const SingleCardDoctor = ({ doc }) => {
     const handleDelete = id => {
         const proceed = window.confirm("Are you sure to delete this file?")
         if (proceed) {
-            fetch(`http://localhost:7050/doctors/${id}`, {
+            fetch(`https://shrouded-headland-44423.herokuapp.com/doctors/${id}`, {
                 method: 'DELETE',
                 headers: { 'content-type': 'application/json' },
             })
