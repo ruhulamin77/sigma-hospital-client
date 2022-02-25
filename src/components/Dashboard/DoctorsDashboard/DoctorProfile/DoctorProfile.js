@@ -86,201 +86,199 @@ const DoctorProfile = () => {
 
                         <Card className="mt-5 card-control2">
                             <Card.Body>
-                                <Card className='card-control2'>
-                                    <Card.Body>
-                                        <Card.Text className='mb-3'>Basic Information</Card.Text>
-                                        <Form onSubmit={handleSubmit}>
-                                            <Form.Group className="mb-3">
-                                                <Form.Control
-                                                    className='text-secondary'
-                                                    placeholder="Doctor Title"
-                                                    name="title"
-                                                    type="text"
-                                                    onChange={handleUpdateDoctor}
-                                                    required
-                                                />
-                                            </Form.Group>
-                                            <Form.Group className="mb-3">
-                                                <Form.Control
-                                                    as="textarea"
-                                                    rows={2}
-                                                    className='text-secondary'
-                                                    placeholder="Description"
-                                                    name="description"
-                                                    type="text"
-                                                    onChange={handleUpdateDoctor}
-                                                    required
-                                                />
-                                            </Form.Group>
-                                            <div className='row mb-3'>
-                                                <div className='col-12 col-md-4'>
+                                <Card.Body>
+                                    <Card.Text className='mb-3'>Basic Information</Card.Text>
+                                    <Form onSubmit={handleSubmit}>
+                                        <Form.Group className="mb-3">
+                                            <Form.Control
+                                                className='text-secondary'
+                                                placeholder="Doctor Title"
+                                                name="title"
+                                                type="text"
+                                                onChange={handleUpdateDoctor}
+                                                required
+                                            />
+                                        </Form.Group>
+                                        <Form.Group className="mb-3">
+                                            <Form.Control
+                                                as="textarea"
+                                                rows={2}
+                                                className='text-secondary'
+                                                placeholder="Description"
+                                                name="description"
+                                                type="text"
+                                                onChange={handleUpdateDoctor}
+                                                required
+                                            />
+                                        </Form.Group>
+                                        <div className='row mb-3'>
+                                            <div className='col-12 col-md-4'>
+                                                <Form.Group>
+                                                    <Form.Select
+                                                        className='text-secondary'
+                                                        name="day"
+                                                        onChange={handleUpdateDoctor}
+                                                        required
+                                                        aria-label="Default select example"
+                                                    >
+                                                        <option>Working Day</option>
+                                                        <option value="Monday - Friday">Monday - Friday</option>
+                                                        <option value="Sunday - Thrusday">Sunday - Thrusday</option>
+                                                        <option value="Friday - Monday">Friday - Monday</option>
+                                                    </Form.Select>
+                                                </Form.Group>
+                                            </div>
+                                            <div className='col-12 col-md-4'>
+                                                <Form.Group>
+                                                    <Form.Select
+                                                        className='text-secondary'
+                                                        name="time"
+                                                        onChange={handleUpdateDoctor}
+                                                        required
+                                                        aria-label="Default select example"
+                                                    >
+                                                        <option>Working Time</option>
+                                                        <option value="7.00 am - 3.00 pm">7.00 am - 3.00 pm</option>
+                                                        <option value="3.00 pm - 10.00 pm">3.00 pm - 10.00 pm</option>
+                                                        <option value="10.00 pm - 7.00 pm">10.00 pm - 7.00 pm</option>
+                                                    </Form.Select>
+                                                </Form.Group>
+                                            </div>
+                                            <div className='col-12 col-md-4'>
+                                                <Form.Group>
+                                                    <Form.Select
+                                                        className='text-secondary'
+                                                        name="shift"
+                                                        onChange={handleUpdateDoctor}
+                                                        required
+                                                        aria-label="Default select example"
+                                                    >
+                                                        <option>Shift</option>
+                                                        <option value="Morning">Morning</option>
+                                                        <option value="Evening">Evening</option>
+                                                        <option value="Night">Night</option>
+                                                    </Form.Select>
+                                                </Form.Group>
+                                            </div>
+                                        </div>
+                                        <Card className='p-3 mb-3'>
+                                            <div className='row'>
+                                                <div className='col-12 col-md-6'>
                                                     <Form.Group>
                                                         <Form.Select
                                                             className='text-secondary'
-                                                            name="day"
+                                                            name="skill1"
                                                             onChange={handleUpdateDoctor}
                                                             required
                                                             aria-label="Default select example"
                                                         >
-                                                            <option>Working Day</option>
-                                                            <option value="Monday - Friday">Monday - Friday</option>
-                                                            <option value="Sunday - Thrusday">Sunday - Thrusday</option>
-                                                            <option value="Friday - Monday">Friday - Monday</option>
+                                                            <option>Skill Set</option>
+                                                            <option value="Technique">Technique</option>
+                                                            <option value="Empathy">Empathy</option>
+                                                            <option value="Operation">Operation</option>
                                                         </Form.Select>
                                                     </Form.Group>
                                                 </div>
-                                                <div className='col-12 col-md-4'>
+                                                <div className='col-12 col-md-6'>
                                                     <Form.Group>
-                                                        <Form.Select
+                                                        <Form.Control
                                                             className='text-secondary'
-                                                            name="time"
+                                                            placeholder="Percentage. Ex - 80"
+                                                            name="percent1"
+                                                            type="number"
                                                             onChange={handleUpdateDoctor}
                                                             required
-                                                            aria-label="Default select example"
-                                                        >
-                                                            <option>Working Time</option>
-                                                            <option value="7.00 am - 3.00 pm">7.00 am - 3.00 pm</option>
-                                                            <option value="3.00 pm - 10.00 pm">3.00 pm - 10.00 pm</option>
-                                                            <option value="10.00 pm - 7.00 pm">10.00 pm - 7.00 pm</option>
-                                                        </Form.Select>
-                                                    </Form.Group>
-                                                </div>
-                                                <div className='col-12 col-md-4'>
-                                                    <Form.Group>
-                                                        <Form.Select
-                                                            className='text-secondary'
-                                                            name="shift"
-                                                            onChange={handleUpdateDoctor}
-                                                            required
-                                                            aria-label="Default select example"
-                                                        >
-                                                            <option>Shift</option>
-                                                            <option value="Morning">Morning</option>
-                                                            <option value="Evening">Evening</option>
-                                                            <option value="Night">Night</option>
-                                                        </Form.Select>
+                                                        />
                                                     </Form.Group>
                                                 </div>
                                             </div>
-                                            <Card className='p-3 mb-3'>
-                                                <div className='row'>
-                                                    <div className='col-12 col-md-6'>
-                                                        <Form.Group>
-                                                            <Form.Select
-                                                                className='text-secondary'
-                                                                name="skill1"
-                                                                onChange={handleUpdateDoctor}
-                                                                required
-                                                                aria-label="Default select example"
-                                                            >
-                                                                <option>Skill Set</option>
-                                                                <option value="Technique">Technique</option>
-                                                                <option value="Empathy">Empathy</option>
-                                                                <option value="Operation">Operation</option>
-                                                            </Form.Select>
-                                                        </Form.Group>
-                                                    </div>
-                                                    <div className='col-12 col-md-6'>
-                                                        <Form.Group>
-                                                            <Form.Control
-                                                                className='text-secondary'
-                                                                placeholder="Percentage. Ex - 80"
-                                                                name="percent1"
-                                                                type="number"
-                                                                onChange={handleUpdateDoctor}
-                                                                required
-                                                            />
-                                                        </Form.Group>
-                                                    </div>
+                                        </Card>
+                                        <Card className='p-3 mb-3'>
+                                            <div className='row'>
+                                                <div className='col-12 col-md-6'>
+                                                    <Form.Group>
+                                                        <Form.Select
+                                                            className='text-secondary'
+                                                            name="skill2"
+                                                            onChange={handleUpdateDoctor}
+                                                            required
+                                                            aria-label="Default select example"
+                                                        >
+                                                            <option>Skill Set</option>
+                                                            <option value="Technique">Technique</option>
+                                                            <option value="Empathy">Empathy</option>
+                                                            <option value="Operation">Operation</option>
+                                                        </Form.Select>
+                                                    </Form.Group>
                                                 </div>
-                                            </Card>
-                                            <Card className='p-3 mb-3'>
-                                                <div className='row'>
-                                                    <div className='col-12 col-md-6'>
-                                                        <Form.Group>
-                                                            <Form.Select
-                                                                className='text-secondary'
-                                                                name="skill2"
-                                                                onChange={handleUpdateDoctor}
-                                                                required
-                                                                aria-label="Default select example"
-                                                            >
-                                                                <option>Skill Set</option>
-                                                                <option value="Technique">Technique</option>
-                                                                <option value="Empathy">Empathy</option>
-                                                                <option value="Operation">Operation</option>
-                                                            </Form.Select>
-                                                        </Form.Group>
-                                                    </div>
-                                                    <div className='col-12 col-md-6'>
-                                                        <Form.Group>
-                                                            <Form.Control
-                                                                className='text-secondary'
-                                                                placeholder="Percentage. Ex - 80"
-                                                                name="percent2"
-                                                                type="number"
-                                                                onChange={handleUpdateDoctor}
-                                                                required
-                                                            />
-                                                        </Form.Group>
-                                                    </div>
+                                                <div className='col-12 col-md-6'>
+                                                    <Form.Group>
+                                                        <Form.Control
+                                                            className='text-secondary'
+                                                            placeholder="Percentage. Ex - 80"
+                                                            name="percent2"
+                                                            type="number"
+                                                            onChange={handleUpdateDoctor}
+                                                            required
+                                                        />
+                                                    </Form.Group>
                                                 </div>
-                                            </Card>
-                                            <Card className='p-3 mb-3'>
-                                                <div className='row'>
-                                                    <div className='col-12 col-md-6'>
-                                                        <Form.Group>
-                                                            <Form.Select
-                                                                className='text-secondary'
-                                                                name="skill3"
-                                                                onChange={handleUpdateDoctor}
-                                                                required
-                                                                aria-label="Default select example"
-                                                            >
-                                                                <option>Skill Set</option>
-                                                                <option value="Technique">Technique</option>
-                                                                <option value="Empathy">Empathy</option>
-                                                                <option value="Operation">Operation</option>
-                                                            </Form.Select>
-                                                        </Form.Group>
-                                                    </div>
-                                                    <div className='col-12 col-md-6'>
-                                                        <Form.Group>
-                                                            <Form.Control
-                                                                className='text-secondary'
-                                                                placeholder="Percentage. Ex - 80"
-                                                                name="percent3"
-                                                                type="number"
-                                                                onChange={handleUpdateDoctor}
-                                                                required
-                                                            />
-                                                        </Form.Group>
-                                                    </div>
+                                            </div>
+                                        </Card>
+                                        <Card className='p-3 mb-3'>
+                                            <div className='row'>
+                                                <div className='col-12 col-md-6'>
+                                                    <Form.Group>
+                                                        <Form.Select
+                                                            className='text-secondary'
+                                                            name="skill3"
+                                                            onChange={handleUpdateDoctor}
+                                                            required
+                                                            aria-label="Default select example"
+                                                        >
+                                                            <option>Skill Set</option>
+                                                            <option value="Technique">Technique</option>
+                                                            <option value="Empathy">Empathy</option>
+                                                            <option value="Operation">Operation</option>
+                                                        </Form.Select>
+                                                    </Form.Group>
                                                 </div>
-                                            </Card>
-                                            <Form.Group className="mb-3">
-                                                <Form.Control
-                                                    as="textarea"
-                                                    rows={2}
-                                                    className='text-secondary'
-                                                    placeholder="Doctor Moto"
-                                                    name="moto"
-                                                    type="text"
-                                                    onChange={handleUpdateDoctor}
-                                                    required
-                                                />
-                                            </Form.Group>
-                                            <Button
-                                                className='btn btn-primary doctor-update'
-                                                type='submit'
-                                            >Submit</Button>
-                                            <Button
-                                                className='btn btn-primary ms-3 doctor-delete'
-                                                type='reset'
-                                            >Reset</Button>
-                                        </Form>
-                                    </Card.Body>
-                                </Card>
+                                                <div className='col-12 col-md-6'>
+                                                    <Form.Group>
+                                                        <Form.Control
+                                                            className='text-secondary'
+                                                            placeholder="Percentage. Ex - 80"
+                                                            name="percent3"
+                                                            type="number"
+                                                            onChange={handleUpdateDoctor}
+                                                            required
+                                                        />
+                                                    </Form.Group>
+                                                </div>
+                                            </div>
+                                        </Card>
+                                        <Form.Group className="mb-3">
+                                            <Form.Control
+                                                as="textarea"
+                                                rows={2}
+                                                className='text-secondary'
+                                                placeholder="Doctor Moto"
+                                                name="moto"
+                                                type="text"
+                                                onChange={handleUpdateDoctor}
+                                                required
+                                            />
+                                        </Form.Group>
+                                        <Button
+                                            className='btn btn-primary doctor-update'
+                                            type='submit'
+                                        >Submit</Button>
+                                        <Button
+                                            className='btn btn-primary ms-3 doctor-delete'
+                                            type='reset'
+                                        >Reset</Button>
+                                    </Form>
+                                </Card.Body>
                             </Card.Body>
                         </Card>
 

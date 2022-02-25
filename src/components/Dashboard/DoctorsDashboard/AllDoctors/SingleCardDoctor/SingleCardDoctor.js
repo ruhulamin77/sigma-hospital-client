@@ -17,7 +17,7 @@ const SingleCardDoctor = ({ doc }) => {
                 .then(res => res.json())
                 .then(data => setDeleteItem(data))
         }
-        window.location.reload();
+        // window.location.reload();
     }
 
     return (
@@ -38,7 +38,7 @@ const SingleCardDoctor = ({ doc }) => {
                         </div>
                         <Card.Text>{address}</Card.Text>
                         <div className='d-flex justify-content-evenly align-items-start mt-3'>
-                            <NavLink to={`/allDoctors/${_id}`}>
+                            <NavLink to={`/allDoctors/update/${_id}`}>
                                 <Button className='doctor-update'>Update</Button>
                             </NavLink>
                             <Button onClick={() => handleDelete(_id)} className='doctor-delete'>Delete</Button>

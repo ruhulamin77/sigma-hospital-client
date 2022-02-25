@@ -13,8 +13,8 @@ const Home = () => {
       <AboutSigma />
       <ChooseUs />
       <Services />
-      <Testimonial />
       <Doctors />
+      <Testimonial />
     </div>
   );
 };
