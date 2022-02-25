@@ -60,8 +60,7 @@ function App() {
           <Route path="/Pharmacy" element={<PharmacyHome />} />
 
           {/* optional */}
-          <Route path="/allDoctors" element={<AllDoctors />} />
-          <Route path="/allDoctors/:id" element={<DoctorProfile />} />
+          <Route path="/allDoctors/update/:id" element={<DoctorProfile />} />
           <Route path="/addDoctors" element={<AddDoctors />} />
 
           {/* dashboard */}
@@ -71,6 +70,7 @@ function App() {
               path="/dashboard/appointment"
               element={<Appointment />}
             ></Route>
+            <Route path="/dashboard/allDoctors" element={<AllDoctors />} />
           </Route>
         </Routes>
         <Footer />

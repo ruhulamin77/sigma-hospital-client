@@ -15,8 +15,6 @@ const AddDoctors = () => {
         setDoctorData(newDoctorData);
     }
 
-    console.log(doctorData.length);
-
     const handleSubmit = e => {
         e.preventDefault();
 
@@ -29,7 +27,7 @@ const AddDoctors = () => {
         }
         formData.append('image', image);
 
-        fetch('http://localhost:7050/addDoctor', {
+        fetch('https://shrouded-headland-44423.herokuapp.com/addDoctor', {
             method: 'POST',
             body: formData
         })
@@ -190,7 +188,7 @@ const AddDoctors = () => {
                                                 className='text-secondary'
                                                 name="speciality"
                                                 onChange={handleAddDoctor}
-                                                required
+                                                required={true}
                                                 aria-label="Default select example"
                                             >
                                                 <option>Speciality</option>
