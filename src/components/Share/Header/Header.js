@@ -191,17 +191,17 @@ const Header = () => {
               </NavDropdown>
 
               <Link as NavLink className="custom-nav" to="/login">
-                Admin
+                Login
               </Link>
-              <Link as NavLink className="custom-nav" to="/dashboard">
+              {/* <Link as NavLink className="custom-nav" to="/dashboard">
                 Dashboard
-              </Link>
+              </Link> */}
               <button className="header-btn">
                 Appointment <i className="fas fa-plus header-icon"></i>
               </button>
-              <button className="header-btn btn-hover">
+              <Link to="/dashboard"  className="header-btn text-decoration-none btn-hover">
                 Deshboard <i className="fas fa-plus header-icon"></i>
-              </button>
+              </Link>
               <span className="icon position-relative">
                 <FaShoppingBasket />
                 <ul className="position-absolute  icon-position">
