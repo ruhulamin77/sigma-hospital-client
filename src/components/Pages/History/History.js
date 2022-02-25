@@ -24,7 +24,7 @@ const History = () => {
                         <h3>OUR HISTORY</h3>
                     </div>
                 </Row>
-                <Row  className='align-items-center gy-5'>
+                <Row  className='align-items-center justify-content-center  gy-5'>
                     {
 
                         

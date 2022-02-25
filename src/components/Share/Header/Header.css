@@ -166,9 +166,17 @@ header .navbar ul li .sub-menu li a:hover {
   }
   .custom-menu .custom-nav {
     color: rgb(0, 0, 0) !important;
+    margin-right: auto;
+    width: 100%;
+    padding: 10px !important;
+  }
+
+  #basic-nav-dropdown {
+    margin: 0;
+    padding: 10px !important;
   }
   .custom-menu .custom-nav:hover {
-    color: rgb(0, 0, 0) !important;
+    color: rgb(255, 255, 255) !important;
     background-color: #7093e5;
   }
   .navbar-nav .nav-link {
