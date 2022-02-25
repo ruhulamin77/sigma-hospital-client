@@ -26,9 +26,13 @@
   text-transform: uppercase;
   letter-spacing: 3px;
 }
+.kivi {
+  font-size: 45px;
+  font-weight: 500;
+}
 .kivi span {
   color: #2c3238;
-  font-weight: 300;
+  font-weight: 400;
 }
 .para {
   color: #6c757d;

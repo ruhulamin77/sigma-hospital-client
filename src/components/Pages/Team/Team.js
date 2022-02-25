@@ -37,20 +37,20 @@ const Team = () => {
                             doctorInfo?.data?.map(doctor =>
                                 <Col key={doctor._id}>
                                     <div className="card my-doctor doctor-card my-3">
-                                        <img src={doctor?.photo} className="card-img" alt="..." />
+                                        <img src={`data:image/*;base64,${doctor?.photo}`} className="card-img" alt="..." />
                                         <div className="row card-img-overlay">
                                             <div className='icon-setup'>
-                                                <a href={doctor?.social?.facebook} target="_blank" rel="noreferrer"><i className="fab fa-facebook-square"></i></a>
-                                                <br />
-                                                <a href={doctor?.social?.twiter} target="_blank" rel="noreferrer"><i className="fab fa-twitter-square"></i></a>
-                                                <br />
-                                                <a href={doctor?.social?.gmail} target="_blank" rel="noreferrer"><i className="fab fa-google"></i></a>
+                                            <a href={doctor?.facebook} target="_blank" rel="noreferrer"><i className="fab fa-facebook-square"></i></a>
+                                            <br />
+                                            <a href={doctor?.twitter} target="_blank" rel="noreferrer"><i className="fab fa-twitter-square"></i></a>
+                                            <br />
+                                            <a href={doctor?.email} target="_blank" rel="noreferrer"><i className="fab fa-google"></i></a>
                                             </div>
                                             <div className='mt-auto about-doctor'>
-                                                <h2>
-                                                    <NavLink to={`/singleDoctor/${doctor._id}`} className="text-decoration-none">{doctor?.name}</NavLink>
-                                                </h2>
-                                                <h5>{doctor?.title}</h5>
+                                            <h2>
+                                                <NavLink to={`/team/${doctor?._id}`} className="text-decoration-none">{doctor?.name}</NavLink>
+                                            </h2>
+                                            <h5>{doctor?.title}</h5>
                                             </div>
                                         </div>
                                     </div>
