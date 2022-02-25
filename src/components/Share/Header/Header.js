@@ -38,23 +38,9 @@ const Header = () => {
                 id="basic-nav-dropdown"
               >
                 <Link as NavLink className="dropdown-item dropdownitem" to="/">
-                  Action
+                  Single Doctor
                 </Link>
-                <Link as NavLink className="dropdown-item dropdownitem" to="/">
-                  Action
-                </Link>
-                <Link as NavLink className="dropdown-item dropdownitem" to="/">
-                  Action
-                </Link>
-                <Link as NavLink className="dropdown-item dropdownitem" to="/">
-                  Action
-                </Link>
-                <Link as NavLink className="dropdown-item dropdownitem" to="/">
-                  Action
-                </Link>
-                <Link as NavLink className="dropdown-item dropdownitem" to="/">
-                  Action
-                </Link>
+             
               </NavDropdown>
               <NavDropdown
                 className="custom-dropdown "
@@ -117,23 +103,9 @@ const Header = () => {
                 id="basic-nav-dropdown"
               >
                 <Link as NavLink className="dropdown-item dropdownitem" to="/">
-                  Action
+                  Single Blog
                 </Link>
-                <Link as NavLink className="dropdown-item dropdownitem" to="/">
-                  Action
-                </Link>
-                <Link as NavLink className="dropdown-item dropdownitem" to="/">
-                  Action
-                </Link>
-                <Link as NavLink className="dropdown-item dropdownitem" to="/">
-                  Action
-                </Link>
-                <Link as NavLink className="dropdown-item dropdownitem" to="/">
-                  Action
-                </Link>
-                <Link as NavLink className="dropdown-item dropdownitem" to="/">
-                  Action
-                </Link>
+                
               </NavDropdown>
               <NavDropdown
                 className="custom-dropdown "

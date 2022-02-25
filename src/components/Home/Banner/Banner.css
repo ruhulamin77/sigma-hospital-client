@@ -179,6 +179,7 @@
 @media screen and (max-width: 992px) {
   .banner_container {
     height: 450px;
+    z-index: -1 !important;
   }
   .banner_container::after,
   .banner_container::before {
@@ -192,6 +193,7 @@
   .banner_container {
     height: 370px;
     margin-top: 0px;
+    z-index: -1 !important;
   }
   .banner_left_bottom {
     display: none;
@@ -204,6 +206,7 @@
 @media screen and (max-width: 600px) {
   .banner_container {
     height: 300px;
+    z-index: -1 !important;
   }
   .banner_right .madical_info h5 {
     font-size: 16px;
