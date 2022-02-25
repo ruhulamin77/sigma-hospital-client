@@ -8,6 +8,10 @@
   margin-top: 50px;
   transition: 0.5s;
 }
+.sr-nav {
+  margin: 0 10px;
+  color: #7093e5;
+}
 .service img {
   margin-left: 75px;
   margin-top: -65px;

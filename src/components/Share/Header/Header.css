@@ -16,6 +16,7 @@
   color: rgb(0, 0, 0) !important;
   font-size: 18px !important;
   text-decoration: none;
+  padding: 0 10px;
 }
 .custom-menu .custom-nav:hover {
   color: rgb(255, 0, 0) !important;
@@ -42,6 +43,7 @@
   opacity: 1;
   transition: 0.3s all linear;
   text-decoration: none;
+  padding: 0 10px !important;
 }
 
 .dropdown-menu {
