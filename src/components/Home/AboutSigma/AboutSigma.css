@@ -111,7 +111,8 @@ ul li {
 .our-service,
 .doctors,
 .faq,
-.team {
+.team,
+.servicess {
   position: relative;
 }
 .sigma-about-fild h1,
@@ -119,7 +120,8 @@ ul li {
 .our-service h3,
 .doctors h3,
 .faq h4,
-.team h4 {
+.team h4,
+.servicess h5 {
   position: absolute;
   top: 20px;
   color: #171c2615;
