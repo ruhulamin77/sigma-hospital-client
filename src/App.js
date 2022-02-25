@@ -58,7 +58,7 @@ function App() {
           <Route path="/Pharmacy" element={<PharmacyHome />} />
 
           {/* optional */}
-          <Route path="/allDoctors/:id" element={<DoctorProfile />} />
+          <Route path="/allDoctors/update/:id" element={<DoctorProfile />} />
           <Route path="/addDoctors" element={<AddDoctors />} />
 
           {/* dashboard */}
