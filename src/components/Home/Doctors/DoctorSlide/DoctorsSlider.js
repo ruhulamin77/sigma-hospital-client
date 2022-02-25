@@ -9,6 +9,7 @@ import { useGetDoctorsQuery } from '../../../../features/sigmaApi';
 
 const DoctorsSlider = () => {
     const doctorInfo = useGetDoctorsQuery();
+    console.log(doctorInfo.data);
 
     let settings = {
         dots: false,
@@ -54,18 +55,18 @@ const DoctorsSlider = () => {
                         doctorInfo?.data?.map(doctor =>
                             <div key={doctor._id}>
                                 <div className="card doctor-card">
-                                    <img src={doctor?.photo} className="card-img" alt="..." />
+                                    <img src={`data:image/*;base64,${doctor?.photo}`} className="card-img" alt="..." />
                                     <div className="row card-img-overlay">
                                         <div className='icon-setup'>
-                                            <a href={doctor?.social?.facebook} target="_blank" rel="noreferrer"><i className="fab fa-facebook-square"></i></a>
+                                            <a href={doctor?.facebook} target="_blank" rel="noreferrer"><i className="fab fa-facebook-square"></i></a>
                                             <br />
-                                            <a href={doctor?.social?.twiter} target="_blank" rel="noreferrer"><i className="fab fa-twitter-square"></i></a>
+                                            <a href={doctor?.twitter} target="_blank" rel="noreferrer"><i className="fab fa-twitter-square"></i></a>
                                             <br />
-                                            <a href={doctor?.social?.gmail} target="_blank" rel="noreferrer"><i className="fab fa-google"></i></a>
+                                            <a href={doctor?.email} target="_blank" rel="noreferrer"><i className="fab fa-google"></i></a>
                                         </div>
                                         <div className='mt-auto about-doctor'>
                                             <h2>
-                                                <NavLink to={`/singleDoctor/${doctor._id}`} className="text-decoration-none">{doctor?.name}</NavLink>
+                                                <NavLink to={`/singleDoctor/${doctor?._id}`} className="text-decoration-none">{doctor?.name}</NavLink>
                                             </h2>
                                             <h5>{doctor?.title}</h5>
                                         </div>

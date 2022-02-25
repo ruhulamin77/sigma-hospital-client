@@ -1,9 +1,10 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Community from "./components/Community/Community";
 import AdminHomeMain from "./components/Dashboard/AdminDashboard/AdminHome/AdminHomeMain/AdminHomeMain";
-import AddDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AddDoctors/AddDoctors";
+import DashboardMain from "./components/Dashboard/DashboardMain/DashboardMain";
 import AllDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AllDoctors/AllDoctors";
 import DoctorProfile from "./components/Dashboard/DoctorsDashboard/DoctorProfile/DoctorProfile";
+import Appointment from "./components/Home/Appointment/Appointment";
 import PharmacyHome from "./components/Dashboard/Pharmacy/PharmacyHome/PharmacyHome";
 import Footer from "./components/Home/Footer/Footer";
 import Home from "./components/Home/Home/Home";
@@ -21,6 +22,8 @@ import Neurologist from "./components/Specialization/Neurologist/Neurologist";
 import neurologist from "./components/Specialization/Neurologist/Neurologist";
 import Oncologist from "./components/Specialization/Oncologist/Oncologist";
 import Psychiatrists from "./components/Specialization/Psychiatrists/Psychiatrists";
+import AddDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AddDoctors/AddDoctors";
+import PaymentForm from "./components/Share/PaymentForm/PaymentForm";
 
 function App() {
   return (
@@ -33,6 +36,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/service" element={<Service />} />
           <Route path="/adminhome" element={<AdminHomeMain />} />
+          <Route path="/paymentForm" element={<PaymentForm />} />
           <Route path="/login" element={<Login />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/team" element={<Team />} />
@@ -53,15 +57,21 @@ function App() {
             path="/specialization/psychiatrists"
             element={<Psychiatrists />}
           />
-          <Route
-            path="/Pharmacy"
-            element={<PharmacyHome />}
-          />
+          <Route path="/Pharmacy" element={<PharmacyHome />} />
 
           {/* optional */}
           <Route path="/allDoctors" element={<AllDoctors />} />
           <Route path="/allDoctors/:id" element={<DoctorProfile />} />
           <Route path="/addDoctors" element={<AddDoctors />} />
+
+          {/* dashboard */}
+          <Route path="/dashboard" element={<DashboardMain />}>
+            <Route path="/dashboard" element={<AdminHomeMain />}></Route>
+            <Route
+              path="/dashboard/appointment"
+              element={<Appointment />}
+            ></Route>
+          </Route>
         </Routes>
         <Footer />
       </Router>
