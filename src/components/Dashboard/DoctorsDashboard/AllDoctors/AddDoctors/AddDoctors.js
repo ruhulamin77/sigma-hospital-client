@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Alert, Button, Card, Container, Form } from 'react-bootstrap';
 import './AddDoctors.css';
 
-const AddDoctor2 = () => {
+const AddDoctors = () => {
     const [doctorData, setDoctorData] = useState({});
     const [image, setImage] = useState(null);
     const [success, setSuccess] = useState(false);
@@ -14,8 +14,6 @@ const AddDoctor2 = () => {
         newDoctorData[field] = value;
         setDoctorData(newDoctorData);
     }
-
-    console.log(doctorData.length);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -29,7 +27,7 @@ const AddDoctor2 = () => {
         }
         formData.append('image', image);
 
-        fetch('http://localhost:7050/addDoctor', {
+        fetch('https://shrouded-headland-44423.herokuapp.com/addDoctor', {
             method: 'POST',
             body: formData
         })
@@ -42,12 +40,12 @@ const AddDoctor2 = () => {
     }
 
     return (
-        <div style={{ backgroundColor: "#F4F7F6" }}>
+        <div style={{ backgroundColor: "#F4F7F6", padding: "20px 0" }}>
             <Container>
                 <Card className='card-control2'>
                     <Card.Body>
                         {success && <Alert variant='success'>Doctor Added Successfully!</Alert>}
-                        <Card.Text><b>Basic Information</b></Card.Text>
+                        <Card.Text className='mb-3'><b>Basic Information</b></Card.Text>
                         <Form onSubmit={handleSubmit} className='row'>
 
                             <div className='col-12 col-sm-6 col-md-6 col-lg-6'>
@@ -109,7 +107,6 @@ const AddDoctor2 = () => {
                                         name="linkedin"
                                         type="url"
                                         onChange={handleAddDoctor}
-                                        required
                                     />
                                 </Form.Group>
                                 <Form.Group className="mb-3">
@@ -155,7 +152,6 @@ const AddDoctor2 = () => {
                                                 name="eduLine3"
                                                 type="text"
                                                 onChange={handleAddDoctor}
-                                                required
                                             />
                                         </Form.Group>
                                     </div>
@@ -192,7 +188,7 @@ const AddDoctor2 = () => {
                                                 className='text-secondary'
                                                 name="speciality"
                                                 onChange={handleAddDoctor}
-                                                required
+                                                required={true}
                                                 aria-label="Default select example"
                                             >
                                                 <option>Speciality</option>
@@ -231,6 +227,7 @@ const AddDoctor2 = () => {
                                             name="address"
                                             type="text"
                                             onChange={handleAddDoctor}
+                                            required
                                         />
                                     </Form.Group>
                                 </div>
@@ -267,18 +264,21 @@ const AddDoctor2 = () => {
                                                 name="awardThird"
                                                 type="text"
                                                 onChange={handleAddDoctor}
-                                                required
                                             />
                                         </Form.Group>
                                     </div>
                                 </div>
                             </div>
-
-                            <Button
-                                className='btn btn-primary mx-auto'
-                                type='submit'
-                                style={{ width: "30%" }}
-                            >Submit</Button>
+                            <div className='col-12 col-sm-6 col-md-6 col-lg-6'>
+                                <Button
+                                    className='btn btn-primary mx-auto doctor-update'
+                                    type='submit'
+                                >Submit</Button>
+                                <Button
+                                    className='btn btn-primary mx-auto ms-3 doctor-delete'
+                                    type='reset'
+                                >Reset</Button>
+                            </div>
                         </Form>
                     </Card.Body>
                 </Card>
@@ -287,4 +287,4 @@ const AddDoctor2 = () => {
     );
 };
 
-export default AddDoctor2;
+export default AddDoctors;

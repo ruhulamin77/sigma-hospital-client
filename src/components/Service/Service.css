@@ -8,6 +8,10 @@
   margin-top: 50px;
   transition: 0.5s;
 }
+.sr-nav {
+  margin: 0 10px;
+  color: #7093e5;
+}
 .service img {
   margin-left: 75px;
   margin-top: -65px;
@@ -22,9 +26,13 @@
   text-transform: uppercase;
   letter-spacing: 3px;
 }
+.kivi {
+  font-size: 45px;
+  font-weight: 500;
+}
 .kivi span {
   color: #2c3238;
-  font-weight: 300;
+  font-weight: 400;
 }
 .para {
   color: #6c757d;

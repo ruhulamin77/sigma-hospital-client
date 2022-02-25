@@ -6,21 +6,9 @@
   background-size: cover;
 }
 
-.outer-why-content {
-  /* width: 970px; */
-}
-.why-choose {
-  /* padding-left: 177px; */
-}
-
 .why-content {
-  width: 400px;
-  margin-left: 40px;
+  width: 500px;
   padding-top: 21px;
-}
-.why-content p {
-  font-size: 15px;
-  margin-top: 15px;
 }
 .why-choose-pragraph {
   text-transform: uppercase;
@@ -30,70 +18,46 @@
 }
 .Turst-people {
   margin: 0px;
-  font-size: 35px;
+  font-size: 45px;
   letter-spacing: 3px;
-  font-weight: 400;
+  font-weight: 500;
 }
 .Treatment {
   font-size: 33px;
-  font-weight: 100;
+  font-weight: 400;
 }
 .sigma-text {
-  margin: 0px;
-  font-size: 13px;
+  margin-top: 15px;
+  font-size: 17px;
   color: #00000094;
-  font-family: monospace;
-  margin-bottom: 36px;
+  margin-bottom: 25px;
 }
 
-.peaper {
-  /* margin-left: 80px; */
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 10px;
-  padding-bottom: 76px;
-  justify-content: space-around;
-}
 .paper-item {
-  /* flex-basis: 350px; */
   background-color: white;
   text-align: center;
-  margin-top: 25px;
-  /* margin-left: 20px; */
-  transition: 0.5s;
+  transition: 0.5s all linear;
+  height: 100%;
+  margin-top: 30px;
+}
+.paper-hover {
+  transition: 0.5s all linear;
 }
 .paper-item:hover {
-  margin-top: -10px;
+  transform: translateY(-5px);
+  height: calc(100% - 30px);
+}
+.paper-item:hover .paper-hover {
+  transform: translateY(-25px);
 }
 .paper-item p {
   font-size: 15px;
   margin: 10px 0;
 }
 
-/* .peaper-one {
-  width: 232px;
-  flex-basis: 300px;
-  background-color: white;
-  text-align: center;
-  margin-top: 25px;
-  margin-left: 20px;
-}
-.peaper-two {
-  width: 232px;
-  background-color: white;
-  text-align: center;
-  margin-left: 20px;
-  margin-top: 25px;
-}
-.peaper-three {
-  width: 232px;
-  background-color: white;
-  text-align: center;
-  margin-left: 20px;
-  margin-top: 25px;
-} */
 .image-icon {
-  width: 112px;
+  width: 130px;
+  height: 130px;
   position: relative;
   margin-top: -23px;
 }
@@ -101,9 +65,8 @@
   color: #7093e5;
   border: navajowhite;
   background-color: white;
-  font-size: 11px;
-  letter-spacing: 2px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
+  transition: 0.3s all linear;
 }
 .read-btn:hover {
   color: #f68685;
@@ -111,7 +74,6 @@
 
 .content-pragraph {
   font-size: 12px;
-  font-family: monospace;
   color: #00000094;
 }
 
@@ -124,12 +86,10 @@
     padding-bottom: 76px;
   }
   .outer-why-content {
-    /* max-width: 900px; */
     margin: 0 auto;
   }
   .why-content {
-    width: 350px;
-    /* margin-left: 90px; */
+    width: 500px;
     padding-top: 21px;
   }
   .peaper-one {

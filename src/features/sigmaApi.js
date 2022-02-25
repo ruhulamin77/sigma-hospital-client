@@ -15,4 +15,5 @@ export const sigmaApi = createApi({
 
 export const { useGetDoctorsQuery } = sigmaApi
 
+// http://localhost:7050/
 // https://shrouded-headland-44423.herokuapp.com/

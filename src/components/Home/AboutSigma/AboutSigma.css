@@ -5,16 +5,19 @@
 .about-heding {
   text-transform: uppercase;
   color: #4676e3;
-  font-size: 17px;
-  letter-spacing: 3px;
-  font-weight: 500;
-  line-height: 50px;
+  font-size: 15px;
+  letter-spacing: 3.5px;
+  font-weight: 400;
+  line-height: 40px;
 }
 
 .welcome-msg {
-  font-weight: 500;
   letter-spacing: 1px;
   font-size: 45px;
+  font-weight: 300;
+}
+.bold-welcome {
+  font-weight: 400;
 }
 .content {
   color: #00000094;
@@ -29,7 +32,7 @@
   padding: 30px 20px;
 }
 .opning-time,
-td {
+.opning-time tbody tr td {
   color: aliceblue;
 }
 .time {
@@ -108,7 +111,8 @@ ul li {
 .our-service,
 .doctors,
 .faq,
-.team {
+.team,
+.servicess {
   position: relative;
 }
 .sigma-about-fild h1,
@@ -116,7 +120,8 @@ ul li {
 .our-service h3,
 .doctors h3,
 .faq h4,
-.team h4 {
+.team h4,
+.servicess h5 {
   position: absolute;
   top: 20px;
   color: #171c2615;

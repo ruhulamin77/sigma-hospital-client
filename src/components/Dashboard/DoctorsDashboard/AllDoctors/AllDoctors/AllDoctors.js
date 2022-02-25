@@ -8,7 +8,7 @@ import './AllDoctors.css';
 const AllDoctors = () => {
     const doctorsCollection = useGetDoctorsQuery() || {};
     return (
-        <div style={{ backgroundColor: "#F4F7F6" }}>
+        <div style={{ backgroundColor: "#F4F7F6", padding: "20px 0" }}>
             <Container>
                 <Row xs={1} sm={2} md={2} lg={4} className="g-4">
                     {doctorsCollection?.data?.map((doc) => (
@@ -17,12 +17,12 @@ const AllDoctors = () => {
                             doc={doc}
                         ></SingleCardDoctor>
                     ))}
-                    <Card className='text-center card-control2'>
+                    <Card style={{ width: '10rem', marginLeft: "1rem" }} className='text-center card-control2'>
                         <Card.Body className='row'>
                             <div className='my-auto'>
                                 <Card.Text className='text-secondary'><b>Add New Docter</b></Card.Text>
-                                <NavLink to="/addDoctor2">
-                                    <Card.Text className='adddoctor-icon'><i class="fas fa-plus-circle"></i></Card.Text>
+                                <NavLink to="/addDoctors">
+                                    <Card.Text className='adddoctor-icon'><i className="fas fa-plus-circle"></i></Card.Text>
                                 </NavLink>
                             </div>
                         </Card.Body>
