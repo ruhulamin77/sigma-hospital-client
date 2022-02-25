@@ -40,12 +40,12 @@ const AddDoctors = () => {
     }
 
     return (
-        <div style={{ backgroundColor: "#F4F7F6" }}>
+        <div style={{ backgroundColor: "#F4F7F6", padding: "20px 0" }}>
             <Container>
                 <Card className='card-control2'>
                     <Card.Body>
                         {success && <Alert variant='success'>Doctor Added Successfully!</Alert>}
-                        <Card.Text><b>Basic Information</b></Card.Text>
+                        <Card.Text className='mb-3'><b>Basic Information</b></Card.Text>
                         <Form onSubmit={handleSubmit} className='row'>
 
                             <div className='col-12 col-sm-6 col-md-6 col-lg-6'>
