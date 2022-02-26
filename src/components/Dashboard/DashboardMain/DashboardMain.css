@@ -131,9 +131,9 @@
 /* ::-webkit-scrollbar {
   width: 0px;
 } */
-/* .dashboard_content_area::-webkit-scrollbar {
+.dashboard_content_area::-webkit-scrollbar {
   width: 0px;
-} */
+}
 .dashboard_left_side_bar::-webkit-scrollbar {
   width: 0px;
 }
@@ -162,4 +162,19 @@
 }
 .dashboard_nav_icon .nav_icon {
   font-size: 20px;
+}
+
+.dashboard_sub_menu li a {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-decoration: none;
+  color: #777777;
+  padding: 7px 15px;
+  background-color: #f4f7f6;
+  font-size: 15px;
+  transition: 0.2s;
+}
+.dashboard_sub_menu li a .nav_icon {
+  margin-right: 40px;
 }
