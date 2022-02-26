@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
-import { useForm } from "react-hook-form";
 import './Medicine.css'
 const Medicine = () => {
     const [medicines, setMedicines] = useState([])
@@ -18,22 +17,6 @@ const Medicine = () => {
     return (
         <div className='container mt-5 mb-5'>
             <div>
-                {/* {medicines?.map((medicine, index) => (
-                    <form >
-                        <input type="text" value={medicine?.brand} readOnly />
-                        <input type="text" value={medicine?.name} readOnly />
-                        <input type="text" value={medicine?.pawer[0]} readOnly />
-                        <input type="text" value={medicine?.stock} readOnly />
-                        <input type="text" value={medicine?.salePrice} readOnly />
-                        <input type="text" onChange={handelquantity} />
-                        <input type="text" defaultValue="0" value={medicine?.salePrice * quantity} readOnly />
-                    </form>
-
-
-
-
-                ))} */}
-
                 <Table striped bordered hover size="sm" className=' mt-5'>
                     <thead>
                         <tr>

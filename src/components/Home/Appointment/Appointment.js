@@ -5,6 +5,7 @@ import "./Appointment.css";
 const Appointment = () => {
   const [doctor, setDoctor] = useState([]);
   const [shiftDoctor, setShiftDoctor] = useState([]);
+  console.log(shiftDoctor)
 
   // console.log(shiftDoctor, "hello")
 
@@ -23,13 +24,15 @@ const Appointment = () => {
     reset,
     formState: { errors },
   } = useForm();
+
   const onSubmit = (data) => {
+    console.log(data)
     reset();
   };
 
   const handalonblure = (e) => {
     const seacredoctor = doctor.filter(
-      (doctors) => doctors?.shift.toLowerCase() === e.target.value
+      (doctors) => doctors?.shift === e.target.value
     );
     setShiftDoctor(seacredoctor);
   };
@@ -106,9 +109,9 @@ const Appointment = () => {
             className="service-doctor-shift"
           >
             <option>- Shift -</option>
-            <option value="morning">Morning</option>
-            <option value="evening">Evening</option>
-            <option value="night">Night</option>
+            <option value="Morning">Morning</option>
+            <option value="Evening">Evening</option>
+            <option value="Night">Night</option>
           </select>
           <select
             aria-label="Default select example"
@@ -117,7 +120,7 @@ const Appointment = () => {
           >
             <option>- Doctor -</option>
             {shiftDoctor.map((doctor) => (
-              <option>{doctor.name}</option>
+              <option>{doctor?.name}</option>
             ))}
           </select>
           <input
