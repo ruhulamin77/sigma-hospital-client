@@ -23,6 +23,7 @@ const DoctorProfile = () => {
         newDoctorData[field] = value;
         setDoctorUpdateData(newDoctorData);
     }
+    console.log(doctorUpdateData);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -40,7 +41,7 @@ const DoctorProfile = () => {
     }
 
     return (
-        <div style={{ backgroundColor: "#F4F7F6" }}>
+        <div style={{ backgroundColor: "#F4F7F6", padding: "20px 0" }}>
             <Container>
                 <div className='row'>
                     {success && <Alert variant="success">Update Successfully!</Alert>}
@@ -86,221 +87,427 @@ const DoctorProfile = () => {
 
                         <Card className="mt-5 card-control2">
                             <Card.Body>
-                                <Card.Body>
-                                    <Card.Text className='mb-3'>Basic Information</Card.Text>
-                                    <Form onSubmit={handleSubmit}>
-                                        <Form.Group className="mb-3">
-                                            <Form.Control
-                                                className='text-secondary'
-                                                placeholder="Doctor Title"
-                                                name="title"
-                                                type="text"
-                                                onChange={handleUpdateDoctor}
-                                                required
-                                            />
-                                        </Form.Group>
-                                        <Form.Group className="mb-3">
-                                            <Form.Control
-                                                as="textarea"
-                                                rows={2}
-                                                className='text-secondary'
-                                                placeholder="Description"
-                                                name="description"
-                                                type="text"
-                                                onChange={handleUpdateDoctor}
-                                                required
-                                            />
-                                        </Form.Group>
-                                        <div className='row mb-3'>
-                                            <div className='col-12 col-md-4'>
+                                <Card.Text className='mb-3'>Basic Information</Card.Text>
+                                <Form onSubmit={handleSubmit}>
+
+                                    <div className='row'>
+                                        <div className='col-12 col-sm-6 col-md-6 col-lg-6'>
+                                            <Form.Group className="mb-3">
+                                                <Form.Control
+                                                    className='text-secondary'
+                                                    defaultValue={singleDoctorInfo?.name}
+                                                    placeholder="Full Name"
+                                                    name="name"
+                                                    type="text"
+                                                    onBlur={handleUpdateDoctor}
+                                                    required
+                                                />
+                                            </Form.Group>
+                                            <Form.Group className="mb-3">
+                                                <Form.Control
+                                                    className='text-secondary'
+                                                    defaultValue={singleDoctorInfo?.birthday}
+                                                    placeholder="Birth Date"
+                                                    name="birthday"
+                                                    type="date"
+                                                    onBlur={handleUpdateDoctor}
+                                                    required
+                                                />
+                                            </Form.Group>
+                                            <Form.Group className="mb-3">
+                                                <Form.Select
+                                                    className='text-secondary'
+                                                    name="gender"
+                                                    onBlur={handleUpdateDoctor}
+                                                    required
+                                                    defaultValue={singleDoctorInfo?.gender}
+                                                >
+                                                    <option>Gender</option>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
+                                                    <option value="Other">Other</option>
+                                                </Form.Select>
+                                            </Form.Group>
+
+                                            <Form.Group className="mb-3">
+                                                <Form.Control
+                                                    className='text-secondary'
+                                                    defaultValue={singleDoctorInfo?.email}
+                                                    placeholder="Email Accouont"
+                                                    name="email"
+                                                    type="email"
+                                                    onBlur={handleUpdateDoctor}
+                                                    required
+                                                />
+                                            </Form.Group>
+                                            <Form.Group className="mb-3">
+                                                <Form.Control
+                                                    className='text-secondary'
+                                                    defaultValue={singleDoctorInfo?.linkedin}
+                                                    placeholder="Linkdin Account"
+                                                    name="linkedin"
+                                                    type="url"
+                                                    onBlur={handleUpdateDoctor}
+                                                />
+                                            </Form.Group>
+                                            <Form.Group className="mb-3">
+                                                <Form.Control
+                                                    className='text-secondary'
+                                                    defaultValue={singleDoctorInfo?.eduLine1}
+                                                    placeholder="Name of Certificate-1"
+                                                    name="eduLine1"
+                                                    type="text"
+                                                    onBlur={handleUpdateDoctor}
+                                                    required
+                                                />
+                                            </Form.Group>
+                                            <Form.Group className="mb-3">
+                                                <Form.Control
+                                                    className='text-secondary'
+                                                    defaultValue={singleDoctorInfo?.eduLine2}
+                                                    placeholder="Name of Certificate-2"
+                                                    name="eduLine2"
+                                                    type="text"
+                                                    onBlur={handleUpdateDoctor}
+                                                    required
+                                                />
+                                            </Form.Group>
+                                            <Form.Group className="mb-3">
+                                                <Form.Control
+                                                    className='text-secondary'
+                                                    defaultValue={singleDoctorInfo?.eduLine3}
+                                                    placeholder="Name of Certificate-3"
+                                                    name="eduLine3"
+                                                    type="text"
+                                                    onBlur={handleUpdateDoctor}
+                                                />
+                                            </Form.Group>
+                                        </div>
+
+
+                                        <div className='col-12 col-sm-6 col-md-6 col-lg-6'>
+                                            <Form.Group className="mb-3">
+                                                <Form.Control
+                                                    className='text-secondary'
+                                                    defaultValue={singleDoctorInfo?.experience}
+                                                    placeholder="Experience (year)"
+                                                    name="experience"
+                                                    type="number"
+                                                    onBlur={handleUpdateDoctor}
+                                                    required
+                                                />
+                                            </Form.Group>
+                                            <div className='row'>
+                                                <div className='col-12 col-sm-6 col-md-6 col-lg-6'>
+                                                    <Form.Group className="mb-3">
+                                                        <Form.Control
+                                                            className='text-secondary'
+                                                            defaultValue={singleDoctorInfo?.phone}
+                                                            placeholder="Phone"
+                                                            name="phone"
+                                                            type="number"
+                                                            onBlur={handleUpdateDoctor}
+                                                            required
+                                                        />
+                                                    </Form.Group>
+                                                </div>
+                                                <div className='col-12 col-sm-6 col-md-6 col-lg-6'>
+                                                    <Form.Group className="mb-3">
+                                                        <Form.Select
+                                                            className='text-secondary'
+                                                            name="speciality"
+                                                            onBlur={handleUpdateDoctor}
+                                                            required={true}
+                                                            defaultValue={singleDoctorInfo?.speciality}
+                                                        >
+                                                            <option>Speciality</option>
+                                                            <option value="Gynecologist">Gynecologist</option>
+                                                            <option value="Cardiologist">Cardiologist</option>
+                                                            <option value="Audiologist">Audiologist</option>
+                                                            <option value="Audiologist">Fertility Consultant</option>
+                                                            <option value="Audiologist">Surgeon</option>
+                                                            <option value="Audiologist">Neurologist</option>
+                                                            <option value="Audiologist">Oocyte and Embryo</option>
+                                                        </Form.Select>
+                                                    </Form.Group>
+                                                </div>
+                                                <Form.Group className="mb-3">
+                                                    <Form.Control
+                                                        className='text-secondary'
+                                                        defaultValue={singleDoctorInfo?.twitter}
+                                                        placeholder="Twitter Account"
+                                                        name="twitter"
+                                                        type="url"
+                                                        onBlur={handleUpdateDoctor}
+                                                    />
+                                                </Form.Group>
+                                                <Form.Group className="mb-3">
+                                                    <Form.Control
+                                                        className='text-secondary'
+                                                        defaultValue={singleDoctorInfo?.facebook}
+                                                        placeholder="Facebook Account"
+                                                        name="facebook"
+                                                        type="url"
+                                                        onBlur={handleUpdateDoctor}
+                                                    />
+                                                </Form.Group>
+                                                <Form.Group className="mb-3">
+                                                    <Form.Control
+                                                        className='text-secondary'
+                                                        defaultValue={singleDoctorInfo?.address}
+                                                        placeholder="Present Address"
+                                                        name="address"
+                                                        type="text"
+                                                        onBlur={handleUpdateDoctor}
+                                                        required
+                                                    />
+                                                </Form.Group>
+                                            </div>
+                                            <Form.Group className="mb-3">
+                                                <Form.Control
+                                                    className='text-secondary'
+                                                    defaultValue={singleDoctorInfo?.awardFirst}
+                                                    placeholder="Honors and Awards-1"
+                                                    name="awardFirst"
+                                                    type="text"
+                                                    onBlur={handleUpdateDoctor}
+                                                    required
+                                                />
+                                            </Form.Group>
+                                            <Form.Group className="mb-3">
+                                                <Form.Control
+                                                    className='text-secondary'
+                                                    defaultValue={singleDoctorInfo?.awardSecond}
+                                                    placeholder="Honors and Awards-2"
+                                                    name="awardSecond"
+                                                    type="text"
+                                                    onBlur={handleUpdateDoctor}
+                                                    required
+                                                />
+                                            </Form.Group>
+                                            <Form.Group className="mb-3">
+                                                <Form.Control
+                                                    className='text-secondary'
+                                                    defaultValue={singleDoctorInfo?.awardThird}
+                                                    placeholder="Honors and Awards-3"
+                                                    name="awardThird"
+                                                    type="text"
+                                                    onBlur={handleUpdateDoctor}
+                                                />
+                                            </Form.Group>
+                                        </div>
+                                    </div>
+
+                                    <hr style={{ color: "gray", border: "3px solid gray" }} />
+
+                                    <Form.Group className="mb-3">
+                                        <Form.Control
+                                            className='text-secondary'
+                                            placeholder="Doctor Title"
+                                            name="title"
+                                            type="text"
+                                            onBlur={handleUpdateDoctor}
+                                            required
+                                        />
+                                    </Form.Group>
+                                    <Form.Group className="mb-3">
+                                        <Form.Control
+                                            as="textarea"
+                                            rows={2}
+                                            className='text-secondary'
+                                            placeholder="Description"
+                                            name="description"
+                                            type="text"
+                                            onBlur={handleUpdateDoctor}
+                                            required
+                                        />
+                                    </Form.Group>
+                                    <div className='row mb-3'>
+                                        <div className='col-12 col-md-4'>
+                                            <Form.Group>
+                                                <Form.Select
+                                                    className='text-secondary'
+                                                    name="day"
+                                                    onBlur={handleUpdateDoctor}
+                                                    required
+                                                    aria-label="Default select example"
+                                                >
+                                                    <option>Working Day</option>
+                                                    <option value="Monday - Friday">Monday - Friday</option>
+                                                    <option value="Sunday - Thrusday">Sunday - Thrusday</option>
+                                                    <option value="Friday - Monday">Friday - Monday</option>
+                                                </Form.Select>
+                                            </Form.Group>
+                                        </div>
+                                        <div className='col-12 col-md-4'>
+                                            <Form.Group>
+                                                <Form.Select
+                                                    className='text-secondary'
+                                                    name="time"
+                                                    onBlur={handleUpdateDoctor}
+                                                    required
+                                                    aria-label="Default select example"
+                                                >
+                                                    <option>Working Time</option>
+                                                    <option value="7.00 am - 3.00 pm">7.00 am - 3.00 pm</option>
+                                                    <option value="3.00 pm - 10.00 pm">3.00 pm - 10.00 pm</option>
+                                                    <option value="10.00 pm - 7.00 pm">10.00 pm - 7.00 pm</option>
+                                                </Form.Select>
+                                            </Form.Group>
+                                        </div>
+                                        <div className='col-12 col-md-4'>
+                                            <Form.Group>
+                                                <Form.Select
+                                                    className='text-secondary'
+                                                    name="shift"
+                                                    onBlur={handleUpdateDoctor}
+                                                    required
+                                                    aria-label="Default select example"
+                                                >
+                                                    <option>Shift</option>
+                                                    <option value="Morning">Morning</option>
+                                                    <option value="Evening">Evening</option>
+                                                    <option value="Night">Night</option>
+                                                </Form.Select>
+                                            </Form.Group>
+                                        </div>
+                                    </div>
+                                    <Card className='p-3 mb-3'>
+                                        <div className='row'>
+                                            <div className='col-12 col-md-6'>
                                                 <Form.Group>
                                                     <Form.Select
                                                         className='text-secondary'
-                                                        name="day"
-                                                        onChange={handleUpdateDoctor}
+                                                        name="skill1"
+                                                        onBlur={handleUpdateDoctor}
                                                         required
                                                         aria-label="Default select example"
                                                     >
-                                                        <option>Working Day</option>
-                                                        <option value="Monday - Friday">Monday - Friday</option>
-                                                        <option value="Sunday - Thrusday">Sunday - Thrusday</option>
-                                                        <option value="Friday - Monday">Friday - Monday</option>
+                                                        <option>Skill Set</option>
+                                                        <option value="Technique">Technique</option>
+                                                        <option value="Empathy">Empathy</option>
+                                                        <option value="Operation">Operation</option>
                                                     </Form.Select>
                                                 </Form.Group>
                                             </div>
-                                            <div className='col-12 col-md-4'>
+                                            <div className='col-12 col-md-6'>
                                                 <Form.Group>
-                                                    <Form.Select
+                                                    <Form.Control
                                                         className='text-secondary'
-                                                        name="time"
-                                                        onChange={handleUpdateDoctor}
+                                                        placeholder="Percentage. Ex - 80"
+                                                        name="percent1"
+                                                        type="number"
+                                                        onBlur={handleUpdateDoctor}
                                                         required
-                                                        aria-label="Default select example"
-                                                    >
-                                                        <option>Working Time</option>
-                                                        <option value="7.00 am - 3.00 pm">7.00 am - 3.00 pm</option>
-                                                        <option value="3.00 pm - 10.00 pm">3.00 pm - 10.00 pm</option>
-                                                        <option value="10.00 pm - 7.00 pm">10.00 pm - 7.00 pm</option>
-                                                    </Form.Select>
-                                                </Form.Group>
-                                            </div>
-                                            <div className='col-12 col-md-4'>
-                                                <Form.Group>
-                                                    <Form.Select
-                                                        className='text-secondary'
-                                                        name="shift"
-                                                        onChange={handleUpdateDoctor}
-                                                        required
-                                                        aria-label="Default select example"
-                                                    >
-                                                        <option>Shift</option>
-                                                        <option value="Morning">Morning</option>
-                                                        <option value="Evening">Evening</option>
-                                                        <option value="Night">Night</option>
-                                                    </Form.Select>
+                                                    />
                                                 </Form.Group>
                                             </div>
                                         </div>
-                                        <Card className='p-3 mb-3'>
-                                            <div className='row'>
-                                                <div className='col-12 col-md-6'>
-                                                    <Form.Group>
-                                                        <Form.Select
-                                                            className='text-secondary'
-                                                            name="skill1"
-                                                            onChange={handleUpdateDoctor}
-                                                            required
-                                                            aria-label="Default select example"
-                                                        >
-                                                            <option>Skill Set</option>
-                                                            <option value="Technique">Technique</option>
-                                                            <option value="Empathy">Empathy</option>
-                                                            <option value="Operation">Operation</option>
-                                                        </Form.Select>
-                                                    </Form.Group>
-                                                </div>
-                                                <div className='col-12 col-md-6'>
-                                                    <Form.Group>
-                                                        <Form.Control
-                                                            className='text-secondary'
-                                                            placeholder="Percentage. Ex - 80"
-                                                            name="percent1"
-                                                            type="number"
-                                                            onChange={handleUpdateDoctor}
-                                                            required
-                                                        />
-                                                    </Form.Group>
-                                                </div>
+                                    </Card>
+                                    <Card className='p-3 mb-3'>
+                                        <div className='row'>
+                                            <div className='col-12 col-md-6'>
+                                                <Form.Group>
+                                                    <Form.Select
+                                                        className='text-secondary'
+                                                        name="skill2"
+                                                        onBlur={handleUpdateDoctor}
+                                                        required
+                                                        aria-label="Default select example"
+                                                    >
+                                                        <option>Skill Set</option>
+                                                        <option value="Technique">Technique</option>
+                                                        <option value="Empathy">Empathy</option>
+                                                        <option value="Operation">Operation</option>
+                                                    </Form.Select>
+                                                </Form.Group>
                                             </div>
-                                        </Card>
-                                        <Card className='p-3 mb-3'>
-                                            <div className='row'>
-                                                <div className='col-12 col-md-6'>
-                                                    <Form.Group>
-                                                        <Form.Select
-                                                            className='text-secondary'
-                                                            name="skill2"
-                                                            onChange={handleUpdateDoctor}
-                                                            required
-                                                            aria-label="Default select example"
-                                                        >
-                                                            <option>Skill Set</option>
-                                                            <option value="Technique">Technique</option>
-                                                            <option value="Empathy">Empathy</option>
-                                                            <option value="Operation">Operation</option>
-                                                        </Form.Select>
-                                                    </Form.Group>
-                                                </div>
-                                                <div className='col-12 col-md-6'>
-                                                    <Form.Group>
-                                                        <Form.Control
-                                                            className='text-secondary'
-                                                            placeholder="Percentage. Ex - 80"
-                                                            name="percent2"
-                                                            type="number"
-                                                            onChange={handleUpdateDoctor}
-                                                            required
-                                                        />
-                                                    </Form.Group>
-                                                </div>
+                                            <div className='col-12 col-md-6'>
+                                                <Form.Group>
+                                                    <Form.Control
+                                                        className='text-secondary'
+                                                        placeholder="Percentage. Ex - 80"
+                                                        name="percent2"
+                                                        type="number"
+                                                        onBlur={handleUpdateDoctor}
+                                                        required
+                                                    />
+                                                </Form.Group>
                                             </div>
-                                        </Card>
-                                        <Card className='p-3 mb-3'>
-                                            <div className='row'>
-                                                <div className='col-12 col-md-6'>
-                                                    <Form.Group>
-                                                        <Form.Select
-                                                            className='text-secondary'
-                                                            name="skill3"
-                                                            onChange={handleUpdateDoctor}
-                                                            required
-                                                            aria-label="Default select example"
-                                                        >
-                                                            <option>Skill Set</option>
-                                                            <option value="Technique">Technique</option>
-                                                            <option value="Empathy">Empathy</option>
-                                                            <option value="Operation">Operation</option>
-                                                        </Form.Select>
-                                                    </Form.Group>
-                                                </div>
-                                                <div className='col-12 col-md-6'>
-                                                    <Form.Group>
-                                                        <Form.Control
-                                                            className='text-secondary'
-                                                            placeholder="Percentage. Ex - 80"
-                                                            name="percent3"
-                                                            type="number"
-                                                            onChange={handleUpdateDoctor}
-                                                            required
-                                                        />
-                                                    </Form.Group>
-                                                </div>
+                                        </div>
+                                    </Card>
+                                    <Card className='p-3 mb-3'>
+                                        <div className='row'>
+                                            <div className='col-12 col-md-6'>
+                                                <Form.Group>
+                                                    <Form.Select
+                                                        className='text-secondary'
+                                                        name="skill3"
+                                                        onBlur={handleUpdateDoctor}
+                                                        required
+                                                        aria-label="Default select example"
+                                                    >
+                                                        <option>Skill Set</option>
+                                                        <option value="Technique">Technique</option>
+                                                        <option value="Empathy">Empathy</option>
+                                                        <option value="Operation">Operation</option>
+                                                    </Form.Select>
+                                                </Form.Group>
                                             </div>
-                                        </Card>
-                                        <Form.Group className="mb-3">
-                                            <Form.Control
-                                                as="textarea"
-                                                rows={2}
-                                                className='text-secondary'
-                                                placeholder="Doctor Moto"
-                                                name="moto"
-                                                type="text"
-                                                onChange={handleUpdateDoctor}
-                                                required
-                                            />
-                                        </Form.Group>
-                                        <Button
-                                            className='btn btn-primary doctor-update'
-                                            type='submit'
-                                        >Submit</Button>
-                                        <Button
-                                            className='btn btn-primary ms-3 doctor-delete'
-                                            type='reset'
-                                        >Reset</Button>
-                                    </Form>
-                                </Card.Body>
+                                            <div className='col-12 col-md-6'>
+                                                <Form.Group>
+                                                    <Form.Control
+                                                        className='text-secondary'
+                                                        placeholder="Percentage. Ex - 80"
+                                                        name="percent3"
+                                                        type="number"
+                                                        onBlur={handleUpdateDoctor}
+                                                        required
+                                                    />
+                                                </Form.Group>
+                                            </div>
+                                        </div>
+                                    </Card>
+                                    <Form.Group className="mb-3">
+                                        <Form.Control
+                                            as="textarea"
+                                            rows={2}
+                                            className='text-secondary'
+                                            placeholder="Doctor Moto"
+                                            name="moto"
+                                            type="text"
+                                            onBlur={handleUpdateDoctor}
+                                            required
+                                        />
+                                    </Form.Group>
+                                    <Button
+                                        className='btn btn-primary doctor-update'
+                                        type='submit'
+                                    >Submit</Button>
+                                    <Button
+                                        className='btn btn-primary ms-3 doctor-delete'
+                                        type='reset'
+                                    >Reset</Button>
+                                </Form>
+                                <Alert className='mt-3' variant='warning'>*Please press each input section before pressing submit button*</Alert>
                             </Card.Body>
                         </Card>
 
                         <Card className="mt-5 card-control2">
                             <Card.Body>
-                                <Card className='card-control2'>
-                                    <Card.Body>
-                                        <Card.Text className='mb-3'>Account Information</Card.Text>
-                                        <Form onSubmit={handleSubmit}>
+                                <Card.Text className='mb-3'>Account Information</Card.Text>
+                                <Form onSubmit={handleSubmit}>
 
 
-                                            <Button
-                                                className='btn btn-primary mx-auto doctor-update'
-                                                type='submit'
-                                            >Submit</Button>
-                                            <Button
-                                                className='btn btn-primary mx-auto ms-3 doctor-delete'
-                                                type='reset'
-                                            >Reset</Button>
-                                        </Form>
-                                    </Card.Body>
-                                </Card>
+                                    <Button
+                                        className='btn btn-primary mx-auto doctor-update'
+                                        type='submit'
+                                    >Submit</Button>
+                                    <Button
+                                        className='btn btn-primary mx-auto ms-3 doctor-delete'
+                                        type='reset'
+                                    >Reset</Button>
+                                </Form>
                             </Card.Body>
                         </Card>
                     </div>
