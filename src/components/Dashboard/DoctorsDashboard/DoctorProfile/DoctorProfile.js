@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Alert, Button, Card, Container, Form, Nav } from 'react-bootstrap';
-import { NavLink, useParams } from 'react-router-dom';
+import { Alert, Button, Card, Container, Form } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
 import { useGetDoctorsQuery } from '../../../../features/sigmaApi';
 import './DoctorProfile.css';
 
@@ -10,9 +10,10 @@ const DoctorProfile = () => {
     const [singleDoctorInfo, setSingleDoctorInfo] = useState([]);
     const [doctorUpdateData, setDoctorUpdateData] = useState({});
     const [success, setSuccess] = useState(false);
+    const [image, setImage] = useState(null);
 
     useEffect(() => {
-        const doctorData = alldoctorInfo?.data?.find(doctorId => doctorId._id === id)
+        const doctorData = alldoctorInfo?.data?.find(doctorId => doctorId._id === id);
         setSingleDoctorInfo(doctorData);
     }, [alldoctorInfo?.data, id]);
 
@@ -27,10 +28,19 @@ const DoctorProfile = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
+
+        const formData = new FormData();
+        for (const key in doctorUpdateData) {
+            if (Object.hasOwnProperty.call(doctorUpdateData, key)) {
+                const element = doctorUpdateData[key];
+                formData.append(`${key}`, element);
+            }
+        }
+        formData.append('image', image);
+
         fetch(`https://shrouded-headland-44423.herokuapp.com/updateDoctor/${id}`, {
             method: 'PUT',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify(doctorUpdateData)
+            body: formData
         })
             .then(res => res.json())
             .then(data => {
@@ -128,7 +138,16 @@ const DoctorProfile = () => {
                                                     <option value="Other">Other</option>
                                                 </Form.Select>
                                             </Form.Group>
-
+                                            <Form.Group className="mb-3">
+                                                <Form.Control
+                                                    className='text-secondary'
+                                                    accept='image/*'
+                                                    name="photo"
+                                                    type="file"
+                                                    onChange={e => setImage(e.target.files[0])}
+                                                    required
+                                                />
+                                            </Form.Group>
                                             <Form.Group className="mb-3">
                                                 <Form.Control
                                                     className='text-secondary'
@@ -497,8 +516,6 @@ const DoctorProfile = () => {
                             <Card.Body>
                                 <Card.Text className='mb-3'>Account Information</Card.Text>
                                 <Form onSubmit={handleSubmit}>
-
-
                                     <Button
                                         className='btn btn-primary mx-auto doctor-update'
                                         type='submit'
