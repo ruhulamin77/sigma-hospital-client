@@ -17,7 +17,6 @@ const SingleCardDoctor = ({ doc }) => {
                 .then(res => res.json())
                 .then(data => setDeleteItem(data))
         }
-        // window.location.reload();
     }
 
     return (
