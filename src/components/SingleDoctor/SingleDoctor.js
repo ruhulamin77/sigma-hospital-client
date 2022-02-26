@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import './SingleDoctor.css';
 import { useGetDoctorsQuery } from '../../features/sigmaApi';
+import ContactForEveryPage from '../ContactForEveryPage/ContactForEveryPage';
 
 const SingleDoctor = () => {
     let settings = {
@@ -72,11 +73,11 @@ const SingleDoctor = () => {
                                 <img src={`data:image/*;base64,${singleDoctor?.photo}`} className="card-img" alt="..." />
                                 <div className="row card-img-overlay">
                                     <div className='icon-setup'>
-                                        <a href="/" target="_blank" rel="noreferrer"><i className="fab fa-facebook-square"></i></a>
+                                        <a href={singleDoctor?.facebook} target="_blank" rel="noreferrer"><i className="fab fa-facebook-square"></i></a>
                                         <br />
-                                        <a href="/" target="_blank" rel="noreferrer"><i className="fab fa-twitter-square"></i></a>
+                                        <a href={singleDoctor?.twitter} target="_blank" rel="noreferrer"><i className="fab fa-twitter-square"></i></a>
                                         <br />
-                                        <a href="/" target="_blank" rel="noreferrer"><i className="fab fa-google"></i></a>
+                                        <a href={singleDoctor?.linkedin} target="_blank" rel="noreferrer"><i className="fab fa-linkedin"></i></a>
                                     </div>
                                     <div className='mt-auto about-doctor2'>
                                         <h2>{singleDoctor?.name}</h2>
@@ -90,40 +91,17 @@ const SingleDoctor = () => {
                                 </div>
                                 <h4 className='time2'>Opening Time</h4>
                                 <div className='table-data2'>
-                                    {/* <Table>
+                                    <Table>
                                         <tbody>
-
                                             <tr>
-                                                <td>{singleDoctor}</td>
-                                                <td>{singleDoctor}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>{singleDoctor}</td>
-                                                <td>{singleDoctor}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>{singleDoctor}</td>
-                                                <td>{singleDoctor}</td>
+                                                <td>{singleDoctor?.day}</td>
+                                                <td>{singleDoctor?.time}</td>
                                             </tr>
                                         </tbody>
-                                    </Table> */}
+                                    </Table>
                                 </div>
                             </div>
-                            <div className='contact2'>
-                                <img src={logo} alt="Logo" />
-                                <h2>Sigmacare Services</h2>
-                                <div className='info'>
-                                    <p><b>Call</b> : +123456789</p>
-                                    <p><b>Mail</b> : support@example.com</p>
-                                    <p><b>Address</b> : 1234 North Avenue Luke Lane, South Bend, IN 360001</p>
-                                </div>
-                                <div className='contact-nav'>
-                                    <a href={singleDoctor?.facebook} target="_blank" rel="noreferrer"><i className="fab fa-facebook fa-lg"></i></a>
-                                    <a href={singleDoctor?.twitter} target="_blank" rel="noreferrer"><i className="fab fa-twitter fa-lg"></i></a>
-                                    {/* <a href={singleDoctor?.twitter} target="_blank" rel="noreferrer"><i className="fab fa-youtube fa-lg"></i></a> */}
-                                    <a href={singleDoctor?.linkedin} target="_blank" rel="noreferrer"><i className="fab fa-linkedin fa-lg"></i></a>
-                                </div>
-                            </div>
+                            <ContactForEveryPage />
                         </div>
 
                         <div className='col-md-8 col-12'>
@@ -151,15 +129,24 @@ const SingleDoctor = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    {/* <div className='col-md-6 col-12 Skillset'>
+                                    <div className='col-md-6 col-12 Skillset'>
                                         <h4 className='mb-5'>Skillset</h4>
-                                        <p>Technique</p>
-                                        <ProgressBar now={singleDoctor} label={`${singleDoctor}%`} />
-                                        <p>Empathy</p>
-                                        <ProgressBar now={singleDoctor} label={`${singleDoctor}%`} />
-                                        <p>Operation</p>
-                                        <ProgressBar now={singleDoctor} label={`${singleDoctor}%`} />
-                                    </div> */}
+                                        <div className='d-flex justify-content-between align-items-center'>
+                                            <p>Technique</p>
+                                            <p>{`${singleDoctor?.percent1}%`}</p>
+                                        </div>
+                                        <ProgressBar variant='info' now={singleDoctor?.percent1} />
+                                        <div className='d-flex justify-content-between align-items-center'>
+                                            <p>Empathy</p>
+                                            <p>{`${singleDoctor?.percent2}%`}</p>
+                                        </div>
+                                        <ProgressBar variant='info' now={singleDoctor?.percent2} />
+                                        <div className='d-flex justify-content-between align-items-center'>
+                                            <p>Operation</p>
+                                            <p>{`${singleDoctor?.percent3}%`}</p>
+                                        </div>
+                                        <ProgressBar variant='info' now={singleDoctor?.percent3} />
+                                    </div>
                                 </div>
                                 <div className='row award-setup'>
                                     <div className='col-md-3'>
@@ -205,13 +192,13 @@ const SingleDoctor = () => {
                                                                 <br />
                                                                 <a href={doctor?.twitter} target="_blank" rel="noreferrer"><i className="fab fa-twitter-square"></i></a>
                                                                 <br />
-                                                                <a href={doctor?.email} target="_blank" rel="noreferrer"><i className="fab fa-google"></i></a>
+                                                                <a href={doctor?.linkedin} target="_blank" rel="noreferrer"><i className="fab fa-linkedin"></i></a>
                                                             </div>
-                                                            <div className='mt-auto about-doctor'>
-                                                                <h2>
-                                                                    <NavLink to={`/singleDoctor/${doctor._id}`} className="text-decoration-none">{doctor?.name}</NavLink>
-                                                                </h2>
-                                                                {/* <h5>{doctor?.title}</h5> */}
+                                                            <div className='ps-2 mt-auto about-doctor'>
+                                                                <NavLink to={`/singleDoctor/${doctor._id}`} className="text-decoration-none">
+                                                                    <h4>{doctor?.name}</h4>
+                                                                    <h6>{doctor?.title}</h6>
+                                                                </NavLink>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -222,7 +209,7 @@ const SingleDoctor = () => {
                                 <div className='single-doctor-right-footer'>
                                     <h6 style={{ letterSpacing: "3px" }}>DOCTOR MOTO</h6>
                                     <h2>Health and Wellness For Everyone</h2>
-                                    {/* <p>{singleDoctor?.moto}</p> */}
+                                    <p>{singleDoctor?.moto}</p>
                                 </div>
                             </div>
                         </div>

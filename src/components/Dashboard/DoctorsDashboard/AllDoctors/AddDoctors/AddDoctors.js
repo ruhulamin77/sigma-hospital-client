@@ -124,7 +124,7 @@ const AddDoctors = () => {
                                         <Form.Group className="mb-3">
                                             <Form.Control
                                                 className='text-secondary'
-                                                placeholder="Education - 1"
+                                                placeholder="Name of Certificate - 1"
                                                 name="eduLine1"
                                                 type="text"
                                                 onChange={handleAddDoctor}
@@ -136,7 +136,7 @@ const AddDoctors = () => {
                                         <Form.Group className="mb-3">
                                             <Form.Control
                                                 className='text-secondary'
-                                                placeholder="Education - 2"
+                                                placeholder="Name of Certificate - 2"
                                                 name="eduLine2"
                                                 type="text"
                                                 onChange={handleAddDoctor}
@@ -148,7 +148,7 @@ const AddDoctors = () => {
                                         <Form.Group className="mb-3">
                                             <Form.Control
                                                 className='text-secondary'
-                                                placeholder="Education - 3"
+                                                placeholder="Name of Certificate - 3"
                                                 name="eduLine3"
                                                 type="text"
                                                 onChange={handleAddDoctor}
