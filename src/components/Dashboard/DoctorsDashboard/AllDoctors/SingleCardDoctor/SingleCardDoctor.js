@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Button, Card, Col, Nav, Alert } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-import './SingleCardDoctor.css'
+import './SingleCardDoctor.css';
+import Swal from 'sweetalert2';
 
 const SingleCardDoctor = ({ doc }) => {
     const { _id, photo, name, title, address, linkedin, facebook, twitter } = doc;
-    const [deleteItem, setDeleteItem] = useState(false);
 
     const handleDelete = id => {
         const proceed = window.confirm("Are you sure to delete this file?")
@@ -15,13 +15,20 @@ const SingleCardDoctor = ({ doc }) => {
                 headers: { 'content-type': 'application/json' },
             })
                 .then(res => res.json())
-                .then(data => setDeleteItem(data))
+                .then(data => {
+                    if (data.deletedCount) {
+                        Swal.fire(
+                            'Good job!',
+                            'The Doctor has been successfully deleted!',
+                            'success'
+                        )
+                    }
+                })
         }
     }
 
     return (
         <div>
-            {deleteItem && <Alert variant="success">Delete Successfully!</Alert>}
             <Col>
                 <Card className='text-center card-control2'>
                     <Card.Img className='doctor-image' variant="top" src={`data:image/*;base64,${photo}`} />
