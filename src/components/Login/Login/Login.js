@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import "./Login.css";
+import { FaTwitter } from 'react-icons/fa';
 
 const Login = () => {
     const [classAdd, setClassAdd] = useState("")
@@ -38,7 +39,7 @@ const Login = () => {
                         <div className="social-container">
                             <span className="social"><i className="fab fa-facebook-f"></i></span>
                             <span className="social"><i className="fab fa-google-plus-g"></i></span>
-                            <span className="social"><i className="fab fa-linkedin-in"></i></span>
+                            <span className="social">< FaTwitter /></span>
                         </div>
                         <span>or use your email for registration</span>
                         <input {...register("displayName", { required: true})} type="text" placeholder="Name" />
@@ -56,7 +57,7 @@ const Login = () => {
                         <div className="social-container">
                             <span className="social"><i className="fab fa-facebook-f"></i></span>
                             <span className="social"><i className="fab fa-google-plus-g"></i></span>
-                            <span className="social"><i className="fab fa-linkedin-in"></i></span>
+                            <span className="social">< FaTwitter /></span>
                         </div>
                         <span>or use your account</span>
                         <input type="email" placeholder="Email"  {...register2("Email", { required: true, pattern: /^\S+@\S+$/i })} />

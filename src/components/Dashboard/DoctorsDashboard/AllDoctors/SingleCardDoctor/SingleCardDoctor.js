@@ -3,22 +3,22 @@ import { Button, Card, Col, Nav, Alert } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import './SingleCardDoctor.css'
 
-const SingleCardDoctor = ({ doc }) => {
+const SingleCardDoctor = ({ doc, handleDelete }) => {
     const { _id, photo, name, title, address, linkedin, facebook, twitter } = doc;
     const [deleteItem, setDeleteItem] = useState(false);
 
-    const handleDelete = id => {
-        const proceed = window.confirm("Are you sure to delete this file?")
-        if (proceed) {
-            fetch(`https://shrouded-headland-44423.herokuapp.com/doctors/${id}`, {
-                method: 'DELETE',
-                headers: { 'content-type': 'application/json' },
-            })
-                .then(res => res.json())
-                .then(data => setDeleteItem(data))
-        }
-        // window.location.reload();
-    }
+    // const handleDelete = id => {
+    //     const proceed = window.confirm("Are you sure to delete this file?")
+    //     if (proceed) {
+    //         fetch(`https://shrouded-headland-44423.herokuapp.com/doctors/${id}`, {
+    //             method: 'DELETE',
+    //             headers: { 'content-type': 'application/json' },
+    //         })
+    //             .then(res => res.json())
+    //             .then(data => setDeleteItem(data))
+    //     }
+    //     // window.location.reload();
+    // }
 
     return (
         <div>

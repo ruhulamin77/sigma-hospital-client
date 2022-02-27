@@ -25,6 +25,7 @@ import Psychiatrists from "./components/Specialization/Psychiatrists/Psychiatris
 import AddDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AddDoctors/AddDoctors";
 import PaymentForm from "./components/Share/PaymentForm/PaymentForm";
 import History from "./components/Pages/History/History";
+import AdminLoginForm from "./components/Login/AdminLoginForm/AdminLoginForm";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/ad" element={<AdminLoginForm />} />
           <Route path="/about" element={<History />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/singleDoctor/:id" element={<SingleDoctor />} />

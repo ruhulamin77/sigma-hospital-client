@@ -1,137 +1,69 @@
-
-.input-field-name{
-    margin-top: 22px;
-    margin-left: 26px;
-    width: 464px;
-    height: 31px;
-    font-family: 'Font Awesome 5 Brands';
+.input-field-name,
+.service-doctor-shift,
+.description-box {
+  width: 100%;
+  padding: 10px 15px;
+  font-family: "Font Awesome 5 Brands";
+  border: 1px solid #f68685;
 }
 
-
-.service-doctor-shift{
-    font-size: 16px;
-    width: 219px;
-    margin-left: 26px;
-    height: 33px;
-    margin-top: 27px;
-    font-family: 'Font Awesome 5 Brands';
+.input-field-name:focus-visible,
+.service-doctor-shift:focus-visible,
+.description-box:focus-visible {
+  border: 1px solid #0062ff;
+  outline: none;
 }
 
-.description-box{
-    margin-top: 20px;
-    margin-left: 27px;
-    width: 85%;
-    height: 93px;
-    font-family: 'Font Awesome 5 Brands';
+.service-doctor:focus-visible {
+  border: 1px solid #0062ff;
+  outline: none;
+}
+.service-doctor {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #f68685;
 }
 
-.appointment{
-    margin-top: 53px;
-    margin-left: 26px;
-    font-family: math;
-    letter-spacing: 2px;
-    font-weight: 600;
+.appointment {
+  letter-spacing: 2px;
+  font-weight: 600;
 }
 
-.submit-btn{
-    margin-top: 11px;
-    margin-bottom: 28px;
-    margin-left: 26px;
-    padding: 2px 34px;
-    font-family: -webkit-body;
-    font-size: 18px;
-    letter-spacing: 3px;
-    background-color: #e21f1fcc;
-    border: none;
-    border-radius: 5px;
-    color: white;
-
+.pulse:hover,
+.pulse:focus {
+  -webkit-animation: pulse 1s;
+  animation: pulse 1s;
+  box-shadow: 0 0 0 2em rgba(255, 255, 255, 0);
 }
 
-
-@media screen and (max-width: 992px) {
-    .input-field-name{
-        width: 47%;
-        margin-left: 10px;
-        border: 1px solid rgb(27, 24, 24);
-    }
-
-    .service-doctor-shift{     
-        width: 47%; 
-        margin-left: 10px;   
-        border: 1px solid rgb(27, 24, 24);
-    }
-    .description-box{
-        margin-left: 10px;
-        width: 96%;
-        height: 93px;
-        border: 1px solid rgb(27, 24, 24);
-        
-    }
-    .appointment{
-        
-        margin-left: 10px;
-    }
-    .submit-btn{
-        margin-left: 10px;
-    }
-
-    
-        
-
-    
-
-
+@-webkit-keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 #f68685;
+  }
 }
 
-@media screen and (max-width: 768px) {
-    .input-field-name{
-        width: 40%;
-        margin-left: 10px;
-    }
-
-    .description-box{
-        margin-left: 10px;
-        width: 95%;
-        height: 93px;
-        
-    }
-    .appointment{
-        
-        margin-left: 10px;}
-        .submit-btn{
-            margin-left: 10px;
-        }
-
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 #f68685;
+  }
 }
 
-
-@media screen and (max-width: 600px) {
-    .service-doctor-shift{     
-        width: 95%; 
-        margin-left: 10px;   
-    }
-    .input-field-name{
-        width: 95%;
-        margin-left: 10px;
-    }
-
-    .description-box{
-       
-        margin-left: 10px;
-        width: 95%;
-        height: 93px;
-        
-    }
-    .appointment{
-        
-        margin-left: 10px;}
-        .submit-btn{
-            margin-left: 10px;
-           
-
-
-        }
-
-
+button.pulse {
+  color: #022adf;
+  transition: 0.25s;
+}
+button.pulse:hover,
+button.pulse:focus {
+  border-color: #f68685;
+  color: #f68685;
+}
+button.pulse {
+  background: none;
+  border: 2px solid;
+  line-height: 1;
+  font-size: 18px;
+  margin: 30px 12px;
+  padding: 1em 2em;
+  width: 350px;
+  letter-spacing: 3px;
 }

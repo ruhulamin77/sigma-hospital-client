@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, Container, Row } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import { useGetDoctorsQuery } from '../../../../../features/sigmaApi';
@@ -6,15 +6,35 @@ import SingleCardDoctor from '../SingleCardDoctor/SingleCardDoctor';
 import './AllDoctors.css';
 
 const AllDoctors = () => {
+    const [deleteItem, setDeleteItem] = useState(false);
+  
     const doctorsCollection = useGetDoctorsQuery() || {};
+    const [Item, setItem] = useState(doctorsCollection?.data);
+    console.log(Item, "item");
+
+    const handleDelete = id => {
+        const proceed = window.confirm("Are you sure to delete this file?")
+        if (proceed) {
+            fetch(`https://shrouded-headland-44423.herokuapp.com/doctors/${id}`, {
+                method: 'DELETE',
+                headers: { 'content-type': 'application/json' },
+            })
+                .then(res => res.json())
+                .then(data => setDeleteItem(data))
+            console.log(id);
+            const newItem = Item?.filter( items => items?._id !== id)
+            setItem(newItem)
+        }
+    }
     return (
         <div style={{ backgroundColor: "#F4F7F6", padding: "20px 0" }}>
             <Container>
                 <Row xs={1} sm={2} md={2} lg={4} className="g-4">
-                    {doctorsCollection?.data?.map((doc) => (
+                    {Item?.map((doc) => (
                         <SingleCardDoctor
                             key={doc._id}
                             doc={doc}
+                            handleDelete={handleDelete}
                         ></SingleCardDoctor>
                     ))}
                     <Card style={{ width: '10rem', marginLeft: "1rem" }} className='text-center card-control2'>
