@@ -206,7 +206,7 @@ const DashboardMain = () => {
             </li>
             <li>
               <Link
-                // class="btn btn-primary"
+                // className="btn btn-primary"
                 data-bs-toggle="collapse"
                 to="#collapseDoctors"
                 role="button"
@@ -223,24 +223,24 @@ const DashboardMain = () => {
                 <BsChevronDown />
               </Link>
 
-              <div class="collapse" id="collapseDoctors">
+              <div className="collapse" id="collapseDoctors">
                 <ul className="dashboard_sub_menu">
                   <li>
                     <Link to="/dashboard/allDoctors">
                       <span className="nav_icon">--</span>
                       <span>All Doctors</span>
                     </Link>
-                    <Link to="/dashboard">
+                    <Link to="/dashboard/addDoctors">
                       <span className="nav_icon">--</span>
                       <span>Add Doctors</span>
                     </Link>
-                    <Link to="/dashboard">
+                    <Link to="/dashboard/allDoctors/update/:id">
                       <span className="nav_icon">--</span>
                       <span>Doctor Profile</span>
                     </Link>
-                    <Link to="/dashboard">
+                    <Link to="/dashboard/doctorPrescription">
                       <span className="nav_icon">--</span>
-                      <span>Doctor Schedule</span>
+                      <span>Doctor Prescription</span>
                     </Link>
                   </li>
                 </ul>
@@ -249,7 +249,7 @@ const DashboardMain = () => {
 
             <li>
               <Link
-                // class="btn btn-primary"
+                // className="btn btn-primary"
                 data-bs-toggle="collapse"
                 to="#collapsePatients"
                 role="button"
@@ -266,7 +266,7 @@ const DashboardMain = () => {
                 <BsChevronDown />
               </Link>
 
-              <div class="collapse" id="collapsePatients">
+              <div className="collapse" id="collapsePatients">
                 <ul className="dashboard_sub_menu">
                   <li>
                     <Link to="/dashboard">
@@ -292,7 +292,7 @@ const DashboardMain = () => {
 
             <li>
               <Link
-                // class="btn btn-primary"
+                // className="btn btn-primary"
                 data-bs-toggle="collapse"
                 to="#collapsePayments"
                 role="button"
@@ -307,7 +307,7 @@ const DashboardMain = () => {
                 </span>
                 <BsChevronDown />
               </Link>
-              <div class="collapse" id="collapsePayments">
+              <div className="collapse" id="collapsePayments">
                 <ul className="dashboard_sub_menu">
                   <li>
                     <Link to="/dashboard/allDoctors">
@@ -328,7 +328,7 @@ const DashboardMain = () => {
             </li>
             <li>
               <Link
-                // class="btn btn-primary"
+                // className="btn btn-primary"
                 data-bs-toggle="collapse"
                 to="#collapseDepartments"
                 role="button"
@@ -344,7 +344,7 @@ const DashboardMain = () => {
                 <BsChevronDown />
               </Link>
 
-              <div class="collapse" id="collapseDepartments">
+              <div className="collapse" id="collapseDepartments">
                 <ul className="dashboard_sub_menu">
                   <li>
                     <Link to="/dashboard">
@@ -401,7 +401,7 @@ const DashboardMain = () => {
             </li>
             <li>
               <Link
-                // class="btn btn-primary"
+                // className="btn btn-primary"
                 data-bs-toggle="collapse"
                 to="#collapseAuthentications"
                 role="button"
@@ -417,7 +417,7 @@ const DashboardMain = () => {
                 </span>
                 <BsChevronDown />
               </Link>
-              <div class="collapse" id="collapseAuthentications">
+              <div className="collapse" id="collapseAuthentications">
                 <ul className="dashboard_sub_menu">
                   <li>
                     <Link to="/dashboard/allDoctors">

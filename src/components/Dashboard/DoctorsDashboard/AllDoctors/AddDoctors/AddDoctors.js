@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Alert, Button, Card, Container, Form } from 'react-bootstrap';
+import { Button, Card, Container, Form } from 'react-bootstrap';
 import './AddDoctors.css';
+import Swal from 'sweetalert2';
 
 const AddDoctors = () => {
     const [doctorData, setDoctorData] = useState({});
     const [image, setImage] = useState(null);
-    const [success, setSuccess] = useState(false);
 
     const handleAddDoctor = e => {
         const field = e.target.name;
@@ -34,7 +34,11 @@ const AddDoctors = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                    setSuccess(true);
+                    Swal.fire(
+                        'Good job!',
+                        "A doctor has been successfully added!",
+                        'success'
+                    )
                 }
             })
     }
@@ -44,7 +48,6 @@ const AddDoctors = () => {
             <Container>
                 <Card className='card-control2'>
                     <Card.Body>
-                        {success && <Alert variant='success'>Doctor Added Successfully!</Alert>}
                         <Card.Text className='mb-3'><b>Basic Information</b></Card.Text>
                         <Form onSubmit={handleSubmit} className='row'>
 
@@ -78,7 +81,7 @@ const AddDoctors = () => {
                                                 className='text-secondary'
                                                 name="gender"
                                                 onChange={handleAddDoctor}
-                                                required
+                                                required={true}
                                                 aria-label="Default select example"
                                             >
                                                 <option>Gender</option>
