@@ -1,17 +1,20 @@
 import { useState, useEffect } from 'react';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, updateProfile, getIdToken, signOut } from "firebase/auth";
-import initializeFirebase from '../Firebase/FirebaseInit';
-
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, updateProfile, signOut, sendPasswordResetEmail } from "firebase/auth";
+import { useSelector, useDispatch } from "react-redux";
+import { saveUser } from "../features/authSlice";
 
 // initial firebase
-initializeFirebase();
+import { initializeApp } from "firebase/app";
+import firebaseConfig from '../Firebase/Firebase.config';
+
+initializeApp(firebaseConfig);
 
 const useFirebase = () => {
-    const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
-    const [admin, setAdmin] = useState(false);
-    const [token, setToken] = useState('');
+    const user = useSelector((state) => state.auth.value);
+    console.log("user from state", user);
+    const dispatch = useDispatch();
 
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
@@ -21,10 +24,9 @@ const useFirebase = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 setAuthError('');
-                const newUser = { email, displayName: name };
-                setUser(newUser);
-                // save user to the database
-                saveUser(email, name, 'POST');
+                const user = userCredential.user;
+                console.log("Registered user: ", user);
+                incertUser(email, name, 'POST');
                 // send name to firebase after creation
                 updateProfile(auth.currentUser, {
                     displayName: name
@@ -44,6 +46,8 @@ const useFirebase = () => {
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
+                const user = userCredential.user;
+                console.log("Singed in user: ", user);
                 const destination = location?.state?.from || '/';
                 navigate(destination);
                 setAuthError('');
@@ -53,13 +57,24 @@ const useFirebase = () => {
             })
             .finally(() => setIsLoading(false));
     }
+    const handleReset = (email) => {
+        sendPasswordResetEmail(auth, email)
+        .then(() => {
+            console.log("success");
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log("An error has occured: ", errorCode, errorMessage);
+        });
+    };
 
     const signInWithGoogle = (location, navigate) => {
         setIsLoading(true);
         signInWithPopup(auth, googleProvider)
             .then((result) => {
                 const user = result.user;
-                saveUser(user.email, user.displayName, 'PUT');
+                incertUser(user.email, user.displayName, 'PUT');
                 setAuthError('');
                 const destination = location?.state?.from || '/';
                 navigate(destination);
@@ -72,36 +87,26 @@ const useFirebase = () => {
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
-                setUser(user);
-                getIdToken(user)
-                    .then(idToken => {
-                        setToken(idToken);
-                    })
+              dispatch(saveUser(user));
             } else {
-                setUser({})
+              dispatch(saveUser(undefined));
             }
             setIsLoading(false);
         });
         return () => unsubscribed;
-    }, [auth])
-
-    useEffect(() => {
-        fetch(`https://shrouded-headland-44423.herokuapp.com/users/${user.email}`)
-            .then(res => res.json())
-            .then(data => setAdmin(data.admin))
-    }, [user.email])
+    }, [auth, dispatch])
 
     const logout = () => {
         setIsLoading(true);
         signOut(auth).then(() => {
             // Sign-out successful.
         }).catch((error) => {
-            // An error happened.
+            console.log("error", error);
         })
             .finally(() => setIsLoading(false));
     }
 
-    const saveUser = (email, displayName, method) => {
+    const incertUser = (email, displayName, method) => {
         const user = { email, displayName };
         fetch('https://shrouded-headland-44423.herokuapp.com/users', {
             method: method,
@@ -115,15 +120,13 @@ const useFirebase = () => {
 
     return {
         user,
-        admin,
-        token,
         isLoading,
         authError,
+        handleReset,
         registerUser,
         loginUser,
         signInWithGoogle,
         logout,
     }
 }
-
 export default useFirebase;
