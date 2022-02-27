@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Alert, Button, Card, Container, Form } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { useGetDoctorsQuery } from '../../../../features/sigmaApi';
+import Swal from 'sweetalert2'
 import './DoctorProfile.css';
 
 const DoctorProfile = () => {
@@ -9,7 +10,6 @@ const DoctorProfile = () => {
     const alldoctorInfo = useGetDoctorsQuery();
     const [singleDoctorInfo, setSingleDoctorInfo] = useState([]);
     const [doctorUpdateData, setDoctorUpdateData] = useState({});
-    const [success, setSuccess] = useState(false);
     const [image, setImage] = useState(null);
 
     useEffect(() => {
@@ -45,7 +45,11 @@ const DoctorProfile = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    setSuccess(true);
+                    Swal.fire(
+                        'Good job!',
+                        "Update Doctor's informatoin Successfully!",
+                        'success'
+                    )
                 }
             })
     }
@@ -54,7 +58,6 @@ const DoctorProfile = () => {
         <div style={{ backgroundColor: "#F4F7F6", padding: "20px 0" }}>
             <Container>
                 <div className='row'>
-                    {success && <Alert variant="success">Update Successfully!</Alert>}
                     <div className='col-12 col-sm-6 col-md-6 col-lg-4'>
                         <Card className="text-center card-control2">
                             <Card.Img className="w-50 mx-auto rounded-circle mt-3" variant="top" src={`data:image/*;base64,${singleDoctorInfo?.photo}`} />
