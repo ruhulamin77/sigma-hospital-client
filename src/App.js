@@ -3,6 +3,7 @@ import Community from "./components/Community/Community";
 import AdminHomeMain from "./components/Dashboard/AdminDashboard/AdminHome/AdminHomeMain/AdminHomeMain";
 import DashboardMain from "./components/Dashboard/DashboardMain/DashboardMain";
 import AllDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AllDoctors/AllDoctors";
+import DoctorPrescription from "./components/Dashboard/DoctorsDashboard/DoctorPrescription/DoctorPrescription";
 import DoctorProfile from "./components/Dashboard/DoctorsDashboard/DoctorProfile/DoctorProfile";
 import Appointment from "./components/Home/Appointment/Appointment";
 import PharmacyHome from "./components/Dashboard/Pharmacy/PharmacyHome/PharmacyHome";
@@ -68,9 +69,6 @@ function App() {
           />
           <Route path="/Pharmacy" element={<PharmacyHome />} />
 
-          {/* optional */}
-          <Route path="/allDoctors/update/:id" element={<DoctorProfile />} />
-          <Route path="/addDoctors" element={<AddDoctors />} />
 
           {/* dashboard */}
           <Route path="/dashboard" element={<DashboardMain />}>
@@ -79,7 +77,14 @@ function App() {
               path="/dashboard/appointment"
               element={<Appointment />}
             ></Route>
+
+            {/* doctor start */}
             <Route path="/dashboard/allDoctors" element={<AllDoctors />} />
+            <Route path="/dashboard/allDoctors/update/:id" element={<DoctorProfile />} />
+            <Route path="/dashboard/addDoctors" element={<AddDoctors />} />
+            <Route path="/dashboard/doctorPrescription" element={<DoctorPrescription />} />
+            {/* doctor end */}
+
           </Route>
         </Routes>
         <Footer />
