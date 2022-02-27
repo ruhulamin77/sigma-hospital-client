@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Button, Card, Col, Nav, Alert } from 'react-bootstrap';
+import React from 'react';
+import { Button, Card, Col } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import './SingleCardDoctor.css';
 import Swal from 'sweetalert2';
