@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Alert, Button, Card, Container, Form } from 'react-bootstrap';
+import { Button, Card, Container, Form } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { useGetDoctorsQuery } from '../../../../features/sigmaApi';
 import Swal from 'sweetalert2'
@@ -47,7 +47,7 @@ const DoctorProfile = () => {
                 if (data.modifiedCount > 0) {
                     Swal.fire(
                         'Good job!',
-                        "Update Doctor's informatoin Successfully!",
+                        "Doctor's informatoin has been successfully updated!",
                         'success'
                     )
                 }
