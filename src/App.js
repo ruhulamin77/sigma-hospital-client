@@ -24,6 +24,8 @@ import Oncologist from "./components/Specialization/Oncologist/Oncologist";
 import Psychiatrists from "./components/Specialization/Psychiatrists/Psychiatrists";
 import AddDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AddDoctors/AddDoctors";
 import PaymentForm from "./components/Share/PaymentForm/PaymentForm";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import Cart from "./components/Dashboard/Pharmacy/Cart/Cart";
 import History from "./components/Pages/History/History";
 
 function App() {
@@ -33,7 +35,9 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/commonity" element={<Community />} />
+          <Route path="/" element={<PrivateRoute />}>
+            <Route path="/contact" element={<Contact />} />
+          </Route>
           <Route path="/home" element={<Home />} />
           <Route path="/service" element={<Service />} />
           <Route path="/adminhome" element={<AdminHomeMain />} />
@@ -41,6 +45,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/medicineCart" element={<Cart />} />
+          {/* <Route path="/contact" element={<Contact />} /> */}
           <Route path="/about" element={<History />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/singleDoctor/:id" element={<SingleDoctor />} />
