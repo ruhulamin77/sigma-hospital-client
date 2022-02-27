@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Card, Container, Row } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { useGetDoctorsQuery } from '../../../../../features/sigmaApi';
 import SingleCardDoctor from '../SingleCardDoctor/SingleCardDoctor';
 import './AllDoctors.css';
@@ -12,6 +13,7 @@ const AllDoctors = () => {
     const [Item, setItem] = useState(doctorsCollection?.data);
     console.log(Item, "item");
 
+
     const handleDelete = id => {
         const proceed = window.confirm("Are you sure to delete this file?")
         if (proceed) {
@@ -21,11 +23,22 @@ const AllDoctors = () => {
             })
                 .then(res => res.json())
                 .then(data => setDeleteItem(data))
-            console.log(id);
             const newItem = Item?.filter( items => items?._id !== id)
             setItem(newItem)
+                .then(data => {
+                    if (data.deletedCount) {
+                        Swal.fire(
+                            'Good job!',
+                            'The Doctor has been successfully deleted!',
+                            'success'
+                        )
+                    }
+                })
         }
     }
+
+    // const { isLoading } = useAuth();
+
     return (
         <div style={{ backgroundColor: "#F4F7F6", padding: "20px 0" }}>
             <Container>

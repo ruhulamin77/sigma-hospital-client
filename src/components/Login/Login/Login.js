@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
+import useFirebase from "../../../hooks/useFirebase";
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import "./Login.css";
 import { FaTwitter } from 'react-icons/fa';
 
 const Login = () => {
+    const { loginUser, registerUser, signInWithGoogle } = useFirebase();
+    const navigate = useNavigate();
+    const location = useLocation();
     const [classAdd, setClassAdd] = useState("")
     const {
         register,
@@ -23,10 +28,10 @@ const Login = () => {
       });
     
     const onSubmit = (data) => {
-        console.log(data);
+        registerUser(data?.Email, data?.password, data?.displayName)
      }
     const onSubmit2 = (data) => {
-        console.log(data);
+        loginUser(data?.Email, data?.password, location, navigate)
      }
 
 
@@ -39,7 +44,8 @@ const Login = () => {
                         <div className="social-container">
                             <span className="social"><i className="fab fa-facebook-f"></i></span>
                             <span className="social"><i className="fab fa-google-plus-g"></i></span>
-                            <span className="social">< FaTwitter /></span>
+                            <span onClick={() => signInWithGoogle(location, navigate)} className="social">< FaTwitter /></span>
+                            <span className="social"><i className="fab fa-linkedin-in"></i></span>
                         </div>
                         <span>or use your email for registration</span>
                         <input {...register("displayName", { required: true})} type="text" placeholder="Name" />
@@ -57,6 +63,7 @@ const Login = () => {
                         <div className="social-container">
                             <span className="social"><i className="fab fa-facebook-f"></i></span>
                             <span className="social"><i className="fab fa-google-plus-g"></i></span>
+                            <span onClick={() => signInWithGoogle(location, navigate)} className="social"><i className="fab fa-google-plus-g"></i></span>
                             <span className="social">< FaTwitter /></span>
                         </div>
                         <span>or use your account</span>

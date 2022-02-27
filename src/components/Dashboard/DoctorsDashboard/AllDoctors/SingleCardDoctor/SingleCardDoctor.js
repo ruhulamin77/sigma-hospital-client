@@ -1,28 +1,16 @@
-import React, { useState } from 'react';
-import { Button, Card, Col, Nav, Alert } from 'react-bootstrap';
+import React from 'react';
+import { Button, Card, Col } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-import './SingleCardDoctor.css'
+import './SingleCardDoctor.css';
+import Swal from 'sweetalert2';
 
 const SingleCardDoctor = ({ doc, handleDelete }) => {
     const { _id, photo, name, title, address, linkedin, facebook, twitter } = doc;
-    const [deleteItem, setDeleteItem] = useState(false);
 
-    // const handleDelete = id => {
-    //     const proceed = window.confirm("Are you sure to delete this file?")
-    //     if (proceed) {
-    //         fetch(`https://shrouded-headland-44423.herokuapp.com/doctors/${id}`, {
-    //             method: 'DELETE',
-    //             headers: { 'content-type': 'application/json' },
-    //         })
-    //             .then(res => res.json())
-    //             .then(data => setDeleteItem(data))
-    //     }
-    //     // window.location.reload();
-    // }
+  
 
     return (
         <div>
-            {deleteItem && <Alert variant="success">Delete Successfully!</Alert>}
             <Col>
                 <Card className='text-center card-control2'>
                     <Card.Img className='doctor-image' variant="top" src={`data:image/*;base64,${photo}`} />

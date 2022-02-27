@@ -62,13 +62,13 @@ const DoctorsSlider = () => {
                                             <br />
                                             <a href={doctor?.twitter} target="_blank" rel="noreferrer"><i className="fab fa-twitter-square"></i></a>
                                             <br />
-                                            <a href={doctor?.email} target="_blank" rel="noreferrer"><i className="fab fa-google"></i></a>
+                                            <a href={doctor?.linkedin} target="_blank" rel="noreferrer"><i className="fab fa-linkedin"></i></a>
                                         </div>
                                         <div className='mt-auto about-doctor'>
-                                            <h2>
-                                                <NavLink to={`/singleDoctor/${doctor?._id}`} className="text-decoration-none">{doctor?.name}</NavLink>
-                                            </h2>
-                                            <h5>{doctor?.title}</h5>
+                                            <NavLink to={`/singleDoctor/${doctor?._id}`} className="text-decoration-none">
+                                                <h2>{doctor?.name}</h2>
+                                                <h5>{doctor?.title}</h5>
+                                            </NavLink>
                                         </div>
                                     </div>
                                 </div>

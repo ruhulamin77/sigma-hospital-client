@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Alert, Button, Card, Container, Form } from 'react-bootstrap';
+import { Button, Card, Container, Form } from 'react-bootstrap';
 import './AddDoctors.css';
+import Swal from 'sweetalert2';
 
 const AddDoctors = () => {
     const [doctorData, setDoctorData] = useState({});
     const [image, setImage] = useState(null);
-    const [success, setSuccess] = useState(false);
 
     const handleAddDoctor = e => {
         const field = e.target.name;
@@ -34,7 +34,11 @@ const AddDoctors = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                    setSuccess(true);
+                    Swal.fire(
+                        'Good job!',
+                        "A doctor has been successfully added!",
+                        'success'
+                    )
                 }
             })
     }
@@ -44,7 +48,6 @@ const AddDoctors = () => {
             <Container>
                 <Card className='card-control2'>
                     <Card.Body>
-                        {success && <Alert variant='success'>Doctor Added Successfully!</Alert>}
                         <Card.Text className='mb-3'><b>Basic Information</b></Card.Text>
                         <Form onSubmit={handleSubmit} className='row'>
 
@@ -78,7 +81,7 @@ const AddDoctors = () => {
                                                 className='text-secondary'
                                                 name="gender"
                                                 onChange={handleAddDoctor}
-                                                required
+                                                required={true}
                                                 aria-label="Default select example"
                                             >
                                                 <option>Gender</option>
@@ -124,7 +127,7 @@ const AddDoctors = () => {
                                         <Form.Group className="mb-3">
                                             <Form.Control
                                                 className='text-secondary'
-                                                placeholder="Education - 1"
+                                                placeholder="Name of Certificate - 1"
                                                 name="eduLine1"
                                                 type="text"
                                                 onChange={handleAddDoctor}
@@ -136,7 +139,7 @@ const AddDoctors = () => {
                                         <Form.Group className="mb-3">
                                             <Form.Control
                                                 className='text-secondary'
-                                                placeholder="Education - 2"
+                                                placeholder="Name of Certificate - 2"
                                                 name="eduLine2"
                                                 type="text"
                                                 onChange={handleAddDoctor}
@@ -148,7 +151,7 @@ const AddDoctors = () => {
                                         <Form.Group className="mb-3">
                                             <Form.Control
                                                 className='text-secondary'
-                                                placeholder="Education - 3"
+                                                placeholder="Name of Certificate - 3"
                                                 name="eduLine3"
                                                 type="text"
                                                 onChange={handleAddDoctor}

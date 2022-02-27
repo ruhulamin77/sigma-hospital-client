@@ -19,12 +19,12 @@ const Service = () => {
       >
         <nav aria-label="breadcrumb">
           <h3>Service</h3>
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item">
               <Link to="/">Home</Link>
             </li>
             <span className="sr-nav">&#62;</span>
-            <li class="breadcrumb-item active" aria-current="page">
+            <li className="breadcrumb-item active" aria-current="page">
               <Link to="/service">Service</Link>
             </li>
           </ol>
@@ -75,7 +75,7 @@ const Service = () => {
             <div className="col-md-6 col-lg-4 col-sm-12">
               <div className="service mb-3">
                 <div>
-                  <img className="img-fluid" src={heart} alt="" />
+                  <img className="img-fluid" src={blood} alt="" />
                 </div>
                 <h4 className="text-center">Blood Bank</h4>
                 <p className="para text-center">
@@ -90,12 +90,7 @@ const Service = () => {
             <div className="col-md-6 col-lg-4 col-sm-12">
               <div className="service mb-3">
                 <div>
-                  <img className="img-fluid" src={xray} alt="" />
-                  <h4 className="text-center">X-Ray</h4>
-                  <p className='para text-center'>
-                  An X-ray is an imaginaring test that produces pictures of the organs, tissues, and bones of the body.
-                  </p>
-                  <button className='service-btn'>Appointment <i className="fas fa-plus btn-icon"></i></button>
+                  <img className="img-fluid" src={lab} alt="" />
                 </div>
                 <h4 className="text-center">Laboratory</h4>
                 <p className="para text-center">
