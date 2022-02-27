@@ -81,7 +81,7 @@ const AddDoctors = () => {
                                                 className='text-secondary'
                                                 name="gender"
                                                 onChange={handleAddDoctor}
-                                                required
+                                                required={true}
                                                 aria-label="Default select example"
                                             >
                                                 <option>Gender</option>
