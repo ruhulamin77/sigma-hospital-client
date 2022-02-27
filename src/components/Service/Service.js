@@ -19,12 +19,12 @@ const Service = () => {
       >
         <nav aria-label="breadcrumb">
           <h3>Service</h3>
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item">
               <Link to="/">Home</Link>
             </li>
             <span className="sr-nav">&#62;</span>
-            <li class="breadcrumb-item active" aria-current="page">
+            <li className="breadcrumb-item active" aria-current="page">
               <Link to="/service">Service</Link>
             </li>
           </ol>
