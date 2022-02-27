@@ -26,6 +26,7 @@ import AddDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AddDo
 import PaymentForm from "./components/Share/PaymentForm/PaymentForm";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Cart from "./components/Dashboard/Pharmacy/Cart/Cart";
+import History from "./components/Pages/History/History";
 
 function App() {
   return (
@@ -46,6 +47,8 @@ function App() {
           <Route path="/team" element={<Team />} />
           <Route path="/medicineCart" element={<Cart />} />
           {/* <Route path="/contact" element={<Contact />} /> */}
+          <Route path="/about" element={<History />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/singleDoctor/:id" element={<SingleDoctor />} />
           <Route path="/team/:id" element={<SingleDoctor />} />
           <Route path="/specialization/oncologist" element={<Oncologist />} />
