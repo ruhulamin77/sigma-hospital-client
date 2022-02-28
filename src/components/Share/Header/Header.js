@@ -9,6 +9,8 @@ import { GrClose } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import logo from "../../../images/logo/logo.png";
 import "./Header.css";
+import { useSelector } from "react-redux";
+import useFirebase from "../../../hooks/useFirebase";
 
 const Header = () => {
   const [show, setShow] = useState(false);
@@ -53,193 +55,12 @@ const Header = () => {
     boxClassSubMenu.push('');
   }
 
+
+  // const user = useSelector((state) => state?.auth?.value)
+  const { user , logout} = useFirebase()
+  
+  console.log(user, "user");
   return (
-    // <header className="header">
-    //   <Navbar expand="lg">
-    //     <Container fluid>
-    //       <Link className="logo" to="/">
-    //         <img className="img-fluid" src={logo} alt="sigma" />
-    //       </Link>
-    //       <Navbar.Toggle cl aria-controls="basic-navbar-nav" />
-    //       <Navbar.Collapse id="basic-navbar-nav">
-    //         <Nav className="ms-auto custom-menu align-items-center">
-    //           <Link as NavLink className="custom-nav" to="/home">
-    //             Home
-    //           </Link>
-
-    //           <NavDropdown
-    //             className="custom-dropdown "
-    //             title="Doctor"
-    //             id="basic-nav-dropdown1"
-    //           >
-    //             <Link as NavLink className="dropdown-item dropdownitem" to="/">
-    //               Single Doctor
-    //             </Link>
-
-    //           </NavDropdown>
-    //           <NavDropdown
-    //             className="custom-dropdown "
-    //             title="Specialization"
-    //             id="basic-nav-dropdown11"
-    //           >
-    //             <Link
-    //               as
-    //               NavLink
-    //               className="dropdown-item dropdownitem"
-    //               to="/specialization/oncologist"
-    //             >
-    //               Oncologist
-    //             </Link>
-    //             <Link
-    //               as
-    //               NavLink
-    //               className="dropdown-item dropdownitem"
-    //               to="/specialization/neurologist"
-    //             >
-    //               Neurologist
-    //             </Link>
-    //             <Link
-    //               as
-    //               NavLink
-    //               className="dropdown-item dropdownitem"
-    //               to="/specialization/ent-specialist"
-    //             >
-    //               ENT specialist
-    //             </Link>
-    //             <Link
-    //               as
-    //               NavLink
-    //               className="dropdown-item dropdownitem"
-    //               to="/specialization/cardiologist"
-    //             >
-    //               Cardiologist
-    //             </Link>
-    //             <Link
-    //               as
-    //               NavLink
-    //               className="dropdown-item dropdownitem"
-    //               to="/specialization/audiologist"
-    //             >
-    //               Audiologist
-    //             </Link>
-    //             <Link
-    //               as
-    //               NavLink
-    //               className="dropdown-item dropdownitem"
-    //               to="/specialization/psychiatrists"
-    //             >
-    //               Psychiatrists
-    //             </Link>
-    //           </NavDropdown>
-
-    //           <NavDropdown
-    //             className="custom-dropdown "
-    //             title="Blog"
-    //             id="basic-nav-dropdown2"
-    //           >
-    //             <Link as NavLink className="dropdown-item dropdownitem" to="/">
-    //               Single Blog
-    //             </Link>
-
-    //           </NavDropdown>
-    //           <NavDropdown
-    //             className="custom-dropdown "
-    //             title="Pages"
-    //             id="basic-nav-dropdown3"
-    //           >
-    //             <Link
-    //               as
-    //               NavLink
-    //               className="dropdown-item dropdownitem"
-    //               to="/shop"
-    //             >
-    //               Shop
-    //             </Link>
-    //             <Link
-    //               as
-    //               NavLink
-    //               className="dropdown-item dropdownitem"
-    //               to="/about"
-    //             >
-    //               About Us
-    //             </Link>
-    //             <Link
-    //               as
-    //               NavLink
-    //               className="dropdown-item dropdownitem"
-    //               to="/service"
-    //             >
-    //               Servi
-    //             </Link>
-    //             <Link
-    //               as
-    //               NavLink
-    //               className="dropdown-item dropdownitem"
-    //               to="/team"
-    //             >
-    //               Our Team
-    //             </Link>
-    //             <Link
-    //               as
-    //               NavLink
-    //               className="dropdown-item dropdownitem"
-    //               to="/faq"
-    //             >
-    //               FAQ
-    //             </Link>
-    //             <Link
-    //               as
-    //               NavLink
-    //               className="dropdown-item dropdownitem"
-    //               to="/contact"
-    //             >
-    //               Contact Us
-    //             </Link>
-    //           </NavDropdown>
-
-    //           <Link as NavLink className="custom-nav" to="/login">
-    //             Login
-    //           </Link>
-    //           {/* <Link as NavLink className="custom-nav" to="/dashboard">
-    //             Dashboard
-    //           </Link> */}
-    //           <button className="header-btn">
-    //             Appointment <i className="fas fa-plus header-icon"></i>
-    //           </button>
-    //           <Link to="/dashboard"  className="header-btn text-decoration-none btn-hover">
-    //             Deshboard <i className="fas fa-plus header-icon"></i>
-    //           </Link>
-    //           <span className="icon position-relative">
-    //             <FaShoppingBasket />
-    //             <ul className="position-absolute  icon-position">
-    //               <li>
-    //                 <FaHeart />
-    //               </li>
-    //               <li>
-    //                 <FaShoppingCart />
-    //               </li>
-    //             </ul>
-    //           </span>
-
-    //           <span onClick={toggleShow} className="icon">
-    //             <GiHamburgerMenu />
-    //           </span>
-    //           <Offcanvas placement={"end"} show={show} onHide={handleClose}>
-    //             <Offcanvas.Header closeButton>
-    //               <Offcanvas.Title>Offcanvas</Offcanvas.Title>
-    //             </Offcanvas.Header>
-    //             <Offcanvas.Body>
-    //               Some text as placeholder. In real life you can have the
-    //               elements you have chosen. Like, text, images, lists, etc.
-    //             </Offcanvas.Body>
-    //           </Offcanvas>
-    //         </Nav>
-    //       </Navbar.Collapse>
-    //     </Container>
-    //   </Navbar>
-    // </header>
-
-
     <header className="header__middle">
       <div className="container-fluid">
         <div className="row d-flex">
@@ -289,7 +110,7 @@ const Header = () => {
                     <li> <Link onClick={toggleClass} activeClassName='is-active' to="/contact"> Contact Us </Link> </li>
                   </ul>
                 </li>
-                <li className="menu-item" ><Link onClick={toggleClass} activeClassName='is-active' to="/login"> Login </Link> </li>
+               {user?.email ? <li className="menu-item"  ><a  onClick={()=> logout()} > Logout </a> </li>: <li className="menu-item" ><Link onClick={toggleClass} activeClassName='is-active' to="/login"> Login </Link> </li>}
                 <button className="header-btn">
                 Appointment <i className="fas fa-plus header-icon"></i>
                 </button>
