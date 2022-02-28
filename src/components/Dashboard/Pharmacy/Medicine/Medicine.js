@@ -26,6 +26,7 @@ const Medicine = () => {
                             <th>Price</th>
                             <th>Quantity</th>
                             <th>Value</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>

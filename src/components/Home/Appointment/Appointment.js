@@ -100,103 +100,64 @@ const Appointment = () => {
             />{" "}</div>
 
             <div className="col-md-6 col-lg-3">
-            <select
-              aria-label="Default select example"
-              {...register("Service", )}
-              className="service-doctor"
-            >
-              <option>- Service -</option>
-              {/* {
+              <select
+                aria-label="Default select example"
+                {...register("Service",)}
+                className="service-doctor"
+              >
+                <option>- Service -</option>
+                {/* {
                             doctor.map(doctor => <option>{doctor.time}</option>)
 
                         } */}
-<<<<<<< HEAD
-          </select>
-          <select
-            aria-label="Default select example"
-            {...register("Shift", { required: true })}
-            onBlur={handalonblure}
-            className="service-doctor-shift"
-          >
-            <option>- Shift -</option>
-            <option value="Morning">Morning</option>
-            <option value="Evening">Evening</option>
-            <option value="Night">Night</option>
-          </select>
-          <select
-            aria-label="Default select example"
-            {...register("Doctor", { required: true })}
-            className="service-doctor-shift"
-          >
-            <option>- Doctor -</option>
-            {shiftDoctor.map((doctor) => (
-              <option>{doctor?.name}</option>
-            ))}
-          </select>
-          <input
-            type="date"
-            {...register("Date", { required: true })}
-            className="service-doctor-shift"
-          />
-          {/* 3rd Line end */}
-          <br />
-          <textarea
-            placeholder="Please type what you want..."
-            {...register("description", { required: true })}
-            className="description-box"
-          ></textarea>{" "}
-          <br />
-          <input type="submit" className="submit-btn" />
-=======
-            </select>
+              </select>
             </div>
             <div className="col-md-6 col-lg-3">
-            <select
-              aria-label="Default select example"
-              {...register("Shift", { required: true })}
-              onBlur={handalonblure}
-              className="service-doctor"
-            >
-              <option>- Shift -</option>
-              <option value="morning">Morning</option>
-              <option value="evening">Evening</option>
-              <option value="night">Night</option>
-            </select>
-            </div>
-          
-            <div className="col-md-6 col-lg-3">
-            <select
-              aria-label="Default select example"
-              {...register("Doctor", { required: true })}
-              className="service-doctor"
-            >
-              <option>- Doctor -</option>
-              {shiftDoctor.map((doctor) => (
-                <option>{doctor.name}</option>
-              ))}
-            </select>
+              <select
+                aria-label="Default select example"
+                {...register("Shift", { required: true })}
+                onBlur={handalonblure}
+                className="service-doctor"
+              >
+                <option>- Shift -</option>
+                <option value="morning">Morning</option>
+                <option value="evening">Evening</option>
+                <option value="night">Night</option>
+              </select>
             </div>
 
             <div className="col-md-6 col-lg-3">
-            <input
-              type="date"
-              {...register("Date", { required: true })}
-              className="service-doctor-shift"
-            />
+              <select
+                aria-label="Default select example"
+                {...register("Doctor", { required: true })}
+                className="service-doctor"
+              >
+                <option>- Doctor -</option>
+                {shiftDoctor.map((doctor) => (
+                  <option>{doctor.name}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="col-md-6 col-lg-3">
+              <input
+                type="date"
+                {...register("Date", { required: true })}
+                className="service-doctor-shift"
+              />
             </div>
 
             <div className="col-md-12">
-            <textarea
+              <textarea
                 placeholder="Please type what you want..."
-          
-              rows="5"
-              {...register("description", { required: true })}
-              className="description-box"
-            ></textarea>{" "}
+
+                rows="5"
+                {...register("description", { required: true })}
+                className="description-box"
+              ></textarea>{" "}
             </div>
             <button type="submit" className="pulse"> Submit </button>
           </Row>
->>>>>>> 5bb92233c067e49de1cefa1d071ce2ce3d3a3725
         </form>
 
       </div>
