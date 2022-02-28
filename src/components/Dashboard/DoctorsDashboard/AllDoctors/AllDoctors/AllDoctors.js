@@ -9,6 +9,8 @@ const AllDoctors = () => {
     const doctorsCollection = useGetDoctorsQuery() || {};
     // const { isLoading } = useAuth();
 
+    
+
     return (
         <div style={{ backgroundColor: "#F4F7F6", padding: "20px 0" }}>
             <Container>
