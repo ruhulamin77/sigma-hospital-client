@@ -3,7 +3,7 @@ import Community from "./components/Community/Community";
 import AdminHomeMain from "./components/Dashboard/AdminDashboard/AdminHome/AdminHomeMain/AdminHomeMain";
 import DashboardMain from "./components/Dashboard/DashboardMain/DashboardMain";
 import AllDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AllDoctors/AllDoctors";
-import DoctorPrescription from "./components/Dashboard/DoctorsDashboard/DoctorPrescription/DoctorPrescription";
+import DoctorPrescription from "./components/Dashboard/DoctorsDashboard/DoctorPrescription/DoctorPrescription/DoctorPrescription";
 import DoctorProfile from "./components/Dashboard/DoctorsDashboard/DoctorProfile/DoctorProfile";
 import Appointment from "./components/Home/Appointment/Appointment";
 import PharmacyHome from "./components/Dashboard/Pharmacy/PharmacyHome/PharmacyHome";

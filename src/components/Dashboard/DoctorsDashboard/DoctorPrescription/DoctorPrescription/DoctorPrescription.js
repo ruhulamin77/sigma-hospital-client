@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
+import Swal from 'sweetalert2';
+import DoctorData from '../DoctorData/DoctorData';
+import PatientData from '../PatientData/PatientData';
+import './DoctorPrescription.css';
 
 const DoctorPrescription = () => {
     const [inputFields, setInputFields] = useState([
@@ -14,25 +18,50 @@ const DoctorPrescription = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        console.log("worked");
-        console.log(inputFields);
+        const press = inputFields.map(pres => (
+            fetch('http://localhost:7050/prescription', {
+                method: "POST",
+                headers: { "content-type": "application/json" },
+                body: JSON.stringify(pres)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.insertedId) {
+                        Swal.fire(
+                            'Good job!',
+                            "A doctor has been successfully added!",
+                            'success'
+                        )
+                    }
+                })
+        ));
+
     }
 
     const handleAddFields = () => {
-        setInputFields([...inputFields, { number: "", medicineName: "", feedingSystem: "" }])
+        setInputFields([...inputFields, { number: "", medicineName: "", feedingSystem: "" }]);
     }
 
     const handleRemoveFields = (index) => {
         const values = [...inputFields];
-        values.splice(index, 1);
+        values.splice(index + 1, 1);
         setInputFields(values);
     }
 
     return (
-        <div style={{ backgroundColor: "#F4F7F6", padding: "0 20px" }}>
+        <div style={{ backgroundColor: "#F4F7F6", padding: "20px" }}>
+
             <Card className="card-control2">
                 <h3 className='mb-5'>Prescription</h3>
                 <Form onSubmit={handleSubmit}>
+                    <div className='row doctor-patient mb-5'>
+                        <Card className='col-12 col-md-6 card-control2'>
+                            <DoctorData />
+                        </Card>
+                        <Card className='col-12 col-md-6 card-control2'>
+                            <PatientData />
+                        </Card>
+                    </div>
                     {inputFields.map((inputField, index) => (
                         <div key={index} className="row">
                             <Form.Group className="col-12 col-md-2 mb-3" controlId="exampleForm.ControlInput1">
@@ -47,7 +76,7 @@ const DoctorPrescription = () => {
                             <Form.Group className="col-12 col-md-4 mb-3" controlId="exampleForm.ControlInput1">
                                 <Form.Control
                                     type="text"
-                                    placeholder="Medicine Name"
+                                    placeholder="Medicine Name and Power"
                                     name='medicineName'
                                     value={inputField.medicineName}
                                     onChange={e => handleChangeInput(index, e)}
@@ -69,7 +98,7 @@ const DoctorPrescription = () => {
                         </div>
                     ))}
                 </Form>
-                <Button onClick={handleSubmit} className='btn btn-info ms-3 w-25 text-light fw-bold'>Send <i className="fas fa-cloud-upload-alt"></i></Button>
+                <Button onClick={handleSubmit} className='btn btn-primary w-25 text-light'>Send <i className="fas fa-cloud-upload-alt"></i></Button>
             </Card>
         </div >
     );

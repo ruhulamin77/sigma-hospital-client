@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Container, Row } from 'react-bootstrap';
+import { Button, Card, Container, Row, Spinner } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import { useGetDoctorsQuery } from '../../../../../features/sigmaApi';
 import SingleCardDoctor from '../SingleCardDoctor/SingleCardDoctor';
@@ -7,7 +7,20 @@ import './AllDoctors.css';
 
 const AllDoctors = () => {
     const doctorsCollection = useGetDoctorsQuery() || {};
-    // const { isLoading } = useAuth();
+    if (!doctorsCollection?.data?.length) {
+        return <Button variant="primary" disabled>
+            <Spinner
+                as="span"
+                animation="grow"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+            />
+            Loading...
+        </Button>
+    }
+
+    
 
     return (
         <div style={{ backgroundColor: "#F4F7F6", padding: "20px 0" }}>
