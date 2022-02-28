@@ -4,6 +4,7 @@ import useFirebase from "../../../hooks/useFirebase";
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import "./Login.css";
+import { FaGoogle, FaTwitter, FaFacebookF } from 'react-icons/fa';
 
 const Login = () => {
     const { loginUser, registerUser, signInWithGoogle } = useFirebase();
@@ -14,24 +15,24 @@ const Login = () => {
         register,
         handleSubmit,
         formState: { errors },
-      } = useForm({
+    } = useForm({
         mode: "onBlur",
-      });
-    
-      const {
+    });
+
+    const {
         register: register2,
-          handleSubmit: handleSubmit2,
-          formState: { errors:errors2 },
-      } = useForm({
+        handleSubmit: handleSubmit2,
+        formState: { errors: errors2 },
+    } = useForm({
         mode: "onBlur",
-      });
-    
+    });
+
     const onSubmit = (data) => {
         registerUser(data?.Email, data?.password, data?.displayName)
-     }
+    }
     const onSubmit2 = (data) => {
         loginUser(data?.Email, data?.password, location, navigate)
-     }
+    }
 
 
     return (
@@ -41,14 +42,14 @@ const Login = () => {
                     <form onSubmit={handleSubmit(onSubmit)} className='login-form'>
                         <h1>Create Account</h1>
                         <div className="social-container">
-                            <span className="social"><i className="fab fa-facebook-f"></i></span>
-                            <span onClick={() => signInWithGoogle(location, navigate)} className="social"><i className="fab fa-google-plus-g"></i></span>
-                            <span className="social"><i className="fab fa-linkedin-in"></i></span>
+                            <span className="social"><FaFacebookF /></span>
+                            <span onClick={() => signInWithGoogle(location, navigate)} className="social"><FaGoogle /></span>
+                            <span className="social"><FaTwitter /></span>
                         </div>
                         <span>or use your email for registration</span>
-                        <input {...register("displayName", { required: true})} type="text" placeholder="Name" />
+                        <input {...register("displayName", { required: true })} type="text" placeholder="Name" />
                         <input type="email" placeholder="Email"  {...register("Email", { required: true, pattern: /^\S+@\S+$/i })} />
-                     
+
                         <input type="password" placeholder="Password" {...register("password",)} />
                         {errors.password && <span className='text-danger pt-2  d-inline-block'>Please add 8 digit. </span>}
                         {errors.password && errors.password.type === "min" && <span className='text-danger pt-2  d-inline-block'>Please add 8 digit. </span>}
@@ -56,12 +57,12 @@ const Login = () => {
                     </form>
                 </div>
                 <div className="form-container sign-in-container">
-                    <form onSubmit={handleSubmit2(onSubmit2)}  className='login-form'>
+                    <form onSubmit={handleSubmit2(onSubmit2)} className='login-form'>
                         <h1>Sign in</h1>
                         <div className="social-container">
-                            <span className="social"><i className="fab fa-facebook-f"></i></span>
-                            <span onClick={() => signInWithGoogle(location, navigate)} className="social"><i className="fab fa-google-plus-g"></i></span>
-                            <span className="social"><i className="fab fa-linkedin-in"></i></span>
+                            <span className="social"><FaFacebookF /></span>
+                            <span onClick={() => signInWithGoogle(location, navigate)} className="social"><FaGoogle /></span>
+                            <span className="social"><FaTwitter /></span>
                         </div>
                         <span>or use your account</span>
                         <input type="email" placeholder="Email"  {...register2("Email", { required: true, pattern: /^\S+@\S+$/i })} />

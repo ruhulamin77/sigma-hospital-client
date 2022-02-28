@@ -118,6 +118,7 @@ const useFirebase = () => {
             .then()
     }
 
+    console.log(user);
     return {
         user,
         isLoading,
