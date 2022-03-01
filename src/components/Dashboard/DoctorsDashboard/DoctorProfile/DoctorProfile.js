@@ -143,6 +143,7 @@ const DoctorProfile = () => {
                                                     className='text-secondary'
                                                     accept='image/*'
                                                     name="photo"
+                                                    required
                                                     type="file"
                                                     onChange={e => setImage(e.target.files[0])}
                                                 />
