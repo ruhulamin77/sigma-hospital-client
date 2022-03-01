@@ -20,7 +20,7 @@ const AllDoctors = () => {
         </Button>
     }
 
-    
+
 
     return (
         <div style={{ backgroundColor: "#F4F7F6", padding: "20px 0" }}>
@@ -36,7 +36,7 @@ const AllDoctors = () => {
                         <Card.Body className='row'>
                             <div className='my-auto'>
                                 <Card.Text className='text-secondary'><b>Add New Docter</b></Card.Text>
-                                <NavLink to="/addDoctors">
+                                <NavLink to="/dashboard/addDoctors">
                                     <Card.Text className='adddoctor-icon'><i className="fas fa-plus-circle"></i></Card.Text>
                                 </NavLink>
                             </div>
