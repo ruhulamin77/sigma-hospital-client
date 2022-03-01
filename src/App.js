@@ -28,6 +28,7 @@ import PaymentForm from "./components/Share/PaymentForm/PaymentForm";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Cart from "./components/Dashboard/Pharmacy/Cart/Cart";
 import History from "./components/Pages/History/History";
+import Success from "./components/Share/Payment/Validation/Success";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           <Route path="/service" element={<Service />} />
           <Route path="/adminhome" element={<AdminHomeMain />} />
           <Route path="/paymentForm" element={<PaymentForm />} />
+          <Route path="/success/:id" element={<Success />} />
           <Route path="/login" element={<Login />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/team" element={<Team />} />
