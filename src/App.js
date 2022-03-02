@@ -24,10 +24,11 @@ import neurologist from "./components/Specialization/Neurologist/Neurologist";
 import Oncologist from "./components/Specialization/Oncologist/Oncologist";
 import Psychiatrists from "./components/Specialization/Psychiatrists/Psychiatrists";
 import AddDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AddDoctors/AddDoctors";
-import PaymentForm from "./components/Share/PaymentForm/PaymentForm";
+import PaymentForm from "./components/Share/Payment/PaymentForm/PaymentForm";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Cart from "./components/Dashboard/Pharmacy/Cart/Cart";
 import History from "./components/Pages/History/History";
+import Success from "./components/Share/Payment/Validation/Success";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           <Route path="/service" element={<Service />} />
           <Route path="/adminhome" element={<AdminHomeMain />} />
           <Route path="/paymentForm" element={<PaymentForm />} />
+          <Route path="/success/:id" element={<Success />} />
           <Route path="/login" element={<Login />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/team" element={<Team />} />
@@ -83,7 +85,7 @@ function App() {
             <Route path="/dashboard/allDoctors/update/:id" element={<DoctorProfile />} />
             <Route path="/dashboard/addDoctors" element={<AddDoctors />} />
             <Route path="/dashboard/doctorPrescription" element={<DoctorPrescription />} />
-            {/* doctor end */}
+            {/*  doctor end */}
 
           </Route>
         </Routes>
