@@ -7,7 +7,6 @@ import cartReducer, { getTotals } from '../features/cartSlice';
 
 export const store = configureStore({
     reducer: {
-        // Add the generated reducer as a specific top-level slice
         auth: authReducer,
         admin: adminReducer,
         cart: cartReducer,

@@ -34,17 +34,17 @@ const TableRow = ({ medicine, index }) => {
         dispatch(getTotals(quantity));
     };
 
-
-    //   const handleDecreaseCart = (product) => {
-    //     dispatch(decreaseCart(product));
-    //   };
-    //   const handleRemoveFromCart = (product) => {
-    //     dispatch(removeFromCart(product));
-    //   };
-    //   const handleClearCart = () => {
-    //     dispatch(clearCart());
-    //   };
-
+    /*
+      const handleDecreaseCart = (product) => {
+        dispatch(decreaseCart(product));
+      };
+      const handleRemoveFromCart = (product) => {
+        dispatch(removeFromCart(product));
+      };
+      const handleClearCart = () => {
+        dispatch(clearCart());
+      };
+    */
 
 
 

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, ProgressBar, Table } from 'react-bootstrap';
 import { NavLink, useParams } from 'react-router-dom';
-import logo from '../../images/logo/logo1.png';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";

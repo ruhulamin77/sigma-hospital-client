@@ -27,37 +27,8 @@ const cartSlice = createSlice({
         let tempProductItem = { ...action.payload, cartQuantity: parseInt(action.payload) };
         state.cartItems.push(tempProductItem);
       }
-      // localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     }
-    // ,decreaseCart(state, action) {
-    //   const itemIndex = state.cartItems.findIndex(
-    //     (item) => item._id === action.payload._id
-    //   );
-
-    //   if (state.cartItems[itemIndex].cartQuantity > 1) {
-    //     state.cartItems[itemIndex].cartQuantity -= 1;
-    //   } else if (state.cartItems[itemIndex].cartQuantity === 1) {
-    //     const nextCartItems = state.cartItems.filter(
-    //       (item) => item._id !== action.payload._id
-    //     );
-    //     state.cartItems = nextCartItems;
-    //   }
-
-    //   localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-    // },
-    // removeFromCart(state, action) {
-    //   state.cartItems.map((cartItem) => {
-    //     if (cartItem._id === action.payload._id) {
-    //       const nextCartItems = state.cartItems.filter(
-    //         (item) => item._id !== cartItem._id
-    //       );
-
-    //       state.cartItems = nextCartItems;
-    //     }
-    //     localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-    //     return state;
-    //   });
-    // },
     , getTotals(state, action) {
       let { total, quantity } = state.cartItems.reduce(
         (cartTotal, cartItem) => {
@@ -80,7 +51,7 @@ const cartSlice = createSlice({
     },
     clearCart(state, action) {
       state.cartItems = [];
-      // localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+      /* localStorage.setItem("cartItems", JSON.stringify(state.cartItems)); */
     },
   },
 });

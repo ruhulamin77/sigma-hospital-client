@@ -1,4 +1,4 @@
-// import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Table } from 'react-bootstrap';
 import doctor from '../../../image/Doctor.jpg';
 import signature from '../../../image/signature.png';
@@ -7,12 +7,13 @@ import watch from '../../../image/watch.png';
 import './AboutSigma.css';
 
 const AboutSigma = () => {
-    // const [pageHight, setPageHight] = useState(0)
-    // const handleHight = () => setPageHight(window.pageYOffset);
-    // useEffect(() => {
-    //     window.addEventListener("scroll", handleHight)
-    // }, [])
-
+    /*
+    const [pageHight, setPageHight] = useState(0)
+    const handleHight = () => setPageHight(window.pageYOffset);
+    useEffect(() => {
+        window.addEventListener("scroll", handleHight)
+    }, [])
+    */
     return (
         <section className='sigma-about-fild'>
             <div className=' container padding-container '>

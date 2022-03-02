@@ -1,27 +1,28 @@
 import React from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom'; // useHistory
+import { useParams } from 'react-router-dom';
 
 
 const Success = () => {
-    // let history = useHistory()
+    /* let history = useHistory() */
     const {id} = useParams()
-    // console.log(id);
+    /* console.log(id);
 
-    // useState declare ()
+     useState declare ()
 
-    //useEffect declare ()
+    useEffect declare ()
+    */
 
     const validatePayment = () => {
         const data = {
             tran_id: id,
-            // val_id: medicine?.val_id ( must needed )
+            /* val_id: medicine?.val_id ( must needed ) */
         }
         axios.post(`http://localhost:7050/validate`, data)
             .then(res => {
                 if (res.data) {
                     alert("Order placed successfully")
-                    // history.push('/home')
+                    /* history.push('/home') */
                 }
             })
     }

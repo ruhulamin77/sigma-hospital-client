@@ -6,11 +6,11 @@ import serviceLogo from "../../../images/logo/logo1.png";
 import { Link } from "react-router-dom";
 
 const Oncologist = () => {
-  const [specialization, setSpecialization] = useState([]);
+  /* const [specialization, setSpecialization] = useState([]); */
 
   useEffect(() => {
     fetch("./specialization.json").then((res) =>
-      res.json().then((data) => setSpecialization(data))
+      res.json().then((data) => console.log(data))
     );
   }, []);
 

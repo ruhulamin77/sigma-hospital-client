@@ -3,7 +3,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, on
 import { useSelector, useDispatch } from "react-redux";
 import { saveUser } from "../features/authSlice";
 
-// initial firebase
+/* initial firebase */
 import { initializeApp } from "firebase/app";
 import firebaseConfig from '../Firebase/Firebase.config';
 
@@ -27,7 +27,7 @@ const useFirebase = () => {
                 const user = userCredential.user;
                 console.log("Registered user: ", user);
                 incertUser(email, name, photoURL, 'POST');
-                // send name to firebase after creation
+                /* send name to firebase after creation */
                 updateProfile(auth.currentUser, {
                     displayName: name,
                     photoURL: photoURL
@@ -84,7 +84,7 @@ const useFirebase = () => {
             }).finally(() => setIsLoading(false));
     }
 
-    // observer user state
+    /* observer user state */
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
@@ -100,7 +100,6 @@ const useFirebase = () => {
     const logout = () => {
         setIsLoading(true);
         signOut(auth).then(() => {
-            // Sign-out successful.
         }).catch((error) => {
             console.log("error", error);
         })
