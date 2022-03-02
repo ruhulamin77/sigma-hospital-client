@@ -85,7 +85,7 @@ function App() {
             <Route path="/dashboard/allDoctors/update/:id" element={<DoctorProfile />} />
             <Route path="/dashboard/addDoctors" element={<AddDoctors />} />
             <Route path="/dashboard/doctorPrescription" element={<DoctorPrescription />} />
-            {/* doctor end */}
+            {/*  doctor end */}
 
           </Route>
         </Routes>
