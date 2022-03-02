@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import {Container } from 'react-bootstrap';
 import useFirebase from "../../../hooks/useFirebase";
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
