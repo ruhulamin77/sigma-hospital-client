@@ -48,7 +48,7 @@ const AddDoctors = () => {
             <Container>
                 <Card className='card-control2'>
                     <Card.Body>
-                        <Card.Text className='mb-3'><b>Basic Information</b></Card.Text>
+                        <Card.Text className='mb-3 fs-4'><b>GIVE SOME  BASIC INFORMATION TO ADD A DOCTOR</b></Card.Text>
                         <Form onSubmit={handleSubmit} className='row'>
 
                             <div className='col-12 col-sm-6 col-md-6 col-lg-6'>

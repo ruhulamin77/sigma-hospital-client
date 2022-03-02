@@ -19,7 +19,7 @@ const DoctorPrescription = () => {
     const handleSubmit = e => {
         e.preventDefault();
         const press = inputFields.map(pres => (
-            fetch('http://localhost:7050/prescription', {
+            fetch('https://shrouded-headland-44423.herokuapp.com/prescription', {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify(pres)
