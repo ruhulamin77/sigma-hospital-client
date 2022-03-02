@@ -19,17 +19,18 @@ const useFirebase = () => {
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
 
-    const registerUser = (email, password, name, navigate) => {
+    const registerUser = (email, password, name, navigate, photoURL) => {
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 setAuthError('');
                 const user = userCredential.user;
                 console.log("Registered user: ", user);
-                incertUser(email, name, 'POST');
+                incertUser(email, name, photoURL, 'POST');
                 // send name to firebase after creation
                 updateProfile(auth.currentUser, {
-                    displayName: name
+                    displayName: name,
+                    photoURL: photoURL
                 }).then(() => {
                 }).catch((error) => {
                 });
@@ -74,7 +75,7 @@ const useFirebase = () => {
         signInWithPopup(auth, googleProvider)
             .then((result) => {
                 const user = result.user;
-                incertUser(user.email, user.displayName, 'PUT');
+                incertUser(user.email, user.displayName, user.photoURL, 'PUT');
                 setAuthError('');
                 const destination = location?.state?.from || '/';
                 navigate(destination);
@@ -106,8 +107,8 @@ const useFirebase = () => {
             .finally(() => setIsLoading(false));
     }
 
-    const incertUser = (email, displayName, method) => {
-        const user = { email, displayName };
+    const incertUser = (email, displayName, photoURL, method) => {
+        const user = { email, displayName, photoURL, role: "user" };
         fetch('https://shrouded-headland-44423.herokuapp.com/users', {
             method: method,
             headers: {
@@ -118,6 +119,7 @@ const useFirebase = () => {
             .then()
     }
 
+    console.log(user);
     return {
         user,
         isLoading,

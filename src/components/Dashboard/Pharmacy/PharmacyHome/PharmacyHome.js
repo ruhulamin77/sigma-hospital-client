@@ -4,6 +4,7 @@ import Medicine from '../Medicine/Medicine';
 const PharmacyHome = () => {
     return (
         <div>
+
             <Medicine />
 
         </div>

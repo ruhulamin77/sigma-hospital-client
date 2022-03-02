@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import { toast } from "react-toastify";
 const initialState = {
   cartItems: localStorage.getItem("cartItems")
     ? JSON.parse(localStorage.getItem("cartItems"))
@@ -14,19 +14,21 @@ const cartSlice = createSlice({
   reducers: {
     addToCart(state, action) {
       const existingIndex = state.cartItems.findIndex(
-        (item) => item._id === action.payload._id
+        (item) => item.id === action.payload.id
       );
 
       if (existingIndex >= 0) {
         state.cartItems[existingIndex] = {
           ...state.cartItems[existingIndex],
           cartQuantity: parseInt(action.payload),
+
+
         };
       } else {
-        let tempProductItem = { ...action.payload, cartQuantity: parseInt(action.payload)};
+        let tempProductItem = { ...action.payload, cartQuantity: parseInt(action.payload) };
         state.cartItems.push(tempProductItem);
       }
-      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+      // localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     }
     // ,decreaseCart(state, action) {
     //   const itemIndex = state.cartItems.findIndex(
@@ -57,7 +59,7 @@ const cartSlice = createSlice({
     //     return state;
     //   });
     // },
-    ,getTotals(state, action) {
+    , getTotals(state, action) {
       let { total, quantity } = state.cartItems.reduce(
         (cartTotal, cartItem) => {
           const { salePrice, cartQuantity } = cartItem;
@@ -79,7 +81,7 @@ const cartSlice = createSlice({
     },
     clearCart(state, action) {
       state.cartItems = [];
-      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+      // localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
   },
 });
