@@ -57,9 +57,10 @@ const Header = () => {
 
 
   // const user = useSelector((state) => state?.auth?.value)
-  const { user , logout} = useFirebase()
-  
-  console.log(user, "user");
+  const { logout} = useFirebase()
+  const user = useSelector((state) => state.auth.value)
+  console.log(user, "users");
+
   return (
     <header className="header__middle">
       <div className="container-fluid">
@@ -140,10 +141,14 @@ const Header = () => {
            
               <Offcanvas placement={"end"} show={show} onHide={handleClose}>
                  <Offcanvas.Header closeButton>
-                 <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+        
               </Offcanvas.Header>
-               <Offcanvas.Body>
-                 Some text as placeholder. In real life                elements you have chosen. Like, text, images, lists, etc.
+                <Offcanvas.Body>
+                  <div className="users-info text-center">
+                    <img src={user?.photoURL} alt="" />
+                    <h3>{user?.displayName }</h3>
+                  </div>
+              
                </Offcanvas.Body>
             </Offcanvas>
           </div>
