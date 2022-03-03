@@ -227,10 +227,10 @@ const DashboardMain = () => {
                       <span className="nav_icon">--</span>
                       <span>Add Doctors</span>
                     </Link>
-                    <Link to="/dashboard/allDoctors/update/:id">
+                    {/* <Link to="/dashboard/allDoctors/update/:id">
                       <span className="nav_icon">--</span>
                       <span>Doctor Profile</span>
-                    </Link>
+                    </Link> */}
                     <Link to="/dashboard/doctorPrescription">
                       <span className="nav_icon">--</span>
                       <span>Doctor Prescription</span>
