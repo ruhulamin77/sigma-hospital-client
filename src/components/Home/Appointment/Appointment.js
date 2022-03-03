@@ -1,21 +1,61 @@
+import axios from "axios";
+
 import React, { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 import "./Appointment.css";
 
 const Appointment = () => {
-  const [doctor, setDoctor] = useState([]);
+  const [doctors, setDoctor] = useState([]);
+  const [Specialist, setSpecialist] = useState([]);
   const [shiftDoctor, setShiftDoctor] = useState([]);
-  console.log(shiftDoctor)
+
+  const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
-    fetch("https://shrouded-headland-44423.herokuapp.com/doctors")
+    fetch("http://localhost:7050/doctors")
       .then((res) => res.json())
       .then((data) => {
-        setShiftDoctor(data);
+        // setShiftDoctor(data);
         setDoctor(data);
       });
   }, []);
+
+  // useEffect(() => {
+  //   fetch("http://localhost:7050/appointments", {
+  //     method: "POST",
+  //     headers: { "content-type": "application/json" },
+  //     body: JSON.stringify(appointments),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       if (data.insertedId) {
+  //         Swal.fire(
+  //           "Good job!",
+  //           "A doctor has been successfully added!",
+  //           "success"
+  //         );
+  //       }
+  //     });
+  // }, []);
+
+  const onSubmit = (data) => {
+    axios.post("http://localhost:7050/appointments", data).then((res) => {
+      if (res.data.insertedId) {
+        // successfull modal
+
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Your appointment has been submitted",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        reset();
+      }
+    });
+  };
 
   const {
     register,
@@ -24,16 +64,22 @@ const Appointment = () => {
     /* formState: { errors }, */
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data)
-    reset();
+  const handleOnBlurService = (e) => {
+    console.log(e.target.value);
+    const filteredDoctor = doctors.filter(
+      (doctor) => doctor?.speciality === e.target.value
+    );
+    setSpecialist(filteredDoctor);
+    console.log(filteredDoctor);
   };
 
-  const handalonblure = (e) => {
-    const seacredoctor = doctor.filter(
+  const handleOnBlurShift = (e) => {
+    console.log(e.target.value);
+    const filteredDoctor = Specialist.filter(
       (doctors) => doctors?.shift === e.target.value
     );
-    setShiftDoctor(seacredoctor);
+    setShiftDoctor(filteredDoctor);
+    console.log(filteredDoctor);
   };
 
   return (
@@ -46,7 +92,7 @@ const Appointment = () => {
               <input
                 type="text"
                 placeholder="First name"
-                {...register("First-name", { required: true, maxLength: 80 })}
+                {...register("firstName", { required: true, maxLength: 80 })}
                 className="input-field-name"
               />
             </div>
@@ -54,7 +100,7 @@ const Appointment = () => {
               <input
                 type="text"
                 placeholder="Last name"
-                {...register("Last-name", { required: true, maxLength: 100 })}
+                {...register("lastName", { required: true, maxLength: 100 })}
                 className="input-field-name"
               />{" "}
             </div>
@@ -69,65 +115,76 @@ const Appointment = () => {
             <div className="col-md-6 col-lg-2">
               <select
                 aria-label="Default select example"
-                {...register("Gender", { required: true })}
+                {...register("gender", { required: true })}
                 className="service-doctor"
               >
                 <option>- Gender -</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Others">Others</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="others">Others</option>
               </select>
             </div>
             <div className="col-md-6 col-lg-5">
               <input
                 type="email"
                 placeholder="Email"
-                {...register("Email", { required: true, pattern: /^\S+@\S+$/i })}
+                {...register("email", {
+                  required: true,
+                  pattern: /^\S+@\S+$/i,
+                })}
                 className="service-doctor-shift"
               />
             </div>
-            <div className="col-lg-5 col-md-6"><input
-              type="tel"
-              placeholder="Mobile number"
-              {...register("Mobile-number", {
-                required: true,
-                minLength: 6,
-                maxLength: 12,
-              })}
-              className="service-doctor-shift"
-            />{" "}</div>
+            <div className="col-lg-5 col-md-6">
+              <input
+                type="tel"
+                placeholder="Mobile number"
+                {...register("mobileNumber", {
+                  required: true,
+                  minLength: 6,
+                  maxLength: 12,
+                })}
+                className="service-doctor-shift"
+              />{" "}
+            </div>
 
             <div className="col-md-6 col-lg-3">
               <select
                 aria-label="Default select example"
-                {...register("Service",)}
+                {...register("service")}
+                onBlur={handleOnBlurService}
                 className="service-doctor"
               >
-                <option>- Service -</option>
-                {/* {
-                            doctor.map(doctor => <option>{doctor.time}</option>)
-
-                        } */}
+                <option>- Specialist -</option>
+                {/* {doctors.map((doctor) => (
+                  <option value={doctor.speciality}>{doctor.speciality}</option>
+                ))} */}
+                <option value="Oncologist">Oncologist</option>
+                <option value="ENT Specialist">ENT Specialist</option>
+                <option value="Cardiologist">Cardiologist</option>
+                <option value="Audiologist">Audiologist</option>
+                <option value="Psychiatrists">Psychiatrists</option>
+                <option value="Gynecologist">Gynecologist</option>
               </select>
             </div>
             <div className="col-md-6 col-lg-3">
               <select
                 aria-label="Default select example"
-                {...register("Shift", { required: true })}
-                onBlur={handalonblure}
+                {...register("shift", { required: true })}
+                onBlur={handleOnBlurShift}
                 className="service-doctor"
               >
                 <option>- Shift -</option>
-                <option value="morning">Morning</option>
-                <option value="evening">Evening</option>
-                <option value="night">Night</option>
+                <option value="Morning">Morning</option>
+                <option value="Evening">Evening</option>
+                <option value="Night">Night</option>
               </select>
             </div>
 
             <div className="col-md-6 col-lg-3">
               <select
                 aria-label="Default select example"
-                {...register("Doctor", { required: true })}
+                {...register("doctor", { required: true })}
                 className="service-doctor"
               >
                 <option>- Doctor -</option>
@@ -140,7 +197,7 @@ const Appointment = () => {
             <div className="col-md-6 col-lg-3">
               <input
                 type="date"
-                {...register("Date", { required: true })}
+                {...register("date", { required: true })}
                 className="service-doctor-shift"
               />
             </div>
@@ -148,16 +205,17 @@ const Appointment = () => {
             <div className="col-md-12">
               <textarea
                 placeholder="Please type what you want..."
-
                 rows="5"
                 {...register("description", { required: true })}
                 className="description-box"
               ></textarea>{" "}
             </div>
-            <button type="submit" className="pulse"> Submit </button>
+            <button type="submit" className="pulse">
+              {" "}
+              Submit{" "}
+            </button>
           </Row>
         </form>
-
       </div>
     </div>
   );
