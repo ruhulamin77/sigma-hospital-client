@@ -35,7 +35,6 @@ function App() {
   return (
     <div>
       <Router>
-        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/" element={<PrivateRoute />}>
@@ -87,14 +86,18 @@ function App() {
 
             {/* doctor start */}
             <Route path="/dashboard/allDoctors" element={<AllDoctors />} />
-            <Route path="/dashboard/allDoctors/update/:id" element={<DoctorProfile />} />
+            <Route
+              path="/dashboard/allDoctors/update/:id"
+              element={<DoctorProfile />}
+            />
             <Route path="/dashboard/addDoctors" element={<AddDoctors />} />
-            <Route path="/dashboard/doctorPrescription" element={<DoctorPrescription />} />
+            <Route
+              path="/dashboard/doctorPrescription"
+              element={<DoctorPrescription />}
+            />
             {/*  doctor end */}
-
           </Route>
         </Routes>
-        <Footer />
       </Router>
     </div>
   );

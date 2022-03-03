@@ -73,7 +73,7 @@
 .dashboard_left_side_bar {
   padding: 15px;
   flex-basis: 300px;
-  height: 100vh;
+  height: calc(100vh - 90px);
   overflow: scroll;
   overflow-x: hidden;
   background-color: #f4f7f6;
@@ -124,19 +124,20 @@
 }
 .dashboard_content_area {
   flex-grow: 1;
-  height: 100vh;
+  height: calc(100vh - 90px);
+
   overflow: scroll;
   overflow-x: hidden;
 }
 /* ::-webkit-scrollbar {
   width: 0px;
 } */
-.dashboard_content_area::-webkit-scrollbar {
+/* .dashboard_content_area::-webkit-scrollbar {
   width: 0px;
 }
 .dashboard_left_side_bar::-webkit-scrollbar {
   width: 0px;
-}
+} */
 
 /* dashboard navigation */
 .dashboard_left_nav a {
