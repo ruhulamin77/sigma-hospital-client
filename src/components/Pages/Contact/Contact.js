@@ -1,88 +1,131 @@
-import React, { useRef } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import React, { useRef } from "react";
+import { Col, Container, Row } from "react-bootstrap";
 import { RiMapPinLine, RiPhoneLine } from "react-icons/ri";
 import { FaEnvelopeOpen } from "react-icons/fa";
-import './Contact.css'
-import backPic from "../../../images/ki-14-1.jpg"
-import { Link } from 'react-router-dom';
-import emailjs from '@emailjs/browser';
+import "./Contact.css";
+import backPic from "../../../images/ki-14-1.jpg";
+import { Link } from "react-router-dom";
+import emailjs from "@emailjs/browser";
+import Header from "../../Share/Header/Header";
+import Footer from "../../Home/Footer/Footer";
 
 const Contact = () => {
-    const form = useRef();
-    const sendEmail = (e) => {
-        e.preventDefault();
-        emailjs.sendForm('service_mt82hy2', 'template_c9ss9cm', form.current, 'user_cKgbE80VqOVlLKlhO7S97')
-            .then((result) => {
-                alert("okk")
-            }, (error) => {
-            });
-    }
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
+    emailjs
+      .sendForm(
+        "service_mt82hy2",
+        "template_c9ss9cm",
+        form.current,
+        "user_cKgbE80VqOVlLKlhO7S97"
+      )
+      .then(
+        (result) => {
+          alert("okk");
+        },
+        (error) => {}
+      );
+  };
 
-    return (
-        <>
-            <div style={{ background: `url(${backPic})` }} className="backcrumb-my ">
+  return (
+    <>
+      <Header />
+      <div style={{ background: `url(${backPic})` }} className="backcrumb-my ">
+        <nav aria-label="breadcrumb">
+          <h3>Contact Us</h3>
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item">
+              <Link to="/">Home</Link>
+            </li>
 
-                <nav aria-label="breadcrumb">
-                    <h3>Contact Us</h3>
-                    <ol className="breadcrumb">
-                        <li className="breadcrumb-item"><Link to="/">Home</Link></li>
-
-                        <li className="breadcrumb-item active" aria-current="page">Contact Us</li>
-                    </ol>
-                </nav>
+            <li className="breadcrumb-item active" aria-current="page">
+              Contact Us
+            </li>
+          </ol>
+        </nav>
+      </div>
+      <div className="contact">
+        <Container>
+          <Row className="g-3 padding-container" xs={1} md={2} lg={3}>
+            <Col>
+              <div className="contact-item">
+                <RiMapPinLine />
+                <h6>LOCATION</h6>
+                <p>Dhaka Bangladesh</p>
+              </div>
+            </Col>
+            <Col>
+              <div className="contact-item">
+                <FaEnvelopeOpen />
+                <h6>EMAIL</h6>
+                <p>sigmacare2022@gmail.com</p>
+              </div>
+            </Col>
+            <Col>
+              <div className="contact-item">
+                <RiPhoneLine />
+                <h6>CALL ANYTIME</h6>
+                <p>+8801629094984</p>
+              </div>
+            </Col>
+          </Row>
+          <hr />
+          <Row className="padding-container">
+            <div className="contact-title">
+              <h6>JUST A CALL AWAY</h6>
+              <h2>
+                <strong>We'd love to</strong> hear from you!
+              </h2>
+              <p>
+                We are here and always ready to help you. Let us know how we
+                serve you and we’ll get back within no time.
+              </p>
             </div>
-            <div className="contact">
-                <Container>
-                    <Row className='g-3 padding-container' xs={1} md={2} lg={3}>
-                        <Col>
-                            <div className="contact-item">
-                                <RiMapPinLine />
-                                <h6>LOCATION</h6>
-                                <p>Dhaka Bangladesh</p>
-                            </div>
-                        </Col>
-                        <Col>
-                            <div className="contact-item">
-                                <FaEnvelopeOpen />
-                                <h6>EMAIL</h6>
-                                <p>sigmacare2022@gmail.com</p>
-                            </div>
-                        </Col>
-                        <Col>
-                            <div className="contact-item">
-                                <RiPhoneLine />
-                                <h6>CALL ANYTIME</h6>
-                                <p>+8801629094984</p>
-                            </div>
-                        </Col>
-                    </Row>
-                    <hr />
-                    <Row className='padding-container'>
-                        <div className="contact-title">
-                            <h6>JUST A CALL AWAY</h6>
-                            <h2><strong>We'd love to</strong> hear from you!</h2>
-                            <p>We are here and always ready to help you. Let us know how we serve you and we’ll get back within no time.</p>
-                        </div>
-                    </Row>
-                    <form ref={form} onSubmit={sendEmail}>
-                        <Row className='g-4 px-0 mx-0 px-lg-5 mx-lg-5'>
-
-                            <Col xs={12} md={6}>
-                                <input type="text" placeholder='First Name' name="firstName" required />
-                            </Col>
-                            <Col xs={12} md={6}>
-                                <input type="text" placeholder='Last Name' name="lastName" required />
-                            </Col>
-                            <Col xs={12} md={6}>
-                                <input type="number" placeholder='Phone Number' name="phoneNumber" required />
-                            </Col>
-                            <Col xs={12} md={6}>
-                                <input type="email" placeholder='Email Address' name="email" required />
-                            </Col>
-                            <Col xs={12}>
-                                <textarea rows="7" placeholder='Your Message' name='message' required />
-                            </Col>
-                            {/* <Col xs={12} md={6}>
+          </Row>
+          <form ref={form} onSubmit={sendEmail}>
+            <Row className="g-4 px-0 mx-0 px-lg-5 mx-lg-5">
+              <Col xs={12} md={6}>
+                <input
+                  type="text"
+                  placeholder="First Name"
+                  name="firstName"
+                  required
+                />
+              </Col>
+              <Col xs={12} md={6}>
+                <input
+                  type="text"
+                  placeholder="Last Name"
+                  name="lastName"
+                  required
+                />
+              </Col>
+              <Col xs={12} md={6}>
+                <input
+                  type="number"
+                  placeholder="Phone Number"
+                  name="phoneNumber"
+                  required
+                />
+              </Col>
+              <Col xs={12} md={6}>
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  name="email"
+                  required
+                />
+              </Col>
+              <Col xs={12}>
+                <textarea
+                  rows="7"
+                  placeholder="Your Message"
+                  name="message"
+                  required
+                />
+              </Col>
+              {/* <Col xs={12} md={6}>
                                 <input type="text" placeholder='First Name' {...register("FirstName", { required: true, maxLength: 80 })} />
                                 {errors.FirstName && errors.FirstName.type === "required" && <span className='text-danger pt-2  d-inline-block'>First Name is required</span>}
                             </Col>
@@ -107,16 +150,16 @@ const Contact = () => {
                                 {errors.Message && errors.Message.type === "required" && <span className='text-danger pt-2  d-inline-block'>Message is required</span>}
                                 {errors.Message && errors.Message.type === "maxLength" && <span className='text-danger pt-2  d-inline-block'>Message text overloaded</span>}
                             </Col> */}
-                            <button type='submit' className='header-btn btn-hover'>Sent Message</button>
-
-                        </Row>
-                    </form>
-
-                </Container>
-
-            </div>
-        </>
-    );
+              <button type="submit" className="header-btn btn-hover">
+                Sent Message
+              </button>
+            </Row>
+          </form>
+        </Container>
+      </div>
+      <Footer />
+    </>
+  );
 };
 
 export default Contact;
