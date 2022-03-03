@@ -13,8 +13,6 @@ const Appointment = () => {
 
   const [appointments, setAppointments] = useState([]);
 
-  // console.log(shiftDoctor, "hello")
-
   useEffect(() => {
     fetch("http://localhost:7050/doctors")
       .then((res) => res.json())
@@ -63,7 +61,7 @@ const Appointment = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    /* formState: { errors }, */
   } = useForm();
 
   const handleOnBlurService = (e) => {

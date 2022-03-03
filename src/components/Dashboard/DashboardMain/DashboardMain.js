@@ -1,10 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import {
-  Accordion,
-  Button,
-  Form,
   NavDropdown,
-  Offcanvas,
 } from "react-bootstrap";
 import { GiSettingsKnobs } from "react-icons/gi";
 import { RiLogoutCircleLine, RiSearchLine, RiWechatLine } from "react-icons/ri";
@@ -15,14 +11,14 @@ import {
   AiOutlineUsergroupDelete,
 } from "react-icons/ai";
 import { GrHome, GrLocation } from "react-icons/gr";
-import { MdKeyboardArrowLeft, MdOutlinePayment } from "react-icons/md";
+import { MdOutlinePayment } from "react-icons/md";
 import {
   HiMailOpen,
   HiOutlineLockClosed,
   HiOutlinePuzzle,
 } from "react-icons/hi";
 import { IoMdNotificationsOutline } from "react-icons/io";
-import { BiChevronDown, BiLogIn } from "react-icons/bi";
+import { BiLogIn } from "react-icons/bi";
 import { FaRegCalendarAlt, FaUser } from "react-icons/fa";
 import { BsChevronDown, BsListTask } from "react-icons/bs";
 import { IoSettingsSharp } from "react-icons/io5";
@@ -32,17 +28,14 @@ import logo from "../../../images/logo/logo.png";
 import user from "../../../images/user.png";
 
 import {
-  BrowserRouter as Router,
   Link,
-  Outlet,
-  Route,
-  Routes,
+  Outlet
 } from "react-router-dom";
 
 const DashboardMain = () => {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  /* const [show, setShow] = useState(false);
+   const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true); */
   return (
     <div>
       {/* <Button variant="primary" onClick={handleShow}>
@@ -206,7 +199,7 @@ const DashboardMain = () => {
             </li>
             <li>
               <Link
-                // className="btn btn-primary"
+                /* className="btn btn-primary" */
                 data-bs-toggle="collapse"
                 to="#collapseDoctors"
                 role="button"
@@ -249,7 +242,7 @@ const DashboardMain = () => {
 
             <li>
               <Link
-                // className="btn btn-primary"
+                /* className="btn btn-primary" */
                 data-bs-toggle="collapse"
                 to="#collapsePatients"
                 role="button"
@@ -292,7 +285,7 @@ const DashboardMain = () => {
 
             <li>
               <Link
-                // className="btn btn-primary"
+                /* className="btn btn-primary" */
                 data-bs-toggle="collapse"
                 to="#collapsePayments"
                 role="button"
@@ -328,7 +321,7 @@ const DashboardMain = () => {
             </li>
             <li>
               <Link
-                // className="btn btn-primary"
+                /* className="btn btn-primary" */
                 data-bs-toggle="collapse"
                 to="#collapseDepartments"
                 role="button"
@@ -401,7 +394,7 @@ const DashboardMain = () => {
             </li>
             <li>
               <Link
-                // className="btn btn-primary"
+                /* className="btn btn-primary" */
                 data-bs-toggle="collapse"
                 to="#collapseAuthentications"
                 role="button"

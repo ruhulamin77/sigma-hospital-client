@@ -1,9 +1,8 @@
 import React from "react";
 import "./Banner.css";
-import bannerImg from "../../../images/doc-img.png";
 import signature from "../../../images/signature.png";
 import { Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+
 
 const Banner = () => {
   return (
@@ -19,17 +18,17 @@ const Banner = () => {
             <div className="banner_left_social">
               <ul>
                 <li>
-                  <a href="">
+                  <a href="https://www.facebook.com/">
                     <i className="fab fa-facebook-f"></i>
                   </a>
                 </li>
                 <li>
-                  <a href="">
+                  <a href="https://www.facebook.com/">
                     <i className="fab fa-twitter"></i>
                   </a>
                 </li>
                 <li>
-                  <a href="">
+                  <a href="https://www.facebook.com/">
                     <i className="fab fa-instagram"></i>
                   </a>
                 </li>
@@ -40,7 +39,7 @@ const Banner = () => {
               <h2>Make Your</h2>
               <p>Life Helthy</p>
 
-              <a href="#"  className="appointment_btn">
+              <a href="https://www.facebook.com/"  className="appointment_btn">
                 <span>Get Appointment</span> <i className="fas fa-plus"></i>
               </a>
             </div>
