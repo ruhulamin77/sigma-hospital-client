@@ -20,6 +20,7 @@
 }
 .header-btn .btn-hover:hover {
   background-color: black;
+  color: white;
 }
 .header-btn .btn-hover:hover .header-icon {
   background-color: #171c26;
@@ -143,7 +144,7 @@ li {
 .menu-item a {
   padding: 12px;
   font-size: 17px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 40px;
   position: relative;
   display: block;
@@ -192,10 +193,11 @@ li {
   border: 1px solid lavender;
   width: 300px;
   left: -17px;
-  padding: 2px 0 0 0;
+  padding: 10px 0;
   z-index: 1000;
   box-shadow: 0 10px 12px rgb(22 33 39 / 25%);
   top: 100%;
+  border-radius: 10px;
 }
 /* user info  */
 .users-info img {
@@ -234,8 +236,15 @@ li {
   }
 }
 .menu-item .sub__menus a {
-  padding: 7px;
-  margin: 7px 27px;
+  padding: 7px 15px;
+  margin: 5px 15px;
+}
+
+.menu-item:hover > a {
+  color: #7093e5 !important;
+}
+.menu-item .sub__menus li:hover a {
+  color: #ffffff !important;
 }
 
 .header__middle__logo img {
