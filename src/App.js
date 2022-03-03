@@ -27,6 +27,9 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Cart from "./components/Dashboard/Pharmacy/Cart/Cart";
 import History from "./components/Pages/History/History";
 import Success from "./components/Share/Payment/Validation/Success";
+import AddNurse from "./components/Dashboard/NurseDashboard/AllNurse/AddNurse/AddNurse";
+import AllNurse from "./components/Dashboard/NurseDashboard/AllNurse/AllNurse/AllNurse";
+import NurseProfileUpdate from "./components/Dashboard/NurseDashboard/NurseProfileUpdate/NurseProfileUpdate";
 
 function App() {
   return (
@@ -69,6 +72,10 @@ function App() {
           />
           <Route path="/Pharmacy" element={<PharmacyHome />} />
 
+          {/* nurse section */}
+          <Route path="/addNurse" element={<AddNurse />} />
+          <Route path="/allNurse" element={<AllNurse />} />
+          <Route path="/allNurse/update/:id" element={<NurseProfileUpdate />} />
 
           {/* dashboard */}
           <Route path="/dashboard" element={<DashboardMain />}>
