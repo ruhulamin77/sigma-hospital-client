@@ -8,8 +8,6 @@ const Appointment = () => {
   const [shiftDoctor, setShiftDoctor] = useState([]);
   console.log(shiftDoctor)
 
-  // console.log(shiftDoctor, "hello")
-
   useEffect(() => {
     fetch("https://shrouded-headland-44423.herokuapp.com/doctors")
       .then((res) => res.json())
@@ -23,7 +21,7 @@ const Appointment = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    /* formState: { errors }, */
   } = useForm();
 
   const onSubmit = (data) => {

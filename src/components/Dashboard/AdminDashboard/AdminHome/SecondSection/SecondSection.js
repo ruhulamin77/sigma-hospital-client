@@ -102,7 +102,7 @@ const SecondSection = () => {
             TotalVisit: "2000",
         }
     ];
-    const countyVisitors = [
+    /* const countyVisitors = [
         {
             country: "Canada",
             visitors: "1,100"
@@ -139,7 +139,7 @@ const SecondSection = () => {
             country: "Other",
             visitors: "865"
         },
-    ];
+    ];  */
 
     const settings = {
         infinite: true,
@@ -151,9 +151,6 @@ const SecondSection = () => {
         arrows: false
     };
 
-    // const handleCheckPoint = () => {
-    //     console.log('clicked');
-    // }
 
     return (
         <div style={{ backgroundColor: "#F4F7F6" }}>
