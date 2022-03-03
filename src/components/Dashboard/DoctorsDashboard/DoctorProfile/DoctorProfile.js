@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Alert, Button, Card, Container, Form } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { useGetDoctorsQuery } from '../../../../features/sigmaApi';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 import './DoctorProfile.css';
 
 const DoctorProfile = () => {
@@ -132,7 +132,7 @@ const DoctorProfile = () => {
                                                 <Form.Control
                                                     className='text-secondary'
                                                     defaultValue={singleDoctorInfo?.email}
-                                                    placeholder="Email Accouont"
+                                                    placeholder="Enter email address"
                                                     name="email"
                                                     type="email"
                                                     onBlur={handleUpdateDoctor}
@@ -490,7 +490,7 @@ const DoctorProfile = () => {
                             <Alert variant="warning">*Please press on each input field to successfully submit the form.</Alert>
                         </Card>
 
-                        <Card className="mt-5 card-control2">
+                        {/* <Card className="mt-5 card-control2">
                             <Card.Body>
                                 <Card.Text className='mb-3'>Account Information</Card.Text>
                                 <Form onSubmit={handleSubmit}>
@@ -504,7 +504,7 @@ const DoctorProfile = () => {
                                     >Reset</Button>
                                 </Form>
                             </Card.Body>
-                        </Card>
+                        </Card> */}
                     </div>
                 </div >
 
