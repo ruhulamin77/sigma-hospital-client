@@ -1,7 +1,5 @@
 import React from "react";
-import {
-  NavDropdown,
-} from "react-bootstrap";
+import { NavDropdown } from "react-bootstrap";
 import { GiSettingsKnobs } from "react-icons/gi";
 import { RiLogoutCircleLine, RiSearchLine, RiWechatLine } from "react-icons/ri";
 import { ImStack } from "react-icons/im";
@@ -27,10 +25,7 @@ import "./DashboardMain.css";
 import logo from "../../../images/logo/logo.png";
 import user from "../../../images/user.png";
 
-import {
-  Link,
-  Outlet
-} from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const DashboardMain = () => {
   /* const [show, setShow] = useState(false);
@@ -54,7 +49,9 @@ const DashboardMain = () => {
 
       <div className="dashboardHeader container-fluid">
         <div className="logo_area">
-          <img src={logo} alt="" />
+          <Link to="/home">
+            <img src={logo} alt="" />
+          </Link>
         </div>
         <div className="menu_area">
           <div className="search_area">

@@ -41,20 +41,22 @@ const Appointment = () => {
   // }, []);
 
   const onSubmit = (data) => {
-    axios.post("http://localhost:7050/appointments", data).then((res) => {
-      if (res.data.insertedId) {
-        // successfull modal
+    axios
+      .post("https://shrouded-headland-44423.herokuapp.com/", data)
+      .then((res) => {
+        if (res.data.insertedId) {
+          // successfull modal
 
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Your appointment has been submitted",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        reset();
-      }
-    });
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Your appointment has been submitted",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          reset();
+        }
+      });
   };
 
   const {
