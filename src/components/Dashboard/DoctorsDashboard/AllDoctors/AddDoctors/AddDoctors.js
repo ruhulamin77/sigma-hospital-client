@@ -56,8 +56,8 @@ const AddDoctors = () => {
                                     <Form.Control
                                         className='text-secondary'
                                         placeholder="Full Name"
-                                        name="name"
                                         type="text"
+                                        name="name"
                                         onChange={handleAddDoctor}
                                         required
                                     />

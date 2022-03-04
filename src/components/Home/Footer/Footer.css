@@ -50,7 +50,7 @@ footer .container .row:first-child {
   display: block;
   text-decoration: none;
   color: var(--body-color);
-  font-weight: 600;
+  font-weight: 400;
   margin-bottom: 15px;
   transition: all 0.3s ease-in-out;
   font-size: 18px;
@@ -67,7 +67,7 @@ ul {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid rgba(82, 95, 129, 0.09);
-  font-weight: 600;
+  font-weight: 400;
   font-size: 18px;
   padding-bottom: 10px;
   margin-top: 3px;
@@ -86,7 +86,7 @@ ul {
   margin-bottom: 15px;
   font-size: 18px;
   color: var(--body-color);
-  font-weight: 600;
+  font-weight: 400;
 }
 .spical {
   margin-top: 20px;
@@ -126,7 +126,7 @@ ul {
 }
 .foot-note {
   text-align: center;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--body-color);
 }
 hr {
