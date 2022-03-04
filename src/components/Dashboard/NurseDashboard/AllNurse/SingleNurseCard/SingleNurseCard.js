@@ -9,7 +9,7 @@ const SingleNurseCard = ({ nurse }) => {
     const handleDelete = id => {
         const proceed = window.confirm("Are you sure to delete this file?")
         if (proceed) {
-            fetch(`http://localhost:7050/nurses/${id}`, {
+            fetch(`https://shrouded-headland-44423.herokuapp.com/nurses/${id}`, {
                 method: 'DELETE',
                 headers: { 'content-type': 'application/json' },
             })
