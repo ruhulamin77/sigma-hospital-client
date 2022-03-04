@@ -11,7 +11,7 @@ const Blogs = () => {
     console.log(blogCollection);
     const [blogs, setBlogs] = useState([])
     useEffect(() => {
-        fetch("http://localhost:7050/Blog").then(res => res.json()).then(result => setBlogs(result))
+        fetch("https://shrouded-headland-44423.herokuapp.com/Blog").then(res => res.json()).then(result => setBlogs(result))
     }, [])
     console.log(blogs, "problem");
 
@@ -21,7 +21,7 @@ const Blogs = () => {
         <Container>
             <Row className='g-4' xs={1} md={2}>
                 {blogs.slice(2, 6).map(blog => (
-                    <Col style={{background:"#80808061"}}>
+                    <Col>
                         <div className="blog-items mb-4">
                             <div className="blog-img mb-4">
                                 <img className='img-fluid' src={`data:image/*;base64,${blog?.photo}`} alt="" />
