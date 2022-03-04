@@ -12,7 +12,6 @@ import Contact from "./components/Pages/Contact/Contact";
 import FAQ from "./components/Pages/FAQ/FAQ";
 import Team from "./components/Pages/Team/Team";
 import Service from "./components/Service/Service";
-import Service from "./components/Service/Service";
 import SingleDoctor from "./components/SingleDoctor/SingleDoctor";
 import Audiologist from "./components/Specialization/Audiologist/Audiologist";
 import Cardiologist from "./components/Specialization/Cardiologist/Cardiologist";
@@ -80,8 +79,6 @@ function App() {
           />
           <Route path="/Pharmacy" element={<PharmacyHome />} />
 
-
-
           {/* dashboard */}
           <Route path="/dashboard" element={<DashboardMain />}>
             <Route path="/dashboard" element={<AdminHomeMain />}></Route>
@@ -105,7 +102,10 @@ function App() {
             {/* nurse route start */}
             <Route path="/dashboard/addNurse" element={<AddNurse />} />
             <Route path="/dashboard/allNurse" element={<AllNurse />} />
-            <Route path="/dashboard/allNurse/update/:id" element={<NurseProfileUpdate />} />
+            <Route
+              path="/dashboard/allNurse/update/:id"
+              element={<NurseProfileUpdate />}
+            />
             {/* nurse route end */}
           </Route>
         </Routes>
