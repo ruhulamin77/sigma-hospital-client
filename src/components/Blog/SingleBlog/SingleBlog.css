@@ -1,0 +1,41 @@
+.btn-blog {
+  background-color: #7093e5;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 3px;
+  display: inline-block;
+}
+.single-blog-info h2 {
+  margin: 15px 0;
+  color: #7093e5;
+  position: relative;
+  display: inline-block;
+}
+.single-blog-info h2::after {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  content: "";
+  background-color: #7093e5;
+  width: 0%;
+  height: 2px;
+  transition: 0.3s all linear;
+}
+.single-blog-info h2:hover::after {
+  width: 100%;
+}
+.admin-info span {
+  padding-right: 15px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+.single-blog-info p {
+  color: gray;
+}
+.single-blog-info h4 {
+  margin: 15px 0;
+  color: #7093e5;
+}
+.single-blog-info {
+  margin-bottom: 40px;
+}

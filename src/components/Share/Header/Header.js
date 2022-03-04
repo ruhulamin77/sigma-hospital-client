@@ -108,7 +108,8 @@ const Header = () => {
                     <li> <Link onClick={toggleClass} activeClassName='is-active' to="/contact"> Contact Us </Link> </li>
                   </ul>
                 </li>
-               {user?.email ? <li className="menu-item"onClick={()=> logout()}> Logout </li>: <li className="menu-item" ><Link onClick={toggleClass} activeClassName='is-active' to="/login"> Login </Link> </li>}
+                  {user?.email ? <li className="menu-item" onClick={() => logout()}> <a href="#"> Logout </a> </li>
+                    : <li className="menu-item" ><Link onClick={toggleClass} activeClassName='is-active' to="/login"> Login </Link> </li>}
                 <button className="header-btn">
                 Appointment <i className="fas fa-plus header-icon"></i>
                 </button>
