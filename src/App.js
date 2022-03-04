@@ -75,10 +75,7 @@ function App() {
           />
           <Route path="/Pharmacy" element={<PharmacyHome />} />
 
-          {/* nurse section */}
-          <Route path="/addNurse" element={<AddNurse />} />
-          <Route path="/allNurse" element={<AllNurse />} />
-          <Route path="/allNurse/update/:id" element={<NurseProfileUpdate />} />
+
 
           {/* dashboard */}
           <Route path="/dashboard" element={<DashboardMain />}>
@@ -88,7 +85,7 @@ function App() {
               element={<Appointment />}
             ></Route>
 
-            {/* doctor start */}
+            {/* doctor route start */}
             <Route path="/dashboard/allDoctors" element={<AllDoctors />} />
             <Route
               path="/dashboard/allDoctors/update/:id"
@@ -99,7 +96,12 @@ function App() {
               path="/dashboard/doctorPrescription"
               element={<DoctorPrescription />}
             />
-            {/*  doctor end */}
+            {/*  doctor route end */}
+            {/* nurse route start */}
+            <Route path="/dashboard/addNurse" element={<AddNurse />} />
+            <Route path="/dashboard/allNurse" element={<AllNurse />} />
+            <Route path="/dashboard/allNurse/update/:id" element={<NurseProfileUpdate />} />
+            {/* nurse route end */}
           </Route>
         </Routes>
       </Router>

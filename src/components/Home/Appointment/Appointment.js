@@ -14,7 +14,7 @@ const Appointment = () => {
   const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:7050/doctors")
+    fetch("https://shrouded-headland-44423.herokuapp.com/doctors")
       .then((res) => res.json())
       .then((data) => {
         // setShiftDoctor(data);
@@ -42,7 +42,7 @@ const Appointment = () => {
 
   const onSubmit = (data) => {
     axios
-      .post("https://shrouded-headland-44423.herokuapp.com/", data)
+      .post("https://shrouded-headland-44423.herokuapp.com/appointments", data)
       .then((res) => {
         if (res.data.insertedId) {
           // successfull modal
