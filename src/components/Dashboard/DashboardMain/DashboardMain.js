@@ -1,11 +1,5 @@
-import React, { useState } from "react";
-import {
-  Accordion,
-  Button,
-  Form,
-  NavDropdown,
-  Offcanvas,
-} from "react-bootstrap";
+import React from "react";
+import { NavDropdown } from "react-bootstrap";
 import { GiSettingsKnobs } from "react-icons/gi";
 import { RiLogoutCircleLine, RiSearchLine, RiWechatLine } from "react-icons/ri";
 import { ImStack } from "react-icons/im";
@@ -15,14 +9,14 @@ import {
   AiOutlineUsergroupDelete,
 } from "react-icons/ai";
 import { GrHome, GrLocation } from "react-icons/gr";
-import { MdKeyboardArrowLeft, MdOutlinePayment } from "react-icons/md";
+import { MdOutlinePayment } from "react-icons/md";
 import {
   HiMailOpen,
   HiOutlineLockClosed,
   HiOutlinePuzzle,
 } from "react-icons/hi";
 import { IoMdNotificationsOutline } from "react-icons/io";
-import { BiChevronDown, BiLogIn } from "react-icons/bi";
+import { BiLogIn } from "react-icons/bi";
 import { FaRegCalendarAlt, FaUser } from "react-icons/fa";
 import { BsChevronDown, BsListTask } from "react-icons/bs";
 import { IoSettingsSharp } from "react-icons/io5";
@@ -31,18 +25,12 @@ import "./DashboardMain.css";
 import logo from "../../../images/logo/logo.png";
 import user from "../../../images/user.png";
 
-import {
-  BrowserRouter as Router,
-  Link,
-  Outlet,
-  Route,
-  Routes,
-} from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const DashboardMain = () => {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  /* const [show, setShow] = useState(false);
+   const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true); */
   return (
     <div>
       {/* <Button variant="primary" onClick={handleShow}>
@@ -61,7 +49,9 @@ const DashboardMain = () => {
 
       <div className="dashboardHeader container-fluid">
         <div className="logo_area">
-          <img src={logo} alt="" />
+          <Link to="/home">
+            <img src={logo} alt="" />
+          </Link>
         </div>
         <div className="menu_area">
           <div className="search_area">
@@ -206,7 +196,7 @@ const DashboardMain = () => {
             </li>
             <li>
               <Link
-                // className="btn btn-primary"
+                /* className="btn btn-primary" */
                 data-bs-toggle="collapse"
                 to="#collapseDoctors"
                 role="button"
@@ -234,10 +224,10 @@ const DashboardMain = () => {
                       <span className="nav_icon">--</span>
                       <span>Add Doctors</span>
                     </Link>
-                    <Link to="/dashboard/allDoctors/update/:id">
+                    {/* <Link to="/dashboard/allDoctors/update/:id">
                       <span className="nav_icon">--</span>
                       <span>Doctor Profile</span>
-                    </Link>
+                    </Link> */}
                     <Link to="/dashboard/doctorPrescription">
                       <span className="nav_icon">--</span>
                       <span>Doctor Prescription</span>
@@ -249,7 +239,7 @@ const DashboardMain = () => {
 
             <li>
               <Link
-                // className="btn btn-primary"
+                /* className="btn btn-primary" */
                 data-bs-toggle="collapse"
                 to="#collapsePatients"
                 role="button"
@@ -292,7 +282,7 @@ const DashboardMain = () => {
 
             <li>
               <Link
-                // className="btn btn-primary"
+                /* className="btn btn-primary" */
                 data-bs-toggle="collapse"
                 to="#collapsePayments"
                 role="button"
@@ -328,7 +318,7 @@ const DashboardMain = () => {
             </li>
             <li>
               <Link
-                // className="btn btn-primary"
+                /* className="btn btn-primary" */
                 data-bs-toggle="collapse"
                 to="#collapseDepartments"
                 role="button"
@@ -401,7 +391,7 @@ const DashboardMain = () => {
             </li>
             <li>
               <Link
-                // className="btn btn-primary"
+                /* className="btn btn-primary" */
                 data-bs-toggle="collapse"
                 to="#collapseAuthentications"
                 role="button"

@@ -6,14 +6,12 @@ import DoctorPrescription from "./components/Dashboard/DoctorsDashboard/DoctorPr
 import DoctorProfile from "./components/Dashboard/DoctorsDashboard/DoctorProfile/DoctorProfile";
 import Appointment from "./components/Home/Appointment/Appointment";
 import PharmacyHome from "./components/Dashboard/Pharmacy/PharmacyHome/PharmacyHome";
-import Footer from "./components/Home/Footer/Footer";
 import Home from "./components/Home/Home/Home";
 import Login from "./components/Login/Login/Login";
 import Contact from "./components/Pages/Contact/Contact";
 import FAQ from "./components/Pages/FAQ/FAQ";
 import Team from "./components/Pages/Team/Team";
-import Service from "./components/Service/Service";
-import Header from "./components/Share/Header/Header";
+import Service from "./components/Service/Service"
 import SingleDoctor from "./components/SingleDoctor/SingleDoctor";
 import Audiologist from "./components/Specialization/Audiologist/Audiologist";
 import Cardiologist from "./components/Specialization/Cardiologist/Cardiologist";
@@ -30,12 +28,14 @@ import Success from "./components/Share/Payment/Validation/Success";
 import BlogForm from "./components/Blog/BlogForm/BlogForm";
 import Blogs from "./components/Blog/Blogs/Blogs";
 import SingleBlog from "./components/Blog/SingleBlog/SingleBlog";
+import AddNurse from "./components/Dashboard/NurseDashboard/AllNurse/AddNurse/AddNurse";
+import AllNurse from "./components/Dashboard/NurseDashboard/AllNurse/AllNurse/AllNurse";
+import NurseProfileUpdate from "./components/Dashboard/NurseDashboard/NurseProfileUpdate/NurseProfileUpdate";
 
 function App() {
   return (
     <div>
       <Router>
-        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/" element={<PrivateRoute />}>
@@ -75,6 +75,10 @@ function App() {
           />
           <Route path="/Pharmacy" element={<PharmacyHome />} />
 
+          {/* nurse section */}
+          <Route path="/addNurse" element={<AddNurse />} />
+          <Route path="/allNurse" element={<AllNurse />} />
+          <Route path="/allNurse/update/:id" element={<NurseProfileUpdate />} />
 
           {/* dashboard */}
           <Route path="/dashboard" element={<DashboardMain />}>
@@ -86,14 +90,18 @@ function App() {
 
             {/* doctor start */}
             <Route path="/dashboard/allDoctors" element={<AllDoctors />} />
-            <Route path="/dashboard/allDoctors/update/:id" element={<DoctorProfile />} />
+            <Route
+              path="/dashboard/allDoctors/update/:id"
+              element={<DoctorProfile />}
+            />
             <Route path="/dashboard/addDoctors" element={<AddDoctors />} />
-            <Route path="/dashboard/doctorPrescription" element={<DoctorPrescription />} />
+            <Route
+              path="/dashboard/doctorPrescription"
+              element={<DoctorPrescription />}
+            />
             {/*  doctor end */}
-
           </Route>
         </Routes>
-        <Footer />
       </Router>
     </div>
   );

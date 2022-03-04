@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Card, Container, Form } from 'react-bootstrap';
+import { Alert, Button, Card, Container, Form } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { useGetDoctorsQuery } from '../../../../features/sigmaApi';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 import './DoctorProfile.css';
 
 const DoctorProfile = () => {
@@ -10,7 +10,6 @@ const DoctorProfile = () => {
     const alldoctorInfo = useGetDoctorsQuery();
     const [singleDoctorInfo, setSingleDoctorInfo] = useState([]);
     const [doctorUpdateData, setDoctorUpdateData] = useState({});
-    const [image, setImage] = useState(null);
 
     useEffect(() => {
         const doctorData = alldoctorInfo?.data?.find(doctorId => doctorId._id === id);
@@ -24,23 +23,14 @@ const DoctorProfile = () => {
         newDoctorData[field] = value;
         setDoctorUpdateData(newDoctorData);
     }
-    console.log(doctorUpdateData);
 
     const handleSubmit = e => {
         e.preventDefault();
 
-        const formData = new FormData();
-        for (const key in doctorUpdateData) {
-            if (Object.hasOwnProperty.call(doctorUpdateData, key)) {
-                const element = doctorUpdateData[key];
-                formData.append(`${key}`, element);
-            }
-        }
-        formData.append('image', image);
-
         fetch(`https://shrouded-headland-44423.herokuapp.com/updateDoctor/${id}`, {
             method: 'PUT',
-            body: formData
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(doctorUpdateData)
         })
             .then(res => res.json())
             .then(data => {
@@ -128,9 +118,9 @@ const DoctorProfile = () => {
                                             <Form.Group className="mb-3">
                                                 <Form.Select
                                                     className='text-secondary'
+                                                    defaultValue={singleDoctorInfo?.gender}
                                                     name="gender"
                                                     onBlur={handleUpdateDoctor}
-                                                    defaultValue={singleDoctorInfo?.gender}
                                                 >
                                                     <option>Gender</option>
                                                     <option value="Male">Male</option>
@@ -141,18 +131,8 @@ const DoctorProfile = () => {
                                             <Form.Group className="mb-3">
                                                 <Form.Control
                                                     className='text-secondary'
-                                                    accept='image/*'
-                                                    name="photo"
-                                                    required
-                                                    type="file"
-                                                    onChange={e => setImage(e.target.files[0])}
-                                                />
-                                            </Form.Group>
-                                            <Form.Group className="mb-3">
-                                                <Form.Control
-                                                    className='text-secondary'
                                                     defaultValue={singleDoctorInfo?.email}
-                                                    placeholder="Email Accouont"
+                                                    placeholder="Enter email address"
                                                     name="email"
                                                     type="email"
                                                     onBlur={handleUpdateDoctor}
@@ -229,9 +209,9 @@ const DoctorProfile = () => {
                                                     <Form.Group className="mb-3">
                                                         <Form.Select
                                                             className='text-secondary'
+                                                            defaultValue={singleDoctorInfo?.speciality}
                                                             name="speciality"
                                                             onBlur={handleUpdateDoctor}
-                                                            defaultValue={singleDoctorInfo?.speciality}
                                                         >
                                                             <option>Speciality</option>
                                                             <option value="Gynecologist">Gynecologist</option>
@@ -314,11 +294,11 @@ const DoctorProfile = () => {
                                     <Form.Group className="mb-3">
                                         <Form.Control
                                             className='text-secondary'
+                                            defaultValue={singleDoctorInfo?.title}
                                             placeholder="Doctor Title"
                                             name="title"
                                             type="text"
                                             onBlur={handleUpdateDoctor}
-                                            defaultValue={singleDoctorInfo?.title}
                                             required
                                         />
                                     </Form.Group>
@@ -327,11 +307,11 @@ const DoctorProfile = () => {
                                             as="textarea"
                                             rows={2}
                                             className='text-secondary'
+                                            defaultValue={singleDoctorInfo?.description}
                                             placeholder="Description"
                                             name="description"
                                             type="text"
                                             onBlur={handleUpdateDoctor}
-                                            defaultValue={singleDoctorInfo?.description}
                                             required
                                         />
                                     </Form.Group>
@@ -340,11 +320,10 @@ const DoctorProfile = () => {
                                             <Form.Group>
                                                 <Form.Select
                                                     className='text-secondary'
+                                                    defaultValue={singleDoctorInfo?.day}
                                                     name="day"
                                                     onBlur={handleUpdateDoctor}
-                                                    defaultValue={singleDoctorInfo?.day}
                                                     required
-                                                    aria-label="Default select example"
                                                 >
                                                     <option>Working Day</option>
                                                     <option value="Monday - Friday">Monday - Friday</option>
@@ -357,11 +336,10 @@ const DoctorProfile = () => {
                                             <Form.Group>
                                                 <Form.Select
                                                     className='text-secondary'
+                                                    defaultValue={singleDoctorInfo?.time}
                                                     name="time"
                                                     onBlur={handleUpdateDoctor}
-                                                    defaultValue={singleDoctorInfo?.time}
                                                     required
-                                                    aria-label="Default select example"
                                                 >
                                                     <option>Working Time</option>
                                                     <option value="7.00 am - 3.00 pm">7.00 am - 3.00 pm</option>
@@ -374,11 +352,10 @@ const DoctorProfile = () => {
                                             <Form.Group>
                                                 <Form.Select
                                                     className='text-secondary'
+                                                    defaultValue={singleDoctorInfo?.shift}
                                                     name="shift"
                                                     onBlur={handleUpdateDoctor}
-                                                    defaultValue={singleDoctorInfo?.shift}
                                                     required
-                                                    aria-label="Default select example"
                                                 >
                                                     <option>Shift</option>
                                                     <option value="Morning">Morning</option>
@@ -394,11 +371,10 @@ const DoctorProfile = () => {
                                                 <Form.Group>
                                                     <Form.Select
                                                         className='text-secondary'
+                                                        defaultValue={singleDoctorInfo?.skill1}
                                                         name="skill1"
                                                         onBlur={handleUpdateDoctor}
-                                                        defaultValue={singleDoctorInfo?.skill1}
                                                         required
-                                                        aria-label="Default select example"
                                                     >
                                                         <option>Skill Set</option>
                                                         <option value="Technique">Technique</option>
@@ -411,11 +387,11 @@ const DoctorProfile = () => {
                                                 <Form.Group>
                                                     <Form.Control
                                                         className='text-secondary'
+                                                        defaultValue={singleDoctorInfo?.percent1}
                                                         placeholder="Percentage. Ex - 80"
                                                         name="percent1"
                                                         type="number"
                                                         onBlur={handleUpdateDoctor}
-                                                        defaultValue={singleDoctorInfo?.percent1}
                                                         required
                                                     />
                                                 </Form.Group>
@@ -428,11 +404,10 @@ const DoctorProfile = () => {
                                                 <Form.Group>
                                                     <Form.Select
                                                         className='text-secondary'
+                                                        defaultValue={singleDoctorInfo?.skill2}
                                                         name="skill2"
                                                         onBlur={handleUpdateDoctor}
-                                                        defaultValue={singleDoctorInfo?.skill2}
                                                         required
-                                                        aria-label="Default select example"
                                                     >
                                                         <option>Skill Set</option>
                                                         <option value="Technique">Technique</option>
@@ -445,11 +420,11 @@ const DoctorProfile = () => {
                                                 <Form.Group>
                                                     <Form.Control
                                                         className='text-secondary'
+                                                        defaultValue={singleDoctorInfo?.percent2}
                                                         placeholder="Percentage. Ex - 80"
                                                         name="percent2"
                                                         type="number"
                                                         onBlur={handleUpdateDoctor}
-                                                        defaultValue={singleDoctorInfo?.percent2}
                                                         required
                                                     />
                                                 </Form.Group>
@@ -462,11 +437,10 @@ const DoctorProfile = () => {
                                                 <Form.Group>
                                                     <Form.Select
                                                         className='text-secondary'
+                                                        defaultValue={singleDoctorInfo?.skill3}
                                                         name="skill3"
                                                         onBlur={handleUpdateDoctor}
-                                                        defaultValue={singleDoctorInfo?.skill3}
                                                         required
-                                                        aria-label="Default select example"
                                                     >
                                                         <option>Skill Set</option>
                                                         <option value="Technique">Technique</option>
@@ -479,11 +453,11 @@ const DoctorProfile = () => {
                                                 <Form.Group>
                                                     <Form.Control
                                                         className='text-secondary'
+                                                        defaultValue={singleDoctorInfo?.percent3}
                                                         placeholder="Percentage. Ex - 80"
                                                         name="percent3"
                                                         type="number"
                                                         onBlur={handleUpdateDoctor}
-                                                        defaultValue={singleDoctorInfo?.percent3}
                                                         required
                                                     />
                                                 </Form.Group>
@@ -495,11 +469,11 @@ const DoctorProfile = () => {
                                             as="textarea"
                                             rows={2}
                                             className='text-secondary'
+                                            defaultValue={singleDoctorInfo?.moto}
                                             placeholder="Doctor Moto"
                                             name="moto"
                                             type="text"
                                             onBlur={handleUpdateDoctor}
-                                            defaultValue={singleDoctorInfo?.moto}
                                             required
                                         />
                                     </Form.Group>
@@ -513,9 +487,10 @@ const DoctorProfile = () => {
                                     >Reset</Button>
                                 </Form>
                             </Card.Body>
+                            <Alert variant="warning">*Please press on each input field to successfully submit the form.</Alert>
                         </Card>
 
-                        <Card className="mt-5 card-control2">
+                        {/* <Card className="mt-5 card-control2">
                             <Card.Body>
                                 <Card.Text className='mb-3'>Account Information</Card.Text>
                                 <Form onSubmit={handleSubmit}>
@@ -529,7 +504,7 @@ const DoctorProfile = () => {
                                     >Reset</Button>
                                 </Form>
                             </Card.Body>
-                        </Card>
+                        </Card> */}
                     </div>
                 </div >
 

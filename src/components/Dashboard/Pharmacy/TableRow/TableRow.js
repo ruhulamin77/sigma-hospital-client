@@ -5,14 +5,14 @@ import { addToCart, getTotals } from '../../../../features/cartSlice';
 
 const TableRow = ({ medicine, index }) => {
 
-    const [quantity, setQuantity] = useState('');
+    const [quantity, setQuantity] = useState(null);
     const { register, handleSubmit, reset } = useForm();
 
 
     const onSubmit = data => {
         console.log(data)
-        reset(data)
         handleAddToCart(data)
+        reset(data)
     };
 
     const handelquantity = (e) => {
@@ -34,17 +34,17 @@ const TableRow = ({ medicine, index }) => {
         dispatch(getTotals(quantity));
     };
 
-
-    //   const handleDecreaseCart = (product) => {
-    //     dispatch(decreaseCart(product));
-    //   };
-    //   const handleRemoveFromCart = (product) => {
-    //     dispatch(removeFromCart(product));
-    //   };
-    //   const handleClearCart = () => {
-    //     dispatch(clearCart());
-    //   };
-
+    /*
+      const handleDecreaseCart = (product) => {
+        dispatch(decreaseCart(product));
+      };
+      const handleRemoveFromCart = (product) => {
+        dispatch(removeFromCart(product));
+      };
+      const handleClearCart = () => {
+        dispatch(clearCart());
+      };
+    */
 
 
 

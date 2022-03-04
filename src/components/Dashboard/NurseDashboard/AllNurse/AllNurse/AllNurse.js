@@ -1,13 +1,12 @@
 import React from 'react';
 import { Button, Card, Container, Row, Spinner } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-import { useGetDoctorsQuery } from '../../../../../features/sigmaApi';
-import SingleCardDoctor from '../SingleCardDoctor/SingleCardDoctor';
-import './AllDoctors.css';
+import { useGetNursesQuery } from '../../../../../features/sigmaApi';
+import SingleNurseCard from '../SingleNurseCard/SingleNurseCard';
 
-const AllDoctors = () => {
-    const doctorsCollection = useGetDoctorsQuery() || {};
-    if (!doctorsCollection?.data?.length) {
+const AllNurse = () => {
+    const allNurse = useGetNursesQuery();
+    if (!allNurse?.data?.length) {
         return <Button variant="primary" disabled>
             <Spinner
                 as="span"
@@ -23,18 +22,18 @@ const AllDoctors = () => {
     return (
         <div style={{ backgroundColor: "#F4F7F6", padding: "20px 0" }}>
             <Container>
-                <Row xs={1} sm={2} md={2} lg={4} className="g-4">
-                    {doctorsCollection?.data?.map((doc) => (
-                        <SingleCardDoctor
-                            key={doc._id}
-                            doc={doc}
-                        ></SingleCardDoctor>
+                <Row xs={1} sm={2} md={2} lg={3} className="g-4">
+                    {allNurse?.data?.map((nurse) => (
+                        <SingleNurseCard
+                            key={nurse._id}
+                            nurse={nurse}
+                        ></SingleNurseCard>
                     ))}
                     <Card style={{ width: '10rem', marginLeft: "1rem" }} className='text-center card-control2'>
                         <Card.Body className='row'>
                             <div className='my-auto'>
-                                <Card.Text className='text-secondary'><b>Add New Docter</b></Card.Text>
-                                <NavLink to="/dashboard/addDoctors">
+                                <Card.Text className='text-secondary'><b>Add New Nurse</b></Card.Text>
+                                <NavLink to="/addNurse">
                                     <Card.Text className='adddoctor-icon'><i className="fas fa-plus-circle"></i></Card.Text>
                                 </NavLink>
                             </div>
@@ -46,4 +45,4 @@ const AllDoctors = () => {
     );
 };
 
-export default AllDoctors;
+export default AllNurse;

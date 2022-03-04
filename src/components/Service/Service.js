@@ -9,10 +9,13 @@ import ambulance from "../../images/services/6.png";
 import navPic from "../../images/specialization/specialization_banner.jpg";
 import { Link } from "react-router-dom";
 import Testimonial from "../Home/Testimonial/Testimonial";
+import Header from "../Share/Header/Header";
+import Footer from "../Home/Footer/Footer";
 
 const Service = () => {
   return (
     <>
+      <Header />
       <div
         style={{ background: `url(${navPic})` }}
         className="backcrumb-my mb-5"
@@ -136,6 +139,7 @@ const Service = () => {
         </div>
       </div>
       <Testimonial />
+      <Footer />
     </>
   );
 };

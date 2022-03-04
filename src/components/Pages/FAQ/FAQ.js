@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Accordion, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import backPic from "../../../images/ki-14-1.jpg"
+import Footer from '../../Home/Footer/Footer';
+import Header from '../../Share/Header/Header';
 import './FAQ.css'
 
 const FAQ = () => {
@@ -12,6 +14,7 @@ const FAQ = () => {
     }, [])
     return (
         <>
+        <Header/>
             <div style={{ background: `url(${backPic})` }} className="backcrumb-my ">
 
                 <nav aria-label="breadcrumb">
@@ -85,6 +88,7 @@ const FAQ = () => {
                     </Accordion>
                 </Container>
             </div>
+            <Footer/>
         </>
     );
 };

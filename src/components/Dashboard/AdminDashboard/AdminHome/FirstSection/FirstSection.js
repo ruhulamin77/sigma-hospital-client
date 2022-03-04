@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { Card, Carousel } from 'react-bootstrap';
 import "./FirstSection.css";
 import { FaUserAlt, FaUserMd, FaRegEye } from 'react-icons/fa';

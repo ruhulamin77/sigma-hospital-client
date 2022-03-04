@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import {
-  NavLink, Offcanvas
-} from "react-bootstrap";
-import { FiAlignRight, FiChevronDown, FiXCircle } from "react-icons/fi";
-import { FaShoppingCart, FaHeart, FaShoppingBasket } from "react-icons/fa";
+import { Offcanvas } from "react-bootstrap";
+import { FiChevronDown } from "react-icons/fi";
 import {GiHamburgerMenu } from "react-icons/gi";
 import { GrClose } from "react-icons/gr";
 import { Link } from "react-router-dom";
@@ -56,7 +53,7 @@ const Header = () => {
   }
 
 
-  // const user = useSelector((state) => state?.auth?.value)
+  /* const user = useSelector((state) => state?.auth?.value) */
   const { logout} = useFirebase()
   const user = useSelector((state) => state.auth.value)
   console.log(user, "users");
@@ -111,7 +108,7 @@ const Header = () => {
                     <li> <Link onClick={toggleClass} activeClassName='is-active' to="/contact"> Contact Us </Link> </li>
                   </ul>
                 </li>
-               {user?.email ? <li className="menu-item"  ><a  onClick={()=> logout()} > Logout </a> </li>: <li className="menu-item" ><Link onClick={toggleClass} activeClassName='is-active' to="/login"> Login </Link> </li>}
+               {user?.email ? <li className="menu-item"onClick={()=> logout()}> Logout </li>: <li className="menu-item" ><Link onClick={toggleClass} activeClassName='is-active' to="/login"> Login </Link> </li>}
                 <button className="header-btn">
                 Appointment <i className="fas fa-plus header-icon"></i>
                 </button>

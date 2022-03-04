@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import './ThirdSection.css'
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const ThirdSection = () => {
     const data = [
@@ -49,16 +49,14 @@ const ThirdSection = () => {
         },
 
     ];
-
-
     return (
         <section className='thard-section'>
             <div className='container pt-5 pb-5'>
                 <div className='row'>
                     <div className='col-lg-6 col-sm-12'>
                         <Card className='thard'>
-                            <div className='card-top-section'>
-                                <p className='Patient-history'>Patient history</p>
+                            <div className='d-flex justify-content-between'>
+                                <p className='patient-history'>Patient history</p>
                                 <ul>
                                     <li>W</li>
                                     <li>M</li>
@@ -76,7 +74,7 @@ const ThirdSection = () => {
 
                             </div>
 
-                            <div className='BarChart-2nd-part'>
+                            <div className='barChart-2nd-part'>
                                 <ResponsiveContainer width="100%" height="100%">
                                     <BarChart
                                         width={300}

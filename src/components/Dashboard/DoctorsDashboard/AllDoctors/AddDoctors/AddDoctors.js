@@ -96,7 +96,7 @@ const AddDoctors = () => {
                                 <Form.Group className="mb-3">
                                     <Form.Control
                                         className='text-secondary'
-                                        placeholder="Enter your email"
+                                        placeholder="Enter email address"
                                         name="email"
                                         type="email"
                                         onChange={handleAddDoctor}
