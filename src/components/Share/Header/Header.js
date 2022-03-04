@@ -88,9 +88,9 @@ const Header = () => {
 
               <ul className={boxClass.join(' ')}>
                 <li className="menu-item" >
-                  <Link exact activeClassName='is-active' onClick={toggleClass} to="/home"> Home </Link>
+                  <Link exact activeClassName='is-active' onClick={toggleClass} to="/home">Home</Link>
                 </li>
-                <li className="menu-item " ><Link onClick={toggleClass} activeClassName='is-active' to="/doctor"> Doctor </Link> </li>
+                <li className="menu-item " ><Link onClick={toggleClass} activeClassName='is-active' to="/doctor">Doctor</Link> </li>
                 <li onClick={toggleSubmenu1} className="menu-item sub__menus__arrows" > <Link to="#"> Specialization <FiChevronDown /> </Link>
                   <ul className={boxClassSubMenu1.join(' ')} >
                     <li> <Link onClick={toggleClass} activeClassName='is-active' to="/specialization/oncologist"> Oncologist </Link> </li>
@@ -100,7 +100,7 @@ const Header = () => {
                     <li> <Link onClick={toggleClass} activeClassName='is-active' to={`/specialization/psychiatrists`}> Psychiatrists </Link> </li>
                   </ul>
                 </li>
-                <li className="menu-item " ><Link onClick={toggleClass} activeClassName='is-active' to="/contact"> Blog </Link> </li>
+                <li className="menu-item " ><Link onClick={toggleClass} activeClassName='is-active' to="/blog"> Blog </Link> </li>
                 <li onClick={toggleSubmenu} className="menu-item sub__menus__arrows" > <Link to="#"> Pages <FiChevronDown /> </Link>
                   <ul className={boxClassSubMenu.join(' ')} >
                     <li> <Link onClick={toggleClass} activeClassName='is-active' to="/"> Shop </Link> </li>

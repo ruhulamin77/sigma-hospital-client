@@ -27,6 +27,9 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Cart from "./components/Dashboard/Pharmacy/Cart/Cart";
 import History from "./components/Pages/History/History";
 import Success from "./components/Share/Payment/Validation/Success";
+import BlogForm from "./components/Blog/BlogForm/BlogForm";
+import Blogs from "./components/Blog/Blogs/Blogs";
+import SingleBlog from "./components/Blog/SingleBlog/SingleBlog";
 
 function App() {
   return (
@@ -46,11 +49,14 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/blogForm" element={<BlogForm />} />
+          <Route path="/blog" element={<Blogs />} />
           <Route path="/medicineCart" element={<Cart />} />
           {/* <Route path="/contact" element={<Contact />} /> */}
           <Route path="/about" element={<History />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/singleDoctor/:id" element={<SingleDoctor />} />
+          <Route path="/blog/:id" element={<SingleBlog />} />
           <Route path="/team/:id" element={<SingleDoctor />} />
           <Route path="/specialization/oncologist" element={<Oncologist />} />
           <Route path="/specialization/neurologist" element={<Neurologist />} />
