@@ -20,6 +20,7 @@ import { BiLogIn } from "react-icons/bi";
 import { FaRegCalendarAlt, FaUser } from "react-icons/fa";
 import { BsChevronDown, BsListTask } from "react-icons/bs";
 import { IoSettingsSharp } from "react-icons/io5";
+import { RiNurseLine } from "react-icons/ri";
 
 import "./DashboardMain.css";
 import logo from "../../../images/logo/logo.png";
@@ -231,6 +232,44 @@ const DashboardMain = () => {
                     <Link to="/dashboard/doctorPrescription">
                       <span className="nav_icon">--</span>
                       <span>Doctor Prescription</span>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li>
+              <Link
+                /* className="btn btn-primary" */
+                data-bs-toggle="collapse"
+                to="#collapseNurses"
+                role="button"
+                aria-expanded="false"
+                aria-controls="collapseExample"
+              >
+                <span className="dashboard_nav_icon">
+                  <span className="nav_icon">
+                    <RiNurseLine />
+                  </span>
+                  <span>Nurses</span>
+                </span>
+                <BsChevronDown />
+              </Link>
+
+              <div className="collapse" id="collapseNurses">
+                <ul className="dashboard_sub_menu">
+                  <li>
+                    <Link to="/dashboard/allDoctors">
+                      <span className="nav_icon">--</span>
+                      <span>All Nurses</span>
+                    </Link>
+                    <Link to="/dashboard/addDoctors">
+                      <span className="nav_icon">--</span>
+                      <span>Add Nurses</span>
+                    </Link>
+                    <Link to="/dashboard/allDoctors/update/:id">
+                      <span className="nav_icon">--</span>
+                      <span>Nurse Profile</span>
                     </Link>
                   </li>
                 </ul>
