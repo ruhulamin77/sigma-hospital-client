@@ -47,7 +47,7 @@ const SingleNurseCard = ({ nurse }) => {
                         <hr />
                         <Card.Text style={{ textAlign: "justify", fontSize: "14px" }}> <b>Decription:</b> {description}</Card.Text>
                         <div className='d-flex justify-content-evenly align-items-start mt-3'>
-                            <NavLink to={`/allNurse/update/${_id}`}>
+                            <NavLink to={`/dashboard/allNurse/update/${_id}`}>
                                 <Button className='doctor-update'>Update</Button>
                             </NavLink>
                             <Button onClick={() => handleDelete(_id)} className='doctor-delete'>Delete</Button>
