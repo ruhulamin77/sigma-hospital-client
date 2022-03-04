@@ -6,7 +6,7 @@
   padding: 10px;
 }
 .dashboardHeader .logo_area {
-  flex-basis: 300px;
+  flex-basis: 180px;
 }
 .dashboardHeader .menu_area {
   flex-grow: 1;
@@ -33,9 +33,9 @@
   background-color: unset;
 }
 
-.menu_area .search_area input:focus {
+/* .menu_area .search_area input:focus {
   width: 250px;
-}
+} */
 .menu_area .right_icon_area ul {
   display: flex;
   justify-content: space-between;
@@ -178,4 +178,34 @@
 }
 .dashboard_sub_menu li a .nav_icon {
   margin-right: 40px;
+}
+
+/* for mobile devices */
+.dashboard_hamburger_btn {
+  background-color: #f68685;
+  color: white;
+  font-size: 22px;
+}
+.dashboard_hamburger_btn:hover {
+  background-color: #7093e6;
+  color: white;
+  font-size: 22px;
+}
+.dashboard_mobole_logo img {
+  width: 150px;
+}
+.dashboard_mobile_header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .dashboard_mobile_header {
+    display: flex;
+  }
+  .dashboardHeader {
+    display: none;
+  }
 }
