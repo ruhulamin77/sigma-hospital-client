@@ -259,18 +259,18 @@ const DashboardMain = () => {
               <div className="collapse" id="collapseNurses">
                 <ul className="dashboard_sub_menu">
                   <li>
-                    <Link to="/dashboard/allDoctors">
+                    <Link to="/dashboard/allNurse">
                       <span className="nav_icon">--</span>
                       <span>All Nurses</span>
                     </Link>
-                    <Link to="/dashboard/addDoctors">
+                    <Link to="/dashboard/addNurse">
                       <span className="nav_icon">--</span>
                       <span>Add Nurses</span>
                     </Link>
-                    <Link to="/dashboard/allDoctors/update/:id">
+                    {/* <Link to="/dashboard/allNurse/update/:id">
                       <span className="nav_icon">--</span>
-                      <span>Nurse Profile</span>
-                    </Link>
+                      <span>Nurse Profile</span> 
+                  </Link>*/}
                   </li>
                 </ul>
               </div>
@@ -290,7 +290,7 @@ const DashboardMain = () => {
                     <AiOutlineUsergroupDelete />
                   </span>
 
-                  <span>Patiaets</span>
+                  <span>Patients</span>
                 </span>
                 <BsChevronDown />
               </Link>
@@ -482,7 +482,7 @@ const DashboardMain = () => {
           <Outlet />
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
