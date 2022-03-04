@@ -31,6 +31,8 @@ import SingleBlog from "./components/Blog/SingleBlog/SingleBlog";
 import AddNurse from "./components/Dashboard/NurseDashboard/AllNurse/AddNurse/AddNurse";
 import AllNurse from "./components/Dashboard/NurseDashboard/AllNurse/AllNurse/AllNurse";
 import NurseProfileUpdate from "./components/Dashboard/NurseDashboard/NurseProfileUpdate/NurseProfileUpdate";
+import DoctorHeader from "./components/Pages/Team/DoctorHeader";
+import AppointmentHeader from "./components/Home/Appointment/AppointmentHeader";
 
 function App() {
   return (
@@ -40,7 +42,11 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/" element={<PrivateRoute />}>
             <Route path="/contact" element={<Contact />} />
+            <Route path="/appointment" element={<AppointmentHeader />} />
           </Route>
+      
+    
+         
           <Route path="/home" element={<Home />} />
           <Route path="/service" element={<Service />} />
           <Route path="/adminhome" element={<AdminHomeMain />} />
@@ -49,6 +55,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/doctor" element={<DoctorHeader />} />
           <Route path="/blogForm" element={<BlogForm />} />
           <Route path="/blog" element={<Blogs />} />
           <Route path="/medicineCart" element={<Cart />} />

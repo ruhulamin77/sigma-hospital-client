@@ -12,24 +12,24 @@
   display: inline-block;
 }
 
-.header-btn .btn-hover {
+.header-btn.btn-hover {
   background-color: #f68685;
 }
-.header-btn .btn-hover .header-icon {
+.header-btn.btn-hover .header-icon {
   background-color: #f59d9c;
 }
-.header-btn .btn-hover:hover {
-  background-color: black;
+.header-btn.btn-hover:hover {
+  background-color: #a9c0f5;
   color: white;
 }
-.header-btn .btn-hover:hover .header-icon {
-  background-color: #171c26;
+.header-btn.btn-hover:hover .header-icon {
+  background-color: #7d9eeb;
 }
 .header-icon {
   font-size: 15px;
   margin-left: 8px;
   color: white;
-  background-color: #a9c0f5;
+  background-color: #000000;
   padding: 16px 15px;
   transition: all 0.5s ease-in;
 }
@@ -39,7 +39,7 @@
   margin-top: 35px;
   margin-left: 8px;
   color: white;
-  background-color: #a9c0f5;
+  background-color: #f68685;
   padding: 0px 10px 2px 10px;
   transition: all 0.5s ease-in;
   display: inline-block;
