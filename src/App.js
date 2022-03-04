@@ -11,7 +11,8 @@ import Login from "./components/Login/Login/Login";
 import Contact from "./components/Pages/Contact/Contact";
 import FAQ from "./components/Pages/FAQ/FAQ";
 import Team from "./components/Pages/Team/Team";
-import Service from "./components/Service/Service"
+import Service from "./components/Service/Service";
+import Service from "./components/Service/Service";
 import SingleDoctor from "./components/SingleDoctor/SingleDoctor";
 import Audiologist from "./components/Specialization/Audiologist/Audiologist";
 import Cardiologist from "./components/Specialization/Cardiologist/Cardiologist";
@@ -31,6 +32,8 @@ import SingleBlog from "./components/Blog/SingleBlog/SingleBlog";
 import AddNurse from "./components/Dashboard/NurseDashboard/AllNurse/AddNurse/AddNurse";
 import AllNurse from "./components/Dashboard/NurseDashboard/AllNurse/AllNurse/AllNurse";
 import NurseProfileUpdate from "./components/Dashboard/NurseDashboard/NurseProfileUpdate/NurseProfileUpdate";
+import AdminSignUp from "./components/Login/AdminSignUp/AdminSignUp";
+import AdminLoginForm from "./components/Login/AdminLoginForm/AdminLoginForm";
 
 function App() {
   return (
@@ -46,6 +49,8 @@ function App() {
           <Route path="/adminhome" element={<AdminHomeMain />} />
           <Route path="/paymentForm" element={<PaymentForm />} />
           <Route path="/success/:id" element={<Success />} />
+          <Route path="/adminRegister" element={<AdminSignUp />} />
+          <Route path="/adminLogin" element={<AdminLoginForm />} />
           <Route path="/login" element={<Login />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/team" element={<Team />} />

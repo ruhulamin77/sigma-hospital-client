@@ -11,7 +11,7 @@ const Appointment = () => {
   const [Specialist, setSpecialist] = useState([]);
   const [shiftDoctor, setShiftDoctor] = useState([]);
 
-  const [appointments, setAppointments] = useState([]);
+  // const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
     fetch("https://shrouded-headland-44423.herokuapp.com/doctors")
