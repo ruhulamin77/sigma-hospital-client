@@ -6,5 +6,21 @@
   object-fit: contain;
 }
 .blog-items {
-  background: rgba(207, 207, 207, 0.067);
+  background: rgb(238, 238, 238);
+  border: 1px solid #7093e5;
+}
+.looder {
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.blogs-info {
+  margin: 0 25px;
+  padding: 20px;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
