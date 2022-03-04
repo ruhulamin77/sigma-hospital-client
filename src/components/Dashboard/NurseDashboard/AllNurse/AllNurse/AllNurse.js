@@ -33,7 +33,7 @@ const AllNurse = () => {
                         <Card.Body className='row'>
                             <div className='my-auto'>
                                 <Card.Text className='text-secondary'><b>Add New Nurse</b></Card.Text>
-                                <NavLink to="/addNurse">
+                                <NavLink to="/dashboard/addNurse">
                                     <Card.Text className='adddoctor-icon'><i className="fas fa-plus-circle"></i></Card.Text>
                                 </NavLink>
                             </div>

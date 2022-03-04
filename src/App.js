@@ -11,7 +11,7 @@ import Login from "./components/Login/Login/Login";
 import Contact from "./components/Pages/Contact/Contact";
 import FAQ from "./components/Pages/FAQ/FAQ";
 import Team from "./components/Pages/Team/Team";
-import Service from "./components/Service/Service";
+import Service from "./components/Service/Service"
 import SingleDoctor from "./components/SingleDoctor/SingleDoctor";
 import Audiologist from "./components/Specialization/Audiologist/Audiologist";
 import Cardiologist from "./components/Specialization/Cardiologist/Cardiologist";
@@ -25,6 +25,9 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Cart from "./components/Dashboard/Pharmacy/Cart/Cart";
 import History from "./components/Pages/History/History";
 import Success from "./components/Share/Payment/Validation/Success";
+import BlogForm from "./components/Blog/BlogForm/BlogForm";
+import Blogs from "./components/Blog/Blogs/Blogs";
+import SingleBlog from "./components/Blog/SingleBlog/SingleBlog";
 import AddNurse from "./components/Dashboard/NurseDashboard/AllNurse/AddNurse/AddNurse";
 import AllNurse from "./components/Dashboard/NurseDashboard/AllNurse/AllNurse/AllNurse";
 import NurseProfileUpdate from "./components/Dashboard/NurseDashboard/NurseProfileUpdate/NurseProfileUpdate";
@@ -50,11 +53,14 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/blogForm" element={<BlogForm />} />
+          <Route path="/blog" element={<Blogs />} />
           <Route path="/medicineCart" element={<Cart />} />
           {/* <Route path="/contact" element={<Contact />} /> */}
           <Route path="/about" element={<History />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/singleDoctor/:id" element={<SingleDoctor />} />
+          <Route path="/blog/:id" element={<SingleBlog />} />
           <Route path="/team/:id" element={<SingleDoctor />} />
           <Route path="/specialization/oncologist" element={<Oncologist />} />
           <Route path="/specialization/neurologist" element={<Neurologist />} />
@@ -73,10 +79,7 @@ function App() {
           />
           <Route path="/Pharmacy" element={<PharmacyHome />} />
 
-          {/* nurse section */}
-          <Route path="/addNurse" element={<AddNurse />} />
-          <Route path="/allNurse" element={<AllNurse />} />
-          <Route path="/allNurse/update/:id" element={<NurseProfileUpdate />} />
+
 
           {/* dashboard */}
           <Route path="/dashboard" element={<DashboardMain />}>
@@ -86,7 +89,7 @@ function App() {
               element={<Appointment />}
             ></Route>
 
-            {/* doctor start */}
+            {/* doctor route start */}
             <Route path="/dashboard/allDoctors" element={<AllDoctors />} />
             <Route
               path="/dashboard/allDoctors/update/:id"
@@ -97,7 +100,12 @@ function App() {
               path="/dashboard/doctorPrescription"
               element={<DoctorPrescription />}
             />
-            {/*  doctor end */}
+            {/*  doctor route end */}
+            {/* nurse route start */}
+            <Route path="/dashboard/addNurse" element={<AddNurse />} />
+            <Route path="/dashboard/allNurse" element={<AllNurse />} />
+            <Route path="/dashboard/allNurse/update/:id" element={<NurseProfileUpdate />} />
+            {/* nurse route end */}
           </Route>
         </Routes>
       </Router>

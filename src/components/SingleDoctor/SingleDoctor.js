@@ -7,6 +7,8 @@ import Slider from "react-slick";
 import './SingleDoctor.css';
 import { useGetDoctorsQuery } from '../../features/sigmaApi';
 import ContactForEveryPage from '../ContactForEveryPage/ContactForEveryPage';
+import Header from '../Share/Header/Header';
+import Footer from '../Home/Footer/Footer';
 
 const SingleDoctor = () => {
     let settings = {
@@ -57,6 +59,7 @@ const SingleDoctor = () => {
 
     return (
         <div>
+            <Header />
             <div className='single-doctor-header'>
                 <div>
                     <Container className='text-center header-text'>
@@ -215,6 +218,7 @@ const SingleDoctor = () => {
                     </div>
                 </Container>
             </div>
+            <Footer />
         </div>
     );
 };
