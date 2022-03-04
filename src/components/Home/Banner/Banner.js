@@ -2,7 +2,7 @@ import React from "react";
 import "./Banner.css";
 import signature from "../../../images/signature.png";
 import { Container } from "react-bootstrap";
-
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
@@ -39,9 +39,9 @@ const Banner = () => {
               <h2>Make Your</h2>
               <p>Life Helthy</p>
 
-              <a href="https://www.facebook.com/"  className="appointment_btn">
+              <Link to="/appointment" className="appointment_btn">
                 <span>Get Appointment</span> <i className="fas fa-plus"></i>
-              </a>
+              </Link>
             </div>
           </div>
 
