@@ -26,8 +26,11 @@ import DoctorHeader from "./components/Pages/Team/DoctorHeader";
 import Team from "./components/Pages/Team/Team";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Service from "./components/Service/Service";
+<<<<<<< HEAD
 import PaymentForm from "./components/Share/Payment/PaymentForm/PaymentForm";
 import Success from "./components/Share/Payment/Validation/Success";
+=======
+>>>>>>> f5837c766c6036dcaf1f1b92bc0c3950528cec1d
 import SingleDoctor from "./components/SingleDoctor/SingleDoctor";
 import Audiologist from "./components/Specialization/Audiologist/Audiologist";
 import Cardiologist from "./components/Specialization/Cardiologist/Cardiologist";
@@ -86,8 +89,6 @@ function App() {
           />
           <Route path="/Pharmacy" element={<PharmacyHome />} />
 
-
-
           {/* dashboard */}
           <Route path="/dashboard" element={<DashboardMain />}>
             <Route path="/dashboard" element={<AdminHomeMain />}></Route>
@@ -111,7 +112,10 @@ function App() {
             {/* nurse route start */}
             <Route path="/dashboard/addNurse" element={<AddNurse />} />
             <Route path="/dashboard/allNurse" element={<AllNurse />} />
-            <Route path="/dashboard/allNurse/update/:id" element={<NurseProfileUpdate />} />
+            <Route
+              path="/dashboard/allNurse/update/:id"
+              element={<NurseProfileUpdate />}
+            />
             {/* nurse route end */}
           </Route>
         </Routes>
