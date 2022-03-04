@@ -1,9 +1,9 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import "./AdminLoginForm.css";
+import "../AdminLoginForm/AdminLoginForm.css";
 
-const AdminLoginForm = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+const AdminSignUp = () => {
+    const { register, handleSubmit, reset} = useForm();
     const onSubmit = data => console.log(data);
     return (
         <div>
@@ -15,7 +15,7 @@ const AdminLoginForm = () => {
                             <i className="fa fa-key" aria-hidden="true"></i>
                         </div>
                         <div className="col-lg-12 login-title">
-                            ADMIN PANEL LOGIN
+                            ADMIN PANEL MEMBERS REGISTER
                         </div>
       
                             <div className="col-lg-12 login-for">
@@ -48,4 +48,4 @@ const AdminLoginForm = () => {
             );
 };
 
-            export default AdminLoginForm;
+export default AdminSignUp;

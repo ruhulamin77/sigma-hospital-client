@@ -11,7 +11,7 @@ const Appointment = () => {
   const [Specialist, setSpecialist] = useState([]);
   const [shiftDoctor, setShiftDoctor] = useState([]);
 
-  const [appointments, setAppointments] = useState([]);
+  // const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:7050/doctors")
