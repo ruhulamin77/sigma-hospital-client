@@ -12,6 +12,7 @@ import AddNurse from "./components/Dashboard/NurseDashboard/AllNurse/AddNurse/Ad
 import AllNurse from "./components/Dashboard/NurseDashboard/AllNurse/AllNurse/AllNurse";
 import NurseProfileUpdate from "./components/Dashboard/NurseDashboard/NurseProfileUpdate/NurseProfileUpdate";
 import Cart from "./components/Dashboard/Pharmacy/Cart/Cart";
+import Order from "./components/Dashboard/Pharmacy/Order/Order";
 import PharmacyHome from "./components/Dashboard/Pharmacy/PharmacyHome/PharmacyHome";
 import Appointment from "./components/Home/Appointment/Appointment";
 import AppointmentHeader from "./components/Home/Appointment/AppointmentHeader";
@@ -85,6 +86,7 @@ function App() {
             element={<Psychiatrists />}
           />
           <Route path="/Pharmacy" element={<PharmacyHome />} />
+          <Route path="/order" element={<Order />} />
 
           {/* dashboard */}
           <Route path="/dashboard" element={<DashboardMain />}>

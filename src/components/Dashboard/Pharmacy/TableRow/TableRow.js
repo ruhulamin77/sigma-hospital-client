@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import { addToCart, getTotals } from '../../../../features/cartSlice';
 
 const TableRow = ({ medicine, index }) => {
 
-    const [quantity, setQuantity] = useState(null);
-    const { register, handleSubmit, reset } = useForm();
+    const [quantity, setQuantity] = useState('');
 
+    const { register, handleSubmit, reset } = useForm();
+    let navigate = useNavigate();
 
     const onSubmit = data => {
         console.log(data)
-        handleAddToCart(data)
         reset(data)
+        handleAddToCart(data)
+        navigate(`/order`);
+
     };
 
     const handelquantity = (e) => {
@@ -21,7 +25,6 @@ const TableRow = ({ medicine, index }) => {
         onSubmit()
 
     }
-
 
     const cart = useSelector((state) => state.data);
     const dispatch = useDispatch();
@@ -70,7 +73,11 @@ const TableRow = ({ medicine, index }) => {
                         <input type="hidden" {...register("price")} value={medicine?.salePrice} />
                         <input type="hidden"  {...register("quantity")} value={quantity} />
                         <input type="hidden"  {...register("Total")} value={(medicine?.salePrice) * (quantity)} />
+
                         <input type="submit" value="Add-Cart" className='Add-Cart' />
+
+
+
                     </form>
                 </td>
 

@@ -27,7 +27,7 @@ const cartSlice = createSlice({
         let tempProductItem = { ...action.payload, cartQuantity: parseInt(action.payload) };
         state.cartItems.push(tempProductItem);
       }
-       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     }
     , getTotals(state, action) {
       let { total, quantity } = state.cartItems.reduce(

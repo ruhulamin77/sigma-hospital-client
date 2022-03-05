@@ -17,7 +17,7 @@ export const store = configureStore({
 
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware().concat(sigmaApi.middleware, blogApi.middleware),
-        
+
 })
 store.dispatch(getTotals());
 setupListeners(store.dispatch)
