@@ -1,51 +1,44 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useState } from 'react';
+import {adminLogin} from '../../../features/adminSlice'
+import {useDispatch} from 'react-redux'
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import Header from '../../Share/Header/Header';
 import "./AdminLoginForm.css";
 
 const AdminLoginForm = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const [email,setEmail] = useState('')
+    const [password,setPassword] = useState('')
+    const dispatch = useDispatch()
+    const authenticate = (email, pass) => {
+        dispatch(adminLogin( email, pass ))
+    }
     return (
-        <div>
-            <div className="container">
-                <div className="row">
-                    <div className="col-lg-3 col-md-2"></div>
-                    <div className="col-lg-6 col-md-8 login-box">
-                        <div className="col-lg-12 login-key">
-                            <i className="fa fa-key" aria-hidden="true"></i>
-                        </div>
-                        <div className="col-lg-12 login-title">
-                            ADMIN PANEL LOGIN
-                        </div>
-      
-                            <div className="col-lg-12 login-for">
-                                <form onSubmit={handleSubmit(onSubmit)}>
-                                    <div className="form-group">
-                                        <label className="form-control-label">Email Address</label>
-                                        <input type="email" className="form-control" {...register("Email", {required: true, pattern: /^\S+@\S+$/i})} />
-                                    </div>
-                                    <div className="form-group">
-                                        <label className="form-control-label">PASSWORD</label>
-                                        <input type="password" className="form-control"  {...register("Password", {required: true})} />
-                                    </div>
-
-                                    <div className="col-lg-12 loginbttm">
-                                        <div className="col-lg-6 login-btm login-text">
-                                        </div>
-                                        <div className="col-lg-6">
-                                        <button type='submit' class="pure-button fuller-button blue">ACCEPT</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-2"></div>
-                    </div>
-                </div>
-
-   
-            </div>
-            );
+        <>
+            <Header />
+            <Container>
+              <Row>
+                <Col>
+                  <Form>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Your Email address</Form.Label>
+                        <Form.Control type="email" placeholder="Enter email" onChange={(e)=>setEmail(e.target.value)} />
+                        <Form.Text className="text-muted">
+                        We'll never share your email with anyone else.
+                        </Form.Text>
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Label>Your Password</Form.Label>
+                        <Form.Control type="password" placeholder="Password" onChange={(e)=>setPassword(e.target.value)} />
+                    </Form.Group>
+                    <Button onClick={()=>authenticate(email, password)} variant="primary" type="submit">
+                        Login
+                    </Button>
+                  </Form>        
+                </Col>    
+              </Row>
+            </Container>        
+        </>
+    );
 };
 
-            export default AdminLoginForm;
+export default AdminLoginForm;

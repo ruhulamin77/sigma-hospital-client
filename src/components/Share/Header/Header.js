@@ -87,7 +87,7 @@ const Header = () => {
                 <li className="menu-item" >
                   <Link exact activeClassName='is-active' onClick={toggleClass} to="/home">Home</Link>
                 </li>
-                <li className="menu-item " ><Link onClick={toggleClass} activeClassName='is-active' to="/doctor">Doctor</Link> </li>
+                <li className="menu-item " ><Link onClick={toggleClass} activeClassName='is-active' to="/doctor">Doctors</Link> </li>
                 <li onClick={toggleSubmenu1} className="menu-item sub__menus__arrows" > <Link to="#"> Specialization <FiChevronDown /> </Link>
                   <ul className={boxClassSubMenu1.join(' ')} >
                     <li> <Link onClick={toggleClass} activeClassName='is-active' to="/specialization/oncologist"> Oncologist </Link> </li>
@@ -110,9 +110,9 @@ const Header = () => {
                 </li>
                   {user?.email ? <li className="menu-item" onClick={() => logout()}> <a href="#"> Logout </a> </li>
                     : <li className="menu-item" ><Link onClick={toggleClass} activeClassName='is-active' to="/login"> Login </Link> </li>}
-                <button className="header-btn">
+                <Link to="/appointment" className="header-btn text-decoration-none btn-hover">
                 Appointment <i className="fas fa-plus header-icon"></i>
-                </button>
+                </Link>
                 <Link to="/dashboard" className="header-btn text-decoration-none btn-hover">
                 Deshboard <i className="fas fa-plus header-icon"></i>
                 </Link>

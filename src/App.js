@@ -1,17 +1,33 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import BlogForm from "./components/Blog/BlogForm/BlogForm";
+import Blogs from "./components/Blog/Blogs/Blogs";
+import SingleBlog from "./components/Blog/SingleBlog/SingleBlog";
 import AdminHomeMain from "./components/Dashboard/AdminDashboard/AdminHome/AdminHomeMain/AdminHomeMain";
 import DashboardMain from "./components/Dashboard/DashboardMain/DashboardMain";
+import AddDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AddDoctors/AddDoctors";
 import AllDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AllDoctors/AllDoctors";
 import DoctorPrescription from "./components/Dashboard/DoctorsDashboard/DoctorPrescription/DoctorPrescription/DoctorPrescription";
 import DoctorProfile from "./components/Dashboard/DoctorsDashboard/DoctorProfile/DoctorProfile";
-import Appointment from "./components/Home/Appointment/Appointment";
+import AddNurse from "./components/Dashboard/NurseDashboard/AllNurse/AddNurse/AddNurse";
+import AllNurse from "./components/Dashboard/NurseDashboard/AllNurse/AllNurse/AllNurse";
+import NurseProfileUpdate from "./components/Dashboard/NurseDashboard/NurseProfileUpdate/NurseProfileUpdate";
+import Cart from "./components/Dashboard/Pharmacy/Cart/Cart";
 import PharmacyHome from "./components/Dashboard/Pharmacy/PharmacyHome/PharmacyHome";
+import Appointment from "./components/Home/Appointment/Appointment";
+import AppointmentHeader from "./components/Home/Appointment/AppointmentHeader";
 import Home from "./components/Home/Home/Home";
+import AdminLoginForm from "./components/Login/AdminLoginForm/AdminLoginForm";
+import AdminSignUp from "./components/Login/AdminSignUp/AdminSignUp";
 import Login from "./components/Login/Login/Login";
 import Contact from "./components/Pages/Contact/Contact";
 import FAQ from "./components/Pages/FAQ/FAQ";
+import History from "./components/Pages/History/History";
+import DoctorHeader from "./components/Pages/Team/DoctorHeader";
 import Team from "./components/Pages/Team/Team";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Service from "./components/Service/Service";
+import PaymentForm from "./components/Share/Payment/PaymentForm/PaymentForm";
+import Success from "./components/Share/Payment/Validation/Success";
 import SingleDoctor from "./components/SingleDoctor/SingleDoctor";
 import Audiologist from "./components/Specialization/Audiologist/Audiologist";
 import Cardiologist from "./components/Specialization/Cardiologist/Cardiologist";
@@ -19,20 +35,6 @@ import ENTspecialist from "./components/Specialization/ENTspecialist/ENTspeciali
 import Neurologist from "./components/Specialization/Neurologist/Neurologist";
 import Oncologist from "./components/Specialization/Oncologist/Oncologist";
 import Psychiatrists from "./components/Specialization/Psychiatrists/Psychiatrists";
-import AddDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AddDoctors/AddDoctors";
-import PaymentForm from "./components/Share/Payment/PaymentForm/PaymentForm";
-import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
-import Cart from "./components/Dashboard/Pharmacy/Cart/Cart";
-import History from "./components/Pages/History/History";
-import Success from "./components/Share/Payment/Validation/Success";
-import BlogForm from "./components/Blog/BlogForm/BlogForm";
-import Blogs from "./components/Blog/Blogs/Blogs";
-import SingleBlog from "./components/Blog/SingleBlog/SingleBlog";
-import AddNurse from "./components/Dashboard/NurseDashboard/AllNurse/AddNurse/AddNurse";
-import AllNurse from "./components/Dashboard/NurseDashboard/AllNurse/AllNurse/AllNurse";
-import NurseProfileUpdate from "./components/Dashboard/NurseDashboard/NurseProfileUpdate/NurseProfileUpdate";
-import AdminSignUp from "./components/Login/AdminSignUp/AdminSignUp";
-import AdminLoginForm from "./components/Login/AdminLoginForm/AdminLoginForm";
 
 function App() {
   return (
@@ -42,7 +44,11 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/" element={<PrivateRoute />}>
             <Route path="/contact" element={<Contact />} />
+            <Route path="/appointment" element={<AppointmentHeader />} />
           </Route>
+
+
+
           <Route path="/home" element={<Home />} />
           <Route path="/service" element={<Service />} />
           <Route path="/adminhome" element={<AdminHomeMain />} />
@@ -53,6 +59,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/doctor" element={<DoctorHeader />} />
           <Route path="/blogForm" element={<BlogForm />} />
           <Route path="/blog" element={<Blogs />} />
           <Route path="/medicineCart" element={<Cart />} />
@@ -79,8 +86,6 @@ function App() {
           />
           <Route path="/Pharmacy" element={<PharmacyHome />} />
 
-
-
           {/* dashboard */}
           <Route path="/dashboard" element={<DashboardMain />}>
             <Route path="/dashboard" element={<AdminHomeMain />}></Route>
@@ -104,7 +109,10 @@ function App() {
             {/* nurse route start */}
             <Route path="/dashboard/addNurse" element={<AddNurse />} />
             <Route path="/dashboard/allNurse" element={<AllNurse />} />
-            <Route path="/dashboard/allNurse/update/:id" element={<NurseProfileUpdate />} />
+            <Route
+              path="/dashboard/allNurse/update/:id"
+              element={<NurseProfileUpdate />}
+            />
             {/* nurse route end */}
           </Route>
         </Routes>

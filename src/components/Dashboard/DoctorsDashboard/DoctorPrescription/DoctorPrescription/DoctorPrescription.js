@@ -4,8 +4,13 @@ import Swal from "sweetalert2";
 import DoctorData from "../DoctorData/DoctorData";
 import PatientData from "../PatientData/PatientData";
 import "./DoctorPrescription.css";
+// import { useSelector } from "react-redux";
 
 const DoctorPrescription = () => {
+
+  // const doctor = useSelector((state) => state.auth.role);
+  // console.log(doctor);
+
   const [inputFields, setInputFields] = useState([
     { number: "", medicineName: "", feedingSystem: "" },
   ]);
@@ -50,6 +55,10 @@ const DoctorPrescription = () => {
     setInputFields(values);
   };
 
+
+
+
+
   return (
     <div style={{ backgroundColor: "#F4F7F6", padding: "20px" }}>
       <Card className="card-control2">
@@ -58,9 +67,11 @@ const DoctorPrescription = () => {
           <div className="row doctor-patient mb-5">
             <Card className="col-12 col-md-6 card-control2">
               <DoctorData />
+              {/* {doctor.name} */}
             </Card>
             <Card className="col-12 col-md-6 card-control2">
               <PatientData />
+
             </Card>
           </div>
           {inputFields.map((inputField, index) => (
