@@ -1,0 +1,37 @@
+.edit-btn{
+    border: none;
+    background-color: #FE8F8D;
+    padding: 2px 12px;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    font-size: 12px;
+   
+}
+
+.edit-btn:hover{
+    color: #fff;
+}
+
+.continue-shoping{
+    justify-content: end;
+    margin-top: 31px;
+    font-size: 17px;
+    letter-spacing: 2px;
+    text-align: end;
+}
+.shoping-total{
+    display: block;
+    margin-right: 140px;
+    font-size: 18px;
+
+}
+
+.back-shoping{
+    background-color: #F68685;
+    padding: 9px 15px;
+    color: #fff;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 17px;
+
+}

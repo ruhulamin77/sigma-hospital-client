@@ -9,6 +9,7 @@ import './SingleBlog.css'
 
 const SingleBlog = () => {
     const { id } = useParams();
+
     const [singleBlog, setSingleBlog] = useState([]);
     const blogInfo = useGetBlogQuery();
     console.log(blogInfo);
@@ -48,13 +49,13 @@ const SingleBlog = () => {
                             <p className='admin-info'><span> {singleBlog?.date}</span> <span>Admin</span></p>
                             <p>{singleBlog?.description}</p>
                             <h4>{singleBlog?.subtitle1}</h4>
-                            <p>{ singleBlog?.subDescription1}</p>
+                            <p>{singleBlog?.subDescription1}</p>
                             <h4>{singleBlog?.subtitle2}</h4>
-                            <p>{ singleBlog?.subDescription2}</p>
+                            <p>{singleBlog?.subDescription2}</p>
                             <h4>{singleBlog?.subtitle3}</h4>
-                            <p>{ singleBlog?.subDescription3}</p>
+                            <p>{singleBlog?.subDescription3}</p>
                             <h4>{singleBlog?.subtitle4}</h4>
-                            <p>{ singleBlog?.subDescription4}</p>
+                            <p>{singleBlog?.subDescription4}</p>
                         </div>
                     </Col>
 
