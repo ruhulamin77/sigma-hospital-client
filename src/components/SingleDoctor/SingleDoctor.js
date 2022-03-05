@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, ProgressBar, Table } from 'react-bootstrap';
+import { Button, Container, ProgressBar, Table } from 'react-bootstrap';
 import { NavLink, useParams } from 'react-router-dom';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -86,6 +86,13 @@ const SingleDoctor = () => {
                                         <h5>{singleDoctor?.title}</h5>
                                     </div>
                                 </div>
+                            </div>
+                            <div className="mb-4 d-flex justify-content-center align-items-center ">
+                                <NavLink to={`/dashboard/appointment/${singleDoctor?._id}`}>
+                                    <button style={{ margin: "0 auto" }} className="services-btn">
+                                        <span>Get Appoinment</span><i className="fas fa-plus btn-icon"></i>
+                                    </button>
+                                </NavLink>
                             </div>
                             <div className='opning-time2'>
                                 <div className='service-card-icon2'>
