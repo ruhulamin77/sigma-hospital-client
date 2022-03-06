@@ -4,13 +4,11 @@ import Swal from "sweetalert2";
 import DoctorData from "../DoctorData/DoctorData";
 import PatientData from "../PatientData/PatientData";
 import "./DoctorPrescription.css";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const DoctorPrescription = () => {
-
-  // const doctor = useSelector((state) => state.auth.role);
-  // console.log(doctor);
-
+  const doctor = JSON.parse(localStorage.getItem("admin"))
+  console.log(doctor.adminEmail)
   const [inputFields, setInputFields] = useState([
     { number: "", medicineName: "", feedingSystem: "" },
   ]);

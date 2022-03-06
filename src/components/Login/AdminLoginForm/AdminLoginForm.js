@@ -9,7 +9,6 @@ const AdminLoginForm = () => {
   const dispatch = useDispatch()
   const onSubmit = data =>{
     reset()
-    console.log(data);
     dispatch(adminLogin(data))
   }
     return (
@@ -40,7 +39,7 @@ const AdminLoginForm = () => {
                                         <div className="col-lg-6 login-btm login-text">
                                         </div>
                                         <div className="col-lg-6">
-                                        <button type='submit' class="pure-button fuller-button blue">ACCEPT</button>
+                                        <button type='submit' className="pure-button fuller-button blue">ACCEPT</button>
                                         </div>
                                     </div>
                                 </form>

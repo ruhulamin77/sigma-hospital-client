@@ -35,7 +35,7 @@ const AdminSignUp = () => {
                                         <div className="col-lg-6 login-btm login-text">
                                         </div>
                                         <div className="col-lg-6">
-                                        <button type='submit' class="pure-button fuller-button blue">ACCEPT</button>
+                                        <button type='submit' className="pure-button fuller-button blue">ACCEPT</button>
                                         </div>
                                     </div>
                                 </form>
