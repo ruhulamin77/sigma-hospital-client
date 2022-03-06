@@ -1,5 +1,5 @@
 .banner_top_hidden {
-  margin-top: 100px;
+  margin-top: 50px;
   text-align: center;
   display: none;
 }
@@ -28,21 +28,23 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 550px;
-  margin: 100px 0;
+  /* height: 700px; */
+  height: calc(100vh - 180px);
+  margin: 30px 0;
   position: relative;
   background-image: url("../../../images/banner.png");
   background-size: contain;
   background-repeat: no-repeat;
-  transition: ease-in-out 1s;
+  transition: ease-in-out 3s;
+  background-position: center;
 }
 .banner_container:hover {
-  background-position: -20px;
+  background-position: left;
 }
 .banner_container::before {
   content: "";
   position: absolute;
-  height: 60px;
+  height: 50px;
   width: 1px;
   background-color: #7093e5;
   top: 45%;
@@ -54,7 +56,7 @@
   position: absolute;
   top: 45%;
   left: 10px;
-  height: 60px;
+  height: 50px;
   width: 1px;
   background-color: #f68685;
 }
@@ -70,7 +72,7 @@
   color: #ededee;
   transition: 0.5s;
   font-size: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   display: block;
 }
 .banner_left_social ul li a:hover {
@@ -105,6 +107,7 @@
   align-items: center;
   margin-top: 20px;
   transition: 0.5s;
+  border-radius: 5px;
 }
 .banner_left_bottom .appointment_btn span {
   display: flex;
@@ -125,6 +128,7 @@
   justify-content: center;
   align-items: center;
   transition: 0.5s;
+  border-radius: 0 5px 5px 0;
 }
 .banner_left_bottom .appointment_btn:hover i {
   background-color: #faa2a1;
@@ -178,7 +182,7 @@
 
 @media screen and (max-width: 992px) {
   .banner_container {
-    height: 450px;
+    height: calc(100vh - 150px);
     z-index: -1 !important;
   }
   .banner_container::after,
@@ -191,7 +195,7 @@
     display: block;
   }
   .banner_container {
-    height: 370px;
+    height: calc(100vh - 340px);
     margin-top: 0px;
     z-index: -1 !important;
   }
@@ -205,7 +209,8 @@
 }
 @media screen and (max-width: 600px) {
   .banner_container {
-    height: 300px;
+    height: calc(100vh - 340px);
+
     z-index: -1 !important;
   }
   .banner_right .madical_info h5 {
