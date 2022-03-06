@@ -1,4 +1,5 @@
 import {createSlice,createAsyncThunk} from '@reduxjs/toolkit'
+import { adminData } from './helpers/adminFetch';
 
 const initialState = {
   token: "",
@@ -11,7 +12,7 @@ const initialState = {
 };
 
 export const adminRegister = createAsyncThunk(
-    'registerAdminFetch',
+    'adminRegister',
     async (body)=>{
       fetch('https://shrouded-headland-44423.herokuapp.com/adminRegistar', {
         method: "POST",
@@ -23,15 +24,10 @@ export const adminRegister = createAsyncThunk(
     }
 )
 export const adminLogin = createAsyncThunk(
-    'adminLoginFetch',
-    async (body)=>{
-       fetch('https://shrouded-headland-44423.herokuapp.com/adminLogin', {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body:JSON.stringify(body)
-      })  
+    'adminLogin',
+     async (body)=>{
+       const result =  await adminData('https://shrouded-headland-44423.herokuapp.com/adminLogin',body)
+       return result
     }
 )
 const adminSlice = createSlice({
@@ -39,7 +35,7 @@ const adminSlice = createSlice({
     initialState,
     reducers:{
         login:(state,action)=>{
-            state.token = localStorage.getItem('token')
+            state.admin = localStorage.getItem('admin')
         },
         logout:(state,action)=>{
             state.token = ""
@@ -71,7 +67,7 @@ const adminSlice = createSlice({
               state.adminEmail = adminEmail
               state.photoURL = photoURL
               state.role = role
-              localStorage.setItem('token',token)
+              localStorage.setItem('admin', JSON.stringify(state))
             }
           },
     }
