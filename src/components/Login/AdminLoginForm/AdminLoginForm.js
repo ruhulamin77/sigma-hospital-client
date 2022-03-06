@@ -1,10 +1,17 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import {adminLogin} from '../../../features/adminSlice'
+import {useDispatch,} from 'react-redux'
 import "./AdminLoginForm.css";
 
 const AdminLoginForm = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+  const { register, handleSubmit, reset } = useForm();
+  const dispatch = useDispatch()
+  const onSubmit = data =>{
+    reset()
+    console.log(data);
+    dispatch(adminLogin(data))
+  }
     return (
         <div>
             <div className="container">
@@ -22,11 +29,11 @@ const AdminLoginForm = () => {
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     <div className="form-group">
                                         <label className="form-control-label">Email Address</label>
-                                        <input type="email" className="form-control" {...register("Email", {required: true, pattern: /^\S+@\S+$/i})} />
+                                        <input type="email" className="form-control" {...register("email", {required: true, pattern: /^\S+@\S+$/i})} />
                                     </div>
                                     <div className="form-group">
                                         <label className="form-control-label">PASSWORD</label>
-                                        <input type="password" className="form-control"  {...register("Password", {required: true})} />
+                                        <input type="password" className="form-control"  {...register("passWord", {required: true})} />
                                     </div>
 
                                     <div className="col-lg-12 loginbttm">
@@ -42,10 +49,7 @@ const AdminLoginForm = () => {
                         <div className="col-lg-3 col-md-2"></div>
                     </div>
                 </div>
-
-   
             </div>
-            );
+          );
 };
-
-            export default AdminLoginForm;
+export default AdminLoginForm;
