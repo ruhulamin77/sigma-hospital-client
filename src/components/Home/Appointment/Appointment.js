@@ -4,12 +4,14 @@ import React, { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import useFirebase from "../../../hooks/useFirebase";
 import "./Appointment.css";
 
 const Appointment = () => {
   const [doctors, setDoctor] = useState([]);
   const [Specialist, setSpecialist] = useState([]);
   const [shiftDoctor, setShiftDoctor] = useState([]);
+  const { user } = useFirebase();
 
   // const [appointments, setAppointments] = useState([]);
 
@@ -41,6 +43,8 @@ const Appointment = () => {
   // }, []);
 
   const onSubmit = (data) => {
+    data.status = "pending";
+    // data.patientEmail = user.email;
     axios
       .post("https://shrouded-headland-44423.herokuapp.com/appointments", data)
       .then((res) => {
@@ -85,8 +89,8 @@ const Appointment = () => {
   };
 
   return (
-    <div>
-      <div className="container">
+    <div className="appointment_container">
+      <div className="container ">
         <h4 className="appointment mb-4">Book Appointment</h4>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Row className="gy-4">

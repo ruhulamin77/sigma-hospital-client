@@ -1,12 +1,14 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import Header from '../../Share/Header/Header';
 import "../AdminLoginForm/AdminLoginForm.css";
 
 const AdminSignUp = () => {
-    const { register, handleSubmit, reset} = useForm();
+    const { register, handleSubmit} = useForm();
     const onSubmit = data => console.log(data);
     return (
         <div>
+            <Header />
             <div className="container">
                 <div className="row">
                     <div className="col-lg-3 col-md-2"></div>
@@ -33,7 +35,7 @@ const AdminSignUp = () => {
                                         <div className="col-lg-6 login-btm login-text">
                                         </div>
                                         <div className="col-lg-6">
-                                        <button type='submit' class="pure-button fuller-button blue">ACCEPT</button>
+                                        <button type='submit' className="pure-button fuller-button blue">ACCEPT</button>
                                         </div>
                                     </div>
                                 </form>
