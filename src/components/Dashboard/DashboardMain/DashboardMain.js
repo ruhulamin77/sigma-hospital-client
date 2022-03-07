@@ -166,7 +166,7 @@ const DashboardMain = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/dashboard">
+                <Link to="/chat">
                   <span className="dashboard_nav_icon">
                     <span className="nav_icon">
                       <RiWechatLine />
@@ -599,7 +599,7 @@ const DashboardMain = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard">
+              <Link to="/dashboard/chat">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <RiWechatLine />
