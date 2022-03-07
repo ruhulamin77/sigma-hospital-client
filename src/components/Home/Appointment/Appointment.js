@@ -4,13 +4,15 @@ import React, { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import useFirebase from "../../../hooks/useFirebase";
 import "./Appointment.css";
 
 const Appointment = () => {
   const [doctors, setDoctor] = useState([]);
   const [Specialist, setSpecialist] = useState([]);
   const [shiftDoctor, setShiftDoctor] = useState([]);
-
+  const [doctorEmail, setDoctorEmail] = useState([]);
+  // const { user } = useFirebase();
   // const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
@@ -40,7 +42,12 @@ const Appointment = () => {
   //     });
   // }, []);
 
+  // const doctorEmail = shiftDoctor.find(doctor => doctor )
+
   const onSubmit = (data) => {
+    data.status = "pending";
+    data.doctorEmail = doctorEmail;
+
     axios
       .post("https://shrouded-headland-44423.herokuapp.com/appointments", data)
       .then((res) => {
@@ -67,16 +74,13 @@ const Appointment = () => {
   } = useForm();
 
   const handleOnBlurService = (e) => {
-    console.log(e.target.value);
     const filteredDoctor = doctors.filter(
       (doctor) => doctor?.speciality === e.target.value
     );
     setSpecialist(filteredDoctor);
-    console.log(filteredDoctor);
   };
 
   const handleOnBlurShift = (e) => {
-    console.log(e.target.value);
     const filteredDoctor = Specialist.filter(
       (doctors) => doctors?.shift === e.target.value
     );
@@ -84,9 +88,16 @@ const Appointment = () => {
     console.log(filteredDoctor);
   };
 
+  const handleOnChangeEmail = (e) => {
+    const doctorEmail = shiftDoctor.find(
+      (doctor) => doctor.name === e.target.value
+    );
+    setDoctorEmail(doctorEmail?.email);
+  };
+
   return (
-    <div>
-      <div className="container">
+    <div className="appointment_container">
+      <div className="container ">
         <h4 className="appointment mb-4">Book Appointment</h4>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Row className="gy-4">
@@ -130,7 +141,7 @@ const Appointment = () => {
               <input
                 type="email"
                 placeholder="Email"
-                {...register("email", {
+                {...register("patientEmail", {
                   required: true,
                   pattern: /^\S+@\S+$/i,
                 })}
@@ -188,6 +199,7 @@ const Appointment = () => {
                 aria-label="Default select example"
                 {...register("doctor", { required: true })}
                 className="service-doctor"
+                onChange={handleOnChangeEmail}
               >
                 <option>- Doctor -</option>
                 {shiftDoctor.map((doctor) => (
@@ -212,6 +224,7 @@ const Appointment = () => {
                 className="description-box"
               ></textarea>{" "}
             </div>
+
             <button type="submit" className="pulse">
               {" "}
               Submit{" "}

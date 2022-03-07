@@ -25,14 +25,19 @@ import { GiHamburgerMenu } from "react-icons/gi";
 
 import "./DashboardMain.css";
 import logo from "../../../images/logo/logo.png";
-import user from "../../../images/user.png";
 
 import { Link, Outlet } from "react-router-dom";
+import useFirebase from "../../../hooks/useFirebase";
+import { useSelector } from "react-redux";
 
 const DashboardMain = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const user = useSelector((state) => state.auth.value);
+
+  const { logout } = useFirebase();
+
   return (
     <>
       <div className="dashboard_mobile_header">
@@ -54,20 +59,20 @@ const DashboardMain = () => {
       </div>
 
       <Offcanvas show={show} onHide={handleClose}>
-        <Offcanvas.Header closeButton>
+        <Offcanvas.Header closeButton className="offcanvas_header">
           <Offcanvas.Title>Dashboard</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
           <div className="dashboard_left_side_bar">
             <div className="dasboard_user">
-              <img src={user} alt="doctor or user" />
+              <img src={user?.photoURL} alt="doctor or user" />
               <div>
                 <span>Welcome, </span>
-                <p>
+                <div>
                   <NavDropdown
-                    title="Dr. Arifuzzaman"
                     id="basic-nav-dropdown"
                     className="basic_nav_dropdown_custom"
+                    title={user?.displayName}
                   >
                     <NavDropdown.Item
                       href="#action/3.1"
@@ -97,10 +102,10 @@ const DashboardMain = () => {
                       className="dash_drop_item"
                     >
                       <RiLogoutCircleLine />
-                      <span>Logout</span>
+                      <span onClick={logout}>Logout</span>
                     </NavDropdown.Item>
                   </NavDropdown>
-                </p>
+                </div>
               </div>
             </div>
             <hr />
@@ -161,7 +166,7 @@ const DashboardMain = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/dashboard">
+                <Link to="/chat">
                   <span className="dashboard_nav_icon">
                     <span className="nav_icon">
                       <RiWechatLine />
@@ -470,22 +475,22 @@ const DashboardMain = () => {
           </div>
           <div className="right_icon_area">
             <ul>
-              <li>
+              <li data-tag="Appointment">
                 <FaRegCalendarAlt />
               </li>
-              <li data-noti>
+              <li data-noti="" data-tag="Chat">
                 <RiWechatLine />
               </li>
-              <li data-noti="">
+              <li data-noti="" data-tag="Inbox">
                 <AiOutlineMail />
               </li>
-              <li data-noti="">
+              <li data-noti="" data-tag="Notification">
                 <IoMdNotificationsOutline />
               </li>
-              <li>
+              <li data-tag="Setting">
                 <GiSettingsKnobs />
               </li>
-              <li>
+              <li data-tag="Logout" onClick={logout}>
                 <BiLogIn />
               </li>
             </ul>
@@ -497,12 +502,12 @@ const DashboardMain = () => {
       <div className="dashboard_main">
         <div className="dashboard_left_side_bar d-none d-md-block">
           <div className="dasboard_user">
-            <img src={user} alt="doctor or user" />
+            <img src={user?.photoURL} alt="doctor or user" />
             <div>
               <span>Welcome, </span>
-              <p>
+              <div>
                 <NavDropdown
-                  title="Dr. Arifuzzaman"
+                  title={user?.displayName}
                   id="basic-nav-dropdown"
                   className="basic_nav_dropdown_custom"
                 >
@@ -530,10 +535,10 @@ const DashboardMain = () => {
                   <NavDropdown.Divider />
                   <NavDropdown.Item as={Link} to="" className="dash_drop_item">
                     <RiLogoutCircleLine />
-                    <span>Logout</span>
+                    <span onClick={logout}>Logout</span>
                   </NavDropdown.Item>
                 </NavDropdown>
-              </p>
+              </div>
             </div>
           </div>
           <hr />
@@ -594,7 +599,7 @@ const DashboardMain = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard">
+              <Link to="/dashboard/chat">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <RiWechatLine />

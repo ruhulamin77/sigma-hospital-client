@@ -1,3 +1,9 @@
+.appointment_container {
+  padding: 50px;
+  margin: 0 50px;
+  background-color: #7093e52d;
+  border-radius: 5px;
+}
 .input-field-name,
 .service-doctor-shift,
 .description-box {
