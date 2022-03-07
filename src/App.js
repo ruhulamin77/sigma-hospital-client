@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import BlogForm from "./components/Blog/BlogForm/BlogForm";
 import Blogs from "./components/Blog/Blogs/Blogs";
 import SingleBlog from "./components/Blog/SingleBlog/SingleBlog";
+import ChatPage from "./components/ChatHome/ChatPage/ChatPage";
 import AdminHomeMain from "./components/Dashboard/AdminDashboard/AdminHome/AdminHomeMain/AdminHomeMain";
 import DashboardMain from "./components/Dashboard/DashboardMain/DashboardMain";
 import AddDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AddDoctors/AddDoctors";
@@ -26,11 +27,8 @@ import DoctorHeader from "./components/Pages/Team/DoctorHeader";
 import Team from "./components/Pages/Team/Team";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Service from "./components/Service/Service";
-<<<<<<< HEAD
 import PaymentForm from "./components/Share/Payment/PaymentForm/PaymentForm";
 import Success from "./components/Share/Payment/Validation/Success";
-=======
->>>>>>> f5837c766c6036dcaf1f1b92bc0c3950528cec1d
 import SingleDoctor from "./components/SingleDoctor/SingleDoctor";
 import Audiologist from "./components/Specialization/Audiologist/Audiologist";
 import Cardiologist from "./components/Specialization/Cardiologist/Cardiologist";
@@ -62,6 +60,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/team" element={<Team />} />
+          {/* <Route path="/chat" element={<ChatPage />} /> */}
           <Route path="/doctor" element={<DoctorHeader />} />
           <Route path="/blogForm" element={<BlogForm />} />
           <Route path="/blog" element={<Blogs />} />
@@ -95,6 +94,10 @@ function App() {
             <Route
               path="/dashboard/appointment"
               element={<Appointment />}
+            ></Route>
+            <Route
+              path="/dashboard/chat"
+              element={<ChatPage />}
             ></Route>
 
             {/* doctor route start */}
