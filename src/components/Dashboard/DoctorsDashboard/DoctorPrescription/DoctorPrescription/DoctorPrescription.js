@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Card, Form } from "react-bootstrap";
 import Swal from "sweetalert2";
 import DoctorData from "../DoctorData/DoctorData";
@@ -7,8 +7,18 @@ import "./DoctorPrescription.css";
 import { useSelector } from "react-redux";
 
 const DoctorPrescription = () => {
-  const doctor = JSON.parse(localStorage.getItem("admin"))
-  console.log(doctor.adminEmail)
+  const [name, setName] = useState('');
+  const doctor = JSON.parse(localStorage.getItem("admin"));
+  console.log(doctor?.adminEmail);
+  const [appointment, setAppoinment] = useState([]);
+  console.log(appointment);
+
+  useEffect(() => {
+    fetch(`http://localhost:7050/doctors/${doctor?.adminEmail}`)
+      .then(res => res.json())
+      .then(data => setAppoinment(data))
+  }, [doctor?.adminEmail]);
+
   const [inputFields, setInputFields] = useState([
     { number: "", medicineName: "", feedingSystem: "" },
   ]);
@@ -53,25 +63,37 @@ const DoctorPrescription = () => {
     setInputFields(values);
   };
 
-
-
-
-
   return (
     <div style={{ backgroundColor: "#F4F7F6", padding: "20px" }}>
       <Card className="card-control2">
         <h3 className="mb-5">Prescription</h3>
+        <h5 className="mb-3">{doctor?.adminName}</h5>
         <Form onSubmit={handleSubmit}>
-          <div className="row doctor-patient mb-5">
-            <Card className="col-12 col-md-6 card-control2">
-              <DoctorData />
-              {/* {doctor.name} */}
-            </Card>
-            <Card className="col-12 col-md-6 card-control2">
-              <PatientData />
+          {appointment.map(appoint => (
 
-            </Card>
-          </div>
+            <div key={appoint._id} className="row">
+              <div className="col-12 col-sm-6 col-md-4">
+
+              </div>
+              <div className="col-12 col-sm-6 col-md-4">
+                <Form.Group
+                  className="mb-3"
+                  controlId="exampleForm.ControlInput1"
+                >
+                  <Form.Control
+                    type="text"
+                    placeholder="Serial no."
+                    name="name"
+                    defaultValue={appoint.firstName}
+                    onChange={e => setName(e.target.value)}
+                  />
+                </Form.Group>
+              </div>
+
+            </div>
+
+          ))}
+
           {inputFields.map((inputField, index) => (
             <div key={index} className="row">
               <Form.Group

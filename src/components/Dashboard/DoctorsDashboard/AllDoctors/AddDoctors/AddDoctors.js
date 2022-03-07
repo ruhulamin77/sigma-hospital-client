@@ -198,10 +198,12 @@ const AddDoctors = () => {
                                                 <option value="Gynecologist">Gynecologist</option>
                                                 <option value="Cardiologist">Cardiologist</option>
                                                 <option value="Audiologist">Audiologist</option>
-                                                <option value="Audiologist">Fertility Consultant</option>
-                                                <option value="Audiologist">Surgeon</option>
-                                                <option value="Audiologist">Neurologist</option>
-                                                <option value="Audiologist">Oocyte and Embryo</option>
+                                                <option value="Fertility Consultant">Fertility Consultant</option>
+                                                <option value="Neurologist">Neurologist</option>
+                                                <option value="Oocyte and Embryo">Oocyte and Embryo</option>
+                                                <option value="Psychiatrists">Psychiatrists</option>
+                                                <option value="ENT specialist">ENT specialist</option>
+                                                <option value="Oncologist">Oncologist</option>
                                             </Form.Select>
                                         </Form.Group>
                                     </div>
