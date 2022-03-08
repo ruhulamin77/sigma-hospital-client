@@ -1,28 +1,45 @@
 .edit-btn{
     border: none;
     background-color: #FE8F8D;
-    padding: 2px 12px;
+    padding: 7px 18px;
     letter-spacing: 1px;
     border-radius: 5px;
     font-size: 12px;
-   
 }
+.edit-btn1{
+    border: none;
+    background-color: #FE8F8D;
+    padding: 7px 18px;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-left: 13px;
+}
+
+
 
 .edit-btn:hover{
     color: #fff;
 }
+.edit-btn1:hover{
+    color: #fff;
+}
 
 .continue-shoping{
-    justify-content: end;
+    justify-content: space-between;
     margin-top: 31px;
     font-size: 17px;
     letter-spacing: 2px;
     text-align: end;
+    display: flex;
 }
 .shoping-total{
     display: block;
-    margin-right: 140px;
-    font-size: 18px;
+    margin-right: 233px;
+    font-size: 19px;
+    font-family: initial;
+    letter-spacing: 4px;
+    font-weight: 700;
 
 }
 
@@ -34,4 +51,22 @@
     display: inline-block;
     margin-top: 17px;
 
+}
+.btn-td{
+    width: 200px;
+}
+
+.clear{
+    padding: 9px 61px;
+    margin-top: 18px;
+    border: none;
+    background-color: #f68685;
+    font-size: 17px;
+    letter-spacing: 4px;
+    border-radius: 5px;
+}
+.clear:hover{
+    
+    color: #fff;
+    
 }

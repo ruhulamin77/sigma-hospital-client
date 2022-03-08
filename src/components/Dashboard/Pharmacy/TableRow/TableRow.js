@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { addToCart, getTotals } from '../../../../features/cartSlice';
 
 const TableRow = ({ medicine, index }) => {
@@ -9,13 +9,13 @@ const TableRow = ({ medicine, index }) => {
     const [quantity, setQuantity] = useState('');
 
     const { register, handleSubmit, reset } = useForm();
-    let navigate = useNavigate();
+    // let navigate = useNavigate();
 
     const onSubmit = data => {
         console.log(data)
         reset(data)
         handleAddToCart(data)
-        navigate(`/order`);
+        // navigate(`/order`);
 
     };
 
