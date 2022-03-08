@@ -1,14 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Card, Form } from "react-bootstrap";
 import Swal from "sweetalert2";
-import DoctorData from "../DoctorData/DoctorData";
-import PatientData from "../PatientData/PatientData";
-import "./DoctorPrescription.css";
+import "./PatientPrescription";
 import { useSelector } from "react-redux";
+import { MdSend } from 'react-icons/md'
 
-const DoctorPrescription = () => {
-  const doctor = JSON.parse(localStorage.getItem("admin"))
-  console.log(doctor.adminEmail)
+const PatientPrescription = () => {
   const [inputFields, setInputFields] = useState([
     { number: "", medicineName: "", feedingSystem: "" },
   ]);
@@ -54,24 +51,11 @@ const DoctorPrescription = () => {
   };
 
 
-
-
-
   return (
     <div style={{ backgroundColor: "#F4F7F6", padding: "20px" }}>
       <Card className="card-control2">
         <h3 className="mb-5">Prescription</h3>
         <Form onSubmit={handleSubmit}>
-          <div className="row doctor-patient mb-5">
-            <Card className="col-12 col-md-6 card-control2">
-              <DoctorData />
-              {/* {doctor.name} */}
-            </Card>
-            <Card className="col-12 col-md-6 card-control2">
-              <PatientData />
-
-            </Card>
-          </div>
           {inputFields.map((inputField, index) => (
             <div key={index} className="row">
               <Form.Group
@@ -131,11 +115,11 @@ const DoctorPrescription = () => {
           onClick={handleSubmit}
           className="btn btn-primary w-25 text-light"
         >
-          Send <i className="fas fa-cloud-upload-alt"></i>
+          Send <MdSend />
         </Button>
       </Card>
     </div>
   );
 };
 
-export default DoctorPrescription;
+export default PatientPrescription;
