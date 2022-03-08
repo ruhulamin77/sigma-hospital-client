@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 const initialState = {
   cartItems: localStorage.getItem("cartItems")
     ? JSON.parse(localStorage.getItem("cartItems"))
@@ -13,7 +14,7 @@ const cartSlice = createSlice({
   reducers: {
     addToCart(state, action) {
       const existingIndex = state.cartItems.findIndex(
-        (item) => item.id === action.payload.id
+        (item) => item._id === action.payload._id
       );
 
       if (existingIndex >= 0) {
@@ -49,13 +50,40 @@ const cartSlice = createSlice({
       state.cartTotalQuantity = quantity;
       state.cartTotalAmount = total;
     },
+
     clearCart(state, action) {
       state.cartItems = [];
-      /* localStorage.setItem("cartItems", JSON.stringify(state.cartItems)); */
+      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
+
+    removeFromCart(state, action) {
+      const nextcartiTems = state.cartItems.filter(
+        cartItem => cartItem._id !== action.payload._id
+      )
+      state.cartItems = nextcartiTems
+      localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
+      toast.error(`${action.payload.name} Delet From Cart`, {
+        position: "bottom-left",
+      });
+    },
+
+    editQuantity(state, action) {
+      const nextcartiTems = state.cartItems.find(
+        cartItem => cartItem._id === action.payload._id
+
+      )
+      state.cartItems = nextcartiTems
+      localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
+      toast.error(`${action.payload.name} Delet From Cart`, {
+        position: "bottom-left",
+      });
+    },
+
+
+
   },
 });
 
-export const { addToCart, decreaseCart, removeFromCart, getTotals, clearCart } = cartSlice.actions;
+export const { addToCart, decreaseCart, removeFromCart, getTotals, clearCart, editQuantity } = cartSlice.actions;
 
 export default cartSlice.reducer;
