@@ -14,7 +14,7 @@ const cartSlice = createSlice({
   reducers: {
     addToCart(state, action) {
       const existingIndex = state.cartItems.findIndex(
-        (item) => item.id === action.payload.id
+        (item) => item._id === action.payload._id
       );
 
       if (existingIndex >= 0) {
@@ -58,7 +58,7 @@ const cartSlice = createSlice({
 
     removeFromCart(state, action) {
       const nextcartiTems = state.cartItems.filter(
-        cartItem => cartItem.id !== action.payload.id
+        cartItem => cartItem._id !== action.payload._id
       )
       state.cartItems = nextcartiTems
       localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
@@ -69,7 +69,7 @@ const cartSlice = createSlice({
 
     editQuantity(state, action) {
       const nextcartiTems = state.cartItems.find(
-        cartItem => cartItem.id === action.payload.id
+        cartItem => cartItem._id === action.payload._id
 
       )
       state.cartItems = nextcartiTems

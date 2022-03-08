@@ -10,10 +10,12 @@ import { removeFromCart, clearCart } from '../../../../features/cartSlice';
 const Order = () => {
     const cart = useSelector((state) => state.cart);
     const dispatch = useDispatch()
+    console.log(cart.cartItems)
 
 
     //remove cart//
     const handelremovecart = (cartItems) => {
+
         dispatch(removeFromCart(cartItems))
     }
     //remove cart//

@@ -38,6 +38,7 @@ import Neurologist from "./components/Specialization/Neurologist/Neurologist";
 import Oncologist from "./components/Specialization/Oncologist/Oncologist";
 import Psychiatrists from "./components/Specialization/Psychiatrists/Psychiatrists";
 import PatientPrescription from "./components/Dashboard/PatientDashboard/PatientPrescription/PatientPrescription";
+import ProductRecive from "./components/Dashboard/Pharmacy/ProductRecive/ProductRecive";
 
 function App() {
   return (
@@ -90,6 +91,7 @@ function App() {
           />
           <Route path="/Pharmacy" element={<PharmacyHome />} />
           <Route path="/order" element={<Order />} />
+          <Route path="/Recive" element={<ProductRecive />} />
 
           {/* dashboard */}
           <Route path="/dashboard" element={<DashboardMain />}>
