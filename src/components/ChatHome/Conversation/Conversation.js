@@ -7,7 +7,6 @@ const Conversation = ({ conversation , loginUsers}) => {
 
     useEffect(() => {
         const firend = conversation?.member?.find((m) => m !== loginUsers?._id)
-        console.log(firend);
         const getFriend = async () => {
             try {
                 const res = await axios.get(`http://localhost:7050/user/${firend}`)
@@ -18,7 +17,6 @@ const Conversation = ({ conversation , loginUsers}) => {
         }
         getFriend()
     }, [loginUsers?._id, conversation?.member])
-    console.log(friendId, "friendId");
    
     return (
         <div className='conversation'>
