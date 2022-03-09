@@ -53,12 +53,15 @@ tr td{
 
 .cart-item{
     position: absolute;
-    background-color: #f00;
+    background-color: #f68685;
     color: #fff;
-    padding: 2px 5px;
     border-radius: 50%;
     margin-top: -11px;
     margin-left: 19px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
 }
 
 .Medicine-spnir{

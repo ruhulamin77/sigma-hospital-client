@@ -6,16 +6,26 @@ import { Table } from 'react-bootstrap';
 import OrderData from '../OrderData/OrderData';
 import { Link } from 'react-router-dom';
 import { removeFromCart, clearCart } from '../../../../features/cartSlice';
+import axios from 'axios';
 
 const Order = () => {
     const cart = useSelector((state) => state.cart);
     const dispatch = useDispatch()
-    console.log(cart.cartItems)
+
 
 
     //remove cart//
     const handelremovecart = (cartItems) => {
+        axios.put(`http://localhost:7050/medicine`, {
+            item: { cartItems },
+        })
+            .then((data) => {
 
+            })
+            .catch((err) => {
+                console.log(err);
+
+            });
         dispatch(removeFromCart(cartItems))
     }
     //remove cart//
