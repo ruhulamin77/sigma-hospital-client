@@ -24,7 +24,7 @@ const Medicine = () => {
                 setSearchData(data)
 
             })
-    }, [])
+    }, [medicines])
 
     const handelsearchData = (e) => {
         let search = e.target.value.toLowerCase()

@@ -19,8 +19,6 @@ const ProductReciveData = ({ index, medicine }) => {
         })
             .then((data) => {
 
-
-
             })
             .catch((err) => {
                 console.log(err);
