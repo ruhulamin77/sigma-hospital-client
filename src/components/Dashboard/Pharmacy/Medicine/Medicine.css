@@ -24,3 +24,46 @@ tr td{
 .Add-Cart:hover{
     color: white;
 }
+
+.search{
+    display: flex;
+    justify-content: end;
+}
+.search-option-medicen{
+    width: 305px;
+    height: 39px;
+    border-radius: 7px;
+    border: 1px solid #0069ff;
+    padding-left: 13px;
+    font-size: 18px;
+    letter-spacing: 3px;
+
+}
+
+.cart{
+    color: #4169e1;
+    display: flex;
+    justify-content: flex-end;
+    
+    margin-bottom: 21px;
+}
+.cart-icon{
+    font-size: 33px;
+}
+
+.cart-item{
+    position: absolute;
+    background-color: #f00;
+    color: #fff;
+    padding: 2px 5px;
+    border-radius: 50%;
+    margin-top: -11px;
+    margin-left: 19px;
+}
+
+.Medicine-spnir{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 192px;
+}

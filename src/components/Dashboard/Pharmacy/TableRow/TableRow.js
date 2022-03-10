@@ -1,29 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
 import { addToCart, getTotals } from '../../../../features/cartSlice';
 
 const TableRow = ({ medicine, index }) => {
 
     const [quantity, setQuantity] = useState('');
-
     const { register, handleSubmit, reset } = useForm();
-    let navigate = useNavigate();
+
 
     const onSubmit = data => {
-        console.log(data)
         reset(data)
         handleAddToCart(data)
-        navigate(`/order`);
-
     };
 
     const handelquantity = (e) => {
         const Quantity = e.target.value;
         setQuantity(Quantity)
         onSubmit()
-
     }
 
     const cart = useSelector((state) => state.data);
@@ -36,19 +30,6 @@ const TableRow = ({ medicine, index }) => {
         dispatch(addToCart(product));
         dispatch(getTotals(quantity));
     };
-
-    /*
-      const handleDecreaseCart = (product) => {
-        dispatch(decreaseCart(product));
-      };
-      const handleRemoveFromCart = (product) => {
-        dispatch(removeFromCart(product));
-      };
-      const handleClearCart = () => {
-        dispatch(clearCart());
-      };
-    */
-
 
 
     return (
@@ -65,7 +46,7 @@ const TableRow = ({ medicine, index }) => {
                 <td><input type="number" readOnly value={medicine?.salePrice * quantity} className='medicen-input-fild' /></td>
                 <td>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <input type="hidden" {...register("id")} value={medicine?._id} />
+                        <input type="hidden" {...register("_id")} value={medicine?._id} />
                         <input type="hidden" {...register("brand")} value={medicine?.brand} />
                         <input type="hidden" {...register("name")} value={medicine?.name} />
                         <input type="hidden" {...register("pawer")} value={medicine?.pawer[0]} />
@@ -73,10 +54,7 @@ const TableRow = ({ medicine, index }) => {
                         <input type="hidden" {...register("price")} value={medicine?.salePrice} />
                         <input type="hidden"  {...register("quantity")} value={quantity} />
                         <input type="hidden"  {...register("Total")} value={(medicine?.salePrice) * (quantity)} />
-
                         <input type="submit" value="Add-Cart" className='Add-Cart' />
-
-
 
                     </form>
                 </td>

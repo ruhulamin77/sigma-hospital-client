@@ -1,7 +1,6 @@
 import "./ChatOnline.css";
 
 const ChatOnline = ({ user }) => {
-    console.log(user.userInfo, "chat");
     return (
         <div className='ChatOnline'>
             <div className="ChatOnlineFriend">

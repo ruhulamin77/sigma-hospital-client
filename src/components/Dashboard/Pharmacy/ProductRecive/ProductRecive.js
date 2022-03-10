@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
-import './Medicine.css'
-import TableRow from '../TableRow/TableRow';
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Table } from 'react-bootstrap';
 import { ScaleLoader } from 'react-spinners';
+import "./ProductRecive.css"
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import ProductReciveData from '../ProductReciveData/ProductReciveData';
 
-
-const Medicine = () => {
+const ProductRecive = () => {
     const [medicines, setMedicines] = useState([])
     const [searchData, setSearchData] = useState([])
-    const cart = useSelector((state) => state.cart);
+
 
 
 
@@ -24,7 +21,7 @@ const Medicine = () => {
                 setSearchData(data)
 
             })
-    }, [])
+    }, [medicines])
 
     const handelsearchData = (e) => {
         let search = e.target.value.toLowerCase()
@@ -32,19 +29,17 @@ const Medicine = () => {
         setSearchData(searchMedicine)
 
     }
-
-
     return (
         <div className='container mt-5 mb-5'>
 
             <div>
                 <div className='cart'>
-                    <NavLink to="/order">
+                    {/* <NavLink to="/order">
                         <p className='cart-item'>{
                             !cart.cartItems?.length ? 0 : cart.cartItems?.length - 1
                         }</p>
                         <AiOutlineShoppingCart className='cart-icon' />
-                    </NavLink>
+                    </NavLink> */}
 
                 </div>
 
@@ -55,7 +50,7 @@ const Medicine = () => {
                 </div>
 
                 {
-                    !searchData?.length ? <div className='Medicine-spnir'>
+                    !medicines?.length ? <div className='Medicine-spnir'>
                         <ScaleLoader
                             color={"#7093e5"} size={150} />
                     </div>
@@ -72,17 +67,16 @@ const Medicine = () => {
                                     <th>stock</th>
                                     <th>Price</th>
                                     <th>Quantity</th>
-                                    <th>Value</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {searchData?.map((medicine, index) => (
-                                    <TableRow medicine={medicine}
+                                    <ProductReciveData medicine={medicine}
                                         key={medicine._id}
                                         index={index}
 
-                                    ></TableRow>
+                                    ></ProductReciveData>
 
                                 ))}
 
@@ -95,4 +89,4 @@ const Medicine = () => {
     );
 };
 
-export default Medicine;
+export default ProductRecive;

@@ -5,10 +5,23 @@ import { useSelector } from 'react-redux';
 import { Table } from 'react-bootstrap';
 import OrderData from '../OrderData/OrderData';
 import { Link } from 'react-router-dom';
+import { removeFromCart, clearCart } from '../../../../features/cartSlice';
 
 const Order = () => {
     const cart = useSelector((state) => state.cart);
     const dispatch = useDispatch()
+    console.log(cart.cartItems)
+
+
+    //remove cart//
+    const handelremovecart = (cartItems) => {
+
+        dispatch(removeFromCart(cartItems))
+    }
+    //remove cart//
+    const handelcrealecart = () => {
+        dispatch(clearCart())
+    };
 
 
     let grandTotal = 0;
@@ -42,6 +55,8 @@ const Order = () => {
                             <OrderData medicine={medicine}
                                 key={medicine._id}
                                 index={index}
+                                handelremovecart={handelremovecart}
+
 
                             ></OrderData>
 
@@ -49,25 +64,35 @@ const Order = () => {
 
                     </tbody>
                 </Table>
-                <div className='continue-shoping'>
 
-                    <h5 className='shoping-total'>Sub Total = {grandTotal}</h5>
-                    <Link to="/Pharmacy" className='back-shoping' >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="20"
-                            height="20"
-                            fill="currentColor"
-                            className="bi bi-arrow-left"
-                            viewBox="0 0 16 16"
-                        >
-                            <path
-                                fillRule="evenodd"
-                                d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
-                            />
-                        </svg>
-                        <span >Continue Shopping</span>
-                    </Link>
+
+
+
+
+                <div className='continue-shoping'>
+                    <div>
+                        <button onClick={() => handelcrealecart()} className='clear'>Clear -Cart</button>
+                    </div>
+
+                    <div>
+                        <h5 className='shoping-total'>Sub Total = {grandTotal} Tk</h5>
+                        <Link to="/Pharmacy" className='back-shoping' >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="20"
+                                height="20"
+                                fill="currentColor"
+                                className="bi bi-arrow-left"
+                                viewBox="0 0 16 16"
+                            >
+                                <path
+                                    fillRule="evenodd"
+                                    d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+                                />
+                            </svg>
+                            <span >Continue Shopping</span>
+                        </Link>
+                    </div>
                 </div>
 
 

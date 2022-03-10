@@ -11,8 +11,8 @@ const Appointment = () => {
   const [doctors, setDoctor] = useState([]);
   const [Specialist, setSpecialist] = useState([]);
   const [shiftDoctor, setShiftDoctor] = useState([]);
-  const { user } = useFirebase();
-
+  const [doctorEmail, setDoctorEmail] = useState([]);
+  // const { user } = useFirebase();
   // const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
@@ -42,9 +42,12 @@ const Appointment = () => {
   //     });
   // }, []);
 
+  // const doctorEmail = shiftDoctor.find(doctor => doctor )
+
   const onSubmit = (data) => {
     data.status = "pending";
-    // data.patientEmail = user.email;
+    data.doctorEmail = doctorEmail;
+
     axios
       .post("https://shrouded-headland-44423.herokuapp.com/appointments", data)
       .then((res) => {
@@ -71,21 +74,25 @@ const Appointment = () => {
   } = useForm();
 
   const handleOnBlurService = (e) => {
-    console.log(e.target.value);
     const filteredDoctor = doctors.filter(
       (doctor) => doctor?.speciality === e.target.value
     );
     setSpecialist(filteredDoctor);
-    console.log(filteredDoctor);
   };
 
   const handleOnBlurShift = (e) => {
-    console.log(e.target.value);
     const filteredDoctor = Specialist.filter(
       (doctors) => doctors?.shift === e.target.value
     );
     setShiftDoctor(filteredDoctor);
     console.log(filteredDoctor);
+  };
+
+  const handleOnChangeEmail = (e) => {
+    const doctorEmail = shiftDoctor.find(
+      (doctor) => doctor.name === e.target.value
+    );
+    setDoctorEmail(doctorEmail?.email);
   };
 
   return (
@@ -134,7 +141,7 @@ const Appointment = () => {
               <input
                 type="email"
                 placeholder="Email"
-                {...register("email", {
+                {...register("patientEmail", {
                   required: true,
                   pattern: /^\S+@\S+$/i,
                 })}
@@ -192,6 +199,7 @@ const Appointment = () => {
                 aria-label="Default select example"
                 {...register("doctor", { required: true })}
                 className="service-doctor"
+                onChange={handleOnChangeEmail}
               >
                 <option>- Doctor -</option>
                 {shiftDoctor.map((doctor) => (
@@ -216,6 +224,7 @@ const Appointment = () => {
                 className="description-box"
               ></textarea>{" "}
             </div>
+
             <button type="submit" className="pulse">
               {" "}
               Submit{" "}

@@ -7,14 +7,16 @@ import AdminHomeMain from "./components/Dashboard/AdminDashboard/AdminHome/Admin
 import DashboardMain from "./components/Dashboard/DashboardMain/DashboardMain";
 import AddDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AddDoctors/AddDoctors";
 import AllDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AllDoctors/AllDoctors";
-import DoctorPrescription from "./components/Dashboard/DoctorsDashboard/DoctorPrescription/DoctorPrescription/DoctorPrescription";
 import DoctorProfile from "./components/Dashboard/DoctorsDashboard/DoctorProfile/DoctorProfile";
 import AddNurse from "./components/Dashboard/NurseDashboard/AllNurse/AddNurse/AddNurse";
 import AllNurse from "./components/Dashboard/NurseDashboard/AllNurse/AllNurse/AllNurse";
 import NurseProfileUpdate from "./components/Dashboard/NurseDashboard/NurseProfileUpdate/NurseProfileUpdate";
+import PatientData from "./components/Dashboard/PatientDashboard/PatientData/PatientData/PatientData";
+import PatientPrescription from "./components/Dashboard/PatientDashboard/PatientPrescription/PatientPrescription";
 import Cart from "./components/Dashboard/Pharmacy/Cart/Cart";
 import Order from "./components/Dashboard/Pharmacy/Order/Order";
 import PharmacyHome from "./components/Dashboard/Pharmacy/PharmacyHome/PharmacyHome";
+import ProductRecive from "./components/Dashboard/Pharmacy/ProductRecive/ProductRecive";
 import Appointment from "./components/Home/Appointment/Appointment";
 import AppointmentHeader from "./components/Home/Appointment/AppointmentHeader";
 import Home from "./components/Home/Home/Home";
@@ -89,6 +91,7 @@ function App() {
           />
           <Route path="/Pharmacy" element={<PharmacyHome />} />
           <Route path="/order" element={<Order />} />
+          <Route path="/Recive" element={<ProductRecive />} />
 
           {/* dashboard */}
           <Route path="/dashboard" element={<DashboardMain />}>
@@ -104,24 +107,18 @@ function App() {
 
             {/* doctor route start */}
             <Route path="/dashboard/allDoctors" element={<AllDoctors />} />
-            <Route
-              path="/dashboard/allDoctors/update/:id"
-              element={<DoctorProfile />}
-            />
+            <Route path="/dashboard/allDoctors/update/:id" element={<DoctorProfile />} />
             <Route path="/dashboard/addDoctors" element={<AddDoctors />} />
-            <Route
-              path="/dashboard/doctorPrescription"
-              element={<DoctorPrescription />}
-            />
             {/*  doctor route end */}
             {/* nurse route start */}
             <Route path="/dashboard/addNurse" element={<AddNurse />} />
             <Route path="/dashboard/allNurse" element={<AllNurse />} />
-            <Route
-              path="/dashboard/allNurse/update/:id"
-              element={<NurseProfileUpdate />}
-            />
+            <Route path="/dashboard/allNurse/update/:id" element={<NurseProfileUpdate />} />
             {/* nurse route end */}
+            {/* patients route start */}
+            <Route path="/dashboard/patientsInfo" element={<PatientData />} />
+            <Route path="/dashboard/prescription/:id" element={<PatientPrescription />} />
+            {/* patients route end */}
           </Route>
         </Routes>
       </Router>
