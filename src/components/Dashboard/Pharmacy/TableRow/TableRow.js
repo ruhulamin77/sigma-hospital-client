@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, getTotals } from '../../../../features/cartSlice';
-
+import axios from 'axios';
 const TableRow = ({ medicine, index }) => {
 
     const [quantity, setQuantity] = useState('');
@@ -12,6 +12,16 @@ const TableRow = ({ medicine, index }) => {
     const onSubmit = data => {
         reset(data)
         handleAddToCart(data)
+        axios.put(`http://localhost:7050/medicine/order/${data._id}`, {
+            stock: { data },
+        })
+            .then((data) => {
+            })
+            .catch((err) => {
+                console.log(err);
+
+            });
+
     };
 
     const handelquantity = (e) => {
