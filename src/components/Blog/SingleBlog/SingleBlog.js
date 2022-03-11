@@ -10,6 +10,7 @@ import backPic from "../../../images/ki-14-1.jpg";
 import Footer from '../../Home/Footer/Footer';
 import Header from '../../Share/Header/Header';
 import './SingleBlog.css';
+import { format } from 'timeago.js';
 
 const SingleBlog = () => {
     const { id } = useParams();
@@ -35,7 +36,7 @@ const SingleBlog = () => {
             console.log("if");
             setLiked(false)
         } else {
-            foundDoctor?.likes.includes(loginUser?._id) ? setLiked(true) : setLiked(false)
+            foundDoctor?.likes?.includes(loginUser?._id) ? setLiked(true) : setLiked(false)
             console.log("else");
         }
 
@@ -169,16 +170,16 @@ const SingleBlog = () => {
                             <img className='img-fluid' src={`data:image/*;base64,${singleBlog?.photo}`} alt="" />
                         </div>
                         <div className="single-blog-info">
-                            <span className="btn-blog">{singleBlog?.blogType}</span>
-                            <span className=""> <FaHeart /> {number} people likes this </span>
+                            {/* <span className="btn-blog">{singleBlog?.blogType}</span> */}
+                            <span className="like-icon"> <FaHeart /> {number} people likes this </span>
                             {
-                                !liked ? <GrLike onClick={() => { handleUpdateLike(singleBlog?._id) }} /> : <GrDislike onClick={() => { handleUpdateUnLike(singleBlog?._id) }} />
+                                !liked ? <GrLike className='like' onClick={() => { handleUpdateLike(singleBlog?._id) }} /> : <GrDislike className='like' onClick={() => { handleUpdateUnLike(singleBlog?._id) }} />
                             }
 
                             <br />
                             <h2>{singleBlog?.title}</h2>
-                            <p className='admin-info'><span> {singleBlog?.date}</span> <span>Admin</span></p>
-                            <p>{singleBlog?.description} <FaHeart /> </p>
+                            <p className='admin-info'><span>{format(singleBlog?.date)}</span><span>by Admin</span></p>
+                            <p>{singleBlog?.description} </p>
                             <h4>{singleBlog?.subtitle1}</h4>
                             <p>{singleBlog?.subDescription1}</p>
                             <h4>{singleBlog?.subtitle2}</h4>

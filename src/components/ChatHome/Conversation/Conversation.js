@@ -10,7 +10,7 @@ const Conversation = ({ conversation, loginUsers }) => {
         const firend = conversation?.member?.find((m) => m !== loginUsers?._id)
         const getFriend = async () => {
             try {
-                const res = await axios.get(`http://localhost:7050/getUsers/${firend}`)
+                const res = await axios.get(`https://shrouded-headland-44423.herokuapp.com/getUsers/${firend}`)
                 setFriendId(res?.data);
             } catch (err) {
                 console.log(err);
@@ -30,7 +30,7 @@ const Conversation = ({ conversation, loginUsers }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:7050/conversationDelete/${conversationId}`, {
+                fetch(`https://shrouded-headland-44423.herokuapp.com/conversationDelete/${conversationId}`, {
                     method: 'DELETE',
                     headers: { 'content-type': 'application/json' },
                 })

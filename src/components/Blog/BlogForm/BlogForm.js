@@ -21,7 +21,7 @@ const BlogForm = () => {
         e.preventDefault();
         const likes= Number(0)
         const comments = new Array([])
-        const date = new Date().toDateString()
+        const date = new Date()
         console.log(date);
 
         const formData = new FormData();
