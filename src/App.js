@@ -2,6 +2,10 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import BlogForm from "./components/Blog/BlogForm/BlogForm";
 import Blogs from "./components/Blog/Blogs/Blogs";
 import SingleBlog from "./components/Blog/SingleBlog/SingleBlog";
+import AllDonors from "./components/BloodDashboard/AllDonor/AllDonor/AllDonors";
+import BloodRequest from "./components/BloodDashboard/AllDonor/BloodRequest/BloodRequest";
+import BloodDashboardHome from "./components/BloodDashboard/BloodDashboardHome/BloodDashboardHome";
+import BloodDashboardMain from "./components/BloodDashboard/BloodDashboardMain/BloodDashboardMain";
 import ChatPage from "./components/ChatHome/ChatPage/ChatPage";
 import AdminHomeMain from "./components/Dashboard/AdminDashboard/AdminHome/AdminHomeMain/AdminHomeMain";
 import DashboardMain from "./components/Dashboard/DashboardMain/DashboardMain";
@@ -13,6 +17,7 @@ import AllNurse from "./components/Dashboard/NurseDashboard/AllNurse/AllNurse/Al
 import NurseProfileUpdate from "./components/Dashboard/NurseDashboard/NurseProfileUpdate/NurseProfileUpdate";
 import PatientData from "./components/Dashboard/PatientDashboard/PatientData/PatientData/PatientData";
 import PatientPrescription from "./components/Dashboard/PatientDashboard/PatientPrescription/PatientPrescription";
+import SinglePatientPrescription from "./components/Dashboard/PatientDashboard/SinglePatientPrescription/SinglePatientPrescription";
 import Cart from "./components/Dashboard/Pharmacy/Cart/Cart";
 import Order from "./components/Dashboard/Pharmacy/Order/Order";
 import PharmacyHome from "./components/Dashboard/Pharmacy/PharmacyHome/PharmacyHome";
@@ -41,11 +46,6 @@ import Neurologist from "./components/Specialization/Neurologist/Neurologist";
 import Oncologist from "./components/Specialization/Oncologist/Oncologist";
 import Psychiatrists from "./components/Specialization/Psychiatrists/Psychiatrists";
 
-import BloodDashboardMain from "./components/BloodDashboard/BloodDashboardMain/BloodDashboardMain";
-import BloodDashboardHome from "./components/BloodDashboard/BloodDashboardHome/BloodDashboardHome";
-import AllDonors from "./components/BloodDashboard/AllDonor/AllDonor/AllDonors";
-import SinglePatientPrescription from "./components/Dashboard/PatientDashboard/SinglePatientPrescription/SinglePatientPrescription";
-import BloodRequest from "./components/BloodDashboard/AllDonor/BloodRequest/BloodRequest";
 
 function App() {
   return (
@@ -54,10 +54,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/" element={<PrivateRoute />}>
-            <Route path="/blog/:id" element={<SingleBlog />} />
+        
             <Route path="/appointment" element={<AppointmentHeader />} />
-            <Route path="/dashboard/chat" element={<ChatPage />}></Route>
           </Route>
+          <Route path="/blog/:id" element={<SingleBlog />} />
 
           <Route path="/home" element={<Home />} />
           <Route path="/service" element={<Service />} />
