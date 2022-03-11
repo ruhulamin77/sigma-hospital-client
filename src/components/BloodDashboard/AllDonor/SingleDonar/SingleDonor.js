@@ -7,7 +7,7 @@ const SingleDonor = (props) => {
   const { name, gender, bloodGroup, address } = props.donordata;
 
   return (
-    <div className="col-lg-4 col-sm-12 mt-3">
+    <div className="col-lg-5 col-sm-12 mx-4 g-4 single-donor">
       <Card border="info">
         <Card.Header>
           {gender === "Male" ? (
@@ -15,15 +15,15 @@ const SingleDonor = (props) => {
           ) : (
             <i class="fas fa-female user-icon"></i>
           )}
-          <small className="name-donar">{name}</small>
+          <small className="name-donor">{name}</small>
         </Card.Header>
         <Card.Body>
-          <Card.Title className="card-taitels">
+          <Card.Title className="card-titels ">
             Blood Group <strong className="blood-grp">{bloodGroup}</strong>
           </Card.Title>
           <p>Address : {address}</p>
           <Card.Text>
-            <button className="concact-btn ">
+            <button className="contact-btn ">
               <DonorModal donar={props.donordata}></DonorModal>
             </button>
           </Card.Text>

@@ -45,6 +45,7 @@ import BloodDashboardMain from "./components/BloodDashboard/BloodDashboardMain/B
 import BloodDashboardHome from "./components/BloodDashboard/BloodDashboardHome/BloodDashboardHome";
 import AllDonors from "./components/BloodDashboard/AllDonor/AllDonor/AllDonors";
 import SinglePatientPrescription from "./components/Dashboard/PatientDashboard/SinglePatientPrescription/SinglePatientPrescription";
+import BloodRequest from "./components/BloodDashboard/AllDonor/BloodRequest/BloodRequest";
 
 function App() {
   return (
@@ -139,6 +140,14 @@ function App() {
           <Route path="/bloodBank" element={<BloodDashboardMain />}>
             <Route path="/bloodBank" element={<BloodDashboardHome />}></Route>
             <Route path="/bloodBank/allDOnor" element={<AllDonors />}></Route>
+            <Route
+              path="/bloodBank/bloodRequest"
+              element={<BloodRequest />}
+            ></Route>
+            <Route
+              path="/bloodBank/requestHistory"
+              element={<BloodRequest />}
+            ></Route>
           </Route>
         </Routes>
       </Router>

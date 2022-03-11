@@ -46,8 +46,8 @@ const AllDonors = () => {
     <div>
       <div className="Searce-Fild">
         <form onSubmit={handleSubmit(onSubmit)} className="search-option">
-          <h3 className="Donor-src">
-            Donor Search <i className="fas fa-arrow-right"></i>
+          <h3 className="donor-src">
+            Search donor by blood group <i className="fas fa-arrow-right"></i>
           </h3>
           <div className="select-option">
             <small className="smaill-css">Blood Group</small>
@@ -61,31 +61,31 @@ const AllDonors = () => {
               <option value="AB-">AB-</option>
               <option value="B-">B-</option>
             </select>
-            <input type="submit" value="Search" className="searce-btn" />
+            <input type="submit" value="Search" className="search-btn" />
           </div>
         </form>
       </div>
-      <div className="m-5 make-req">
+      {/* <div className="mx-5 mb-5 make-req">
         <h5>
           If you did't find a donar, please send blood request to the blood
           bank.
         </h5>
         <NavLink
           style={{ textDecoration: "none", color: "red" }}
-          to="/user-blood-request"
+          to="/bloodBank/bloodRequest"
         >
-          <button className="btn btn-danger" color="inherit">
+          <button className="btn btn-danger mt-3" color="inherit">
             {" "}
             Blood Request
           </button>
         </NavLink>
-      </div>
+      </div> */}
       {!uidonor.length && (
         <div>
           <h4 className="no-fund">Opps ! No Donor Found</h4>
         </div>
       )}
-      <div className="row mx-3 mb-5">
+      <div className="row mx-3   mb-5">
         {uidonor.map((donordata) => (
           <SingleDonor donordata={donordata} key={donordata._id}></SingleDonor>
         ))}

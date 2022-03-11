@@ -11,17 +11,17 @@ const BloodDashboardHome = () => {
   const [donations, setDonations] = useState([]);
   const [requests, setrequests] = useState([]);
 
-  // useEffect(() => {
-  //   fetch(`https://hidden-coast-99117.herokuapp.com/${user.email}/bloods`)
-  //     .then((res) => res.json())
-  //     .then((data) => setDonations(data));
-  // }, []);
+  useEffect(() => {
+    fetch(`https://hidden-coast-99117.herokuapp.com/${user.email}/bloods`)
+      .then((res) => res.json())
+      .then((data) => setDonations(data));
+  }, []);
 
-  // useEffect(() => {
-  //   fetch(`https://hidden-coast-99117.herokuapp.com/${user.email}/bloodRequest`)
-  //     .then((res) => res.json())
-  //     .then((data) => setrequests(data));
-  // }, []);
+  useEffect(() => {
+    fetch(`https://hidden-coast-99117.herokuapp.com/${user.email}/bloodRequest`)
+      .then((res) => res.json())
+      .then((data) => setrequests(data));
+  }, []);
 
   const donationsPending = donations.filter(
     (donate) => donate.status === "Pending"
