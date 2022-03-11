@@ -39,7 +39,7 @@
   background-position: center;
 }
 .banner_container:hover {
-  background-position: left;
+  background-position: 130px;
 }
 .banner_container::before {
   content: "";
