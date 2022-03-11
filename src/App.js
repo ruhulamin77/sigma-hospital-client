@@ -12,9 +12,11 @@ import AddNurse from "./components/Dashboard/NurseDashboard/AllNurse/AddNurse/Ad
 import AllNurse from "./components/Dashboard/NurseDashboard/AllNurse/AllNurse/AllNurse";
 import NurseProfileUpdate from "./components/Dashboard/NurseDashboard/NurseProfileUpdate/NurseProfileUpdate";
 import PatientData from "./components/Dashboard/PatientDashboard/PatientData/PatientData/PatientData";
+import PatientPrescription from "./components/Dashboard/PatientDashboard/PatientPrescription/PatientPrescription";
 import Cart from "./components/Dashboard/Pharmacy/Cart/Cart";
 import Order from "./components/Dashboard/Pharmacy/Order/Order";
 import PharmacyHome from "./components/Dashboard/Pharmacy/PharmacyHome/PharmacyHome";
+import ProductRecive from "./components/Dashboard/Pharmacy/ProductRecive/ProductRecive";
 import Appointment from "./components/Home/Appointment/Appointment";
 import AppointmentHeader from "./components/Home/Appointment/AppointmentHeader";
 import Home from "./components/Home/Home/Home";
@@ -38,8 +40,7 @@ import ENTspecialist from "./components/Specialization/ENTspecialist/ENTspeciali
 import Neurologist from "./components/Specialization/Neurologist/Neurologist";
 import Oncologist from "./components/Specialization/Oncologist/Oncologist";
 import Psychiatrists from "./components/Specialization/Psychiatrists/Psychiatrists";
-import PatientPrescription from "./components/Dashboard/PatientDashboard/PatientPrescription/PatientPrescription";
-import ProductRecive from "./components/Dashboard/Pharmacy/ProductRecive/ProductRecive";
+
 import BloodDashboardMain from "./components/BloodDashboard/BloodDashboardMain/BloodDashboardMain";
 import BloodDashboardHome from "./components/BloodDashboard/BloodDashboardHome/BloodDashboardHome";
 

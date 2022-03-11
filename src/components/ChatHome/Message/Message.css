@@ -7,8 +7,8 @@
   display: flex;
 }
 .message-img {
-  width: 32px;
-  height: 32px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   object-fit: 50%;
   margin-right: 20px;
