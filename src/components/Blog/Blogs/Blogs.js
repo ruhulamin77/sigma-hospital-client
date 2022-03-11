@@ -12,7 +12,7 @@ const Blogs = () => {
     console.log(blogCollection);
     const [blogs, setBlogs] = useState([])
     useEffect(() => {
-        fetch("https://shrouded-headland-44423.herokuapp.com/Blog").then(res => res.json()).then(result => setBlogs(result))
+        fetch("http://localhost:7050/Blog").then(res => res.json()).then(result => setBlogs(result))
     }, [])
     console.log(blogs, "problem");
 
