@@ -48,9 +48,6 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/appointment" element={<AppointmentHeader />} />
           </Route>
-
-
-
           <Route path="/home" element={<Home />} />
           <Route path="/service" element={<Service />} />
           <Route path="/adminhome" element={<AdminHomeMain />} />
@@ -89,7 +86,6 @@ function App() {
           />
           <Route path="/Pharmacy" element={<PharmacyHome />} />
           <Route path="/order" element={<Order />} />
-
           {/* dashboard */}
           <Route path="/dashboard" element={<DashboardMain />}>
             <Route path="/dashboard" element={<AdminHomeMain />}></Route>

@@ -1,6 +1,7 @@
 import {createSlice,createAsyncThunk} from '@reduxjs/toolkit'
 import { adminData } from './helpers/adminFetch';
 
+
 const initialState = {
   token: "",
   photoURL: "",
@@ -14,18 +15,13 @@ const initialState = {
 export const adminRegister = createAsyncThunk(
     'adminRegister',
     async (body)=>{
-      fetch('https://shrouded-headland-44423.herokuapp.com/adminRegistar', {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body:JSON.stringify(body)
-      })
+       const result =  await adminData('https://shrouded-headland-44423.herokuapp.com/adminRegistar',body)
+       return result
     }
 )
 export const adminLogin = createAsyncThunk(
     'adminLogin',
-     async (body)=>{
+    async (body)=>{
        const result =  await adminData('https://shrouded-headland-44423.herokuapp.com/adminLogin',body)
        return result
     }
@@ -35,7 +31,7 @@ const adminSlice = createSlice({
     initialState,
     reducers:{
         login:(state,action)=>{
-            state.admin = localStorage.getItem('admin')
+          state.admin = localStorage.getItem('admin')
         },
         logout:(state,action)=>{
             state.token = ""

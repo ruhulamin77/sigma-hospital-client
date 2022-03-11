@@ -4,7 +4,6 @@ import Swal from "sweetalert2";
 import DoctorData from "../DoctorData/DoctorData";
 import PatientData from "../PatientData/PatientData";
 import "./DoctorPrescription.css";
-import { useSelector } from "react-redux";
 
 const DoctorPrescription = () => {
   const doctor = JSON.parse(localStorage.getItem("admin"))
