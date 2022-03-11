@@ -23,6 +23,7 @@ import Home from "./components/Home/Home/Home";
 import AdminLoginForm from "./components/Login/AdminLoginForm/AdminLoginForm";
 import AdminSignUp from "./components/Login/AdminSignUp/AdminSignUp";
 import Login from "./components/Login/Login/Login";
+import OnlineDoctor from "./components/OnlineDoctor/OnlineDoctor";
 import Contact from "./components/Pages/Contact/Contact";
 import FAQ from "./components/Pages/FAQ/FAQ";
 import History from "./components/Pages/History/History";
@@ -55,6 +56,7 @@ function App() {
 
           <Route path="/home" element={<Home />} />
           <Route path="/service" element={<Service />} />
+          <Route path="/onlineDoctor" element={<OnlineDoctor />} />
           <Route path="/adminhome" element={<AdminHomeMain />} />
           <Route path="/paymentForm" element={<PaymentForm />} />
           <Route path="/success/:id" element={<Success />} />
