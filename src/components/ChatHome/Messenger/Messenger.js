@@ -24,7 +24,7 @@ const Messenger = () => {
 
     // find my Id form db
     useEffect(() => {
-        axios.get(`http://localhost:7050/users/${user?.email}`).then(res => setLoginUsers(res.data))
+        axios.get(`https://shrouded-headland-44423.herokuapp.com/users/${user?.email}`).then(res => setLoginUsers(res.data))
     }, [user?.email])
     useEffect(() => {
         socket.current = io("ws://localhost:8900");
@@ -37,7 +37,7 @@ const Messenger = () => {
         })
     }, [])
     useEffect(() => {
-        axios.get("http://localhost:7050/users").then(data => setUsers(data))
+        axios.get("https://shrouded-headland-44423.herokuapp.com/users").then(data => setUsers(data))
     }, [loginUsers?._id])
     useEffect(() => {
         arrivalMessages && curremtChat?.member.includes(arrivalMessages.sender) && setMessages((prev) => [...prev, arrivalMessages])
@@ -60,7 +60,7 @@ const Messenger = () => {
     useEffect(() => {
         const getconversation = async () => {
             try {
-                const res = await axios.get(`http://localhost:7050/conversation/${loginUsers?._id}`)
+                const res = await axios.get(`https://shrouded-headland-44423.herokuapp.com/conversation/${loginUsers?._id}`)
                 setConversation(res?.data);
 
             } catch (err) {
@@ -72,7 +72,7 @@ const Messenger = () => {
     useEffect(() => {
         const getMessages = async () => {
             try {
-                const res = await axios.get(`http://localhost:7050/messages/${curremtChat?._id}`)
+                const res = await axios.get(`https://shrouded-headland-44423.herokuapp.com/messages/${curremtChat?._id}`)
                 setMessages(res?.data);
             } catch (err) {
                 console.log(err);
@@ -97,7 +97,7 @@ const Messenger = () => {
             time: new Date()
         })
         try {
-            const res = await axios.post("http://localhost:7050/messages", message)
+            const res = await axios.post("https://shrouded-headland-44423.herokuapp.com/messages", message)
             setMessages([...messages, res.data])
             setNewMessages("");
         } catch (err) {
@@ -118,8 +118,8 @@ const Messenger = () => {
                 member: [loginUsers?._id, reciverId]
             }
             try {
-                const res = await axios.post("http://localhost:7050/conversation", data)
-                const accc = await axios.get(`http://localhost:7050/conversatio/${res?.data?.insertedId}`)
+                const res = await axios.post("https://shrouded-headland-44423.herokuapp.com/conversation", data)
+                const accc = await axios.get(`https://shrouded-headland-44423.herokuapp.com/conversatio/${res?.data?.insertedId}`)
                 setCurremtChat(accc?.data)
                 setConversation([...conversation, accc?.data])
             } catch (err) {
