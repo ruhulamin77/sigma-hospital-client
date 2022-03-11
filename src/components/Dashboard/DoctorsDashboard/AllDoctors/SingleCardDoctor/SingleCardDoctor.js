@@ -8,23 +8,34 @@ const SingleCardDoctor = ({ doc }) => {
     const { _id, photo, name, title, address, linkedin, facebook, twitter } = doc;
 
     const handleDelete = id => {
-        const proceed = window.confirm("Are you sure to delete this file?")
-        if (proceed) {
-            fetch(`https://shrouded-headland-44423.herokuapp.com/doctors/${id}`, {
-                method: 'DELETE',
-                headers: { 'content-type': 'application/json' },
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to delete this file!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        })
+            .then((result) => {
+                if (result.isConfirmed) {
+                    fetch(`https://shrouded-headland-44423.herokuapp.com/doctors/${id}`, {
+                        method: 'DELETE',
+                        headers: { 'content-type': 'application/json' },
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.deletedCount) {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'The Doctor has been successfully deleted!',
+                                    showConfirmButton: false,
+                                    timer: 2000
+                                })
+                            }
+                        })
+                }
             })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.deletedCount) {
-                        Swal.fire(
-                            'Good job!',
-                            'The Doctor has been successfully deleted!',
-                            'success'
-                        )
-                    }
-                })
-        }
     }
 
     return (

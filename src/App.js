@@ -44,6 +44,7 @@ import Psychiatrists from "./components/Specialization/Psychiatrists/Psychiatris
 import BloodDashboardMain from "./components/BloodDashboard/BloodDashboardMain/BloodDashboardMain";
 import BloodDashboardHome from "./components/BloodDashboard/BloodDashboardHome/BloodDashboardHome";
 import AllDonors from "./components/BloodDashboard/AllDonor/AllDonor/AllDonors";
+import SinglePatientPrescription from "./components/Dashboard/PatientDashboard/SinglePatientPrescription/SinglePatientPrescription";
 
 function App() {
   return (
@@ -127,6 +128,10 @@ function App() {
             <Route
               path="/dashboard/prescription/:id"
               element={<PatientPrescription />}
+            />
+            <Route
+              path="/dashboard/singlePrescription/update/:id"
+              element={<SinglePatientPrescription />}
             />
             {/* patients route end */}
           </Route>
