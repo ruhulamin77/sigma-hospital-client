@@ -192,7 +192,7 @@ const Messenger = () => {
                         ))
                     }
                     <hr />
-                    <span>OffLine Users</span>
+                    <span>All Users</span>
                     <hr />
                     {
                         offlineUser?.map((item) => (

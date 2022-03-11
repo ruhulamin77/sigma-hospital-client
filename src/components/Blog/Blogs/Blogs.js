@@ -21,8 +21,6 @@ const Blogs = () => {
                             color={"#7093e5"} size={150} />
                     </div> : blogCollection?.data?.map(blog => (
 
-
-                        <>
                             <Col>
 
                                 <div className="card-design h-100">
@@ -37,25 +35,7 @@ const Blogs = () => {
                                         <Link className='blog-btn text-decoration-none text-white' to={`/blog/${blog?._id}`} >Read More</Link>
                                     </div>
                                 </div>
-
                             </Col>
-
-
-                            {/* <Col>
-                                <div className="blog-items mb-4">
-                                    <div className="blog-img mb-4">
-                                        <img className='img-fluid' src={`data:image/*;base64,${blog?.photo}`} alt="" />
-                                    </div>
-                                    <div className="blogs-info">
-                                        <span>{blog?.blogType}</span>
-                                        <p><span>{blog?.date}</span> <span>Admin</span> </p>
-                                        <Link className=' text-decoration-none' to={`/blog/${blog?._id}`} ><h2>{blog?.title}</h2></Link>
-                                        <br />
-                                        <Link className='btn-blog text-decoration-none text-white' to={`/blog/${blog?._id}`} >Read More</Link>
-                                    </div>
-                                </div>
-                            </Col> */}
-                        </>
                     ))
                     }
                 </Row>

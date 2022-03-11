@@ -53,8 +53,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/" element={<PrivateRoute />}>
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/blog/:id" element={<SingleBlog />} />
             <Route path="/appointment" element={<AppointmentHeader />} />
+            <Route path="/dashboard/chat" element={<ChatPage />}></Route>
           </Route>
 
           <Route path="/home" element={<Home />} />
@@ -77,7 +78,7 @@ function App() {
           <Route path="/about" element={<History />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/singleDoctor/:id" element={<SingleDoctor />} />
-          <Route path="/blog/:id" element={<SingleBlog />} />
+
           <Route path="/team/:id" element={<SingleDoctor />} />
           <Route path="/specialization/oncologist" element={<Oncologist />} />
           <Route path="/specialization/neurologist" element={<Neurologist />} />
