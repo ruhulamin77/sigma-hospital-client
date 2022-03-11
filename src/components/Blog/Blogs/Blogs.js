@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { ScaleLoader } from 'react-spinners';
@@ -10,21 +9,16 @@ import './Blogs.css';
 const Blogs = () => {
     const blogCollection = useGetBlogQuery() || {};
     console.log(blogCollection);
-    const [blogs, setBlogs] = useState([])
-    useEffect(() => {
-        fetch("http://localhost:7050/Blog").then(res => res.json()).then(result => setBlogs(result))
-    }, [])
-    console.log(blogs, "problem");
 
     return (
         <>
             <Header />
             <Container>
                 <Row className='g-4' xs={1} md={2}>
-                    {blogs.length <= 0 ? <div className='looder'>
+                    {blogCollection.length <= 0 ? <div className='looder'>
                         <ScaleLoader
                             color={"#7093e5"}  size={150} />
-                    </div> : blogs.slice(2, 6).map(blog => (
+                    </div> : blogCollection.slice(2, 6).map(blog => (
                         <Col>
                             <div className="blog-items mb-4">
                                 <div className="blog-img mb-4">

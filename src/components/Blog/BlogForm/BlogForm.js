@@ -36,7 +36,7 @@ const BlogForm = () => {
         formData.append('comments',comments);
         formData.append('date', date);
 
-        fetch('http://localhost:7050/addBlog', {
+        fetch('https://shrouded-headland-44423.herokuapp.com/addBlog', {
             method: 'POST',
             body: formData
         })
@@ -188,25 +188,7 @@ const BlogForm = () => {
                                 </div>
                             </div>
                         </Col>
-
-
                     </Row>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 </form>
             </div>
         </div>

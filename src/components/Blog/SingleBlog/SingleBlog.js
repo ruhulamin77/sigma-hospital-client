@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { set } from 'react-hook-form';
 import { FaHeart } from 'react-icons/fa';
 import { GrDislike, GrLike } from 'react-icons/gr';
 import { useSelector } from 'react-redux';
@@ -16,7 +15,6 @@ const SingleBlog = () => {
     const { id } = useParams();
     const [loginUser, setLoginUser] = useState(null)
     const [singleBlog, setSingleBlog] = useState([]);
-    const [like, setLike] = useState([]);
     const [liked, setLiked] = useState([]);
     const [number, setNumber] = useState(Number);
 
@@ -25,7 +23,7 @@ const SingleBlog = () => {
     const user = useSelector((state) => state.auth.value)
 
     useEffect(() => {
-        axios.get(`http://localhost:7050/users/${user?.email}`).then(res => setLoginUser(res.data))
+        axios.get(`https://shrouded-headland-44423.herokuapp.com/users/${user?.email}`).then(res => setLoginUser(res.data))
     }, [user?.email])
 
     useEffect(() => {
@@ -52,7 +50,7 @@ const SingleBlog = () => {
     //         const docLike = {
     //             likes: loginUser?._id, 
     //         }
-    //         const res = await axios.put(`http://localhost:7050/updateBloglike/${id}`, docLike)
+    //         const res = await axios.put(`https://shrouded-headland-44423.herokuapp.com/updateBloglike/${id}`, docLike)
     //         console.log(res.data);
     //         setLiked(true)
     //         setNumber(number + 1)
@@ -67,7 +65,7 @@ const SingleBlog = () => {
     //             const docUnlike = {
     //                 likes: loginUser?._id, 
     //             } 
-    //             const res = await axios.put(`http://localhost:7050/updateBlogUnlike/${id}`, docUnlike)
+    //             const res = await axios.put(`https://shrouded-headland-44423.herokuapp.com/updateBlogUnlike/${id}`, docUnlike)
     //             console.log(res.data);
     //             setLiked(false)
     //             setNumber( number - 1)
@@ -77,7 +75,7 @@ const SingleBlog = () => {
     //             const docLike = {
     //                 likes: loginUser?._id, 
     //             }
-    //             const res = await axios.put(`http://localhost:7050/updateBloglike/${id}`, docLike)
+    //             const res = await axios.put(`https://shrouded-headland-44423.herokuapp.com/updateBloglike/${id}`, docLike)
     //             console.log(res.data);
     //             setNumber(number + 1)
     //             setLiked(true)
@@ -98,7 +96,7 @@ const SingleBlog = () => {
     //     //     const docUnlike = {
     //     //         likes: loginUser?._id, 
     //     //     } 
-    //     //     const res = await axios.put(`http://localhost:7050/updateBlogUnlike/${id}`, docUnlike)
+    //     //     const res = await axios.put(`https://shrouded-headland-44423.herokuapp.com/updateBlogUnlike/${id}`, docUnlike)
     //     //     console.log(res.data);
     //     //     setLiked(null)
     //     // } else {
@@ -106,7 +104,7 @@ const SingleBlog = () => {
     //     //     const docLike = {
     //     //         likes: loginUser?._id, 
     //     //     }
-    //     //     const res = await axios.put(`http://localhost:7050/updateBloglike/${id}`, docLike)
+    //     //     const res = await axios.put(`https://shrouded-headland-44423.herokuapp.com/updateBloglike/${id}`, docLike)
     //     //     console.log(res.data);
     //     //     setLike([...like, res.data])
     //     //     setLiked([0])
@@ -119,15 +117,12 @@ const SingleBlog = () => {
         const docLike = {
             likes: loginUser?._id,
         }
-        const res = await axios.put(`http://localhost:7050/updateBloglike/${id}`, docLike)
+        const res = await axios.put(`https://shrouded-headland-44423.herokuapp.com/updateBloglike/${id}`, docLike)
         if (res.data) {
             console.log(" if doclike");
             setLiked(true)
             setNumber(number + 1)
         }
-
-
-
 
     }
     const handleUpdateUnLike = async (id) => {
@@ -135,7 +130,7 @@ const SingleBlog = () => {
         const docUnLike = {
             likes: loginUser?._id,
         }
-        const res = await axios.put(`http://localhost:7050/updateBlogUnlike/${id}`, docUnLike)
+        const res = await axios.put(`https://shrouded-headland-44423.herokuapp.com/updateBlogUnlike/${id}`, docUnLike)
         if (res.data) {
             console.log(res.data.value);
             setNumber(number - 1)
