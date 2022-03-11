@@ -197,11 +197,11 @@ const BloodDashboardMain = () => {
                 <div className="collapse" id="collapseRequest">
                   <ul className="dashboard_sub_menu">
                     <li>
-                      <Link to="/bloodBank">
+                      <Link to="/bloodBank/bloodRequest">
                         <span className="nav_icon">--</span>
                         <span>Make Request</span>
                       </Link>
-                      <Link to="/bloodBank">
+                      <Link to="/bloodBank/requestHistory">
                         <span className="nav_icon">--</span>
                         <span>Request History</span>
                       </Link>
@@ -361,11 +361,11 @@ const BloodDashboardMain = () => {
               <div className="collapse" id="collapseRequest">
                 <ul className="dashboard_sub_menu">
                   <li>
-                    <Link to="/bloodBank">
+                    <Link to="/bloodBank/bloodRequest">
                       <span className="nav_icon">--</span>
                       <span>Make Request</span>
                     </Link>
-                    <Link to="/bloodBank">
+                    <Link to="/bloodBank/requestHistory">
                       <span className="nav_icon">--</span>
                       <span>Request History</span>
                     </Link>
