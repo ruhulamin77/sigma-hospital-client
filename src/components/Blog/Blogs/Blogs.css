@@ -1,26 +1,93 @@
-.blog-img {
-  height: 400px;
+.blog-my .card-design p {
+  font-size: 18px;
+  color: #8c8c90;
+  font-weight: 600;
+}
+.blog-my .img-design {
   overflow: hidden;
-}
-.blog-img img {
-  object-fit: contain;
-}
-.blog-items {
-  background: rgb(238, 238, 238);
-  border: 1px solid #7093e5;
-}
-.looder {
-  height: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 400px;
   width: 100%;
 }
-.blogs-info {
-  margin: 0 25px;
-  padding: 20px;
-  min-height: 280px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.blog-my .img-design img {
+  transition: all 0.5s linear;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+.blog-my .card-design:hover .img-design img {
+  transform: scale(1.2);
+}
+.blog-my .service-card {
+  margin: 25px;
+}
+.blog-my .card-design {
+  border: 1px solid gray;
+  background: black;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+  transition: all 0.5s linear;
+}
+.blog-my .service-card h3 {
+  color: white;
+  cursor: pointer;
+}
+.blog-my .card-design:hover {
+  transform: translateY(15px);
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+/* Heading title */
+.blog-my .title-m {
+  margin-top: 150px;
+  margin-bottom: 50px;
+}
+.blog-my .title-heading {
+  position: relative;
+  color: #2498af;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+}
+.blog-my .blog-des {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+}
+
+.short-heading,
+.short-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.short-text {
+  -webkit-line-clamp: 4;
+}
+.blog-my .title-heading::after {
+  position: absolute;
+  border-radius: 5px;
+  left: 0;
+  top: 60px;
+  height: 5px;
+  width: 100%;
+  background-color: #2498af;
+  content: "";
+  margin: auto;
+}
+.blog-my .blog-btn {
+  margin: 15px 0;
+  background-color: #f68685;
+  color: white;
+  padding: 10px 15px;
+  display: inline-block;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+}
+.blog-btn:hover {
+  background-color: #7093e5;
+  color: white;
 }
