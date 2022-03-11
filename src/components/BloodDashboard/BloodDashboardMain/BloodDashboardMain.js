@@ -54,7 +54,7 @@ const BloodDashboardMain = () => {
           </Button>
         </div>
 
-        <div className="dashboard_mobole_logo  d-block d-md-none">
+        <div className="dashboard_mobole_logo d-block d-md-none">
           <Link to="/home">
             <img src={logo} alt="" />
           </Link>
