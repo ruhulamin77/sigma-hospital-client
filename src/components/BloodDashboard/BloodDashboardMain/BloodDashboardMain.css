@@ -1,0 +1,24 @@
+.bloodBankHeader {
+  background-color: rgba(238, 106, 106, 0.733);
+}
+.blood_drop {
+  color: rgb(243, 0, 0);
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+.bloodBank_header_logout {
+  color: rgb(255, 255, 255);
+  font-weight: 900;
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: rgb(252, 14, 14);
+  border-radius: 5px;
+}
+.bloodBank_header_logout:hover {
+  background-color: rgba(252, 14, 14, 0.658);
+}
+.bloodBank_header_logout span {
+  margin-right: 5px;
+}
