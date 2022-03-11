@@ -43,6 +43,7 @@ import Psychiatrists from "./components/Specialization/Psychiatrists/Psychiatris
 
 import BloodDashboardMain from "./components/BloodDashboard/BloodDashboardMain/BloodDashboardMain";
 import BloodDashboardHome from "./components/BloodDashboard/BloodDashboardHome/BloodDashboardHome";
+import AllDonors from "./components/BloodDashboard/AllDonor/AllDonor/AllDonors";
 
 function App() {
   return (
@@ -132,6 +133,7 @@ function App() {
           {/*  blood bank */}
           <Route path="/bloodBank" element={<BloodDashboardMain />}>
             <Route path="/bloodBank" element={<BloodDashboardHome />}></Route>
+            <Route path="/bloodBank/allDOnor" element={<AllDonors />}></Route>
           </Route>
         </Routes>
       </Router>
