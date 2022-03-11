@@ -29,6 +29,7 @@ import logo from "../../../images/logo/logo.png";
 import { Link, Outlet } from "react-router-dom";
 import useFirebase from "../../../hooks/useFirebase";
 import { useSelector } from "react-redux";
+import Header from "../../Share/Header/Header";
 
 const DashboardMain = () => {
   const [show, setShow] = useState(false);
@@ -457,7 +458,6 @@ const DashboardMain = () => {
           </div>
         </Offcanvas.Body>
       </Offcanvas>
-
       <div className="dashboardHeader container-fluid">
         <div className="logo_area">
           <Link to="/home">
