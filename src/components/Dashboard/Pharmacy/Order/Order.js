@@ -29,6 +29,7 @@ const Order = () => {
         dispatch(removeFromCart(cartItems))
     }
     //remove cart//
+
     const handelcrealecart = () => {
         dispatch(clearCart())
     };
@@ -39,10 +40,13 @@ const Order = () => {
         if (index !== 0) {
             grandTotal += Number(cart.cartItems[index].Total)
         }
-
-
     }
 
+    const finalorder = {
+        item: cart.cartItems,
+        Total: grandTotal
+    }
+    console.log(finalorder)
     return (
         <section>
             <div className='container'>
