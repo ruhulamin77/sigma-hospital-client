@@ -289,7 +289,7 @@ const BloodDashboardMain = () => {
               </Link>
             </li>
             <li>
-              <Link to="/bloodBank">
+              <Link to="/bloodBank/allDonor">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <MdSupervisedUserCircle />
