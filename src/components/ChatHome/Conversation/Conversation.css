@@ -5,6 +5,7 @@
   cursor: pointer;
   transition: 0.3s;
   margin-top: 15px;
+  justify-content: space-between;
 }
 .conversation:hover {
   background-color: rgb(240, 240, 240);
@@ -18,4 +19,25 @@
 }
 .conversation-name {
   margin-left: 15px;
+}
+.threeDot {
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  line-height: 50px;
+  background-color: gray;
+  color: white;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.2s;
+}
+.conversation:hover .threeDot {
+  opacity: 1;
+  visibility: visible;
+  cursor: pointer;
+}
+.message:hover .threeDot {
+  opacity: 1;
+  visibility: visible;
 }

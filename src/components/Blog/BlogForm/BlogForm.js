@@ -19,8 +19,8 @@ const BlogForm = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        const likes=[]
-        const comments = []
+        const likes= Number(0)
+        const comments = new Array([])
         const date = new Date().toDateString()
         console.log(date);
 
@@ -32,11 +32,11 @@ const BlogForm = () => {
             }
         }
         formData.append('image', image);
-        formData.append('likes', []);
-        formData.append('comments', []);
-        formData.append('date', new Date().toDateString());
+        formData.append('likes', likes);
+        formData.append('comments',comments);
+        formData.append('date', date);
 
-        fetch('https://shrouded-headland-44423.herokuapp.com /addBlog', {
+        fetch('https://shrouded-headland-44423.herokuapp.com/addBlog', {
             method: 'POST',
             body: formData
         })
@@ -156,7 +156,7 @@ const BlogForm = () => {
                                         name="photo"
                                         type="file"
                                         onChange={e => setImage(e.target.files[0])}
-                                        required />
+                                         />
                                 <span className="focus-input100"></span>
                             </div>
                         </Col>
@@ -188,25 +188,7 @@ const BlogForm = () => {
                                 </div>
                             </div>
                         </Col>
-
-
                     </Row>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 </form>
             </div>
         </div>

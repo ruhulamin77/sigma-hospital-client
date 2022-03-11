@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Offcanvas } from "react-bootstrap";
 import { FiChevronDown } from "react-icons/fi";
-import {GiHamburgerMenu } from "react-icons/gi";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { GrClose } from "react-icons/gr";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import useFirebase from "../../../hooks/useFirebase";
 import logo from "../../../images/logo/logo.png";
 import "./Header.css";
-import { useSelector } from "react-redux";
-import useFirebase from "../../../hooks/useFirebase";
 
 const Header = () => {
   const [show, setShow] = useState(false);
