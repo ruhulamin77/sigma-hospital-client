@@ -15,10 +15,10 @@ const Blogs = () => {
             <Header />
             <Container>
                 <Row className='g-4' xs={1} md={2}>
-                    {blogCollection.length <= 0 ? <div className='looder'>
+                    {blogCollection?.data?.length <= 0 ? <div className='looder'>
                         <ScaleLoader
                             color={"#7093e5"}  size={150} />
-                    </div> : blogCollection.slice(2, 6).map(blog => (
+                    </div> : blogCollection?.data?.map(blog => (
                         <Col>
                             <div className="blog-items mb-4">
                                 <div className="blog-img mb-4">
