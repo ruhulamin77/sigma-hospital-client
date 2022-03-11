@@ -765,6 +765,43 @@ const DashboardMain = () => {
                 </ul>
               </div>
             </li>
+
+            <li>
+              <Link
+                /* className="btn btn-primary" */
+                data-bs-toggle="collapse"
+                to="#collapsePaymentss"
+                role="button"
+                aria-expanded="false"
+                aria-controls="collapseExample"
+              >
+                <span className="dashboard_nav_icon">
+                  <span className="nav_icon">
+                    <MdOutlinePayment />
+                  </span>
+                  <span>Pharmacy</span>
+                </span>
+                <BsChevronDown />
+              </Link>
+              <div className="collapse" id="collapsePaymentss">
+                <ul className="dashboard_sub_menu">
+                  <li>
+                    <Link to="/dashboard/pharmacy">
+                      <span className="nav_icon">--</span>
+                      <span>Pharmacy</span>
+                    </Link>
+                    <Link to="/dashboard/order">
+                      <span className="nav_icon">--</span>
+                      <span>Order</span>
+                    </Link>
+                    <Link to="/dashboard/receive">
+                      <span className="nav_icon">--</span>
+                      <span>Invoie</span>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </li>
             <li>
               <Link
                 /* className="btn btn-primary" */
