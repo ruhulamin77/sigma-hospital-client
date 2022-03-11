@@ -39,13 +39,15 @@ const Messenger = () => {
     useEffect(() => {
         axios.get("https://shrouded-headland-44423.herokuapp.com/users").then(data => setUsers(data))
     }, [loginUsers?._id])
+    console.log(users);
     useEffect(() => {
         arrivalMessages && curremtChat?.member.includes(arrivalMessages.sender) && setMessages((prev) => [...prev, arrivalMessages])
     }, [arrivalMessages, curremtChat])
+
     useEffect(() => {
         socket.current.emit("addUser", loginUsers?._id, loginUsers)
         socket.current.on("getUsers", (users) => {
-            const friendInfo = users.filter((f) => f.userId !== loginUsers?._id)
+            const friendInfo = users.filter((f) => f?.userId !== loginUsers?._id)
             const friendArray = friendInfo.filter(n => n?.userInfo !== null)
             setOnlineUser(friendArray)
         })
@@ -69,6 +71,7 @@ const Messenger = () => {
         }
         getconversation()
     }, [loginUsers?._id])
+    console.log(curremtChat?._id);
     useEffect(() => {
         const getMessages = async () => {
             try {
@@ -129,7 +132,10 @@ const Messenger = () => {
     }
 
     const reserveConversation = [...conversation].reverse()
-
+    console.log(onlineUser, "onlineUser");
+    console.log(curremtChat, "curremtChat");
+    console.log(messages, "messages");
+    console.log(loginUsers?._id, "loginUsers?._id");
     return (
         <div className='messenger'>
             <div className="chatMenu">
