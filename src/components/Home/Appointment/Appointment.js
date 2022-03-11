@@ -19,30 +19,9 @@ const Appointment = () => {
     fetch("https://shrouded-headland-44423.herokuapp.com/doctors")
       .then((res) => res.json())
       .then((data) => {
-        // setShiftDoctor(data);
         setDoctor(data);
       });
   }, []);
-
-  // useEffect(() => {
-  //   fetch("http://localhost:7050/appointments", {
-  //     method: "POST",
-  //     headers: { "content-type": "application/json" },
-  //     body: JSON.stringify(appointments),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       if (data.insertedId) {
-  //         Swal.fire(
-  //           "Good job!",
-  //           "A doctor has been successfully added!",
-  //           "success"
-  //         );
-  //       }
-  //     });
-  // }, []);
-
-  // const doctorEmail = shiftDoctor.find(doctor => doctor )
 
   const onSubmit = (data) => {
     data.status = "pending";
