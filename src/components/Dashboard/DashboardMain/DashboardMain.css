@@ -99,7 +99,8 @@
 }
 .dashboard_left_side_bar {
   padding: 15px;
-  flex-basis: 350px;
+  /* flex-basis: 350px; */
+  min-width: 300px;
   height: calc(100vh - 90px);
   overflow: scroll;
   overflow-x: hidden;

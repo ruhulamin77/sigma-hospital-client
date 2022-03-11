@@ -29,6 +29,7 @@ import logo from "../../../images/logo/logo.png";
 import { Link, Outlet } from "react-router-dom";
 import useFirebase from "../../../hooks/useFirebase";
 import { useSelector } from "react-redux";
+import Header from "../../Share/Header/Header";
 
 const DashboardMain = () => {
   const [show, setShow] = useState(false);
@@ -206,14 +207,10 @@ const DashboardMain = () => {
                         <span className="nav_icon">--</span>
                         <span>Add Doctors</span>
                       </Link>
-                      {/* <Link to="/dashboard/allDoctors/update/:id">
-                      <span className="nav_icon">--</span>
-                      <span>Doctor Profile</span>
-                    </Link> */}
-                      <Link to="/dashboard/doctorPrescription">
+                      {/* <Link to="/dashboard/patientsInfo">
                         <span className="nav_icon">--</span>
-                        <span>Doctor Prescription</span>
-                      </Link>
+                        <span>Patients Information</span>
+                      </Link> */}
                     </li>
                   </ul>
                 </div>
@@ -279,19 +276,19 @@ const DashboardMain = () => {
                 <div className="collapse" id="collapsePatients">
                   <ul className="dashboard_sub_menu">
                     <li>
-                      <Link to="/dashboard">
+                      <Link to="/dashboard/patientsInfo">
                         <span className="nav_icon">--</span>
                         <span>All Patients</span>
                       </Link>
-                      <Link to="/dashboard">
+                      <Link to="/dashboard/addPatients">
                         <span className="nav_icon">--</span>
                         <span>Add Patient</span>
                       </Link>
-                      <Link to="/dashboard">
+                      {/* <Link to="/dashboard">
                         <span className="nav_icon">--</span>
                         <span>Patients Profile</span>
-                      </Link>
-                      <Link to="/dashboard">
+                      </Link> */}
+                      <Link to="/dashboard/invoice">
                         <span className="nav_icon">--</span>
                         <span>Invoice</span>
                       </Link>
@@ -461,7 +458,6 @@ const DashboardMain = () => {
           </div>
         </Offcanvas.Body>
       </Offcanvas>
-
       <div className="dashboardHeader container-fluid">
         <div className="logo_area">
           <Link to="/home">
@@ -643,10 +639,10 @@ const DashboardMain = () => {
                       <span className="nav_icon">--</span>
                       <span>Doctor Profile</span>
                     </Link> */}
-                    <Link to="/dashboard/doctorPrescription">
+                    {/* <Link to="/dashboard/doctorPrescription">
                       <span className="nav_icon">--</span>
                       <span>Doctor Prescription</span>
-                    </Link>
+                    </Link> */}
                   </li>
                 </ul>
               </div>
@@ -712,18 +708,18 @@ const DashboardMain = () => {
               <div className="collapse" id="collapsePatients">
                 <ul className="dashboard_sub_menu">
                   <li>
-                    <Link to="/dashboard">
+                    <Link to="/dashboard/patientsInfo">
                       <span className="nav_icon">--</span>
                       <span>All Patients</span>
                     </Link>
-                    <Link to="/dashboard">
+                    <Link to="/dashboard/addPatients">
                       <span className="nav_icon">--</span>
                       <span>Add Patient</span>
                     </Link>
-                    <Link to="/dashboard">
-                      <span className="nav_icon">--</span>
-                      <span>Patients Profile</span>
-                    </Link>
+                    {/* <Link to="/dashboard">
+                        <span className="nav_icon">--</span>
+                        <span>Patients Profile</span>
+                      </Link> */}
                     <Link to="/dashboard">
                       <span className="nav_icon">--</span>
                       <span>Invoice</span>

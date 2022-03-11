@@ -1,25 +1,23 @@
 import axios from 'axios';
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { io } from 'socket.io-client';
+import ChatOnline from "../ChatOnline/ChatOnline";
 import Conversation from '../Conversation/Conversation';
 import Message from '../Message/Message';
+import Users from '../Users/Users';
 import './Messenger.css';
 
-
-
 const Messenger = () => {
-    // allUsers
     const [users, setUsers] = useState([])
-    // me as a login user
+    const [offlineUser, setOfflineUser] = useState([])
     const [loginUsers, setLoginUsers] = useState(null)
-    // message
     const [messages, setMessages] = useState([])
     const [arrivalMessages, setArrivalMessages] = useState(null)
     const [newMessages, setNewMessages] = useState("")
     const [curremtChat, setCurremtChat] = useState(null)
     const [conversation, setConversation] = useState([])
-    // const [onlineUser, setOnlineUser] = useState([])
+    const [onlineUser, setOnlineUser] = useState([])
     const scrollRef = useRef()
     const socket = useRef()
     const user = useSelector((state) => state.auth.value)
@@ -34,34 +32,43 @@ const Messenger = () => {
             setArrivalMessages({
                 sender: data.senderId,
                 text: data.text,
-                creareAt: Date.now(),
+                time: data.time,
             })
         })
     }, [])
     useEffect(() => {
         axios.get("http://localhost:7050/users").then(data => setUsers(data))
-    }, [])
+    }, [loginUsers?._id])
     useEffect(() => {
         arrivalMessages && curremtChat?.member.includes(arrivalMessages.sender) && setMessages((prev) => [...prev, arrivalMessages])
     }, [arrivalMessages, curremtChat])
     useEffect(() => {
-        socket.current.emit("addUser", loginUsers?._id)
+        socket.current.emit("addUser", loginUsers?._id, loginUsers)
         socket.current.on("getUsers", (users) => {
-            console.log(users,"on")
+            const friendInfo = users.filter((f) => f.userId !== loginUsers?._id)
+            const friendArray = friendInfo.filter(n => n?.userInfo !== null)
+            setOnlineUser(friendArray)
         })
     }, [loginUsers])
-    const friend = users?.data?.filter(item => item?._id !== loginUsers?._id)
+    useEffect(() => {
+        const friend = users?.data?.filter(item => item?._id !== loginUsers?._id)
+        setOfflineUser(friend)
+    }, [users.data, loginUsers])
+
+
+
     useEffect(() => {
         const getconversation = async () => {
             try {
                 const res = await axios.get(`http://localhost:7050/conversation/${loginUsers?._id}`)
                 setConversation(res?.data);
+
             } catch (err) {
                 console.log(err);
             }
         }
         getconversation()
-    }, [loginUsers?._id ])
+    }, [loginUsers?._id])
     useEffect(() => {
         const getMessages = async () => {
             try {
@@ -72,42 +79,66 @@ const Messenger = () => {
             }
         }
         getMessages()
-    }, [curremtChat?._id, newMessages])
+    }, [newMessages, curremtChat])
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const receverId = await curremtChat?.member.find(mem => mem !== loginUsers?._id)
         const message = {
-            senderId: loginUsers._id,
+            senderId: loginUsers?._id,
             text: newMessages,
-            converssationId: curremtChat._id
+            converssationId: curremtChat?._id,
+            time: new Date()
         }
-        const receverId = curremtChat.member.find(mem => mem !== loginUsers._id)
         socket.current.emit("sendMessage", {
-            senderId: loginUsers._id,
+            senderId: loginUsers?._id,
             receverId: receverId,
             text: newMessages,
+            time: new Date()
         })
         try {
             const res = await axios.post("http://localhost:7050/messages", message)
-            console.log(res?.data, "data");
             setMessages([...messages, res.data])
             setNewMessages("");
         } catch (err) {
             console.log(err);
         }
     }
+
     useEffect(() => {
         scrollRef.current?.scrollIntoView({ behavior: "smooth" })
     }, [messages])
-// console.log(onlineUser, "onlineUser");
+
+    const handelesetMessage = async (reciverId) => {
+        const alreadyAdd = conversation?.find(i => (i.member[0] === reciverId && i.member[1] === loginUsers?._id) || (i.member[1] === reciverId && i.member[0] === loginUsers?._id))
+        if (alreadyAdd) {
+            setCurremtChat(alreadyAdd)
+        } else {
+            const data = {
+                member: [loginUsers?._id, reciverId]
+            }
+            try {
+                const res = await axios.post("http://localhost:7050/conversation", data)
+                const accc = await axios.get(`http://localhost:7050/conversatio/${res?.data?.insertedId}`)
+                setCurremtChat(accc?.data)
+                setConversation([...conversation, accc?.data])
+            } catch (err) {
+                console.log(err);
+            }
+        }
+    }
+
+    const reserveConversation = [...conversation].reverse()
+
     return (
         <div className='messenger'>
             <div className="chatMenu">
                 <div className="chatMenuWrapper">
                     <input type="text" placeholder='Search for Doctors' className='chatMenuInput' />
                     {
-                        conversation.map((c) => (
+                        reserveConversation.map((c) => (
                             <div onClick={() => setCurremtChat(c)}>
-                                <Conversation conversation={c}  loginUsers={loginUsers} key={Math.random()} />
+                                <Conversation conversation={c} loginUsers={loginUsers} key={Math.random()} />
                             </div>
                         ))
                     }
@@ -115,25 +146,18 @@ const Messenger = () => {
             </div>
             <div className="chatBox">
                 <div className="chatBoxWrapper">
-
                     {
                         curremtChat ?
                             <>
                                 <div className="chatBoxTop">
                                     {
-
-
-
                                         messages.map((m) => (
                                             <div ref={scrollRef}>
-                                                <Message message={m} key={Math.random()} own={m?.senderId === loginUsers?._id} user={user} fd={friend} />
+                                                <Message message={m} key={Math.random()} own={m?.senderId === loginUsers?._id} user={user} fd={loginUsers} />
                                             </div>
                                         ))
                                     }
-
-
                                 </div>
-
                                 <div className="chatBoxButtom">
                                     <textarea placeholder='Write Something...'
                                         onChange={(e) => setNewMessages(e?.target?.value)}
@@ -145,16 +169,33 @@ const Messenger = () => {
                             : <span className='open-chat'>Open a Conversation</span>
                     }
                 </div>
-
             </div>
             <div className="chat">
-                {/* <div className="chatWrapper">
+                <div className="chatWrapper">
+                    {
+                        onlineUser.length > 0 ?
+                            <>
+                                <hr />
+                                <span>Online Users</span>
+                                <hr />
+                            </> : null
+                    }
                     {
                         onlineUser?.map((item) => (
-                            <ChatOnline key={item._id} user={item} />
+                                <ChatOnline key={item._id} user={item} />
                         ))
                     }
-                </div> */}
+                    <hr />
+                    <span>OffLine Users</span>
+                    <hr />
+                    {
+                        offlineUser?.map((item) => (
+                            <div onClick={() => handelesetMessage(item?._id)} >
+                                <Users item={item} key={Math.random()} />
+                            </div>
+                        ))
+                    }
+                </div>
             </div>
         </div>
     );
