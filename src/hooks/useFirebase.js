@@ -13,7 +13,6 @@ const useFirebase = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
     const user = useSelector((state) => state.auth.value);
-    console.log("user from state", user);
     const dispatch = useDispatch();
 
     const auth = getAuth();
@@ -51,6 +50,7 @@ const useFirebase = () => {
                 console.log("Singed in user: ", user);
                 const destination = location?.state?.from || '/';
                 navigate(destination);
+                localStorage.setItem('user', JSON.stringify(user))
                 setAuthError('');
             })
             .catch((error) => {
@@ -79,6 +79,7 @@ const useFirebase = () => {
                 setAuthError('');
                 const destination = location?.state?.from || '/';
                 navigate(destination);
+                localStorage.setItem('user', JSON.stringify(user))
             }).catch((error) => {
                 setAuthError(error.message);
             }).finally(() => setIsLoading(false));
@@ -89,6 +90,7 @@ const useFirebase = () => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
               dispatch(saveUser(user));
+              localStorage.setItem('user', JSON.stringify(user))  
             } else {
               dispatch(saveUser(undefined));
             }
@@ -100,7 +102,9 @@ const useFirebase = () => {
     const logout = () => {
         setIsLoading(true);
         signOut(auth).then(() => {
-        }).catch((error) => {
+        localStorage.removeItem('user');
+        }).catch((error) =>
+        {
             console.log("error", error);
         })
             .finally(() => setIsLoading(false));
@@ -117,8 +121,6 @@ const useFirebase = () => {
         })
             .then()
     }
-
-    console.log(user);
     return {
         user,
         isLoading,
