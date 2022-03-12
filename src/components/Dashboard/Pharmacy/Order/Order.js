@@ -72,17 +72,6 @@ const Order = () => {
             item: cart.cartItems,
             Total: grandTotal
         }
-        // fetch('http://localhost:7050/init', {
-        //     method: 'GET',
-        //     headers: {
-        //         "content-type": "application/json"
-        //     },
-        //     body: JSON.stringify(finalorder)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => console.log(data))
-        // window.location.replace(data)
-
         fetch('http://localhost:7050/init', {
             method: 'POST',
             headers: {
@@ -94,6 +83,7 @@ const Order = () => {
             .then(data => {
                 window.location.replace(data)
                 console.log(data)
+                handelcrealecart()
             })
 
     }
@@ -105,9 +95,9 @@ const Order = () => {
         <section className='mt-5'>
             <div className='container mt-5'>
 
-                <input type="text" onBlur={handelname} placeholder="Name" /> <br />
-                <input type="text" onBlur={handelnumber} placeholder="Number" /> <br />
-                <input type="text" onBlur={handeladdress} placeholder="Address" /> <br />
+                <span className='user_info' >Customer Name :</span>  <input type="text" onBlur={handelname} className='cus_info_fild' required={true} /> <br />
+                <span className='user_info'> Customer Number :</span>  <input type="text" onBlur={handelnumber} className='cus_info_fild' required={true} /> <br />
+                <span className='user_info'>Customer Address :</span>  <input type="text" onBlur={handeladdress} className='cus_info_fild' required={true} /> <br />
 
 
                 <Table striped bordered hover size="sm" className=' mt-5'>
@@ -119,7 +109,7 @@ const Order = () => {
                             <th>pawer</th>
                             <th>type</th>
                             <th>Price</th>
-                            <th>Quantity</th>
+                            <th >Quantity</th>
                             <th>Total</th>
                             <th>Action</th>
                         </tr>
@@ -151,9 +141,11 @@ const Order = () => {
                     <div>
                         <h5 className='shoping-total'>Sub Total = {grandTotal} Tk</h5>
                         <div>
-                            <button onClick={handelPayment}>Payment</button>
+                            <button onClick={handelPayment}
+                                className='payment-btn'
+                            >Payment</button>
                         </div>
-                        <Link to="/Pharmacy" className='back-shoping' >
+                        <Link to="/dashboard/Pharmacy" className='back-shoping' >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="20"

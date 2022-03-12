@@ -14,7 +14,7 @@ const OrderData = ({ medicine, index, handelremovecart }) => {
             <td>{medicine?.price}</td>
             <td>{medicine?.quantity}</td>
             <td>{medicine?.Total}</td>
-            <td className='btn-td'>
+            <td className='btn-td quantity'>
                 <button className='edit-btn1' onClick={() => handelremovecart(medicine)} >Delete</button>
             </td>
 
