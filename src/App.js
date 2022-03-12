@@ -46,6 +46,7 @@ import BloodDashboardMain from "./components/BloodDashboard/BloodDashboardMain/B
 import BloodDashboardHome from "./components/BloodDashboard/BloodDashboardHome/BloodDashboardHome";
 import AllDonors from "./components/BloodDashboard/AllDonor/AllDonor/AllDonors";
 import SinglePatientPrescription from "./components/Dashboard/PatientDashboard/SinglePatientPrescription/SinglePatientPrescription";
+import BloodRequest from "./components/BloodDashboard/AllDonor/BloodRequest/BloodRequest";
 
 function App() {
   return (
@@ -95,10 +96,6 @@ function App() {
             path="/specialization/psychiatrists"
             element={<Psychiatrists />}
           />
-          <Route path="/Pharmacy" element={<PharmacyHome />} />
-          <Route path="/order" element={<Order />} />
-          <Route path="/Recive" element={<ProductRecive />} />
-          <Route path="/PaymentSuccess" element={<PaymentSuccess />} />
 
           {/* dashboard */}
           <Route path="/dashboard" element={<DashboardMain />}>
@@ -135,12 +132,25 @@ function App() {
               path="/dashboard/singlePrescription/update/:id"
               element={<SinglePatientPrescription />}
             />
+
+            <Route path="/dashboard/pharmacy" element={<PharmacyHome />} />
+            <Route path="/dashboard/order" element={<Order />} />
+            <Route path="/dashboard/receive" element={<ProductRecive />} />
+
             {/* patients route end */}
           </Route>
           {/*  blood bank */}
           <Route path="/bloodBank" element={<BloodDashboardMain />}>
             <Route path="/bloodBank" element={<BloodDashboardHome />}></Route>
             <Route path="/bloodBank/allDOnor" element={<AllDonors />}></Route>
+            <Route
+              path="/bloodBank/bloodRequest"
+              element={<BloodRequest />}
+            ></Route>
+            <Route
+              path="/bloodBank/requestHistory"
+              element={<BloodRequest />}
+            ></Route>
           </Route>
         </Routes>
       </Router>

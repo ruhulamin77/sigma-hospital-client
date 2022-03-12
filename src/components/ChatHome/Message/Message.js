@@ -15,7 +15,7 @@ const Message = ({ message, own, user, fd }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:7050/messageDelete/${messageId}`, {
+                fetch(`https://shrouded-headland-44423.herokuapp.com/messageDelete/${messageId}`, {
                     method: 'DELETE',
                     headers: { 'content-type': 'application/json' },
                 })

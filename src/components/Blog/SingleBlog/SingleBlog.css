@@ -41,3 +41,14 @@
 .single-blog-info {
   margin-bottom: 40px;
 }
+.like-icon svg {
+  font-size: 25px;
+  color: red;
+}
+.like-icon {
+  font-size: 20px;
+}
+.like {
+  font-size: 25px;
+  color: #7093e5;
+}
