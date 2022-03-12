@@ -29,9 +29,10 @@ import logo from "../../../images/logo/logo.png";
 import { Link, Outlet } from "react-router-dom";
 import useFirebase from "../../../hooks/useFirebase";
 import { useSelector } from "react-redux";
-import Header from "../../Share/Header/Header";
+// import Header from "../../Share/Header/Header";
 
 const DashboardMain = () => {
+  // const adminRole = JSON.parse(localStorage.getItem("admin"))
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -677,10 +678,7 @@ const DashboardMain = () => {
                       <span className="nav_icon">--</span>
                       <span>Add Nurses</span>
                     </Link>
-                    {/* <Link to="/dashboard/allNurse/update/:id">
-                      <span className="nav_icon">--</span>
-                      <span>Nurse Profile</span> 
-                  </Link>*/}
+                    
                   </li>
                 </ul>
               </div>

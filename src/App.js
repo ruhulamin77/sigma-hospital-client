@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import BlogForm from "./components/Blog/BlogForm/BlogForm";
 import Blogs from "./components/Blog/Blogs/Blogs";
 import SingleBlog from "./components/Blog/SingleBlog/SingleBlog";
@@ -29,7 +30,6 @@ import FAQ from "./components/Pages/FAQ/FAQ";
 import History from "./components/Pages/History/History";
 import DoctorHeader from "./components/Pages/Team/DoctorHeader";
 import Team from "./components/Pages/Team/Team";
-import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Service from "./components/Service/Service";
 import PaymentForm from "./components/Share/Payment/PaymentForm/PaymentForm";
 import Success from "./components/Share/Payment/Validation/Success";
@@ -47,17 +47,16 @@ import AllDonors from "./components/BloodDashboard/AllDonor/AllDonor/AllDonors";
 import SinglePatientPrescription from "./components/Dashboard/PatientDashboard/SinglePatientPrescription/SinglePatientPrescription";
 import BloodRequest from "./components/BloodDashboard/AllDonor/BloodRequest/BloodRequest";
 
+
 function App() {
   return (
     <div>
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/" element={<PrivateRoute />}>
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/appointment" element={<AppointmentHeader />} />
+          <Route exact element={<PrivateRoute  />}>
+            <Route exact path="/contact" element={<Contact />} />
           </Route>
-
           <Route path="/home" element={<Home />} />
           <Route path="/service" element={<Service />} />
           <Route path="/onlineDoctor" element={<OnlineDoctor />} />

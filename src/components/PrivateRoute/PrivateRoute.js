@@ -1,10 +1,12 @@
-import React from "react";
-import { Navigate, Outlet } from "react-router-dom";
-import { useSelector } from "react-redux";
-const PrivateRoute = ({ children, ...rest }) => {
-  const user = useSelector((state) => state.auth.value);
-  console.log("user", user);
-  return user ? <Outlet /> : <Navigate to="/login" />;
-};
+import React from 'react'
+import { Navigate, Outlet, useLocation } from 'react-router-dom'
 
-export default PrivateRoute;
+export default function PrivateRoute() {
+    const user = JSON.parse(localStorage.getItem('user'))
+    let location = useLocation();
+    return (
+        <>
+            {user?.uid ? <Outlet  /> : <Navigate to="/login" state={{ from: location }} />};
+        </>
+    )
+}
