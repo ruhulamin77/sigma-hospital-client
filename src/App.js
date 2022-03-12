@@ -15,6 +15,7 @@ import PatientData from "./components/Dashboard/PatientDashboard/PatientData/Pat
 import PatientPrescription from "./components/Dashboard/PatientDashboard/PatientPrescription/PatientPrescription";
 import Cart from "./components/Dashboard/Pharmacy/Cart/Cart";
 import Order from "./components/Dashboard/Pharmacy/Order/Order";
+import PaymentSuccess from "./components/Dashboard/Pharmacy/PaymentSuccess/PaymentSuccess";
 import PharmacyHome from "./components/Dashboard/Pharmacy/PharmacyHome/PharmacyHome";
 import ProductRecive from "./components/Dashboard/Pharmacy/ProductRecive/ProductRecive";
 import Appointment from "./components/Home/Appointment/Appointment";
@@ -97,6 +98,7 @@ function App() {
           <Route path="/Pharmacy" element={<PharmacyHome />} />
           <Route path="/order" element={<Order />} />
           <Route path="/Recive" element={<ProductRecive />} />
+          <Route path="/PaymentSuccess" element={<PaymentSuccess />} />
 
           {/* dashboard */}
           <Route path="/dashboard" element={<DashboardMain />}>

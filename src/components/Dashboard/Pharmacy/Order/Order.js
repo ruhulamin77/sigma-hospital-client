@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Order.css'
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
@@ -9,6 +9,10 @@ import { removeFromCart, clearCart } from '../../../../features/cartSlice';
 import axios from 'axios';
 
 const Order = () => {
+    const [name, setName] = useState('')
+    const [number, setNumber] = useState('')
+    const [address, setAddress] = useState('')
+
     const cart = useSelector((state) => state.cart);
     const dispatch = useDispatch()
 
@@ -41,15 +45,71 @@ const Order = () => {
             grandTotal += Number(cart.cartItems[index].Total)
         }
     }
+    ////costomer data Colaction ////
+    const handelname = (e) => {
+        const name = e.target.value;
+        setName(name)
 
-    const finalorder = {
-        item: cart.cartItems,
-        Total: grandTotal
+
     }
-    console.log(finalorder)
+    const handelnumber = (e) => {
+        const number = e.target.value;
+        setNumber(number)
+
+
+    }
+    const handeladdress = (e) => {
+        const address = e.target.value;
+        setAddress(address)
+
+    }
+
+    const handelPayment = () => {
+        const finalorder = {
+            cus_name: name,
+            cus_number: number,
+            cus_address: address,
+            item: cart.cartItems,
+            Total: grandTotal
+        }
+        // fetch('http://localhost:7050/init', {
+        //     method: 'GET',
+        //     headers: {
+        //         "content-type": "application/json"
+        //     },
+        //     body: JSON.stringify(finalorder)
+        // })
+        //     .then(res => res.json())
+        //     .then(data => console.log(data))
+        // window.location.replace(data)
+
+        fetch('http://localhost:7050/init', {
+            method: 'POST',
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(finalorder)
+        })
+            .then(res => res.json())
+            .then(data => {
+                window.location.replace(data)
+                console.log(data)
+            })
+
+    }
+
+
+
+
     return (
-        <section>
-            <div className='container'>
+        <section className='mt-5'>
+            <div className='container mt-5'>
+
+                <input type="text" onBlur={handelname} placeholder="Name" /> <br />
+                <input type="text" onBlur={handelnumber} placeholder="Number" /> <br />
+                <input type="text" onBlur={handeladdress} placeholder="Address" /> <br />
+
+
                 <Table striped bordered hover size="sm" className=' mt-5'>
                     <thead>
                         <tr>
@@ -90,6 +150,9 @@ const Order = () => {
 
                     <div>
                         <h5 className='shoping-total'>Sub Total = {grandTotal} Tk</h5>
+                        <div>
+                            <button onClick={handelPayment}>Payment</button>
+                        </div>
                         <Link to="/Pharmacy" className='back-shoping' >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
