@@ -1,0 +1,31 @@
+.request-blood-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.request-blood-form input,
+.request-blood-form button,
+.request-blood-form select {
+  padding: 10px;
+  border-radius: 3px !important;
+  width: 100%;
+  display: block;
+  margin-bottom: 30px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  border: 1px solid #f68685;
+  /* border: 1px solid #7093e6; */
+  outline: 0;
+}
+
+.request-blood-form {
+  padding: 25px 50px;
+  /* box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px; */
+  border-radius: 10px;
+  margin-bottom: 50px;
+  background-color: #7093e64f;
+  /* background-color: #f687853a; */
+}
