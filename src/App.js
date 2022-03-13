@@ -19,6 +19,8 @@ import PatientData from "./components/Dashboard/PatientDashboard/PatientData/Pat
 import PatientPrescription from "./components/Dashboard/PatientDashboard/PatientPrescription/PatientPrescription";
 import SinglePatientPrescription from "./components/Dashboard/PatientDashboard/SinglePatientPrescription/SinglePatientPrescription";
 import Cart from "./components/Dashboard/Pharmacy/Cart/Cart";
+import Invoice from "./components/Dashboard/Pharmacy/Invoice/Invoice";
+import PdfInvoice from "./components/Dashboard/Pharmacy/Invoice/PdfInvoice";
 import Order from "./components/Dashboard/Pharmacy/Order/Order";
 import PharmacyHome from "./components/Dashboard/Pharmacy/PharmacyHome/PharmacyHome";
 import ProductRecive from "./components/Dashboard/Pharmacy/ProductRecive/ProductRecive";
@@ -46,6 +48,7 @@ import Neurologist from "./components/Specialization/Neurologist/Neurologist";
 import Oncologist from "./components/Specialization/Oncologist/Oncologist";
 import Psychiatrists from "./components/Specialization/Psychiatrists/Psychiatrists";
 
+// import PaymentSuccess from "./components/Dashboard/Pharmacy/PaymentSuccess/PaymentSuccess";
 
 
 function App() {
@@ -140,6 +143,11 @@ function App() {
             <Route path="/dashboard/pharmacy" element={<PharmacyHome />} />
             <Route path="/dashboard/order" element={<Order />} />
             <Route path="/dashboard/receive" element={<ProductRecive />} />
+            <Route path="/dashboard/invoice" element={<Invoice />} />
+
+            <Route path="/dashboard/pdfInvoice/:id" element={<PdfInvoice />} />
+
+
 
             {/* patients route end */}
           </Route>

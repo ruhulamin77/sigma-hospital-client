@@ -1,0 +1,63 @@
+.pdfinvoice{
+    background-color: #f0f8ff;
+}
+.invoice-body{
+    width: 1090px;
+    background-color: #7093e659;
+    border-radius: 6px;
+    padding: 0px 9px;
+}
+
+.invoice-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: initial;
+    padding-top: 25px;
+    margin-left: 33px;
+    margin-right: 32px;
+
+}
+.pdf-body{
+    padding-top: 29px;
+}
+
+.invoice{
+    font-size: 48px;
+    font-family: monospace;
+    letter-spacing: 2px;
+
+}
+.hospital-info{
+    font-size: 13px;
+    text-align: start;
+}
+
+.hospital-info h6 {
+    font-size: 23px;
+    letter-spacing: 1px;
+}
+.customer-info{
+    margin-top: 94px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 38px;
+    margin-right: 57px;
+    padding-bottom: 35px;
+}
+.customer-info h4{
+    color: #000;
+    font-size: 21px;
+    letter-spacing: 1px;
+    font-family: 'Font Awesome 5 Pro';
+
+}
+.customer-info p{
+    font-family: initial;
+    font-size: 17px;
+    margin-top: 2px;
+}
+.product-info{
+    margin-left: 38px;
+    margin-right: 57px;
+    padding-bottom: 35px;
+}

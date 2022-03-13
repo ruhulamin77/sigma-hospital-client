@@ -793,7 +793,12 @@ const DashboardMain = () => {
                     </Link>
                     <Link to="/dashboard/receive">
                       <span className="nav_icon">--</span>
-                      <span>Invoie</span>
+                      <span>Receive</span>
+                    </Link>
+
+                    <Link to="/dashboard/invoice">
+                      <span className="nav_icon">--</span>
+                      <span>Invoice</span>
                     </Link>
                   </li>
                 </ul>

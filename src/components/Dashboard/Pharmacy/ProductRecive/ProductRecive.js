@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink, Table } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 import { ScaleLoader } from 'react-spinners';
 import "./ProductRecive.css"
-import { AiOutlineShoppingCart } from "react-icons/ai";
 import ProductReciveData from '../ProductReciveData/ProductReciveData';
 
 const ProductRecive = () => {
+
     const [medicines, setMedicines] = useState([])
     const [searchData, setSearchData] = useState([])
 
@@ -21,7 +21,7 @@ const ProductRecive = () => {
                 setSearchData(data)
 
             })
-    }, [medicines])
+    }, [])
 
     const handelsearchData = (e) => {
         let search = e.target.value.toLowerCase()
@@ -34,18 +34,8 @@ const ProductRecive = () => {
 
             <div>
                 <div className='cart'>
-                    {/* <NavLink to="/order">
-                        <p className='cart-item'>{
-                            !cart.cartItems?.length ? 0 : cart.cartItems?.length - 1
-                        }</p>
-                        <AiOutlineShoppingCart className='cart-icon' />
-                    </NavLink> */}
-
                 </div>
-
-
                 <div className='search'>
-
                     <input type="text" onChange={handelsearchData} className='search-option-medicen' placeholder='Search Medicine' />
                 </div>
 
@@ -75,7 +65,6 @@ const ProductRecive = () => {
                                     <ProductReciveData medicine={medicine}
                                         key={medicine._id}
                                         index={index}
-
                                     ></ProductReciveData>
 
                                 ))}
