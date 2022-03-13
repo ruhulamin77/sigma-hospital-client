@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import psychiatristsImg from "../../../images/blogs/blog-13.jpg";
-import serviceLogo from "../../../images/logo/logo1.png";
 import Footer from "../../Home/Footer/Footer";
 import Header from "../../Share/Header/Header";
 
@@ -23,7 +21,7 @@ const Psychiatrists = () => {
           <div className=" inner_specialization">
             <div className="specialization_left ">
               <div className="special_img">
-                <img src={psychiatristsImg} alt="" />
+                <img src="https://i.ibb.co/2WgQbXV/blog-13.jpg" alt="" />
               </div>
               <div className="department">
                 <h5>DEPARTMENT</h5>
@@ -294,7 +292,7 @@ const Psychiatrists = () => {
                 </div>
               </div>
               <div className="specialization_services">
-                <img src={serviceLogo} alt="" />
+                <img src="https://i.ibb.co/8MTCMhL/logo1.png" alt="" />
                 <h3>SIgmacare Services</h3>
                 <div className="special_address">
                   <p>

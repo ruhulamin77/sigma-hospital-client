@@ -1,6 +1,5 @@
 import React from "react";
 import "./Banner.css";
-import signature from "../../../images/signature.png";
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
@@ -62,7 +61,7 @@ const Banner = () => {
             <div className="madical_info">
               <h5>MADICAL INFO</h5>
               <h4>DR. K.F. BRANDINA</h4>
-              <img src={signature} alt="" />
+              <img src="https://i.ibb.co/9rPhX7r/signature.png" alt="" />
             </div>
           </div>
         </div>

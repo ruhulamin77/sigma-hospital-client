@@ -19,7 +19,8 @@ const Blogs = () => {
         <>
             <Header />
             <Container>
-                <Row  className='blog-my g-4' xs={1} md={2} lg={3}>
+                
+                <Row  className='blog-my gx-4 gy-5' xs={1} md={2} lg={3}>
                     {blogCollection.isLoading ? <div className='looder-my'>
                         <ScaleLoader
                             color={"#7093e5"} size={150} />
@@ -47,7 +48,7 @@ const Blogs = () => {
                                         <p className='text-white'>Published By <span>Admin {format(blog?.date)}</span> </p>
                                         <br />
                                         <p className='blog-des'>{blog?.description}</p>
-                                        <Link  className='blog-btn text-decoration-none text-white' to={`/blog/${blog?._id}`} >Read More</Link>
+                                        <Link  className='custom-btn btn-9 text-decoration-none text-white' to={`/blog/${blog?._id}`} >Read More</Link>
                                     </div>
                                 </div>
                             </Col>

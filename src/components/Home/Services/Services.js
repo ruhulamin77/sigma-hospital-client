@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './Services.css';
-import serviceImg from '../../../images/ki-020.png';
 import { Card, CardGroup, Col, Container, Nav, Row } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
@@ -32,7 +31,7 @@ const Services = () => {
                     </Col>
                     <Col className='col-12 col-md-5'>
                         <Card className='service-right border-0 rounded-0'>
-                            <img variant="top" alt='servicePhoto' src={serviceImg} />
+                            <img variant="top" alt='servicePhoto' src="https://i.ibb.co/JKW8S58/ki-020.png" />
                         </Card>
                     </Col>
                 </Row>

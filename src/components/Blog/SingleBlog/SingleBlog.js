@@ -1,14 +1,12 @@
 import axios from 'axios';
-import { Button, Tooltip } from 'bootstrap';
 import React, { useEffect, useState } from 'react';
-import { Col, Container, OverlayTrigger, Row } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import { FaHeart } from 'react-icons/fa';
 import { GrDislike, GrLike } from 'react-icons/gr';
 import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { format } from 'timeago.js';
 import { useGetBlogQuery } from '../../../features/blogApi';
-import backPic from "../../../images/ki-14-1.jpg";
 import Footer from '../../Home/Footer/Footer';
 import Header from '../../Share/Header/Header';
 import './SingleBlog.css';
@@ -46,15 +44,38 @@ const SingleBlog = () => {
         const userVisit = {
             visit: loginUser?._id,
         }
-        if (singleBlog?.totalVisitor?.length === 0 && singleBlog?._id && loginUser?._id) {
+    
+
+
+            if (singleBlog?.totalVisitor?.length === 0 && singleBlog?._id && loginUser?._id) {
+                const getvisitor = async () => {
+
+                  try {
+                    const res = await axios.put(`http://localhost:7050/totalVisitor/${singleBlog?._id}`, userVisit)
+                    console.log(res, "res", "2nd");
+                  } catch (error) {
+                      
+                  }
+                }
+                getvisitor()
+
             const res = axios.put(`http://localhost:7050/totalVisitor/${singleBlog?._id}`, userVisit)
-            console.log(singleBlog?.totalVisitor?.length);
+            console.log(res.data);
         } else {
             const findId = singleBlog?.totalVisitor?.includes(loginUser?._id)
             console.log(findId);
             if (!findId && loginUser?._id) {
-                const res = axios.put(`http://localhost:7050/totalVisitor/${singleBlog?._id}`, userVisit)
-                console.log(res?.data, "res");
+                const getvisitor = async () => {
+
+                  try {
+                    const res = await axios.put(`http://localhost:7050/totalVisitor/${singleBlog?._id}`, userVisit)
+                    console.log(res, "res", "2nd");
+                  } catch (error) {
+                      
+                  }
+                }
+                getvisitor()
+                
             }
         }
     }, [singleBlog?._id, loginUser?._id, singleBlog])
@@ -88,7 +109,7 @@ const SingleBlog = () => {
     return (
         <>
             <Header />
-            <div style={{ background: `url(${backPic})` }} className="backcrumb-my ">
+            <div style={{ background: `url(https://i.ibb.co/9nmC6s9/ki-14-1.jpg)` }} className="backcrumb-my ">
                 <nav aria-label="breadcrumb">
                     <h3>{singleBlog?.title}</h3>
                     <ol className="breadcrumb">

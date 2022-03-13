@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import odiologistImg from "../../../images/blogs/blog-11.jpg";
-import serviceLogo from "../../../images/logo/logo1.png";
 import Footer from "../../Home/Footer/Footer";
 import Header from "../../Share/Header/Header";
 
@@ -22,7 +20,7 @@ const Audiologist = () => {
           <div className=" inner_specialization">
             <div className="specialization_left ">
               <div className="special_img">
-                <img src={odiologistImg} alt="" />
+                <img src="https://i.ibb.co/sWc2R8f/blog-11.jpg" alt="" />
               </div>
               <div className="department">
                 <h5>DEPARTMENT</h5>
@@ -293,7 +291,7 @@ const Audiologist = () => {
                 </div>
               </div>
               <div className="specialization_services">
-                <img src={serviceLogo} alt="" />
+                <img src="https://i.ibb.co/8MTCMhL/logo1.png" alt="" />
                 <h3>SIgmacare Services</h3>
                 <div className="special_address">
                   <p>

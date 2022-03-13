@@ -1,12 +1,5 @@
 import React from "react";
 import "./Service.css";
-import heart from "../../images/services/1.png";
-import xray from "../../images/services/2.png";
-import blood from "../../images/services/3.png";
-import lab from "../../images/services/4.png";
-import checkup from "../../images/services/5.png";
-import ambulance from "../../images/services/6.png";
-import navPic from "../../images/specialization/specialization_banner.jpg";
 import { Link } from "react-router-dom";
 import Testimonial from "../Home/Testimonial/Testimonial";
 import Header from "../Share/Header/Header";
@@ -17,7 +10,7 @@ const Service = () => {
     <>
       <Header />
       <div
-        style={{ background: `url(${navPic})` }}
+        style={{ background: `url(https://i.ibb.co/nkk3JJV/specialization-banner.jpg)` }}
         className="backcrumb-my mb-5"
       >
         <nav aria-label="breadcrumb">
@@ -48,7 +41,7 @@ const Service = () => {
             <div className="col-md-6 col-lg-4 col-sm-12">
               <div className="service mb-3">
                 <div>
-                  <img className="img-fluid" src={heart} alt="" />
+                  <img className="img-fluid" src="https://i.ibb.co/M6x73jW/1.png" alt="" />
                 </div>
                 <h4 className="text-center">Health CheckUp</h4>
                 <p className="para text-center">
@@ -63,7 +56,7 @@ const Service = () => {
             <div className="col-md-6 col-lg-4 col-sm-12">
               <div className="service mb-3">
                 <div>
-                  <img className="img-fluid" src={xray} alt="" />
+                  <img className="img-fluid" src="https://i.ibb.co/K7qyVF7/2.png" alt="" />
                   <h4 className="text-center">X-Ray</h4>
                   <p className="para text-center">
                     An X-ray is an imaginaring test that produces pictures of
@@ -78,7 +71,7 @@ const Service = () => {
             <div className="col-md-6 col-lg-4 col-sm-12">
               <div className="service mb-3">
                 <div>
-                  <img className="img-fluid" src={blood} alt="" />
+                  <img className="img-fluid" src="https://i.ibb.co/3pTMtg5/3.jpg" alt="" />
                 </div>
                 <h4 className="text-center">Blood Bank</h4>
                 <p className="para text-center">
@@ -93,7 +86,7 @@ const Service = () => {
             <div className="col-md-6 col-lg-4 col-sm-12">
               <div className="service mb-3">
                 <div>
-                  <img className="img-fluid" src={lab} alt="" />
+                  <img className="img-fluid" src="https://i.ibb.co/89GHLbt/4.png" alt="" />
                 </div>
                 <h4 className="text-center">Laboratory</h4>
                 <p className="para text-center">
@@ -108,7 +101,7 @@ const Service = () => {
             <div className="col-md-6 col-lg-4 col-sm-12">
               <div className="service mb-3">
                 <div>
-                  <img className="img-fluid" src={checkup} alt="" />
+                  <img className="img-fluid" src="https://i.ibb.co/cg82S5V/5.png" alt="" />
                 </div>
                 <h4 className="text-center">Outdoor Checkup</h4>
                 <p className="para text-center">
@@ -123,7 +116,8 @@ const Service = () => {
             <div className="col-md-6 col-lg-4 col-sm-12">
               <div className="service mb-3">
                 <div>
-                  <img className="img-fluid" src={ambulance} alt="" />
+                  <img className="img-fluid" src="https://i.ibb.co/cg82S5V/5.png
+https://i.ibb.co/02Zkjx0/6.png" alt="" />
                 </div>
                 <h4 className="text-center">Ambulance</h4>
                 <p className="para text-center">

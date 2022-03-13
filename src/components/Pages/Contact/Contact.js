@@ -3,7 +3,6 @@ import { Col, Container, Row } from "react-bootstrap";
 import { RiMapPinLine, RiPhoneLine } from "react-icons/ri";
 import { FaEnvelopeOpen } from "react-icons/fa";
 import "./Contact.css";
-import backPic from "../../../images/ki-14-1.jpg";
 import { Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import Header from "../../Share/Header/Header";
@@ -31,7 +30,7 @@ const Contact = () => {
   return (
     <>
       <Header />
-      <div style={{ background: `url(${backPic})` }} className="backcrumb-my ">
+      <div style={{ background: `url(https://i.ibb.co/9nmC6s9/ki-14-1.jpg)` }} className="backcrumb-my ">
         <nav aria-label="breadcrumb">
           <h3>Contact Us</h3>
           <ol className="breadcrumb">
