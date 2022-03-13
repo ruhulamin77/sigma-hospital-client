@@ -41,16 +41,13 @@ const Service = () => {
             <div className="col-md-6 col-lg-4 col-sm-12">
               <div className="service mb-3">
                 <div>
-                  <img className="img-fluid" src="https://i.ibb.co/M6x73jW/1.png" alt="" />
+                  <img className="img-fluid" src="https://i.ibb.co/DWFNsJ3/Health-Check-Up.png" alt="" />
                 </div>
                 <h4 className="text-center">Health CheckUp</h4>
                 <p className="para text-center">
                   A usual full-body health check-up is made up of blood and
                   urine tests lungs function tests, and cardiac test.
                 </p>
-                {/* <button className="service-btn">
-                  Appointment <i className="fas fa-plus btn-icon"></i>
-                </button> */}
                 <Link to="/appointment" className="service-btn">
                 <span>Appointment</span> <i className="fas fa-plus"></i>
               </Link>
@@ -59,7 +56,7 @@ const Service = () => {
             <div className="col-md-6 col-lg-4 col-sm-12">
               <div className="service mb-3">
                 <div>
-                  <img className="img-fluid" src="https://i.ibb.co/K7qyVF7/2.png" alt="" />
+                  <img className="img-fluid" src="https://i.ibb.co/FKtN5rj/X-Ray.png" alt="" />
                   <h4 className="text-center">X-Ray</h4>
                   <p className="para text-center">
                     An X-ray is an imaginaring test that produces pictures of
@@ -74,7 +71,7 @@ const Service = () => {
             <div className="col-md-6 col-lg-4 col-sm-12">
               <div className="service mb-3">
                 <div>
-                  <img className="img-fluid" src="https://i.ibb.co/cg82S5V/5.png" alt="" />
+                  <img className="img-fluid" src="https://i.ibb.co/XLKn1KF/Blood-Bank.png" alt="" />
                 </div>
                 <h4 className="text-center">Blood Bank</h4>
                 <p className="para text-center">
@@ -89,7 +86,7 @@ const Service = () => {
             <div className="col-md-6 col-lg-4 col-sm-12">
               <div className="service mb-3">
                 <div>
-                  <img className="img-fluid" src="https://i.ibb.co/89GHLbt/4.png" alt="" />
+                  <img className="img-fluid" src="https://i.ibb.co/xm4wKc6/Laboratory.png" alt="" />
                 </div>
                 <h4 className="text-center">Laboratory</h4>
                 <p className="para text-center">
@@ -104,7 +101,7 @@ const Service = () => {
             <div className="col-md-6 col-lg-4 col-sm-12">
               <div className="service mb-3">
                 <div>
-                  <img className="img-fluid" src="https://i.ibb.co/cg82S5V/5.png" alt="" />
+                  <img className="img-fluid" src="https://i.ibb.co/4fCm8JX/Outdoor-Checkup.png" alt="" />
                 </div>
                 <h4 className="text-center">Outdoor Checkup</h4>
                 <p className="para text-center">
@@ -119,7 +116,7 @@ const Service = () => {
             <div className="col-md-6 col-lg-4 col-sm-12">
               <div className="service mb-3">
                 <div>
-                  <img className="img-fluid" src="https://i.ibb.co/02Zkjx0/6.png" alt="" />
+                  <img className="img-fluid" src="https://i.ibb.co/3W8XMwT/Ambulance.png" alt="" />
                 </div>
                 <h4 className="text-center">Ambulance</h4>
                 <p className="para text-center">
