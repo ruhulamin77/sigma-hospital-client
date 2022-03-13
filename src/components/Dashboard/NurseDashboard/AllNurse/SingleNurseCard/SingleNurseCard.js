@@ -29,7 +29,7 @@ const SingleNurseCard = ({ nurse }) => {
     return (
         <div>
             <Col>
-                <Card className='text-center card-control2'>
+                <Card className='text-center shadow p-3'>
                     <Card.Img className='doctor-image' variant="top" src={`data:image/*;base64,${photo}`} />
                     <Card.Body>
                         <Card.Title>{name}</Card.Title>

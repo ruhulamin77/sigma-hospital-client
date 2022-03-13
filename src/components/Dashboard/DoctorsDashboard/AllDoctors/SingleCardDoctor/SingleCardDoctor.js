@@ -41,7 +41,7 @@ const SingleCardDoctor = ({ doc }) => {
     return (
         <div>
             <Col>
-                <Card className='text-center card-control2'>
+                <Card className='text-center shadow p-3'>
                     <Card.Img className='doctor-image' variant="top" src={`data:image/*;base64,${photo}`} />
                     <Card.Body>
                         <NavLink to={`/singleDoctor/${_id}`} style={{ textDecoration: "none" }}><Card.Title>{name}</Card.Title></NavLink>
