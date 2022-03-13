@@ -9,6 +9,7 @@ import { format } from 'timeago.js';
 import { useGetBlogQuery } from '../../../features/blogApi';
 import Footer from '../../Home/Footer/Footer';
 import Header from '../../Share/Header/Header';
+import Comment from '../Comment/Comment';
 import './SingleBlog.css';
 
 const SingleBlog = () => {
@@ -16,6 +17,7 @@ const SingleBlog = () => {
     const [loginUser, setLoginUser] = useState(null)
     const [singleBlog, setSingleBlog] = useState([]);
     const [liked, setLiked] = useState([]);
+    const [search, setSearch] = useState("");
     const [number, setNumber] = useState(Number);
 
     // const [isLike, setIsLike] = useState([]);
@@ -30,13 +32,10 @@ const SingleBlog = () => {
         const foundDoctor = blogInfo?.data?.find(doctors => doctors?._id === id);
         setSingleBlog(foundDoctor);
         setNumber(singleBlog?.likes?.length)
-        console.log(foundDoctor?.likes?.length, "length");
         if (foundDoctor?.likes?.length === 0) {
-            console.log("if");
             setLiked(false)
         } else {
-            foundDoctor?.likes?.includes(loginUser?._id) ? setLiked(true) : setLiked(false)
-            console.log("else");
+            foundDoctor?.likes?.includes(loginUser?._id) ? setLiked(true) : setLiked(false);
         }
     }, [blogInfo?.data, id, loginUser?._id, singleBlog]);
 
@@ -44,42 +43,31 @@ const SingleBlog = () => {
         const userVisit = {
             visit: loginUser?._id,
         }
-    
-
-
-            if (singleBlog?.totalVisitor?.length === 0 && singleBlog?._id && loginUser?._id) {
-                const getvisitor = async () => {
-
-                  try {
+        if (singleBlog?.totalVisitor?.length === 0 && singleBlog?._id && loginUser?._id) {
+            const getvisitor = async () => {
+                try {
                     const res = await axios.put(`http://localhost:7050/totalVisitor/${singleBlog?._id}`, userVisit)
                     console.log(res, "res", "2nd");
-                  } catch (error) {
-                      
-                  }
+                } catch (error) {
+                    console.log(error);
                 }
-                getvisitor()
-
+            }
+            getvisitor()
             const res = axios.put(`http://localhost:7050/totalVisitor/${singleBlog?._id}`, userVisit)
-            console.log(res.data);
         } else {
             const findId = singleBlog?.totalVisitor?.includes(loginUser?._id)
-            console.log(findId);
             if (!findId && loginUser?._id) {
                 const getvisitor = async () => {
-
-                  try {
-                    const res = await axios.put(`http://localhost:7050/totalVisitor/${singleBlog?._id}`, userVisit)
-                    console.log(res, "res", "2nd");
-                  } catch (error) {
-                      
-                  }
+                    try {
+                        const res = await axios.put(`http://localhost:7050/totalVisitor/${singleBlog?._id}`, userVisit)
+                        console.log(res, "res", "2nd");
+                    } catch (error) {
+                    }
                 }
                 getvisitor()
-                
             }
         }
     }, [singleBlog?._id, loginUser?._id, singleBlog])
-    console.log(singleBlog);
     const handleUpdateLike = async (id) => {
         console.log("doclike");
         const docLike = {
@@ -122,30 +110,43 @@ const SingleBlog = () => {
             <Container>
                 <Row>
                     <Col md={8}>
-                        <div className="Img-blog mb-5">
-                            <img className='img-fluid' src={`data:image/*;base64,${singleBlog?.photo}`} alt="" />
-                        </div>
-                        <div className="single-blog-info">
-                            {/* <span className="btn-blog">{singleBlog?.blogType}</span> */}
-                            <span className="like-icon"> <FaHeart /> {number} people likes this </span>
-                            {
-                                !liked ? <GrLike className='like' onClick={() => { handleUpdateLike(singleBlog?._id) }} /> : <GrDislike className='like' onClick={() => { handleUpdateUnLike(singleBlog?._id) }} />
-                            }
-                            <br />
-                            <h2 className='show-unshow' >{singleBlog?.title}</h2>
-                            <p className='admin-info'><span>{format(singleBlog?.date)}</span><span>by Admin</span></p>
-                            <p>{singleBlog?.description} </p>
-                            <h4>{singleBlog?.subtitle1}</h4>
-                            <p>{singleBlog?.subDescription1}</p>
-                            <h4>{singleBlog?.subtitle2}</h4>
-                            <p>{singleBlog?.subDescription2}</p>
-                            <h4>{singleBlog?.subtitle3}</h4>
-                            <p>{singleBlog?.subDescription3}</p>
-                            <h4>{singleBlog?.subtitle4}</h4>
-                            <p>{singleBlog?.subDescription4}</p>
+                        <div className='hover-effect'>
+
+
+                            <div className="Img-blog my-5">
+                                <img className='img-fluid' src={`data:image/*;base64,${singleBlog?.photo}`} alt="" />
+                            </div>
+                            <div className="single-blog-info">
+                                <span className="btn-blog mb-3">{singleBlog?.blogType}</span>
+                                <div className='d-flex justify-content-between align-items-center'>
+                                    <span className="like-icon "> <FaHeart /> {number} people likes this </span>
+                                    {
+                                        !liked ? <span data-tag="Like" className='liked'> <GrLike className='svg' onClick={() => { handleUpdateLike(singleBlog?._id) }} /> </span> : <span data-tag="UnLike" className='liked'><GrDislike className='svg' onClick={() => { handleUpdateUnLike(singleBlog?._id) }} /></span>
+                                    }
+                                </div>
+
+                                <br />
+                                <h2 className='show-unshow' >
+                                    {singleBlog?.title}</h2>
+                                <p className='admin-info'><span>{format(singleBlog?.date)}</span><span style={{ color: "#f68685" }}>by Admin</span></p>
+                                <p>{singleBlog?.description} </p>
+                                <h4>{singleBlog?.subtitle1}</h4>
+                                <p>{singleBlog?.subDescription1}</p>
+                                <h4>{singleBlog?.subtitle2}</h4>
+                                <p>{singleBlog?.subDescription2}</p>
+                                <h4>{singleBlog?.subtitle3}</h4>
+                                <p>{singleBlog?.subDescription3}</p>
+                                <h4>{singleBlog?.subtitle4}</h4>
+                                <p>{singleBlog?.subDescription4}</p>
+                            </div>
                         </div>
                     </Col>
+                    <Col lg={4} className="my-5">
+                        <div className="search"> <i className="fa fa-search"></i> <input
+                    onChange={(e)=> setSearch(e.target.value)}        type="text" className="form-control" placeholder="Have a question? Ask Now" /> <button  className="btn btn-primary">Search</button> </div>
+                </Col>
                 </Row>
+                <Comment blogId={singleBlog} loginUser={loginUser} />
             </Container>
             <Footer />
         </>
