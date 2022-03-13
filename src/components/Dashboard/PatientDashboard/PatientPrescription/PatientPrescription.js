@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import { useReactToPrint } from "react-to-print";
 import { Button, Card, Form, Table } from "react-bootstrap";
 import Swal from "sweetalert2";
 import "./PatientPrescription";
@@ -9,6 +10,10 @@ import { useParams } from "react-router-dom";
 import { useGetAppointmentsQuery, useGetPrescriptionsQuery } from "../../../../features/sigmaApi";
 
 const PatientPrescription = () => {
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
 
   const { id } = useParams();
   const allAppoint = useGetAppointmentsQuery();
@@ -184,11 +189,11 @@ const PatientPrescription = () => {
       </Card>
 
 
-      <Card style={{ backgroundColor: "#C3D4F6" }} className="mt-5">
+      <Card ref={componentRef} style={{ backgroundColor: "#C3D4F6" }} className="mt-5">
         <div className='p-5'>
           <div className='row'>
             <div className='col-12 col-sm-6 col-md-6 col-lg-8'>
-              <h1 style={{ letterSpacing: "2px" }}>Invoice</h1>
+              <img className="w-25" src="https://i.ibb.co/hRX83Sc/logo.png" alt="SigmaCareLogo" />
             </div>
             <div className='col-12 col-sm-6 col-md-6 col-lg-4'>
               <h6>Sigma Care Hospial</h6>
@@ -231,12 +236,12 @@ const PatientPrescription = () => {
               </tbody>
             </Table>
           </div>
-          {singlePrescriptionData &&
-            <Button variant="outline-dark">Download invoice</Button>
-          }
         </div>
       </Card>
 
+      {singlePrescriptionData &&
+        <Button onClick={handlePrint} className="d-flex mx-auto mt-2" variant="outline-dark">Download invoice</Button>
+      }
     </div>
   );
 };
