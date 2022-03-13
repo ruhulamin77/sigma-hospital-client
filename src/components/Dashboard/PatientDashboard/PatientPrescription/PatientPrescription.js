@@ -3,9 +3,11 @@ import { Button, Card, Form } from "react-bootstrap";
 import Swal from "sweetalert2";
 import "./PatientPrescription";
 import { useSelector } from "react-redux";
-import { MdSend } from 'react-icons/md'
+import { MdSend } from 'react-icons/md';
+import { HiLocationMarker, HiMail, HiPhoneMissedCall } from "react-icons/hi";
 import { NavLink, useParams } from "react-router-dom";
 import { useGetAppointmentsQuery, useGetPrescriptionsQuery } from "../../../../features/sigmaApi";
+import SinglePatientPrescription from "../SinglePatientPrescription/SinglePatientPrescription";
 
 const PatientPrescription = () => {
 
@@ -25,7 +27,7 @@ const PatientPrescription = () => {
   }, [allAppoint?.data, id]);
 
   useEffect(() => {
-    const singlePrecData = allPrescription?.data?.find(precData => precData?.patientName === singleAppointment?.firstName);
+    const singlePrecData = allPrescription?.data?.find(precData => precData?.patientFirstName === singleAppointment?.firstName);
     setSinglePrescriptionData(singlePrecData);
   }, [allPrescription?.data, singleAppointment?.firstName]);
 
@@ -42,6 +44,8 @@ const PatientPrescription = () => {
   const newValue = {
     inputFields: inputFields,
     doctorName: singleAppointment?.doctor,
+    patientFirstName: singleAppointment?.firstName,
+    patientLastName: singleAppointment?.lastName,
     patientName: singleAppointment?.firstName,
     patientAge: singleAppointment?.Age,
     patientGender: singleAppointment?.gender
@@ -82,101 +86,110 @@ const PatientPrescription = () => {
 
   return (
     <div style={{ backgroundColor: "#F4F7F6", padding: "20px" }}>
-      <Card className="card-control2">
+      <Card className="shadow p-3">
         <h3 className="mb-5">Patient Prescription</h3>
         <Form onSubmit={handleSubmit}>
-          <div className="row mb-5">
-            <Form.Group className="col-12 col-md-3 mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Doctor Name</Form.Label>
-              <Form.Control type="text" defaultValue={singlePrescriptionData?.doctorName} />
-            </Form.Group>
-            <Form.Group className="col-12 col-md-3 mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Patient Name</Form.Label>
-              <Form.Control type="text" defaultValue={singlePrescriptionData?.patientName} />
-            </Form.Group>
-            <Form.Group className="col-12 col-md-3 mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Patient Age</Form.Label>
-              <Form.Control type="text" defaultValue={singlePrescriptionData?.patientAge} />
-            </Form.Group>
-            <Form.Group className="col-12 col-md-3 mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Patient Gender</Form.Label>
-              <Form.Control type="text" defaultValue={singlePrescriptionData?.patientGender} />
-            </Form.Group>
-          </div>
           <h5 className="mb-3">Details</h5>
-          {singlePrescriptionData?.inputFields?.map(singleData => (
-            <div key={singleData._id}>
-              {inputFields.map((inputField, index) => (
-                <div key={index} className="row">
-                  <Form.Group
-                    className="col-12 col-md-2 mb-3"
-                    controlId="exampleForm.ControlInput1"
-                  >
-                    <Form.Control
-                      defaultValue={singleData?.number}
-                      type="number"
-                      placeholder="Serial no."
-                      name="number"
-                      onChange={(e) => handleChangeInput(index, e)}
-                      required
-                    />
-                  </Form.Group>
-                  <Form.Group
-                    className="col-12 col-md-4 mb-3"
-                    controlId="exampleForm.ControlInput1"
-                  >
-                    <Form.Control
-                      defaultValue={singleData?.medicineName}
-                      type="text"
-                      placeholder="Medicine Name and Power"
-                      name="medicineName"
-                      onChange={(e) => handleChangeInput(index, e)}
-                      required
-                    />
-                  </Form.Group>
-                  <Form.Group
-                    className="col-12 col-md-2 mb-3"
-                    controlId="exampleForm.ControlInput1"
-                  >
-                    <Form.Control
-                      defaultValue={singleData.feedingSystem}
-                      type="string"
-                      placeholder="Feeding System"
-                      name="feedingSystem"
-                      onChange={(e) => handleChangeInput(index, e)}
-                      required
-                    />
-                  </Form.Group>
-                  <div className="col-12 col-md-4 mb-3">
-                    <Button
-                      onClick={() => handleRemoveFields(index)}
-                      className="doctor-update me-2"
-                    >
-                      <i className="fas fa-minus-square"></i>
-                    </Button>
-                    <Button
-                      onClick={() => handleAddFields()}
-                      className="doctor-delete"
-                    >
-                      <i className="fas fa-plus-square"></i>
-                    </Button>
-                  </div>
-                </div>
-              ))}
+          {inputFields.map((inputField, index) => (
+            <div key={index} className="row">
+              <Form.Group
+                className="col-12 col-md-2 mb-3"
+                controlId="exampleForm.ControlInput1"
+              >
+                <Form.Control
+                  value={inputField?.number}
+                  type="number"
+                  placeholder="Serial no."
+                  name="number"
+                  onChange={(e) => handleChangeInput(index, e)}
+                  required
+                />
+              </Form.Group>
+              <Form.Group
+                className="col-12 col-md-4 mb-3"
+                controlId="exampleForm.ControlInput1"
+              >
+                <Form.Control
+                  value={inputField?.medicineName}
+                  type="text"
+                  placeholder="Medicine Name and Power"
+                  name="medicineName"
+                  onChange={(e) => handleChangeInput(index, e)}
+                  required
+                />
+              </Form.Group>
+              <Form.Group
+                className="col-12 col-md-2 mb-3"
+                controlId="exampleForm.ControlInput1"
+              >
+                <Form.Control
+                  value={inputField.feedingSystem}
+                  type="string"
+                  placeholder="Feeding System"
+                  name="feedingSystem"
+                  onChange={(e) => handleChangeInput(index, e)}
+                  required
+                />
+              </Form.Group>
+              <div className="col-12 col-md-4 mb-3">
+                <Button
+                  onClick={() => handleRemoveFields(index)}
+                  className="doctor-update me-2"
+                >
+                  <i className="fas fa-minus-square"></i>
+                </Button>
+                <Button
+                  onClick={() => handleAddFields()}
+                  className="doctor-delete"
+                >
+                  <i className="fas fa-plus-square"></i>
+                </Button>
+              </div>
             </div>
           ))}
 
           <Button type="submit" className="doctor-delete me-3" data-bs-toggle="tooltip" title="Only press this button after writing the prescription for the first time">
             Send <MdSend />
           </Button>
-          <NavLink to={`/dashboard/singlePrescription/update/${singlePrescriptionData?._id}`}>
-            <Button className="doctor-update" data-bs-toggle="tooltip" title="Press this button to update the prescription each time">
-              Update Prescription
-            </Button>
-          </NavLink>
+
+          <Button className="doctor-update" data-bs-toggle="tooltip" title="Press this button to update the prescription each time">
+            Update Prescription
+          </Button>
 
         </Form>
       </Card>
+
+
+      <Card style={{ backgroundColor: "#C3D4F6" }} className="mt-5">
+        <div className='p-5'>
+          <div className='row'>
+            <div className='col-12 col-sm-6 col-md-6 col-lg-8'>
+              <h1 style={{ letterSpacing: "2px" }}>Invoice</h1>
+            </div>
+            <div className='col-12 col-sm-6 col-md-6 col-lg-4'>
+              <h6>Sigma Care Hospial</h6>
+              <p><HiLocationMarker className='me-2' />1234 North Avenue Luke, South Bend, IN 360001</p>
+              <p><HiPhoneMissedCall className='me-2' />+8801629094984</p>
+              <p><HiMail className='me-2' />support@gmail.com</p>
+            </div>
+          </div>
+          <div style={{ marginTop: "5rem" }} className='row'>
+            <div className='col-12 col-sm-6 col-md-6 col-lg-8'>
+              <h6>Doctor Name</h6>
+              <p>{singlePrescriptionData?.doctorName}</p>
+              <h6 className='mt-3'>Patient Details</h6>
+              <p>{singlePrescriptionData?.patientFirstName} {singlePrescriptionData?.patientLastName}</p>
+              <p>Gender: {singlePrescriptionData?.patientGender}</p>
+              <p>Age: {singlePrescriptionData?.patientAge}</p>
+            </div>
+            <div className='col-12 col-sm-6 col-md-6 col-lg-4'>
+              <h6>Invoice number</h6>
+              <p>{singlePrescriptionData?._id}</p>
+            </div>
+          </div>
+        </div>
+      </Card>
+
     </div>
   );
 };

@@ -30,7 +30,7 @@ const AllDoctors = () => {
                             doc={doc}
                         ></SingleCardDoctor>
                     ))}
-                    <Card style={{ width: '10rem', marginLeft: "1rem" }} className='text-center card-control2'>
+                    <Card style={{ width: '10rem', marginLeft: "1rem" }} className='text-center shadow p-3'>
                         <Card.Body className='row'>
                             <div className='my-auto'>
                                 <Card.Text className='text-secondary'><b>Add New Docter</b></Card.Text>
