@@ -8,6 +8,7 @@ const Conversation = ({ conversation, loginUsers }) => {
     const [friendId, setFriendId] = useState({})
     useEffect(() => {
         const firend = conversation?.member?.find((m) => m !== loginUsers?._id)
+        console.log(firend, "firend");
         const getFriend = async () => {
             try {
                 const res = await axios.get(`https://shrouded-headland-44423.herokuapp.com/getUsers/${firend}`)

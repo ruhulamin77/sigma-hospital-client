@@ -1,12 +1,13 @@
-.blog-my .card-design p {
+.blog-my .card-design .blog-des {
   font-size: 18px;
-  color: #8c8c90;
-  font-weight: 600;
+  color: #9c9ca0;
+  font-weight: 500;
 }
 .blog-my .img-design {
   overflow: hidden;
   height: 400px;
   width: 100%;
+  position: relative;
 }
 .blog-my .img-design img {
   transition: all 0.5s linear;
@@ -19,16 +20,18 @@
 }
 .blog-my .service-card {
   margin: 25px;
+  position: relative;
 }
 .blog-my .card-design {
   border: 1px solid gray;
-  background: black;
+  background-color: #000000ef;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
   transition: all 0.5s linear;
 }
+
 .blog-my .service-card h3 {
   color: white;
   cursor: pointer;
@@ -44,12 +47,37 @@
 }
 .blog-my .title-heading {
   position: relative;
-  color: #2498af;
+  color: #7093e5;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
   -webkit-line-clamp: 1;
+  transition: 0.2s all ease-in-out;
 }
+
+.blog-my .title-heading::before {
+  background-color: #f68685;
+  position: absolute;
+  content: attr(data-tag);
+  top: 0px;
+  left: 0%;
+  font-size: 18px;
+  color: #fff;
+  display: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  word-wrap: unset;
+  transition: 0.5s;
+  z-index: 100;
+  width: 100%;
+}
+.blog-my .title-heading:hover {
+  color: #f68685;
+}
+.blog-my .title-heading:hover::before {
+  display: block;
+}
+
 .blog-my .blog-des {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -90,4 +118,61 @@
 .blog-btn:hover {
   background-color: #7093e5;
   color: white;
+}
+.view,
+.love {
+  position: absolute;
+  top: 10px;
+  background-color: #f68685;
+  color: white;
+  display: block;
+  width: 70px;
+  height: 35px;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 33px;
+  font-size: 20px;
+}
+.view {
+  left: 10px;
+}
+.love {
+  right: 10px;
+}
+.service-card p span {
+  color: #f68685;
+}
+
+.view-div::before,
+.love-div::before {
+  background-color: #f68685;
+  content: attr(data-tag);
+  top: 10px;
+  position: absolute;
+  font-size: 18px;
+  color: #fff;
+  display: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  word-wrap: unset;
+  transition: 0.5s;
+  z-index: 100;
+  font-weight: 400;
+}
+.view-div::before {
+  left: 90px;
+}
+.love-div::before {
+  right: 90px;
+}
+.view-div:hover::before,
+.love-div:hover::before {
+  display: block;
+}
+.looder-my {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 100%;
 }

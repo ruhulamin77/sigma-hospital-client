@@ -21,13 +21,15 @@ const Messenger = () => {
     const scrollRef = useRef()
     const socket = useRef()
     const user = useSelector((state) => state.auth.value)
+    console.log(user, "user");
 
     // find my Id form db
     useEffect(() => {
         axios.get(`https://shrouded-headland-44423.herokuapp.com/users/${user?.email}`).then(res => setLoginUsers(res.data))
     }, [user?.email])
+    console.log(loginUsers, "loginUsers");
     useEffect(() => {
-        socket.current = io("ws://localhost:8900");
+        socket.current = io("https://glacial-sea-16602.herokuapp.com/", {transports:["websocket"]});
         socket.current.on("getMessage", (data) => {
             setArrivalMessages({
                 sender: data.senderId,
@@ -39,7 +41,7 @@ const Messenger = () => {
     useEffect(() => {
         axios.get("https://shrouded-headland-44423.herokuapp.com/users").then(data => setUsers(data))
     }, [loginUsers?._id])
-    console.log(users);
+    console.log(users, "users");
     useEffect(() => {
         arrivalMessages && curremtChat?.member.includes(arrivalMessages.sender) && setMessages((prev) => [...prev, arrivalMessages])
     }, [arrivalMessages, curremtChat])
@@ -83,6 +85,7 @@ const Messenger = () => {
         }
         getMessages()
     }, [newMessages, curremtChat])
+    console.log(curremtChat, "curremtChat");
 
     const handleSubmit = async (e) => {
         e.preventDefault();

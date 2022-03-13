@@ -1,16 +1,17 @@
 import axios from 'axios';
+import { Button, Tooltip } from 'bootstrap';
 import React, { useEffect, useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, OverlayTrigger, Row } from 'react-bootstrap';
 import { FaHeart } from 'react-icons/fa';
 import { GrDislike, GrLike } from 'react-icons/gr';
 import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
+import { format } from 'timeago.js';
 import { useGetBlogQuery } from '../../../features/blogApi';
 import backPic from "../../../images/ki-14-1.jpg";
 import Footer from '../../Home/Footer/Footer';
 import Header from '../../Share/Header/Header';
 import './SingleBlog.css';
-import { format } from 'timeago.js';
 
 const SingleBlog = () => {
     const { id } = useParams();
@@ -24,7 +25,7 @@ const SingleBlog = () => {
     const user = useSelector((state) => state.auth.value)
 
     useEffect(() => {
-        axios.get(`https://shrouded-headland-44423.herokuapp.com/users/${user?.email}`).then(res => setLoginUser(res.data))
+        axios.get(`http://localhost:7050/users/${user?.email}`).then(res => setLoginUser(res.data))
     }, [user?.email])
 
     useEffect(() => {
@@ -39,132 +40,66 @@ const SingleBlog = () => {
             foundDoctor?.likes?.includes(loginUser?._id) ? setLiked(true) : setLiked(false)
             console.log("else");
         }
-
-
     }, [blogInfo?.data, id, loginUser?._id, singleBlog]);
 
-    // const handleUpdateLike = async (id) => {
-
-    //     console.log(like);
-    //     if (number === 0 ) {
-    //         console.log("doclike");
-    //         const docLike = {
-    //             likes: loginUser?._id, 
-    //         }
-    //         const res = await axios.put(`https://shrouded-headland-44423.herokuapp.com/updateBloglike/${id}`, docLike)
-    //         console.log(res.data);
-    //         setLiked(true)
-    //         setNumber(number + 1)
-    //     } else {
-    //         console.log(like);
-    //         const findIsLike = like.includes(loginUser?._id)
-    //         console.log(findIsLike, "findIsLike");
-    //         setLiked(findIsLike)
-    //         console.log(liked);
-    //         if (liked) {
-    //             console.log("docUnlike");
-    //             const docUnlike = {
-    //                 likes: loginUser?._id, 
-    //             } 
-    //             const res = await axios.put(`https://shrouded-headland-44423.herokuapp.com/updateBlogUnlike/${id}`, docUnlike)
-    //             console.log(res.data);
-    //             setLiked(false)
-    //             setNumber( number - 1)
-
-    //         } else {
-    //             console.log("doclike");
-    //             const docLike = {
-    //                 likes: loginUser?._id, 
-    //             }
-    //             const res = await axios.put(`https://shrouded-headland-44423.herokuapp.com/updateBloglike/${id}`, docLike)
-    //             console.log(res.data);
-    //             setNumber(number + 1)
-    //             setLiked(true)
-    //         }
-
-    //     }
-    //     console.log(like);
-    //     // const findIsLike = like?.map((item) => item === loginUser?._id)
-    //     // setLiked(findIsLike)
-    //     // console.log(findIsLike, "findIsLike");
-    //     // console.log(findIsLike == false);
-
-
-
-
-    //     // if (like.length === 1) {
-    //     //     console.log("docUnlike");
-    //     //     const docUnlike = {
-    //     //         likes: loginUser?._id, 
-    //     //     } 
-    //     //     const res = await axios.put(`https://shrouded-headland-44423.herokuapp.com/updateBlogUnlike/${id}`, docUnlike)
-    //     //     console.log(res.data);
-    //     //     setLiked(null)
-    //     // } else {
-    //     //     console.log("doclike");
-    //     //     const docLike = {
-    //     //         likes: loginUser?._id, 
-    //     //     }
-    //     //     const res = await axios.put(`https://shrouded-headland-44423.herokuapp.com/updateBloglike/${id}`, docLike)
-    //     //     console.log(res.data);
-    //     //     setLike([...like, res.data])
-    //     //     setLiked([0])
-    //     // }
-    // }
-    // console.log(like);
-
+    useEffect(() => {
+        const userVisit = {
+            visit: loginUser?._id,
+        }
+        if (singleBlog?.totalVisitor?.length === 0 && singleBlog?._id && loginUser?._id) {
+            const res = axios.put(`http://localhost:7050/totalVisitor/${singleBlog?._id}`, userVisit)
+            console.log(singleBlog?.totalVisitor?.length);
+        } else {
+            const findId = singleBlog?.totalVisitor?.includes(loginUser?._id)
+            console.log(findId);
+            if (!findId && loginUser?._id) {
+                const res = axios.put(`http://localhost:7050/totalVisitor/${singleBlog?._id}`, userVisit)
+                console.log(res?.data, "res");
+            }
+        }
+    }, [singleBlog?._id, loginUser?._id, singleBlog])
+    console.log(singleBlog);
     const handleUpdateLike = async (id) => {
         console.log("doclike");
         const docLike = {
             likes: loginUser?._id,
         }
-        const res = await axios.put(`https://shrouded-headland-44423.herokuapp.com/updateBloglike/${id}`, docLike)
+        const res = await axios.put(`http://localhost:7050/updateBloglike/${id}`, docLike)
         if (res.data) {
             console.log(" if doclike");
             setLiked(true)
             setNumber(number + 1)
         }
-
     }
     const handleUpdateUnLike = async (id) => {
         console.log("docUnlike");
         const docUnLike = {
             likes: loginUser?._id,
         }
-        const res = await axios.put(`https://shrouded-headland-44423.herokuapp.com/updateBlogUnlike/${id}`, docUnLike)
+        const res = await axios.put(`http://localhost:7050/updateBlogUnlike/${id}`, docUnLike)
         if (res.data) {
             console.log(res.data.value);
             setNumber(number - 1)
             singleBlog._id === res.data.value?._id ? setLiked(false) : setLiked(true)
             console.log(liked, "handleUpdateUnLike");
         }
-
-
     }
-
-
-
-    console.log(number);
 
     return (
         <>
             <Header />
             <div style={{ background: `url(${backPic})` }} className="backcrumb-my ">
-
                 <nav aria-label="breadcrumb">
                     <h3>{singleBlog?.title}</h3>
                     <ol className="breadcrumb">
                         <li className="breadcrumb-item"><Link to="/">Home</Link></li>
-
                         <li className="breadcrumb-item" aria-current="page">{singleBlog?.blogType}</li>
 
                     </ol>
                 </nav>
             </div>
             <Container>
-
                 <Row>
-
                     <Col md={8}>
                         <div className="Img-blog mb-5">
                             <img className='img-fluid' src={`data:image/*;base64,${singleBlog?.photo}`} alt="" />
@@ -175,9 +110,8 @@ const SingleBlog = () => {
                             {
                                 !liked ? <GrLike className='like' onClick={() => { handleUpdateLike(singleBlog?._id) }} /> : <GrDislike className='like' onClick={() => { handleUpdateUnLike(singleBlog?._id) }} />
                             }
-
                             <br />
-                            <h2>{singleBlog?.title}</h2>
+                            <h2 className='show-unshow' >{singleBlog?.title}</h2>
                             <p className='admin-info'><span>{format(singleBlog?.date)}</span><span>by Admin</span></p>
                             <p>{singleBlog?.description} </p>
                             <h4>{singleBlog?.subtitle1}</h4>
@@ -190,7 +124,6 @@ const SingleBlog = () => {
                             <p>{singleBlog?.subDescription4}</p>
                         </div>
                     </Col>
-
                 </Row>
             </Container>
             <Footer />

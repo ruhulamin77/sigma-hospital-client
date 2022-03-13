@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import BlogForm from "./components/Blog/BlogForm/BlogForm";
+import Try from "./components/Blog/BlogForm/Try";
 import Blogs from "./components/Blog/Blogs/Blogs";
 import SingleBlog from "./components/Blog/SingleBlog/SingleBlog";
 import AllDonors from "./components/BloodDashboard/AllDonor/AllDonor/AllDonors";
@@ -53,6 +54,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/try" element={<Try />} />
           <Route path="/" element={<PrivateRoute />}>
         
             <Route path="/appointment" element={<AppointmentHeader />} />
