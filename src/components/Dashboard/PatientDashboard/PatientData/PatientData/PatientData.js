@@ -16,7 +16,7 @@ const PatientData = () => {
     return (
         <div style={{ backgroundColor: "#F4F7F6", padding: "20px" }}>
             <h3 className='mb-3'>{doctor?.adminName}</h3>
-            <h5>Patient Data</h5>
+            <h5 className='mb-3'>Patient Data</h5>
             {!appointment.length ? <Button variant="primary" disabled>
                 <Spinner
                     as="span"

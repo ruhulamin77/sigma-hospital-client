@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Button, Card, Form } from "react-bootstrap";
+import { Button, Card, Form, Table } from "react-bootstrap";
 import Swal from "sweetalert2";
 import "./PatientPrescription";
 import { useSelector } from "react-redux";
 import { MdSend } from 'react-icons/md';
 import { HiLocationMarker, HiMail, HiPhoneMissedCall } from "react-icons/hi";
-import { NavLink, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useGetAppointmentsQuery, useGetPrescriptionsQuery } from "../../../../features/sigmaApi";
-import SinglePatientPrescription from "../SinglePatientPrescription/SinglePatientPrescription";
 
 const PatientPrescription = () => {
 
@@ -148,13 +147,14 @@ const PatientPrescription = () => {
             </div>
           ))}
 
-          <Button type="submit" className="doctor-delete me-3" data-bs-toggle="tooltip" title="Only press this button after writing the prescription for the first time">
-            Send <MdSend />
-          </Button>
-
-          <Button className="doctor-update" data-bs-toggle="tooltip" title="Press this button to update the prescription each time">
-            Update Prescription
-          </Button>
+          {!singlePrescriptionData ?
+            <Button type="submit" className="doctor-delete me-3" data-bs-toggle="tooltip" title="Only press this button after writing the prescription for the first time">
+              Add Prescription <MdSend />
+            </Button>
+            :
+            <Button className="doctor-update" data-bs-toggle="tooltip" title="Press this button to update the prescription each time">
+              Update Prescription <MdSend />
+            </Button>}
 
         </Form>
       </Card>
@@ -173,7 +173,7 @@ const PatientPrescription = () => {
               <p><HiMail className='me-2' />support@gmail.com</p>
             </div>
           </div>
-          <div style={{ marginTop: "5rem" }} className='row'>
+          <div style={{ marginTop: "3rem" }} className='row'>
             <div className='col-12 col-sm-6 col-md-6 col-lg-8'>
               <h6>Doctor Name</h6>
               <p>{singlePrescriptionData?.doctorName}</p>
@@ -187,6 +187,29 @@ const PatientPrescription = () => {
               <p>{singlePrescriptionData?._id}</p>
             </div>
           </div>
+          <div style={{ marginTop: "3rem" }}>
+            <Table responsive>
+              <thead>
+                <tr>
+                  <th>Number of Medicine</th>
+                  <th>Medicine Name and Power</th>
+                  <th>Feeding System</th>
+                </tr>
+              </thead>
+              <tbody>
+                {singlePrescriptionData?.inputFields?.map((singleData, index) => (
+                  <tr key={index}>
+                    <td>{singleData?.number}</td>
+                    <td>{singleData?.medicineName}</td>
+                    <td>{singleData?.feedingSystem}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </div>
+          {singlePrescriptionData &&
+            <Button variant="outline-dark">Download invoice</Button>
+          }
         </div>
       </Card>
 
