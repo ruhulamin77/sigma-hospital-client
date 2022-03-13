@@ -48,9 +48,12 @@ const Service = () => {
                   A usual full-body health check-up is made up of blood and
                   urine tests lungs function tests, and cardiac test.
                 </p>
-                <button className="service-btn">
+                {/* <button className="service-btn">
                   Appointment <i className="fas fa-plus btn-icon"></i>
-                </button>
+                </button> */}
+                <Link to="/appointment" className="service-btn">
+                <span>Appointment</span> <i className="fas fa-plus"></i>
+              </Link>
               </div>
             </div>
             <div className="col-md-6 col-lg-4 col-sm-12">
@@ -62,25 +65,25 @@ const Service = () => {
                     An X-ray is an imaginaring test that produces pictures of
                     the organs, tissues, and bones of the body.
                   </p>
-                  <button className="service-btn">
-                    Appointment <i className="fas fa-plus btn-icon"></i>
-                  </button>
+                  <Link to="/appointment" className="service-btn">
+                <span>Appointment</span> <i className="fas fa-plus"></i>
+              </Link>
                 </div>
               </div>
             </div>
             <div className="col-md-6 col-lg-4 col-sm-12">
               <div className="service mb-3">
                 <div>
-                  <img className="img-fluid" src="https://i.ibb.co/3pTMtg5/3.jpg" alt="" />
+                  <img className="img-fluid" src="https://i.ibb.co/cg82S5V/5.png" alt="" />
                 </div>
                 <h4 className="text-center">Blood Bank</h4>
                 <p className="para text-center">
                   Blood banking is the process that takes place in the lab to
                   make sure that donated blood, or blood products
                 </p>
-                <button className="service-btn">
-                  Appointment <i className="fas fa-plus btn-icon"></i>
-                </button>
+                <Link to="/appointment" className="service-btn">
+                <span>Appointment</span> <i className="fas fa-plus"></i>
+              </Link>
               </div>
             </div>
             <div className="col-md-6 col-lg-4 col-sm-12">
@@ -93,9 +96,9 @@ const Service = () => {
                   Clinical lab services are tests on specimens from the body
                   that are used to diagnose and treat patients.
                 </p>
-                <button className="service-btn">
-                  Appointment <i className="fas fa-plus btn-icon"></i>
-                </button>
+                <Link to="/appointment" className="service-btn">
+                <span>Appointment</span> <i className="fas fa-plus"></i>
+              </Link>
               </div>
             </div>
             <div className="col-md-6 col-lg-4 col-sm-12">
@@ -108,25 +111,24 @@ const Service = () => {
                   Clinics / Hospitals of Outdoor Checkup Services, Emergency
                   Care Service, Postoperative Care Service.
                 </p>
-                <button className="service-btn">
-                  Appointment <i className="fas fa-plus btn-icon"></i>
-                </button>
+                <Link to="/appointment" className="service-btn">
+                <span>Appointment</span> <i className="fas fa-plus"></i>
+              </Link>
               </div>
             </div>
             <div className="col-md-6 col-lg-4 col-sm-12">
               <div className="service mb-3">
                 <div>
-                  <img className="img-fluid" src="https://i.ibb.co/cg82S5V/5.png
-https://i.ibb.co/02Zkjx0/6.png" alt="" />
+                  <img className="img-fluid" src="https://i.ibb.co/02Zkjx0/6.png" alt="" />
                 </div>
                 <h4 className="text-center">Ambulance</h4>
                 <p className="para text-center">
                   Emergency ambulance services have dedicated staff to handle
                   medical conditions at any time anywhere.
                 </p>
-                <button className="service-btn">
-                  Appointment <i className="fas fa-plus btn-icon"></i>
-                </button>
+                <Link to="/appointment" className="service-btn">
+                <span>Appointment</span> <i className="fas fa-plus"></i>
+              </Link>
               </div>
             </div>
           </div>

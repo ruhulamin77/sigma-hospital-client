@@ -46,7 +46,7 @@ const AddNurse = () => {
     return (
         <div style={{ backgroundColor: "#F4F7F6", padding: "20px 0" }}>
             <Container>
-                <Card className='card-control2'>
+                <Card className="shadow p-3">
                     <Card.Body>
                         <Card.Text className='mb-3 fs-4'><b>GIVE SOME  BASIC INFORMATION TO ADD A NURSE</b></Card.Text>
                         <Form onSubmit={handleSubmit} className='row'>

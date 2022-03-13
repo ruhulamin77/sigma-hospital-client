@@ -9,7 +9,7 @@ import "./Comment.css";
 
 const Comment = ({ blogId, loginUser }) => {
     console.log(blogId);
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit} = useForm();
     const [rate, setRate] = useState(0)
     const [commentPost, setCommentPost] = useState([])
     const [post, setPost] = useState(true)

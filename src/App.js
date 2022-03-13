@@ -17,7 +17,6 @@ import AllNurse from "./components/Dashboard/NurseDashboard/AllNurse/AllNurse/Al
 import NurseProfileUpdate from "./components/Dashboard/NurseDashboard/NurseProfileUpdate/NurseProfileUpdate";
 import PatientData from "./components/Dashboard/PatientDashboard/PatientData/PatientData/PatientData";
 import PatientPrescription from "./components/Dashboard/PatientDashboard/PatientPrescription/PatientPrescription";
-import SinglePatientPrescription from "./components/Dashboard/PatientDashboard/SinglePatientPrescription/SinglePatientPrescription";
 import Cart from "./components/Dashboard/Pharmacy/Cart/Cart";
 import Invoice from "./components/Dashboard/Pharmacy/Invoice/Invoice";
 import PdfInvoice from "./components/Dashboard/Pharmacy/Invoice/PdfInvoice";
@@ -58,12 +57,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/" element={<PrivateRoute />}>
-        
+
             <Route path="/appointment" element={<AppointmentHeader />} />
           </Route>
           <Route path="/blog/:id" element={<SingleBlog />} />
 
-          <Route exact element={<PrivateRoute  />}>
+          <Route exact element={<PrivateRoute />}>
             <Route exact path="/contact" element={<Contact />} />
           </Route>
           <Route path="/home" element={<Home />} />
@@ -134,10 +133,6 @@ function App() {
             <Route
               path="/dashboard/prescription/:id"
               element={<PatientPrescription />}
-            />
-            <Route
-              path="/dashboard/singlePrescription/update/:id"
-              element={<SinglePatientPrescription />}
             />
 
             <Route path="/dashboard/pharmacy" element={<PharmacyHome />} />
