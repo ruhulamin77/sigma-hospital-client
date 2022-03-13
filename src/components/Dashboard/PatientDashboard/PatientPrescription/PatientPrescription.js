@@ -70,6 +70,30 @@ const PatientPrescription = () => {
       })
   };
 
+  const updateValue = {
+    inputFields: inputFields
+  }
+  const updatePrescription = e => {
+    e.preventDefault();
+    fetch(`http://localhost:7050/prescriptions/${singlePrescriptionData._id}`, {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(updateValue),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount) {
+          Swal.fire({
+            icon: 'success',
+            title: 'Patient prescription has been successfully updated!',
+            showConfirmButton: false,
+            timer: 2000
+          })
+        }
+      })
+  };
+
   const handleAddFields = () => {
     setInputFields([
       ...inputFields,
@@ -152,7 +176,7 @@ const PatientPrescription = () => {
               Add Prescription <MdSend />
             </Button>
             :
-            <Button className="doctor-update" data-bs-toggle="tooltip" title="Press this button to update the prescription each time">
+            <Button onClick={updatePrescription} className="doctor-update" data-bs-toggle="tooltip" title="Press this button to update the prescription each time">
               Update Prescription <MdSend />
             </Button>}
 
