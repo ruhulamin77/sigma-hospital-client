@@ -46,6 +46,9 @@ import BloodDashboardHome from "./components/BloodDashboard/BloodDashboardHome/B
 import AllDonors from "./components/BloodDashboard/AllDonor/AllDonor/AllDonors";
 import SinglePatientPrescription from "./components/Dashboard/PatientDashboard/SinglePatientPrescription/SinglePatientPrescription";
 import BloodRequest from "./components/BloodDashboard/AllDonor/BloodRequest/BloodRequest";
+import Invoice from "./components/Dashboard/Pharmacy/Invoice/Invoice";
+import PdfInvoice from "./components/Dashboard/Pharmacy/Invoice/PdfInvoice";
+// import PaymentSuccess from "./components/Dashboard/Pharmacy/PaymentSuccess/PaymentSuccess";
 
 
 function App() {
@@ -134,6 +137,11 @@ function App() {
             <Route path="/dashboard/pharmacy" element={<PharmacyHome />} />
             <Route path="/dashboard/order" element={<Order />} />
             <Route path="/dashboard/receive" element={<ProductRecive />} />
+            <Route path="/dashboard/invoice" element={<Invoice />} />
+
+            <Route path="/dashboard/pdfInvoice/:id" element={<PdfInvoice />} />
+
+
 
             {/* patients route end */}
           </Route>

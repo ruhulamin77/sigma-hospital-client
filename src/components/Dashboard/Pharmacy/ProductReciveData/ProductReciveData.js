@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 
+
 const ProductReciveData = ({ index, medicine }) => {
     const [data, setData] = useState(null)
 
@@ -13,7 +14,6 @@ const ProductReciveData = ({ index, medicine }) => {
     }
 
     const handeldata = (data) => {
-        console.log(data)
         axios.put(`http://localhost:7050/medicine/${medicine._id}`, {
             stock: { data },
         })
@@ -37,8 +37,8 @@ const ProductReciveData = ({ index, medicine }) => {
                 <td>{medicine?.type[0]}</td>
                 <td>{medicine?.stock}</td>
                 <td>{medicine?.salePrice}</td>
-                <td><input type="text" onBlur={handelvalue} /></td>
-                <td><button onClick={() => handeldata(data)}>Add-Stock</button></td>
+                <td className='quantity'><input type="text" onBlur={handelvalue} className='add-stock-input' /></td>
+                <td className='quantity'><button onClick={() => handeldata(data)} className='add-stock-btn'>Add-Stock</button></td>
             </tr>
 
         </>

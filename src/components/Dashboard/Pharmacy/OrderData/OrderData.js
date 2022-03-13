@@ -1,28 +1,8 @@
 
 import React, { useState } from 'react';
-import { Button, Modal } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
-import { editQuantity } from '../../../../features/cartSlice';
 
 const OrderData = ({ medicine, index, handelremovecart }) => {
-    const dispatch = useDispatch()
 
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => {
-        editQuantity(medicine)
-        setShow(false)
-    }
-        ;
-    const handleShow = () => setShow(true);
-
-    const handelQuantity = (e) => {
-        const changeQuantity = e.target.value;
-        const updateuantity = { ...medicine };
-        updateuantity.quantity = changeQuantity
-
-
-    }
 
     return (
         <tr>
@@ -34,7 +14,7 @@ const OrderData = ({ medicine, index, handelremovecart }) => {
             <td>{medicine?.price}</td>
             <td>{medicine?.quantity}</td>
             <td>{medicine?.Total}</td>
-            <td className='btn-td'>
+            <td className='btn-td quantity'>
                 <button className='edit-btn1' onClick={() => handelremovecart(medicine)} >Delete</button>
             </td>
 

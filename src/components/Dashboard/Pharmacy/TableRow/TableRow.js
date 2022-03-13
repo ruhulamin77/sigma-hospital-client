@@ -52,8 +52,8 @@ const TableRow = ({ medicine, index }) => {
                 <td>{medicine?.type[0]}</td>
                 <td>{medicine?.stock}</td>
                 <td>{medicine?.salePrice}</td>
-                <td><input type="text" onChange={handelquantity} id={medicine._id} className='medicen-input-fild' /></td>
-                <td><input type="number" readOnly value={medicine?.salePrice * quantity} className='medicen-input-fild' /></td>
+                <td className='quantity'><input type="text" onChange={handelquantity} id={medicine._id} className='medicen-input-fild' /></td>
+                <td className='quantity'><input type="number" readOnly value={medicine?.salePrice * quantity} className='medicen-input-fild' /></td>
                 <td>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <input type="hidden" {...register("_id")} value={medicine?._id} />

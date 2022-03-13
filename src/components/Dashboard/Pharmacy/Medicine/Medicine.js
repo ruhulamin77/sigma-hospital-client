@@ -24,7 +24,7 @@ const Medicine = () => {
                 setSearchData(data)
 
             })
-    }, [medicines])
+    }, [])
 
     const handelsearchData = (e) => {
         let search = e.target.value.toLowerCase()
@@ -39,7 +39,7 @@ const Medicine = () => {
 
             <div>
                 <div className='cart'>
-                    <NavLink to="/order">
+                    <NavLink to="/dashboard/order">
                         <p className='cart-item'>{
                             !cart.cartItems?.length ? 0 : cart.cartItems?.length - 1
                         }</p>
@@ -60,34 +60,38 @@ const Medicine = () => {
                             color={"#7093e5"} size={150} />
                     </div>
                         :
+                        <div>
+                            <h4 className='Medicine-Center'>Sigma Care Medicine Center</h4>
+                            <Table striped bordered hover size="sm" className=' mt-5'>
+                                <thead>
+                                    <tr>
+                                        <th>Sl</th>
+                                        <th>brand</th>
+                                        <th>Medicine-Name</th>
+                                        <th>pawer</th>
+                                        <th>type</th>
+                                        <th>stock</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Value</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {searchData?.map((medicine, index) => (
+                                        <TableRow medicine={medicine}
+                                            key={medicine._id}
+                                            index={index}
 
-                        <Table striped bordered hover size="sm" className=' mt-5'>
-                            <thead>
-                                <tr>
-                                    <th>Sl</th>
-                                    <th>brand</th>
-                                    <th>Medicine-Name</th>
-                                    <th>pawer</th>
-                                    <th>type</th>
-                                    <th>stock</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
-                                    <th>Value</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {searchData?.map((medicine, index) => (
-                                    <TableRow medicine={medicine}
-                                        key={medicine._id}
-                                        index={index}
+                                        ></TableRow>
 
-                                    ></TableRow>
+                                    ))}
 
-                                ))}
+                                </tbody>
+                            </Table>
+                        </div>
 
-                            </tbody>
-                        </Table>
+
                 }
             </div>
 

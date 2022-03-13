@@ -35,11 +35,10 @@
 }
 .shoping-total{
     display: block;
-    margin-right: 233px;
-    font-size: 19px;
-    font-family: initial;
-    letter-spacing: 4px;
-    font-weight: 700;
+    margin-right: 123px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 38px;
 
 }
 
@@ -58,15 +57,45 @@
 
 .clear{
     padding: 9px 61px;
-    margin-top: 18px;
+    margin-top: 113px;
     border: none;
     background-color: #f68685;
     font-size: 17px;
     letter-spacing: 4px;
     border-radius: 5px;
 }
+
 .clear:hover{
     
     color: #fff;
     
 }
+.payment-btn{
+    border: none;
+    padding: 5px 23px;
+    border-radius: 4px;
+    background-color: #7093e6;
+    color: #fff;
+    letter-spacing: 3px;
+}
+.payment-btn:hover{
+    color: black;
+}
+
+.cus_info_fild{
+    width: 374px;
+    margin-bottom: 2px;
+    height: 35px;
+    padding-left: 11px;
+    border: none;
+    letter-spacing: 2px;
+    font-size: 19px;
+}
+
+.cus_info_fild:focus {
+    outline: none;
+  }
+  .user_info{
+    font-size: 19px;
+    letter-spacing: 2px;
+  }
