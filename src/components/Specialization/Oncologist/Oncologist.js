@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./Oncologist.css";
-
-import oncologistImg from "../../../images/blogs/blog-1.jpg";
-import serviceLogo from "../../../images/logo/logo1.png";
 import { Link } from "react-router-dom";
 import Header from "../../Share/Header/Header";
 import Footer from "../../Home/Footer/Footer";
@@ -32,7 +29,7 @@ const Oncologist = () => {
           <div className=" inner_specialization">
             <div className="specialization_left ">
               <div className="special_img">
-                <img src={oncologistImg} alt="" />
+                <img src="https://i.ibb.co/YtmJ2Y4/blog-1.jpg" alt="" />
               </div>
               <div className="department">
                 <h5>DEPARTMENT</h5>
@@ -303,7 +300,7 @@ const Oncologist = () => {
                 </div>
               </div>
               <div className="specialization_services">
-                <img src={serviceLogo} alt="" />
+                <img src="https://i.ibb.co/8MTCMhL/logo1.png" alt="" />
                 <h3>SIgmacare Services</h3>
                 <div className="special_address">
                   <p>

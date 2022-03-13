@@ -6,7 +6,6 @@ import { GrClose } from "react-icons/gr";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import useFirebase from "../../../hooks/useFirebase";
-import logo from "../../../images/logo/logo.png";
 import "./Header.css";
 
 const Header = () => {
@@ -63,7 +62,7 @@ const Header = () => {
           <div className="col-8 col-md-2">
             <div className="header__middle__logo">
               <Link exact activeClassName="is-active" to="/">
-                <img src={logo} alt="logo" />
+                <img src="https://i.ibb.co/hRX83Sc/logo.png" alt="logo" />
               </Link>
             </div>
           </div>

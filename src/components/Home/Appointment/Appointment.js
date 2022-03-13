@@ -1,10 +1,8 @@
 import axios from "axios";
-
 import React, { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import useFirebase from "../../../hooks/useFirebase";
 import "./Appointment.css";
 
 const Appointment = () => {

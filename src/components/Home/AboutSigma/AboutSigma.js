@@ -1,8 +1,5 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
-import doctor from '../../../image/Doctor.jpg';
-import signature from '../../../image/signature.png';
-import watch from '../../../image/watch.png';
 
 import './AboutSigma.css';
 
@@ -25,7 +22,7 @@ const AboutSigma = () => {
                         <p className='content'>It is a long established fact that a reader will be
                             distracted by the readable content.</p>
                         <div className='opning-time '>
-                            <img src={watch} alt="" className='watch' />
+                            <img src="https://i.ibb.co/FB7CCS9/watch.png" alt="" className='watch' />
                             <h4 className='time'>Opening Time</h4>
                             <div className='table-data'>
                                 <Table className='text-white' >
@@ -92,13 +89,13 @@ const AboutSigma = () => {
                         </ul>
                         <h4 className='name'>Briar Ford</h4>
                         <p className='co-funder'>CEO & FOUNDER</p>
-                        <img src={signature} alt="" className='signature' /> <br />
+                        <img src="https://i.ibb.co/9rPhX7r/signature.png" alt="" className='signature' /> <br />
                         <button className="header-btn btn-hover mt-4">
               Get Appointrnent <i className="fas fa-plus header-icon"></i>
               </button>
                     </div>
                     <div className='col-lg-4 col-md-12 d-lg-block d-none col-sm-12'>
-                        <div className='img-about w-100' style={{ backgroundImage: `url(${doctor})` }}>
+                        <div className='img-about w-100' style={{ backgroundImage: `url(https://i.ibb.co/T0g2m4c/Doctor.jpg)` }}>
                             {/* <img src="{doctor}" alt="" className='img-fluid' /> */}
                         </div>
                     </div>

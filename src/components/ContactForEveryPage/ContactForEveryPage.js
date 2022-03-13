@@ -1,11 +1,10 @@
 import React from 'react';
-import logo from '../../images/logo/logo1.png';
 
 const ContactForEveryPage = () => {
     return (
         <div>
             <div className='contact2'>
-                <img src={logo} alt="Logo" />
+                <img src="https://i.ibb.co/8MTCMhL/logo1.png" alt="Logo" />
                 <h2>Sigmacare Services</h2>
                 <div className='info'>
                     <p><b>Call</b> : +123456789</p>

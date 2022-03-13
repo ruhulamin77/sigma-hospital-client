@@ -7,8 +7,8 @@ const AppointmentHeader = () => {
     return (
         <>
             <Header />
-<Appointment />
-           <Footer /> 
+            <Appointment />
+            <Footer />
         </>
     );
 };

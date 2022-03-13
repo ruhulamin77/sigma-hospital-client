@@ -1,8 +1,11 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import BlogForm from "./components/Blog/BlogForm/BlogForm";
 import Blogs from "./components/Blog/Blogs/Blogs";
 import SingleBlog from "./components/Blog/SingleBlog/SingleBlog";
+import AllDonors from "./components/BloodDashboard/AllDonor/AllDonor/AllDonors";
+import BloodRequest from "./components/BloodDashboard/AllDonor/BloodRequest/BloodRequest";
+import BloodDashboardHome from "./components/BloodDashboard/BloodDashboardHome/BloodDashboardHome";
+import BloodDashboardMain from "./components/BloodDashboard/BloodDashboardMain/BloodDashboardMain";
 import ChatPage from "./components/ChatHome/ChatPage/ChatPage";
 import AdminHomeMain from "./components/Dashboard/AdminDashboard/AdminHome/AdminHomeMain/AdminHomeMain";
 import DashboardMain from "./components/Dashboard/DashboardMain/DashboardMain";
@@ -14,7 +17,10 @@ import AllNurse from "./components/Dashboard/NurseDashboard/AllNurse/AllNurse/Al
 import NurseProfileUpdate from "./components/Dashboard/NurseDashboard/NurseProfileUpdate/NurseProfileUpdate";
 import PatientData from "./components/Dashboard/PatientDashboard/PatientData/PatientData/PatientData";
 import PatientPrescription from "./components/Dashboard/PatientDashboard/PatientPrescription/PatientPrescription";
+import SinglePatientPrescription from "./components/Dashboard/PatientDashboard/SinglePatientPrescription/SinglePatientPrescription";
 import Cart from "./components/Dashboard/Pharmacy/Cart/Cart";
+import Invoice from "./components/Dashboard/Pharmacy/Invoice/Invoice";
+import PdfInvoice from "./components/Dashboard/Pharmacy/Invoice/PdfInvoice";
 import Order from "./components/Dashboard/Pharmacy/Order/Order";
 import PharmacyHome from "./components/Dashboard/Pharmacy/PharmacyHome/PharmacyHome";
 import ProductRecive from "./components/Dashboard/Pharmacy/ProductRecive/ProductRecive";
@@ -30,6 +36,7 @@ import FAQ from "./components/Pages/FAQ/FAQ";
 import History from "./components/Pages/History/History";
 import DoctorHeader from "./components/Pages/Team/DoctorHeader";
 import Team from "./components/Pages/Team/Team";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Service from "./components/Service/Service";
 import PaymentForm from "./components/Share/Payment/PaymentForm/PaymentForm";
 import Success from "./components/Share/Payment/Validation/Success";
@@ -41,13 +48,6 @@ import Neurologist from "./components/Specialization/Neurologist/Neurologist";
 import Oncologist from "./components/Specialization/Oncologist/Oncologist";
 import Psychiatrists from "./components/Specialization/Psychiatrists/Psychiatrists";
 
-import BloodDashboardMain from "./components/BloodDashboard/BloodDashboardMain/BloodDashboardMain";
-import BloodDashboardHome from "./components/BloodDashboard/BloodDashboardHome/BloodDashboardHome";
-import AllDonors from "./components/BloodDashboard/AllDonor/AllDonor/AllDonors";
-import SinglePatientPrescription from "./components/Dashboard/PatientDashboard/SinglePatientPrescription/SinglePatientPrescription";
-import BloodRequest from "./components/BloodDashboard/AllDonor/BloodRequest/BloodRequest";
-import Invoice from "./components/Dashboard/Pharmacy/Invoice/Invoice";
-import PdfInvoice from "./components/Dashboard/Pharmacy/Invoice/PdfInvoice";
 // import PaymentSuccess from "./components/Dashboard/Pharmacy/PaymentSuccess/PaymentSuccess";
 
 
@@ -57,6 +57,12 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/" element={<PrivateRoute />}>
+        
+            <Route path="/appointment" element={<AppointmentHeader />} />
+          </Route>
+          <Route path="/blog/:id" element={<SingleBlog />} />
+
           <Route exact element={<PrivateRoute  />}>
             <Route exact path="/contact" element={<Contact />} />
           </Route>
@@ -80,7 +86,7 @@ function App() {
           <Route path="/about" element={<History />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/singleDoctor/:id" element={<SingleDoctor />} />
-          <Route path="/blog/:id" element={<SingleBlog />} />
+
           <Route path="/team/:id" element={<SingleDoctor />} />
           <Route path="/specialization/oncologist" element={<Oncologist />} />
           <Route path="/specialization/neurologist" element={<Neurologist />} />

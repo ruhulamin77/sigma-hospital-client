@@ -2,7 +2,6 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { FaPaperPlane, FaFacebookF, FaTwitter, FaInstagram, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import footerLogo from '../../../images/logo/logo.png';
 import "./Footer.css";
 
 const Footer = () => {
@@ -12,7 +11,7 @@ const Footer = () => {
                 <Row>
                     <Col sm={6} lg={4} >
                         <div className="footer-logo">
-                            <img className='img-fluid' src={footerLogo} alt="Sigma Central Hospital" />
+                            <img className='img-fluid' src="https://i.ibb.co/hRX83Sc/logo.png" alt="Sigma Central Hospital" />
                         </div>
                         <div className="footer-text">
                             <h2>Newsletter</h2>

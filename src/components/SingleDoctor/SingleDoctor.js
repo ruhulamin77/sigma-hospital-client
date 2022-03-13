@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Container, ProgressBar, Table } from 'react-bootstrap';
+import { Container, ProgressBar, Table } from 'react-bootstrap';
 import { NavLink, useParams } from 'react-router-dom';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import './SingleDoctor.css';
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 import { useGetDoctorsQuery } from '../../features/sigmaApi';
 import ContactForEveryPage from '../ContactForEveryPage/ContactForEveryPage';
-import Header from '../Share/Header/Header';
 import Footer from '../Home/Footer/Footer';
+import Header from '../Share/Header/Header';
+import './SingleDoctor.css';
 
 const SingleDoctor = () => {
     let settings = {

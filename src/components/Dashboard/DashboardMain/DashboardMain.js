@@ -24,7 +24,6 @@ import { RiNurseLine } from "react-icons/ri";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 import "./DashboardMain.css";
-import logo from "../../../images/logo/logo.png";
 
 import { Link, Outlet } from "react-router-dom";
 import useFirebase from "../../../hooks/useFirebase";
@@ -55,7 +54,7 @@ const DashboardMain = () => {
 
         <div className="dashboard_mobole_logo  d-block d-md-none">
           <Link to="/home">
-            <img src={logo} alt="" />
+            <img src="https://i.ibb.co/hRX83Sc/logo.png" alt="" />
           </Link>
         </div>
       </div>
@@ -462,7 +461,7 @@ const DashboardMain = () => {
       <div className="dashboardHeader container-fluid">
         <div className="logo_area">
           <Link to="/home">
-            <img src={logo} alt="" />
+            <img src="https://i.ibb.co/hRX83Sc/logo.png" alt="" />
           </Link>
         </div>
         <div className="menu_area">

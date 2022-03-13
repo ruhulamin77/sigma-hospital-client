@@ -5,7 +5,6 @@ import { Card, Col, Container, Row } from 'react-bootstrap';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import photo from '../../../../../images/doctors/07.jpg'
 
 const SecondSection = () => {
     const VisitorsStatistics = [
@@ -273,7 +272,7 @@ const SecondSection = () => {
                                     <div>
                                         <p>A Brief History Of Anesthetics</p>
                                         <small className='text-secondary'>Scheduled for ...</small>
-                                        <img src={photo} alt="DoctorPhoto" />
+                                        <img src="https://i.ibb.co/yQXZCKp/07.jpg" alt="DoctorPhoto" />
                                     </div>
 
                                 </label>
@@ -282,7 +281,7 @@ const SecondSection = () => {
                                     <div>
                                         <p>Using Laser Teatment to Help</p>
                                         <small>Scheduled for ...</small>
-                                        <img src={photo} alt="DoctorPhoto" />
+                                        <img src="https://i.ibb.co/yQXZCKp/07.jpg" alt="DoctorPhoto" />
                                     </div>
 
                                 </label>
@@ -291,7 +290,7 @@ const SecondSection = () => {
                                     <div>
                                         <p>Selecting the Apnea Treatment</p>
                                         <small>Scheduled for ...</small>
-                                        <img src={photo} alt="DoctorPhoto" />
+                                        <img src="https://i.ibb.co/yQXZCKp/07.jpg" alt="DoctorPhoto" />
                                     </div>
 
                                 </label>
@@ -300,7 +299,7 @@ const SecondSection = () => {
                                     <div>
                                         <p>Using Laser Teatment to Help</p>
                                         <small>Scheduled for ...</small>
-                                        <img src={photo} alt="DoctorPhoto" />
+                                        <img src="https://i.ibb.co/yQXZCKp/07.jpg" alt="DoctorPhoto" />
                                     </div>
                                 </label>
 
