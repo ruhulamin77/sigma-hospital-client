@@ -94,7 +94,7 @@ const PatientPrescription = () => {
             title: 'Patient prescription has been successfully updated!',
             showConfirmButton: false,
             timer: 2000
-          })
+          });
         }
       })
   };
