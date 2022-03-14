@@ -84,22 +84,53 @@
 @media screen and (max-width: 467px) {
   .service {
     width: 90%;
-    height: 355px;
+    height: 330px;
   }
   .service:hover {
-    height: 355px;
+    height: 335px;
     margin-top: 20px;
   }
-  .service-btn {
-    margin-left: 45px;
-    border: none;
-    padding: 10px 15px;
-    background-color: #f68685;
-    color: white;
-    margin-bottom: 27px;
-  }
   .service img {
-    margin-left: 68px;
+    margin-left: 65px;
     margin-top: -66px;
+  }
+  .service .service-btn {
+    background-color: #f68685;
+    height: 50px;
+    width: 200px;
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 45px;
+    transition: 0.5s;
+    border-radius: 5px;
+  }
+
+  .service .service-btn span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+  }
+
+  .service .service-btn:hover {
+    background-color: #7093e5;
+  }
+
+  .service .service-btn i {
+    background-color: #faa2a1;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    border-radius: 0 5px 5px 0;
+  }
+  .service .service-btn:hover i {
+    background-color: #8bacf8;
   }
 }
