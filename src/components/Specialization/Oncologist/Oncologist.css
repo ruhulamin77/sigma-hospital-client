@@ -32,11 +32,7 @@
 .specialization_left .special_img img {
   width: 100%;
 }
-.specialization_right {
-  /* background-color: #a9e9c6; */
-}
-.specialization_nav ul {
-}
+
 .specialization_nav ul li {
   margin-bottom: 5px;
   background-color: #fdfdfd;
@@ -126,8 +122,6 @@
   color: #171c26;
   padding: 20px 0;
   font-weight: 400;
-}
-.special_address {
 }
 .special_address p {
   color: #6e7990;

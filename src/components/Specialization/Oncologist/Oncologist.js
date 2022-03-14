@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./Oncologist.css";
 import { Link } from "react-router-dom";
 import Header from "../../Share/Header/Header";
