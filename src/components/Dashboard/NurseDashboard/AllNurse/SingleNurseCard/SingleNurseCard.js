@@ -16,11 +16,12 @@ const SingleNurseCard = ({ nurse }) => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount) {
-                        Swal.fire(
-                            'Good job!',
-                            'The Doctor has been successfully deleted!',
-                            'success'
-                        )
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Nurse has been successfully deleted!',
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
                     }
                 })
         }

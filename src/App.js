@@ -8,6 +8,7 @@ import BloodDashboardHome from "./components/BloodDashboard/BloodDashboardHome/B
 import BloodDashboardMain from "./components/BloodDashboard/BloodDashboardMain/BloodDashboardMain";
 import ChatPage from "./components/ChatHome/ChatPage/ChatPage";
 import AdminHomeMain from "./components/Dashboard/AdminDashboard/AdminHome/AdminHomeMain/AdminHomeMain";
+import CreateAdmin from "./components/Dashboard/CreateAdmin/CreateAdmin";
 import DashboardMain from "./components/Dashboard/DashboardMain/DashboardMain";
 import AddDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AddDoctors/AddDoctors";
 import AllDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AllDoctors/AllDoctors";
@@ -27,7 +28,6 @@ import Appointment from "./components/Home/Appointment/Appointment";
 import AppointmentHeader from "./components/Home/Appointment/AppointmentHeader";
 import Home from "./components/Home/Home/Home";
 import AdminLoginForm from "./components/Login/AdminLoginForm/AdminLoginForm";
-import AdminSignUp from "./components/Login/AdminSignUp/AdminSignUp";
 import Login from "./components/Login/Login/Login";
 import OnlineDoctor from "./components/OnlineDoctor/OnlineDoctor";
 import Contact from "./components/Pages/Contact/Contact";
@@ -71,7 +71,7 @@ function App() {
           <Route path="/adminhome" element={<AdminHomeMain />} />
           <Route path="/paymentForm" element={<PaymentForm />} />
           <Route path="/success/:id" element={<Success />} />
-          <Route path="/adminRegister" element={<AdminSignUp />} />
+          <Route path="/adminRegister" element={<CreateAdmin />} />
           <Route path="/adminLogin" element={<AdminLoginForm />} />
           <Route path="/login" element={<Login />} />
           <Route path="/faq" element={<FAQ />} />
@@ -130,10 +130,7 @@ function App() {
             {/* nurse route end */}
             {/* patients route start */}
             <Route path="/dashboard/patientsInfo" element={<PatientData />} />
-            <Route
-              path="/dashboard/prescription/:id"
-              element={<PatientPrescription />}
-            />
+            <Route path="/dashboard/prescription/:id" element={<PatientPrescription />} />
 
             <Route path="/dashboard/pharmacy" element={<PharmacyHome />} />
             <Route path="/dashboard/order" element={<Order />} />
@@ -141,8 +138,6 @@ function App() {
             <Route path="/dashboard/invoice" element={<Invoice />} />
 
             <Route path="/dashboard/pdfInvoice/:id" element={<PdfInvoice />} />
-
-
 
             {/* patients route end */}
           </Route>
