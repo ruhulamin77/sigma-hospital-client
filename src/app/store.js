@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
-import { sigmaApi } from '../features/sigmaApi'
-import authReducer from '../features/authSlice'
 import adminReducer from '../features/adminSlice'
-import cartReducer, { getTotals } from '../features/cartSlice';
-import { blogApi } from '../features/blogApi';
+import authReducer from '../features/authSlice'
+import { blogApi } from '../features/blogApi'
+import cartReducer, { getTotals } from '../features/cartSlice'
+import { sigmaApi } from '../features/sigmaApi'
 
 export const store = configureStore({
     reducer: {
@@ -13,6 +13,8 @@ export const store = configureStore({
         cart: cartReducer,
         [sigmaApi.reducerPath]: sigmaApi.reducer,
         [blogApi.reducerPath]: blogApi.reducer,
+    
+
     },
 
     middleware: (getDefaultMiddleware) =>

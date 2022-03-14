@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { FaHeart } from 'react-icons/fa';
 import { GrDislike, GrLike } from 'react-icons/gr';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { format } from 'timeago.js';
 import { useGetBlogQuery } from '../../../features/blogApi';
@@ -12,13 +12,18 @@ import Header from '../../Share/Header/Header';
 import Comment from '../Comment/Comment';
 import './SingleBlog.css';
 
+
 const SingleBlog = () => {
     const { id } = useParams();
     const [loginUser, setLoginUser] = useState(null)
     const [singleBlog, setSingleBlog] = useState([]);
     const [liked, setLiked] = useState([]);
+    const [newData, setNewData] = useState([]);
+    const [newHelp, setNewHelp] = useState([]);
     const [search, setSearch] = useState("");
     const [number, setNumber] = useState(Number);
+
+    
 
     // const [isLike, setIsLike] = useState([]);
     const blogInfo = useGetBlogQuery();
@@ -62,6 +67,7 @@ const SingleBlog = () => {
                         const res = await axios.put(`http://localhost:7050/totalVisitor/${singleBlog?._id}`, userVisit)
                         console.log(res, "res", "2nd");
                     } catch (error) {
+                        console.log(error);
                     }
                 }
                 getvisitor()
@@ -73,6 +79,9 @@ const SingleBlog = () => {
         const docLike = {
             likes: loginUser?._id,
         }
+
+        
+
         const res = await axios.put(`http://localhost:7050/updateBloglike/${id}`, docLike)
         if (res.data) {
             console.log(" if doclike");
@@ -93,7 +102,30 @@ const SingleBlog = () => {
             console.log(liked, "handleUpdateUnLike");
         }
     }
+    const handleSearch = async () => {
+        const newData = await blogInfo?.data.filter(item => {
+            return item.title.toLowerCase().includes(search.toLowerCase())
+        })
+        setNewData(newData)
+    }
+    const handleHelp = (e) => {
+        setSearch(e.target.value)
+        if (search.length !== 0) {
+            const find = blogInfo?.data.filter((item) => {
+                return item.title.toLowerCase().includes(search.toLowerCase())
+            })
+            setNewHelp(find)
+        } else {
+            setNewHelp([])
+        }
+     
+        console.log(newData, "find");
 
+
+
+    }
+
+    console.log(newData);
     return (
         <>
             <Header />
@@ -143,8 +175,22 @@ const SingleBlog = () => {
                     </Col>
                     <Col lg={4} className="my-5">
                         <div className="search"> <i className="fa fa-search"></i> <input
-                    onChange={(e)=> setSearch(e.target.value)}        type="text" className="form-control" placeholder="Have a question? Ask Now" /> <button  className="btn btn-primary">Search</button> </div>
-                </Col>
+                            onChange={(e) => handleHelp(e)} type="text" className="form-control" placeholder="Have a question? Ask Now" /> <button
+                                onClick={() => handleSearch()} className="btn btn-primary">Search</button> </div>
+                        {
+                            newHelp.length > 0 && newHelp.map((item, i) => (
+                            
+                            <div className="help" key={i}>
+                                <Link to={`/Blog/${item?._id}`}>
+                                <h3>{item?.title}</h3> 
+                                </Link>
+                            </div> 
+                            
+                        ))
+                    }
+
+                    </Col>
+                    
                 </Row>
                 <Comment blogId={singleBlog} loginUser={loginUser} />
             </Container>

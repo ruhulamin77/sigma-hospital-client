@@ -128,3 +128,11 @@
 .search button:hover {
   background: #f68685;
 }
+.help {
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid #f68685;
+}
+.help h3 {
+  font-size: 15px;
+}
