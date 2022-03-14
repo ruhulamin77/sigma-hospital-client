@@ -130,10 +130,7 @@ function App() {
             {/* nurse route end */}
             {/* patients route start */}
             <Route path="/dashboard/patientsInfo" element={<PatientData />} />
-            <Route
-              path="/dashboard/prescription/:id"
-              element={<PatientPrescription />}
-            />
+            <Route path="/dashboard/prescription/:id" element={<PatientPrescription />} />
 
             <Route path="/dashboard/pharmacy" element={<PharmacyHome />} />
             <Route path="/dashboard/order" element={<Order />} />
@@ -141,8 +138,6 @@ function App() {
             <Route path="/dashboard/invoice" element={<Invoice />} />
 
             <Route path="/dashboard/pdfInvoice/:id" element={<PdfInvoice />} />
-
-
 
             {/* patients route end */}
           </Route>

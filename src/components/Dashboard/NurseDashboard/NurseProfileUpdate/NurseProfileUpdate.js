@@ -32,11 +32,12 @@ const NurseProfileUpdate = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    Swal.fire(
-                        'Good job!',
-                        "Nurse's informatoin has been successfully updated!",
-                        'success'
-                    )
+                    Swal.fire({
+                        icon: 'success',
+                        title: "Nurse's informatoin has been successfully updated!",
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
                 }
             })
     }
