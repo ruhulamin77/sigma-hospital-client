@@ -677,7 +677,7 @@ const DashboardMain = () => {
                       <span className="nav_icon">--</span>
                       <span>Add Nurses</span>
                     </Link>
-                    
+
                   </li>
                 </ul>
               </div>
