@@ -15,9 +15,7 @@ const BloodRequestHistory = () => {
   // }, [requests]);
 
   useEffect(() => {
-    fetch(
-      `https://hidden-coast-99117.herokuapp.com/${user?.email}/bloodRequest`
-    )
+    fetch(`http://localhost:7050/bloodRequest/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setRequests(data));
   }, [requests]);

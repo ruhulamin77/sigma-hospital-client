@@ -7,7 +7,7 @@ const SingleRequest = (props) => {
     bloodGroup,
     reason,
     doctorName,
-    requestDate,
+    neededDate,
     status,
     quantity,
     address,
@@ -20,7 +20,7 @@ const SingleRequest = (props) => {
       <td>{reason}</td>
       <td>{quantity}</td>
       <td>{doctorName}</td>
-      <td>{requestDate}</td>
+      <td>{neededDate}</td>
       <td>{bloodGroup}</td>
       <td>{address}</td>
       <td>{status}</td>

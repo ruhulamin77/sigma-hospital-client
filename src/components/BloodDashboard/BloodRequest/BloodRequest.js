@@ -14,20 +14,18 @@ const BloodRequest = () => {
     data.email = user.email;
     data.status = `Pending`;
     console.log(data);
-    axios
-      .post("https://hidden-coast-99117.herokuapp.com/bloodRequest", data)
-      .then((res) => {
-        if (res.data.insertedId) {
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Your request has been submitted",
-            showConfirmButton: true,
-          });
+    axios.post("http://localhost:7050/bloodRequest", data).then((res) => {
+      if (res.data.insertedId) {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Your request has been submitted",
+          showConfirmButton: true,
+        });
 
-          reset();
-        }
-      });
+        reset();
+      }
+    });
   };
   return (
     <div className="request-blood-form-container ">
@@ -62,7 +60,7 @@ const BloodRequest = () => {
             </div>
 
             <div className="col-md-6 col-lg-2">
-              <select {...register("bloodGroup")}>
+              <select {...register("bloodGroup", { required: true })}>
                 <option defaultValue="" disabled selected hidden>
                   Blood Group
                 </option>
@@ -81,7 +79,7 @@ const BloodRequest = () => {
                 placeholder="Quantity (Bags)"
                 type="number"
                 min="1"
-                {...register("quantity")}
+                {...register("quantity", { required: true })}
               />
             </div>
             <div className="col-md-6 col-lg-6">
@@ -114,8 +112,8 @@ const BloodRequest = () => {
               <input
                 type="date"
                 placeholder="Needed Date:"
-                id="request-date"
-                {...register("requestDate", { required: true, maxLength: 20 })}
+                id="needed-date"
+                {...register("neededDate", { required: true, maxLength: 20 })}
               />
             </div>
             <div className="col-md-6 col-lg-4">

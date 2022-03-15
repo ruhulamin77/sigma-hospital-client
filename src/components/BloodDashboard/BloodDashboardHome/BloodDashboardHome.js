@@ -10,17 +10,16 @@ const BloodDashboardHome = () => {
   const { logout } = useFirebase();
   const [donations, setDonations] = useState([]);
   const [requests, setrequests] = useState([]);
+  console.log(donations, requests);
 
   useEffect(() => {
-    fetch(`https://hidden-coast-99117.herokuapp.com/${user?.email}/bloods`)
+    fetch(`http://localhost:7050/bloodDonate/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setDonations(data));
   }, []);
 
   useEffect(() => {
-    fetch(
-      `https://hidden-coast-99117.herokuapp.com/${user?.email}/bloodRequest`
-    )
+    fetch(`http://localhost:7050/bloodRequest/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setrequests(data));
   }, []);
