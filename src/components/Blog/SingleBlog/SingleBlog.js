@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { FaHeart } from 'react-icons/fa';
 import { GrDislike, GrLike } from 'react-icons/gr';
-import { useDispatch, useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { format } from 'timeago.js';
 import { useGetBlogQuery } from '../../../features/blogApi';
@@ -34,13 +34,13 @@ const SingleBlog = () => {
     }, [user?.email])
 
     useEffect(() => {
-        const foundDoctor = blogInfo?.data?.find(doctors => doctors?._id === id);
-        setSingleBlog(foundDoctor);
+        const foundBlog = blogInfo?.data?.find(doctors => doctors?._id === id);
+        setSingleBlog(foundBlog);
         setNumber(singleBlog?.likes?.length)
-        if (foundDoctor?.likes?.length === 0) {
+        if (foundBlog?.likes?.length === 0) {
             setLiked(false)
         } else {
-            foundDoctor?.likes?.includes(loginUser?._id) ? setLiked(true) : setLiked(false);
+            foundBlog?.likes?.includes(loginUser?._id) ? setLiked(true) : setLiked(false);
         }
     }, [blogInfo?.data, id, loginUser?._id, singleBlog]);
 
