@@ -12,13 +12,15 @@ const BloodDashboardHome = () => {
   const [requests, setrequests] = useState([]);
 
   useEffect(() => {
-    fetch(`https://hidden-coast-99117.herokuapp.com/${user.email}/bloods`)
+    fetch(`https://hidden-coast-99117.herokuapp.com/${user?.email}/bloods`)
       .then((res) => res.json())
       .then((data) => setDonations(data));
   }, []);
 
   useEffect(() => {
-    fetch(`https://hidden-coast-99117.herokuapp.com/${user.email}/bloodRequest`)
+    fetch(
+      `https://hidden-coast-99117.herokuapp.com/${user?.email}/bloodRequest`
+    )
       .then((res) => res.json())
       .then((data) => setrequests(data));
   }, []);

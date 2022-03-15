@@ -3,7 +3,7 @@ import BlogForm from "./components/Blog/BlogForm/BlogForm";
 import Blogs from "./components/Blog/Blogs/Blogs";
 import SingleBlog from "./components/Blog/SingleBlog/SingleBlog";
 import AllDonors from "./components/BloodDashboard/AllDonor/AllDonor/AllDonors";
-import BloodRequest from "./components/BloodDashboard/AllDonor/BloodRequest/BloodRequest";
+import BloodRequest from "./components/BloodDashboard/BloodRequest/BloodRequest";
 import BloodDashboardHome from "./components/BloodDashboard/BloodDashboardHome/BloodDashboardHome";
 import BloodDashboardMain from "./components/BloodDashboard/BloodDashboardMain/BloodDashboardMain";
 import ChatPage from "./components/ChatHome/ChatPage/ChatPage";
@@ -46,9 +46,9 @@ import ENTspecialist from "./components/Specialization/ENTspecialist/ENTspeciali
 import Neurologist from "./components/Specialization/Neurologist/Neurologist";
 import Oncologist from "./components/Specialization/Oncologist/Oncologist";
 import Psychiatrists from "./components/Specialization/Psychiatrists/Psychiatrists";
+import BloodRequestHistory from "./components/BloodDashboard/BloodRequestHistory/BloodRequestHistory";
 
 // import PaymentSuccess from "./components/Dashboard/Pharmacy/PaymentSuccess/PaymentSuccess";
-
 
 function App() {
   return (
@@ -57,7 +57,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/" element={<PrivateRoute />}>
-
             <Route path="/appointment" element={<AppointmentHeader />} />
           </Route>
           <Route path="/blog/:id" element={<SingleBlog />} />
@@ -130,7 +129,10 @@ function App() {
             {/* nurse route end */}
             {/* patients route start */}
             <Route path="/dashboard/patientsInfo" element={<PatientData />} />
-            <Route path="/dashboard/prescription/:id" element={<PatientPrescription />} />
+            <Route
+              path="/dashboard/prescription/:id"
+              element={<PatientPrescription />}
+            />
 
             <Route path="/dashboard/pharmacy" element={<PharmacyHome />} />
             <Route path="/dashboard/order" element={<Order />} />
@@ -151,7 +153,7 @@ function App() {
             ></Route>
             <Route
               path="/bloodBank/requestHistory"
-              element={<BloodRequest />}
+              element={<BloodRequestHistory />}
             ></Route>
           </Route>
         </Routes>
