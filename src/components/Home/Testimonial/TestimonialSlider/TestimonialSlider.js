@@ -38,7 +38,7 @@ const TestimonialSlider = () => {
             </div>
           </div>
         </Carousel.Item>
-        <Carousel.Item>
+        {/* <Carousel.Item>
           <p className='lh-2 fz-1 mb-5'>"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout"</p>
           <div className="d-flex align-items-center mt-4">
             <img className="img img-fluid me-4 testimonial-img" src="https://i.ibb.co/CV3z8Bp/02.jpg" alt="" />
@@ -58,8 +58,8 @@ const TestimonialSlider = () => {
             </div>
           </div>
         </Carousel.Item>
-        <Carousel.Item>
-          <p className='lh-2 fz-1 mb-5'>"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout"</p>
+        <Carousel.Item> */}
+          {/* <p className='lh-2 fz-1 mb-5'>"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout"</p>
           <div className="d-flex align-items-center mt-4">
             <img className="img img-fluid me-4 testimonial-img" src="https://i.ibb.co/CV3z8Bp/02.jpg" alt="" />
             <div>
@@ -67,7 +67,7 @@ const TestimonialSlider = () => {
               <span className="testimoneal-role text-uppercase mt-1">CEO, Jm Corp</span>
             </div>
           </div>
-        </Carousel.Item>
+        </Carousel.Item> */}
       </Carousel>
       <div>
         <div className="button-container d-flex justify-content-end testimonial-slider mt-5">
