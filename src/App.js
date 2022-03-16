@@ -50,6 +50,7 @@ import Psychiatrists from "./components/Specialization/Psychiatrists/Psychiatris
 import BloodRequestHistory from "./components/BloodDashboard/BloodRequestHistory/BloodRequestHistory";
 import BloodDonation from "./components/BloodDashboard/BloodDonation/BloodDonation";
 import PatientInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/PatientInvoice/PatientInvoice";
+import Messenger from "./components/Share/Messenger/Messenger";
 
 // import PaymentSuccess from "./components/Dashboard/Pharmacy/PaymentSuccess/PaymentSuccess";
 
@@ -57,6 +58,7 @@ function App() {
   return (
     <div>
       <Router>
+      <Messenger />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/" element={<PrivateRoute />}>
