@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Button, NavDropdown, Offcanvas } from "react-bootstrap";
 import { GiSettingsKnobs } from "react-icons/gi";
 import { RiLogoutCircleLine, RiSearchLine, RiWechatLine } from "react-icons/ri";
-import { ImStack } from "react-icons/im";
 import {
   AiOutlineMail,
   AiOutlineUser,
@@ -20,20 +19,21 @@ import { BiLogIn } from "react-icons/bi";
 import { FaRegCalendarAlt, FaUser } from "react-icons/fa";
 import { BsChevronDown, BsListTask } from "react-icons/bs";
 import { IoSettingsSharp } from "react-icons/io5";
-import { RiNurseLine } from "react-icons/ri";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { logOut } from "../../../features/adminSlice";
-import "./DashboardMain.css";
 
 import { Link, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
+import useFirebase from "../../../../hooks/useFirebase";
 // import Header from "../../Share/Header/Header";
 
-const DashboardMain = () => {
-  const admin = useSelector((state) => state.admin);
+const UserDashboard = () => {
+  // const adminRole = JSON.parse(localStorage.getItem("admin"))
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const user = useSelector((state) => state.auth.value);
+
+  const { logout } = useFirebase();
 
   return (
     <>
@@ -62,14 +62,14 @@ const DashboardMain = () => {
         <Offcanvas.Body>
           <div className="dashboard_left_side_bar">
             <div className="dasboard_user">
-              <img src={admin.photoURL} alt="doctor or user" />
+              <img src={user?.photoURL} alt="doctor or user" />
               <div>
                 <span>Welcome, </span>
                 <div>
                   <NavDropdown
                     id="basic-nav-dropdown"
                     className="basic_nav_dropdown_custom"
-                    title={admin.adminName}
+                    title={user?.displayName}
                   >
                     <NavDropdown.Item
                       href="#action/3.1"
@@ -99,7 +99,7 @@ const DashboardMain = () => {
                       className="dash_drop_item"
                     >
                       <RiLogoutCircleLine />
-                      <span onClick={logOut}>Logout</span>
+                      <span onClick={logout}>Logout</span>
                     </NavDropdown.Item>
                   </NavDropdown>
                 </div>
@@ -199,10 +199,6 @@ const DashboardMain = () => {
                         <span className="nav_icon">--</span>
                         <span>All Doctors</span>
                       </Link>
-                      <Link to="/dashboard/addDoctors">
-                        <span className="nav_icon">--</span>
-                        <span>Add Doctors</span>
-                      </Link>
                       {/* <Link to="/dashboard/patientsInfo">
                         <span className="nav_icon">--</span>
                         <span>Patients Information</span>
@@ -211,45 +207,6 @@ const DashboardMain = () => {
                   </ul>
                 </div>
               </li>
-
-              <li>
-                <Link
-                  /* className="btn btn-primary" */
-                  data-bs-toggle="collapse"
-                  to="#collapseNurses"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="collapseExample"
-                >
-                  <span className="dashboard_nav_icon">
-                    <span className="nav_icon">
-                      <RiNurseLine />
-                    </span>
-                    <span>Nurses</span>
-                  </span>
-                  <BsChevronDown />
-                </Link>
-
-                <div className="collapse" id="collapseNurses">
-                  <ul className="dashboard_sub_menu">
-                    <li>
-                      <Link to="/dashboard/allNurse">
-                        <span className="nav_icon">--</span>
-                        <span>All Nurses</span>
-                      </Link>
-                      <Link to="/dashboard/addNurse">
-                        <span className="nav_icon">--</span>
-                        <span>Add Nurses</span>
-                      </Link>
-                      {/* <Link to="/dashboard/allNurse/update/:id">
-                      <span className="nav_icon">--</span>
-                      <span>Nurse Profile</span> 
-                  </Link>*/}
-                    </li>
-                  </ul>
-                </div>
-              </li>
-
               <li>
                 <Link
                   /* className="btn btn-primary" */
@@ -272,11 +229,7 @@ const DashboardMain = () => {
                 <div className="collapse" id="collapsePatients">
                   <ul className="dashboard_sub_menu">
                     <li>
-                      <Link to="/dashboard/patientsInfo">
-                        <span className="nav_icon">--</span>
-                        <span>All Patients</span>
-                      </Link>
-                      <Link to="/dashboard/addPatients">
+                      <Link to="/dashboard/appointment">
                         <span className="nav_icon">--</span>
                         <span>Add Patient</span>
                       </Link>
@@ -284,7 +237,7 @@ const DashboardMain = () => {
                         <span className="nav_icon">--</span>
                         <span>Patients Profile</span>
                       </Link> */}
-                      <Link to="/dashboard/invoice">
+                      <Link to="/dashboard/patient/invoice">
                         <span className="nav_icon">--</span>
                         <span>Invoice</span>
                       </Link>
@@ -329,69 +282,6 @@ const DashboardMain = () => {
                   </ul>
                 </div>
               </li>
-              <li>
-                <Link
-                  /* className="btn btn-primary" */
-                  data-bs-toggle="collapse"
-                  to="#collapseDepartments"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="collapseExample"
-                >
-                  <span className="dashboard_nav_icon">
-                    <span className="nav_icon">
-                      <ImStack />
-                    </span>
-                    <span>Departments</span>
-                  </span>
-                  <BsChevronDown />
-                </Link>
-
-                <div className="collapse" id="collapseDepartments">
-                  <ul className="dashboard_sub_menu">
-                    <li>
-                      <Link to="/dashboard">
-                        <span className="nav_icon">--</span>
-                        <span>Add Departments</span>
-                      </Link>
-                      <Link to="/dashboard">
-                        <span className="nav_icon">--</span>
-                        <span>All Departments</span>
-                      </Link>
-                      <Link to="/dashboard">
-                        <span className="nav_icon">--</span>
-                        <span>Oncology</span>
-                      </Link>
-                      <Link to="/dashboard">
-                        <span className="nav_icon">--</span>
-                        <span>Neurology</span>
-                      </Link>
-                      <Link to="/dashboard">
-                        <span className="nav_icon">--</span>
-                        <span>ENT</span>
-                      </Link>
-
-                      <Link to="/dashboard">
-                        <span className="nav_icon">--</span>
-                        <span>Cardiology</span>
-                      </Link>
-                      <Link to="/dashboard">
-                        <span className="nav_icon">--</span>
-                        <span>Oncology</span>
-                      </Link>
-                      <Link to="/dashboard">
-                        <span className="nav_icon">--</span>
-                        <span>Audiology</span>
-                      </Link>
-                      <Link to="/dashboard">
-                        <span className="nav_icon">--</span>
-                        <span>Psychology</span>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-
               <li>
                 <Link to="/dashboard">
                   <span className="dashboard_nav_icon">
@@ -482,7 +372,7 @@ const DashboardMain = () => {
               <li data-tag="Setting">
                 <GiSettingsKnobs />
               </li>
-              <li data-tag="Logout" onClick={logOut}>
+              <li data-tag="Logout" onClick={logout}>
                 <BiLogIn />
               </li>
             </ul>
@@ -494,12 +384,12 @@ const DashboardMain = () => {
       <div className="dashboard_main">
         <div className="dashboard_left_side_bar d-none d-md-block">
           <div className="dasboard_user">
-            <img src={admin.photoURL} alt="doctor or user" />
+            <img src={user?.photoURL} alt="doctor or user" />
             <div>
               <span>Welcome, </span>
               <div>
                 <NavDropdown
-                  title={admin.adminName}
+                  title={user?.displayName}
                   id="basic-nav-dropdown"
                   className="basic_nav_dropdown_custom"
                 >
@@ -527,7 +417,7 @@ const DashboardMain = () => {
                   <NavDropdown.Divider />
                   <NavDropdown.Item as={Link} to="" className="dash_drop_item">
                     <RiLogoutCircleLine />
-                    <span onClick={logOut}>Logout</span>
+                    <span onClick={logout}>Logout</span>
                   </NavDropdown.Item>
                 </NavDropdown>
               </div>
@@ -605,84 +495,6 @@ const DashboardMain = () => {
               <Link
                 /* className="btn btn-primary" */
                 data-bs-toggle="collapse"
-                to="#collapseDoctors"
-                role="button"
-                aria-expanded="false"
-                aria-controls="collapseExample"
-              >
-                <span className="dashboard_nav_icon">
-                  <span className="nav_icon">
-                    <AiOutlineUser />
-                  </span>
-
-                  <span>Doctors</span>
-                </span>
-                <BsChevronDown />
-              </Link>
-
-              <div className="collapse" id="collapseDoctors">
-                <ul className="dashboard_sub_menu">
-                  <li>
-                    <Link to="/dashboard/allDoctors">
-                      <span className="nav_icon">--</span>
-                      <span>All Doctors</span>
-                    </Link>
-                    <Link to="/dashboard/addDoctors">
-                      <span className="nav_icon">--</span>
-                      <span>Add Doctors</span>
-                    </Link>
-                    {/* <Link to="/dashboard/allDoctors/update/:id">
-                      <span className="nav_icon">--</span>
-                      <span>Doctor Profile</span>
-                    </Link> */}
-                    {/* <Link to="/dashboard/doctorPrescription">
-                      <span className="nav_icon">--</span>
-                      <span>Doctor Prescription</span>
-                    </Link> */}
-                  </li>
-                </ul>
-              </div>
-            </li>
-
-            <li>
-              <Link
-                /* className="btn btn-primary" */
-                data-bs-toggle="collapse"
-                to="#collapseNurses"
-                role="button"
-                aria-expanded="false"
-                aria-controls="collapseExample"
-              >
-                <span className="dashboard_nav_icon">
-                  <span className="nav_icon">
-                    <RiNurseLine />
-                  </span>
-                  <span>Nurses</span>
-                </span>
-                <BsChevronDown />
-              </Link>
-
-              <div className="collapse" id="collapseNurses">
-                <ul className="dashboard_sub_menu">
-                  <li>
-                    <Link to="/dashboard/allNurse">
-                      <span className="nav_icon">--</span>
-                      <span>All Nurses</span>
-                    </Link>
-                    <Link to="/dashboard/addNurse">
-                      <span className="nav_icon">--</span>
-                      <span>Add Nurses</span>
-                    </Link>
-                    
-                  </li>
-                </ul>
-              </div>
-            </li>
-
-            <li>
-              <Link
-                /* className="btn btn-primary" */
-                data-bs-toggle="collapse"
                 to="#collapsePatients"
                 role="button"
                 aria-expanded="false"
@@ -705,7 +517,7 @@ const DashboardMain = () => {
                       <span className="nav_icon">--</span>
                       <span>All Patients</span>
                     </Link>
-                    <Link to="/dashboard/addPatients">
+                    <Link to="/dashboard/appointment">
                       <span className="nav_icon">--</span>
                       <span>Add Patient</span>
                     </Link>
@@ -713,7 +525,7 @@ const DashboardMain = () => {
                         <span className="nav_icon">--</span>
                         <span>Patients Profile</span>
                       </Link> */}
-                    <Link to="/dashboard">
+                    <Link to="/dashboard/patient/invoice">
                       <span className="nav_icon">--</span>
                       <span>Invoice</span>
                     </Link>
@@ -801,123 +613,12 @@ const DashboardMain = () => {
               </div>
             </li>
             <li>
-              <Link
-                /* className="btn btn-primary" */
-                data-bs-toggle="collapse"
-                to="#collapseDepartments"
-                role="button"
-                aria-expanded="false"
-                aria-controls="collapseExample"
-              >
-                <span className="dashboard_nav_icon">
-                  <span className="nav_icon">
-                    <ImStack />
-                  </span>
-                  <span>Departments</span>
-                </span>
-                <BsChevronDown />
-              </Link>
-
-              <div className="collapse" id="collapseDepartments">
-                <ul className="dashboard_sub_menu">
-                  <li>
-                    <Link to="/dashboard">
-                      <span className="nav_icon">--</span>
-                      <span>Add Departments</span>
-                    </Link>
-                    <Link to="/dashboard">
-                      <span className="nav_icon">--</span>
-                      <span>All Departments</span>
-                    </Link>
-                    <Link to="/dashboard">
-                      <span className="nav_icon">--</span>
-                      <span>Oncology</span>
-                    </Link>
-                    <Link to="/dashboard">
-                      <span className="nav_icon">--</span>
-                      <span>Neurology</span>
-                    </Link>
-                    <Link to="/dashboard">
-                      <span className="nav_icon">--</span>
-                      <span>ENT</span>
-                    </Link>
-
-                    <Link to="/dashboard">
-                      <span className="nav_icon">--</span>
-                      <span>Cardiology</span>
-                    </Link>
-                    <Link to="/dashboard">
-                      <span className="nav_icon">--</span>
-                      <span>Oncology</span>
-                    </Link>
-                    <Link to="/dashboard">
-                      <span className="nav_icon">--</span>
-                      <span>Audiology</span>
-                    </Link>
-                    <Link to="/dashboard">
-                      <span className="nav_icon">--</span>
-                      <span>Psychology</span>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
-
-            <li>
               <Link to="/dashboard">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <GrLocation />
                   </span>
                   <span>Worlwide Centres</span>
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                /* className="btn btn-primary" */
-                data-bs-toggle="collapse"
-                to="#collapseAuthentications"
-                role="button"
-                aria-expanded="false"
-                aria-controls="collapseExample"
-              >
-                <span className="dashboard_nav_icon">
-                  <span className="nav_icon">
-                    <HiOutlineLockClosed />
-                  </span>
-
-                  <span>Authentications</span>
-                </span>
-                <BsChevronDown />
-              </Link>
-              <div className="collapse" id="collapseAuthentications">
-                <ul className="dashboard_sub_menu">
-                  <li>
-                    <Link to="/dashboard/allDoctors">
-                      <span className="nav_icon">--</span>
-                      <span>Login</span>
-                    </Link>
-                    <Link to="/dashboard">
-                      <span className="nav_icon">--</span>
-                      <span>Register</span>
-                    </Link>
-                    <Link to="/dashboard">
-                      <span className="nav_icon">--</span>
-                      <span>Lock Screen</span>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <Link to="/dashboard">
-                <span className="dashboard_nav_icon">
-                  <span className="nav_icon">
-                    <HiOutlinePuzzle />
-                  </span>
-
-                  <span>Widgets</span>
                 </span>
               </Link>
             </li>
@@ -931,4 +632,4 @@ const DashboardMain = () => {
   );
 };
 
-export default DashboardMain;
+export default UserDashboard;

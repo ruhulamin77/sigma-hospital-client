@@ -9,6 +9,7 @@ import BloodDashboardMain from "./components/BloodDashboard/BloodDashboardMain/B
 import ChatPage from "./components/ChatHome/ChatPage/ChatPage";
 import AdminHomeMain from "./components/Dashboard/AdminDashboard/AdminHome/AdminHomeMain/AdminHomeMain";
 import CreateAdmin from "./components/Dashboard/CreateAdmin/CreateAdmin";
+import DashboardLoad from "./components/Dashboard/DashboardLoad/DashboardLoad";
 import DashboardMain from "./components/Dashboard/DashboardMain/DashboardMain";
 import AddDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AddDoctors/AddDoctors";
 import AllDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AllDoctors/AllDoctors";
@@ -104,6 +105,7 @@ function App() {
           />
 
           {/* dashboard */}
+          <Route path="/dashboardload" element={<DashboardLoad />}></Route>
           <Route path="/dashboard" element={<DashboardMain />}>
             <Route path="/dashboard" element={<AdminHomeMain />}></Route>
             <Route

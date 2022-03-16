@@ -12,7 +12,7 @@ const AdminLoginForm = () => {
   const onSubmit = data =>{
     reset()
     dispatch(adminLogin(data)) 
-    navigate(`/dashboard`);
+    navigate(`/dashboardload`);
   }
     return (
         <div>
@@ -26,7 +26,6 @@ const AdminLoginForm = () => {
                         <div className="col-lg-12 login-title">
                             ADMIN PANEL LOGIN
                         </div>
-      
                             <div className="col-lg-12 login-for">
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     <div className="form-group">

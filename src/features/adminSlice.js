@@ -1,16 +1,7 @@
 import {createSlice,createAsyncThunk} from '@reduxjs/toolkit'
 import { adminData } from './helpers/adminFetch';
 
-
-const initialState = {
-  token: "",
-  photoURL: "",
-  adminEmail: "",
-  adminName: "",  
-  role: "",
-  loading: false,
-  error: ""
-};
+const initialState = localStorage.getItem("admin") ? JSON.parse(localStorage.getItem("admin")): {};
 
 export const adminRegister = createAsyncThunk(
     'adminRegister',
@@ -31,11 +22,11 @@ const adminSlice = createSlice({
     initialState,
     reducers:{
         login:(state,action)=>{
-          state.admin = localStorage.getItem('admin')
+          state.admin = JSON.parse(localStorage.getItem("admin"))
         },
-        logout:(state,action)=>{
-            state.token = ""
-            localStorage.removeItem('admin')
+        logOut:(state,action)=>{
+            state.admin = {}
+            localStorage.removeItem("admin")
         }
     },
     extraReducers:{
@@ -70,6 +61,6 @@ const adminSlice = createSlice({
 
 })
 
-export const { login, logout } = adminSlice.actions;
+export const { login, logOut } = adminSlice.actions;
 
 export default adminSlice.reducer;
