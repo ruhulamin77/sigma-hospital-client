@@ -48,6 +48,8 @@ import Oncologist from "./components/Specialization/Oncologist/Oncologist";
 import Psychiatrists from "./components/Specialization/Psychiatrists/Psychiatrists";
 import BloodRequestHistory from "./components/BloodDashboard/BloodRequestHistory/BloodRequestHistory";
 import BloodDonation from "./components/BloodDashboard/BloodDonation/BloodDonation";
+import BloodDonationHistory from "./components/BloodDashboard/BloodDonationHistory/BloodDonationHistory";
+import RegisterDonor from "./components/BloodDashboard/RegisterDonor/RegisterDonor";
 
 // import PaymentSuccess from "./components/Dashboard/Pharmacy/PaymentSuccess/PaymentSuccess";
 
@@ -149,12 +151,16 @@ function App() {
             <Route path="/bloodBank" element={<BloodDashboardHome />}></Route>
             <Route path="/bloodBank/allDOnor" element={<AllDonors />}></Route>
             <Route
+              path="/bloodBank/registerDonor"
+              element={<RegisterDonor />}
+            ></Route>
+            <Route
               path="/bloodBank/bloodDonation"
               element={<BloodDonation />}
             ></Route>
             <Route
               path="/bloodBank/donationHistory"
-              element={<BloodDonation />}
+              element={<BloodDonationHistory />}
             ></Route>
             <Route
               path="/bloodBank/bloodRequest"
