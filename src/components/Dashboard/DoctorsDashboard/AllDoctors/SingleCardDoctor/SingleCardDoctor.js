@@ -31,7 +31,10 @@ const SingleCardDoctor = ({ doc }) => {
                                     title: 'The Doctor has been successfully deleted!',
                                     showConfirmButton: false,
                                     timer: 2000
-                                })
+                                });
+                                setTimeout(() => {
+                                    window.location.reload();
+                                }, 2000);
                             }
                         })
                 }

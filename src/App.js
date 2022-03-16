@@ -48,6 +48,7 @@ import Oncologist from "./components/Specialization/Oncologist/Oncologist";
 import Psychiatrists from "./components/Specialization/Psychiatrists/Psychiatrists";
 import BloodRequestHistory from "./components/BloodDashboard/BloodRequestHistory/BloodRequestHistory";
 import BloodDonation from "./components/BloodDashboard/BloodDonation/BloodDonation";
+import PatientInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/PatientInvoice/PatientInvoice";
 
 // import PaymentSuccess from "./components/Dashboard/Pharmacy/PaymentSuccess/PaymentSuccess";
 
@@ -130,10 +131,8 @@ function App() {
             {/* nurse route end */}
             {/* patients route start */}
             <Route path="/dashboard/patientsInfo" element={<PatientData />} />
-            <Route
-              path="/dashboard/prescription/:id"
-              element={<PatientPrescription />}
-            />
+            <Route path="/dashboard/prescription/:id" element={<PatientPrescription />} />
+            <Route path="/dashboard/patient/invoice" element={<PatientInvoice />} />
 
             <Route path="/dashboard/pharmacy" element={<PharmacyHome />} />
             <Route path="/dashboard/order" element={<Order />} />
