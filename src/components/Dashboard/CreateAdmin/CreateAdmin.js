@@ -17,22 +17,30 @@ const CreateAdmin = () => {
         <>
           <Header />
           <Container>
-              <Row>
-                <h2>Add A Admin Panel Member</h2>    
-                <Col lg={6} md={6} xs={12} sm={12}>      
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                <Row>
+                <div class="one">
+                        <h1 className='text-center mb-4'>Add A Admin Panel Member</h1>
+                        </div>
+                    <Col>
+                        <div className="img-login">
+                            <img className='img-fluid' src="https://img.freepik.com/free-vector/online-registration-sign-up-concept-with-woman-character_268404-99.jpg?w=1380" alt="" />
+                    </div>
+                    </Col>    
+                <Col  lg={6} md={6} xs={12} sm={12}>      
+                    <form className='createAdmin' onSubmit={handleSubmit(onSubmit)}>
                         <input type="text" placeholder="Admin Name" {...register("adminName", {required: true})} />
                         <input type="email" placeholder="Admin Email" {...register("email", {required: true})} />
                         <select {...register("role", { required: true })}>
-                            <option value="admin">admin</option>
-                            <option value="doctor">doctor</option>
-                            <option value="nurse">nurse</option>
-                            <option value="pharma">pharma</option>
-                            <option value="recip">recip</option>
+                            <option >Select One</option>
+                            <option value="admin">Admin</option>
+                            <option value="doctor">Doctor</option>
+                            <option value="nurse">Nurse</option>
+                            <option value="pharma">Pharma</option>
+                            <option value="recip">Reception</option>
                         </select>
                         <input type="password" placeholder="Admin Password" {...register("passWord", {required: true})} />
                         <input type="text" placeholder="Avatar URL" {...register("photoURL", {})} />
-                        <Button className='mt-4' type="submit">Add Member</Button>
+                        <button className='custom-btn btn-9 mt-4' type="submit">Submit</button>
                     </form>
                   </Col>     
               </Row>      

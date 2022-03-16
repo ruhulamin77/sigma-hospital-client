@@ -33,6 +33,7 @@ import OnlineDoctor from "./components/OnlineDoctor/OnlineDoctor";
 import Contact from "./components/Pages/Contact/Contact";
 import FAQ from "./components/Pages/FAQ/FAQ";
 import History from "./components/Pages/History/History";
+import Review from "./components/Pages/review/Review";
 import DoctorHeader from "./components/Pages/Team/DoctorHeader";
 import Team from "./components/Pages/Team/Team";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
@@ -76,6 +77,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/review" element={<Review />} />
           {/* <Route path="/chat" element={<ChatPage />} /> */}
           <Route path="/doctor" element={<DoctorHeader />} />
           <Route path="/blogForm" element={<BlogForm />} />
