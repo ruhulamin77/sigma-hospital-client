@@ -280,7 +280,7 @@ const DashboardMain = () => {
                         <span className="nav_icon">--</span>
                         <span>All Patients</span>
                       </Link>
-                      <Link to="/dashboard/addPatients">
+                      <Link to="/dashboard/appointment">
                         <span className="nav_icon">--</span>
                         <span>Add Patient</span>
                       </Link>
@@ -288,7 +288,7 @@ const DashboardMain = () => {
                         <span className="nav_icon">--</span>
                         <span>Patients Profile</span>
                       </Link> */}
-                      <Link to="/dashboard/invoice">
+                      <Link to="/dashboard/patient/invoice">
                         <span className="nav_icon">--</span>
                         <span>Invoice</span>
                       </Link>
@@ -677,7 +677,7 @@ const DashboardMain = () => {
                       <span className="nav_icon">--</span>
                       <span>Add Nurses</span>
                     </Link>
-                    
+
                   </li>
                 </ul>
               </div>
@@ -709,7 +709,7 @@ const DashboardMain = () => {
                       <span className="nav_icon">--</span>
                       <span>All Patients</span>
                     </Link>
-                    <Link to="/dashboard/addPatients">
+                    <Link to="/dashboard/appointment">
                       <span className="nav_icon">--</span>
                       <span>Add Patient</span>
                     </Link>
@@ -717,7 +717,7 @@ const DashboardMain = () => {
                         <span className="nav_icon">--</span>
                         <span>Patients Profile</span>
                       </Link> */}
-                    <Link to="/dashboard">
+                    <Link to="/dashboard/patient/invoice">
                       <span className="nav_icon">--</span>
                       <span>Invoice</span>
                     </Link>
