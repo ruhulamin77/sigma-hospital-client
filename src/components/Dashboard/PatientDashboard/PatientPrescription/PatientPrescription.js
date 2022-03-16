@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 import { Button, Card, Form, Table } from "react-bootstrap";
 import Swal from "sweetalert2";
-import "./PatientPrescription";
+import "./PatientPrescription.css";
 import { useSelector } from "react-redux";
 import { MdSend } from 'react-icons/md';
 import { HiLocationMarker, HiMail, HiPhoneMissedCall } from "react-icons/hi";
@@ -94,7 +94,10 @@ const PatientPrescription = () => {
             title: 'Patient prescription has been successfully updated!',
             showConfirmButton: false,
             timer: 2000
-          })
+          });
+          setTimeout(() => {
+            window.location.reload();
+          }, 2000);
         }
       })
   };
@@ -113,7 +116,7 @@ const PatientPrescription = () => {
   };
 
   return (
-    <div style={{ backgroundColor: "#F4F7F6", padding: "20px" }}>
+    <div style={{ backgroundColor: "#F4F7F6", padding: "20px" }} className="borderSetup">
       <Card className="shadow p-3">
         <h3 className="mb-5">Patient Prescription</h3>
         <Form onSubmit={handleSubmit}>

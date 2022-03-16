@@ -119,6 +119,9 @@
   background-color: #7093e5;
   color: white;
 }
+.liked {
+  position: relative;
+}
 .view,
 .love {
   position: absolute;
@@ -133,25 +136,31 @@
   line-height: 33px;
   font-size: 20px;
 }
+.like svg {
+  color: white;
+}
 .view {
   left: 10px;
 }
 .love {
   right: 10px;
 }
+
 .service-card p span {
   color: #f68685;
 }
 
 .view-div::before,
-.love-div::before {
+.love-div::before,
+.liked::before {
   background-color: #f68685;
   content: attr(data-tag);
-  top: 10px;
+
   position: absolute;
   font-size: 18px;
   color: #fff;
-  display: none;
+  opacity: 0;
+  visibility: hidden;
   padding: 5px 15px;
   border-radius: 5px;
   word-wrap: unset;
@@ -161,13 +170,23 @@
 }
 .view-div::before {
   left: 90px;
+  top: 10px;
 }
 .love-div::before {
   right: 90px;
+  top: 10px;
+}
+
+.liked::before {
+  top: -110%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .view-div:hover::before,
-.love-div:hover::before {
-  display: block;
+.love-div:hover::before,
+.liked:hover::before {
+  opacity: 1;
+  visibility: visible;
 }
 .looder-my {
   display: flex;
@@ -189,6 +208,7 @@
   text-align: center;
   line-height: 35px;
   margin-top: 20px;
+  border-radius: 5px;
 }
 
 .btn-9 {

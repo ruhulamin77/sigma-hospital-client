@@ -3,11 +3,12 @@ import BlogForm from "./components/Blog/BlogForm/BlogForm";
 import Blogs from "./components/Blog/Blogs/Blogs";
 import SingleBlog from "./components/Blog/SingleBlog/SingleBlog";
 import AllDonors from "./components/BloodDashboard/AllDonor/AllDonor/AllDonors";
-import BloodRequest from "./components/BloodDashboard/AllDonor/BloodRequest/BloodRequest";
+import BloodRequest from "./components/BloodDashboard/BloodRequest/BloodRequest";
 import BloodDashboardHome from "./components/BloodDashboard/BloodDashboardHome/BloodDashboardHome";
 import BloodDashboardMain from "./components/BloodDashboard/BloodDashboardMain/BloodDashboardMain";
 import ChatPage from "./components/ChatHome/ChatPage/ChatPage";
 import AdminHomeMain from "./components/Dashboard/AdminDashboard/AdminHome/AdminHomeMain/AdminHomeMain";
+import CreateAdmin from "./components/Dashboard/CreateAdmin/CreateAdmin";
 import DashboardMain from "./components/Dashboard/DashboardMain/DashboardMain";
 import AddDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AddDoctors/AddDoctors";
 import AllDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AllDoctors/AllDoctors";
@@ -27,7 +28,6 @@ import Appointment from "./components/Home/Appointment/Appointment";
 import AppointmentHeader from "./components/Home/Appointment/AppointmentHeader";
 import Home from "./components/Home/Home/Home";
 import AdminLoginForm from "./components/Login/AdminLoginForm/AdminLoginForm";
-import AdminSignUp from "./components/Login/AdminSignUp/AdminSignUp";
 import Login from "./components/Login/Login/Login";
 import OnlineDoctor from "./components/OnlineDoctor/OnlineDoctor";
 import Contact from "./components/Pages/Contact/Contact";
@@ -46,9 +46,11 @@ import ENTspecialist from "./components/Specialization/ENTspecialist/ENTspeciali
 import Neurologist from "./components/Specialization/Neurologist/Neurologist";
 import Oncologist from "./components/Specialization/Oncologist/Oncologist";
 import Psychiatrists from "./components/Specialization/Psychiatrists/Psychiatrists";
+import BloodRequestHistory from "./components/BloodDashboard/BloodRequestHistory/BloodRequestHistory";
+import BloodDonation from "./components/BloodDashboard/BloodDonation/BloodDonation";
+import PatientInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/PatientInvoice/PatientInvoice";
 
 // import PaymentSuccess from "./components/Dashboard/Pharmacy/PaymentSuccess/PaymentSuccess";
-
 
 function App() {
   return (
@@ -57,7 +59,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/" element={<PrivateRoute />}>
-
             <Route path="/appointment" element={<AppointmentHeader />} />
           </Route>
           <Route path="/blog/:id" element={<SingleBlog />} />
@@ -71,7 +72,7 @@ function App() {
           <Route path="/adminhome" element={<AdminHomeMain />} />
           <Route path="/paymentForm" element={<PaymentForm />} />
           <Route path="/success/:id" element={<Success />} />
-          <Route path="/adminRegister" element={<AdminSignUp />} />
+          <Route path="/adminRegister" element={<CreateAdmin />} />
           <Route path="/adminLogin" element={<AdminLoginForm />} />
           <Route path="/login" element={<Login />} />
           <Route path="/faq" element={<FAQ />} />
@@ -130,10 +131,8 @@ function App() {
             {/* nurse route end */}
             {/* patients route start */}
             <Route path="/dashboard/patientsInfo" element={<PatientData />} />
-            <Route
-              path="/dashboard/prescription/:id"
-              element={<PatientPrescription />}
-            />
+            <Route path="/dashboard/prescription/:id" element={<PatientPrescription />} />
+            <Route path="/dashboard/patient/invoice" element={<PatientInvoice />} />
 
             <Route path="/dashboard/pharmacy" element={<PharmacyHome />} />
             <Route path="/dashboard/order" element={<Order />} />
@@ -142,8 +141,6 @@ function App() {
 
             <Route path="/dashboard/pdfInvoice/:id" element={<PdfInvoice />} />
 
-
-
             {/* patients route end */}
           </Route>
           {/*  blood bank */}
@@ -151,12 +148,20 @@ function App() {
             <Route path="/bloodBank" element={<BloodDashboardHome />}></Route>
             <Route path="/bloodBank/allDOnor" element={<AllDonors />}></Route>
             <Route
+              path="/bloodBank/bloodDonation"
+              element={<BloodDonation />}
+            ></Route>
+            <Route
+              path="/bloodBank/donationHistory"
+              element={<BloodDonation />}
+            ></Route>
+            <Route
               path="/bloodBank/bloodRequest"
               element={<BloodRequest />}
             ></Route>
             <Route
               path="/bloodBank/requestHistory"
-              element={<BloodRequest />}
+              element={<BloodRequestHistory />}
             ></Route>
           </Route>
         </Routes>

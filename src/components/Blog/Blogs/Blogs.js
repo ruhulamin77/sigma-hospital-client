@@ -18,9 +18,11 @@ const Blogs = () => {
     return (
         <>
             <Header />
-            <Container>
-                
-                <Row  className='blog-my gx-4 gy-5' xs={1} md={2} lg={3}>
+            <Container className='padding-container'>
+                <div className="blog-tle pb-5">
+                    <h1>Our Recent Article</h1>
+                </div>
+                <Row  className='blog-my gx-4 gy-5' xs={1}  md={2}  xl={3} >
                     {blogCollection.isLoading ? <div className='looder-my'>
                         <ScaleLoader
                             color={"#7093e5"} size={150} />

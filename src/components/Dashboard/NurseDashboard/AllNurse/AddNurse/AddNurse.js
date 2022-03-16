@@ -34,11 +34,12 @@ const AddNurse = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                    Swal.fire(
-                        'Good job!',
-                        "A nurse has been successfully added!",
-                        'success'
-                    )
+                    Swal.fire({
+                        icon: 'success',
+                        title: "A nurse has been successfully added!",
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
                 }
             })
     }
