@@ -17,19 +17,30 @@ const PdfInvoice = () => {
             })
     }, [])
 
+    const handelPrint = () => {
+        let body = document.body.innerHTML;
+        alert(body)
+
+    }
+
     return (
-        <div className='pdfinvoice'>
-            <div className='pdf-body'>
-                <div className='container invoice-body'>
+        <div className='pdfinvoice' id='pdfbody' >
+            <div className='pdf-body' >
+                <div className='container invoice-body' id='printdata'>
                     <section className='invoice-header'>
                         <div>
                             <h4 className='invoice'>Invoice</h4>
                         </div>
                         <div className='hospital-info'>
-                            <h6>Sigma Care Hospial</h6>
-                            <p> <HiLocationMarker />1234 North Avenue Luke, South Bend, IN 360001</p>
-                            <p><HiPhoneMissedCall />+8801629094984</p>
-                            <p> <HiMail />support@gmail.com</p>
+                            <h6>  <img src="https://i.ibb.co/hRX83Sc/logo.png" className='image-pdf-logo' alt="" /> Hospial</h6>
+                            <div c>
+                                <p> <HiLocationMarker />1234 North Avenue Luke,
+
+                                    South Bend,IN 360001</p>
+                                <p><HiPhoneMissedCall />+8801629094984</p>
+                                <p> <HiMail />support@gmail.com</p>
+                            </div>
+
                         </div>
                     </section>
                     <section className='customer-info'>
@@ -71,26 +82,39 @@ const PdfInvoice = () => {
                                         <td>{item?.type}</td>
                                         <td>{item?.price}</td>
                                         <td>{item?.quantity}</td>
-                                        <td>{item?.Total}</td>
+                                        <td>{item?.Total} /-</td>
                                     </tr>
 
 
                                 ))}
 
                                 <tr>
-                                    <td></td>
-                                    <td colSpan={5}>Grand Total</td>
-                                    <td>{itemdata.data?.total_amount}</td>
+                                    <td className='g-total-pdf' colSpan={6}>Grand Total</td>
+                                    <td className='g-total-pdf'>{itemdata.data?.total_amount}.TK</td>
                                 </tr>
                             </tbody>
                         </Table>
-
-
                     </section>
+
+                    <section className='product-info'>
+                        <div className='thank-mas'>
+                            <p>Mr/Ms {itemdata?.data?.cusName}</p>
+                            <small>Thank you for being our valued customer. We are so grateful for the pleasure of serving you and hope we met your expectations.</small>
+                        </div>
+                        <div>
+
+
+                        </div>
+                    </section>
+
+
+
+
 
 
                 </div>
             </div>
+
 
         </div>
     );
