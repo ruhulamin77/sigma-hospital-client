@@ -164,13 +164,13 @@ const BloodDashboardMain = () => {
                 <div className="collapse" id="collapseDonation">
                   <ul className="dashboard_sub_menu">
                     <li>
-                      <Link to="/bloodBank/">
+                      <Link to="/bloodBank/bloodRequest">
                         <span className="nav_icon">--</span>
-                        <span>Donate Blood</span>
+                        <span>Make Request</span>
                       </Link>
-                      <Link to="/bloodBank">
+                      <Link to="/bloodBank/requestHistory">
                         <span className="nav_icon">--</span>
-                        <span>Donation History</span>
+                        <span>Request History</span>
                       </Link>
                     </li>
                   </ul>
@@ -298,7 +298,7 @@ const BloodDashboardMain = () => {
               </Link>
             </li>
             <li>
-              <Link to="/bloodBank">
+              <Link to="/bloodBank/registerDonor">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <GiArchiveRegister />
@@ -328,11 +328,11 @@ const BloodDashboardMain = () => {
               <div className="collapse" id="collapseDonation">
                 <ul className="dashboard_sub_menu">
                   <li>
-                    <Link to="/bloodBank/">
+                    <Link to="/bloodBank/bloodDonation">
                       <span className="nav_icon">--</span>
                       <span>Donate Blood</span>
                     </Link>
-                    <Link to="/bloodBank">
+                    <Link to="/bloodBank/donationHistory">
                       <span className="nav_icon">--</span>
                       <span>Donation History</span>
                     </Link>

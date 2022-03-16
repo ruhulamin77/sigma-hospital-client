@@ -1,0 +1,25 @@
+.register-donor-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.register-donor-form input,
+.register-donor-form button,
+.register-donor-form select {
+  padding: 10px;
+  border-radius: 3px;
+  width: 100%;
+  border: 1px solid #f68685;
+  outline: 0;
+  /* border: 1px solid #7093e6; */
+}
+
+.register-donor-form {
+  padding: 25px 50px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background-color: #7093e64f;
+  /* background-color: #f687853a; */
+}

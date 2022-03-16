@@ -17,7 +17,7 @@ const AllNurse = () => {
             />
             Loading...
         </Button>
-    }
+    };
 
     return (
         <div style={{ backgroundColor: "#F4F7F6", padding: "20px 0" }}>

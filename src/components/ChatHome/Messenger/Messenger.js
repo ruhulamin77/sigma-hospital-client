@@ -29,7 +29,7 @@ const Messenger = () => {
     }, [user?.email])
     console.log(loginUsers, "loginUsers");
     useEffect(() => {
-        socket.current = io("https://glacial-sea-16602.herokuapp.com/", {transports:["websocket"]});
+        socket.current = io("ws://localhost:8900");
         socket.current.on("getMessage", (data) => {
             setArrivalMessages({
                 sender: data.senderId,

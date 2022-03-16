@@ -3,7 +3,7 @@ import BlogForm from "./components/Blog/BlogForm/BlogForm";
 import Blogs from "./components/Blog/Blogs/Blogs";
 import SingleBlog from "./components/Blog/SingleBlog/SingleBlog";
 import AllDonors from "./components/BloodDashboard/AllDonor/AllDonor/AllDonors";
-import BloodRequest from "./components/BloodDashboard/AllDonor/BloodRequest/BloodRequest";
+import BloodRequest from "./components/BloodDashboard/BloodRequest/BloodRequest";
 import BloodDashboardHome from "./components/BloodDashboard/BloodDashboardHome/BloodDashboardHome";
 import BloodDashboardMain from "./components/BloodDashboard/BloodDashboardMain/BloodDashboardMain";
 import ChatPage from "./components/ChatHome/ChatPage/ChatPage";
@@ -34,6 +34,7 @@ import OnlineDoctor from "./components/OnlineDoctor/OnlineDoctor";
 import Contact from "./components/Pages/Contact/Contact";
 import FAQ from "./components/Pages/FAQ/FAQ";
 import History from "./components/Pages/History/History";
+import Review from "./components/Pages/review/Review";
 import DoctorHeader from "./components/Pages/Team/DoctorHeader";
 import Team from "./components/Pages/Team/Team";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
@@ -47,18 +48,23 @@ import ENTspecialist from "./components/Specialization/ENTspecialist/ENTspeciali
 import Neurologist from "./components/Specialization/Neurologist/Neurologist";
 import Oncologist from "./components/Specialization/Oncologist/Oncologist";
 import Psychiatrists from "./components/Specialization/Psychiatrists/Psychiatrists";
+import BloodRequestHistory from "./components/BloodDashboard/BloodRequestHistory/BloodRequestHistory";
+import BloodDonation from "./components/BloodDashboard/BloodDonation/BloodDonation";
+import BloodDonationHistory from "./components/BloodDashboard/BloodDonationHistory/BloodDonationHistory";
+import RegisterDonor from "./components/BloodDashboard/RegisterDonor/RegisterDonor";
+import PatientInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/PatientInvoice/PatientInvoice";
+import Messenger from "./components/Share/Messenger/Messenger";
 
 // import PaymentSuccess from "./components/Dashboard/Pharmacy/PaymentSuccess/PaymentSuccess";
-
 
 function App() {
   return (
     <div>
       <Router>
+      <Messenger />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/" element={<PrivateRoute />}>
-
             <Route path="/appointment" element={<AppointmentHeader />} />
           </Route>
           <Route path="/blog/:id" element={<SingleBlog />} />
@@ -77,6 +83,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/review" element={<Review />} />
           {/* <Route path="/chat" element={<ChatPage />} /> */}
           <Route path="/doctor" element={<DoctorHeader />} />
           <Route path="/blogForm" element={<BlogForm />} />
@@ -132,7 +139,14 @@ function App() {
             {/* nurse route end */}
             {/* patients route start */}
             <Route path="/dashboard/patientsInfo" element={<PatientData />} />
-            <Route path="/dashboard/prescription/:id" element={<PatientPrescription />} />
+            <Route
+              path="/dashboard/prescription/:id"
+              element={<PatientPrescription />}
+            />
+            <Route
+              path="/dashboard/patient/invoice"
+              element={<PatientInvoice />}
+            />
 
             <Route path="/dashboard/pharmacy" element={<PharmacyHome />} />
             <Route path="/dashboard/order" element={<Order />} />
@@ -148,12 +162,24 @@ function App() {
             <Route path="/bloodBank" element={<BloodDashboardHome />}></Route>
             <Route path="/bloodBank/allDOnor" element={<AllDonors />}></Route>
             <Route
+              path="/bloodBank/registerDonor"
+              element={<RegisterDonor />}
+            ></Route>
+            <Route
+              path="/bloodBank/bloodDonation"
+              element={<BloodDonation />}
+            ></Route>
+            <Route
+              path="/bloodBank/donationHistory"
+              element={<BloodDonationHistory />}
+            ></Route>
+            <Route
               path="/bloodBank/bloodRequest"
               element={<BloodRequest />}
             ></Route>
             <Route
               path="/bloodBank/requestHistory"
-              element={<BloodRequest />}
+              element={<BloodRequestHistory />}
             ></Route>
           </Route>
         </Routes>
