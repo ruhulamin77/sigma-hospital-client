@@ -1,4 +1,44 @@
-input, select {
-    width: 100%;
-    margin-top: 2rem;
+.createAdmin input,
+.createAdmin select {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 10px 5px;
+  border: 1px solid #f68685;
+  border-radius: 5px;
+}
+.createAdmin input:focus,
+.createAdmin select:focus {
+  outline: none;
+}
+.twelve {
+  text-align: center;
+}
+
+.one h1 {
+  text-align: center;
+  text-transform: uppercase;
+  padding-bottom: 5px;
+  position: relative;
+}
+.one h1:before {
+  width: 28px;
+  height: 5px;
+  display: block;
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  margin-left: -14px;
+  background-color: #f68685;
+}
+.one h1:after {
+  width: 100px;
+  height: 1px;
+  display: block;
+  content: "";
+  position: relative;
+  margin-top: 25px;
+  left: 50%;
+  margin-left: -50px;
+  background-color: #f68685;
 }

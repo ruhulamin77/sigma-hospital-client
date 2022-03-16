@@ -30,7 +30,7 @@ const SingleBlog = () => {
     const user = useSelector((state) => state.auth.value)
 
     useEffect(() => {
-        axios.get(`http://localhost:7050/users/${user?.email}`).then(res => setLoginUser(res.data))
+        axios.get(`https://shrouded-headland-44423.herokuapp.com/users/${user?.email}`).then(res => setLoginUser(res.data))
     }, [user?.email])
 
     useEffect(() => {
@@ -51,20 +51,20 @@ const SingleBlog = () => {
         if (singleBlog?.totalVisitor?.length === 0 && singleBlog?._id && loginUser?._id) {
             const getvisitor = async () => {
                 try {
-                    const res = await axios.put(`http://localhost:7050/totalVisitor/${singleBlog?._id}`, userVisit)
+                    const res = await axios.put(`https://shrouded-headland-44423.herokuapp.com/totalVisitor/${singleBlog?._id}`, userVisit)
                     console.log(res, "res", "2nd");
                 } catch (error) {
                     console.log(error);
                 }
             }
             getvisitor()
-            const res = axios.put(`http://localhost:7050/totalVisitor/${singleBlog?._id}`, userVisit)
+            const res = axios.put(`https://shrouded-headland-44423.herokuapp.com/totalVisitor/${singleBlog?._id}`, userVisit)
         } else {
             const findId = singleBlog?.totalVisitor?.includes(loginUser?._id)
             if (!findId && loginUser?._id) {
                 const getvisitor = async () => {
                     try {
-                        const res = await axios.put(`http://localhost:7050/totalVisitor/${singleBlog?._id}`, userVisit)
+                        const res = await axios.put(`https://shrouded-headland-44423.herokuapp.com/totalVisitor/${singleBlog?._id}`, userVisit)
                         console.log(res, "res", "2nd");
                     } catch (error) {
                         console.log(error);
@@ -82,7 +82,7 @@ const SingleBlog = () => {
 
         
 
-        const res = await axios.put(`http://localhost:7050/updateBloglike/${id}`, docLike)
+        const res = await axios.put(`https://shrouded-headland-44423.herokuapp.com/updateBloglike/${id}`, docLike)
         if (res.data) {
             console.log(" if doclike");
             setLiked(true)
@@ -94,7 +94,7 @@ const SingleBlog = () => {
         const docUnLike = {
             likes: loginUser?._id,
         }
-        const res = await axios.put(`http://localhost:7050/updateBlogUnlike/${id}`, docUnLike)
+        const res = await axios.put(`https://shrouded-headland-44423.herokuapp.com/updateBlogUnlike/${id}`, docUnLike)
         if (res.data) {
             console.log(res.data.value);
             setNumber(number - 1)
@@ -109,14 +109,14 @@ const SingleBlog = () => {
         setNewData(newData)
     }
     const handleHelp = (e) => {
+        e.preventDefault();
         setSearch(e.target.value)
-        if (search.length !== 0) {
+        console.log(e.target.value);
+        if (search.length !== 0 && search !== "" && search !== " ") {
             const find = blogInfo?.data.filter((item) => {
-                return item.title.toLowerCase().includes(search.toLowerCase())
+                return item?.title?.toLowerCase()?.includes(search?.toLowerCase())
             })
             setNewHelp(find)
-        } else {
-            setNewHelp([])
         }
      
         console.log(newData, "find");
@@ -126,6 +126,7 @@ const SingleBlog = () => {
     }
 
     console.log(newData);
+    console.log(newHelp, "search ===");
     return (
         <>
             <Header />

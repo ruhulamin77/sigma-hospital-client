@@ -33,6 +33,7 @@ import OnlineDoctor from "./components/OnlineDoctor/OnlineDoctor";
 import Contact from "./components/Pages/Contact/Contact";
 import FAQ from "./components/Pages/FAQ/FAQ";
 import History from "./components/Pages/History/History";
+import Review from "./components/Pages/review/Review";
 import DoctorHeader from "./components/Pages/Team/DoctorHeader";
 import Team from "./components/Pages/Team/Team";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
@@ -50,6 +51,7 @@ import BloodRequestHistory from "./components/BloodDashboard/BloodRequestHistory
 import BloodDonation from "./components/BloodDashboard/BloodDonation/BloodDonation";
 import BloodDonationHistory from "./components/BloodDashboard/BloodDonationHistory/BloodDonationHistory";
 import RegisterDonor from "./components/BloodDashboard/RegisterDonor/RegisterDonor";
+import PatientInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/PatientInvoice/PatientInvoice";
 
 // import PaymentSuccess from "./components/Dashboard/Pharmacy/PaymentSuccess/PaymentSuccess";
 
@@ -78,6 +80,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/review" element={<Review />} />
           {/* <Route path="/chat" element={<ChatPage />} /> */}
           <Route path="/doctor" element={<DoctorHeader />} />
           <Route path="/blogForm" element={<BlogForm />} />
@@ -135,6 +138,10 @@ function App() {
             <Route
               path="/dashboard/prescription/:id"
               element={<PatientPrescription />}
+            />
+            <Route
+              path="/dashboard/patient/invoice"
+              element={<PatientInvoice />}
             />
 
             <Route path="/dashboard/pharmacy" element={<PharmacyHome />} />
