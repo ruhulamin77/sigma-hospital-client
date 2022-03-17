@@ -17,11 +17,7 @@ const PdfInvoice = () => {
             })
     }, [])
 
-    const handelPrint = () => {
-        let body = document.body.innerHTML;
-        alert(body)
 
-    }
 
     return (
         <div className='pdfinvoice' id='pdfbody' >
