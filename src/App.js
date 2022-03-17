@@ -9,6 +9,7 @@ import BloodDashboardMain from "./components/BloodDashboard/BloodDashboardMain/B
 import ChatPage from "./components/ChatHome/ChatPage/ChatPage";
 import AdminHomeMain from "./components/Dashboard/AdminDashboard/AdminHome/AdminHomeMain/AdminHomeMain";
 import CreateAdmin from "./components/Dashboard/CreateAdmin/CreateAdmin";
+// import DashboardLoad from "./components/Dashboard/DashboardLoad/DashboardLoad";
 import DashboardMain from "./components/Dashboard/DashboardMain/DashboardMain";
 import AddDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AddDoctors/AddDoctors";
 import AllDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AllDoctors/AllDoctors";
@@ -32,7 +33,7 @@ import Login from "./components/Login/Login/Login";
 import OnlineDoctor from "./components/OnlineDoctor/OnlineDoctor";
 import Contact from "./components/Pages/Contact/Contact";
 import FAQ from "./components/Pages/FAQ/FAQ";
-import History from "./components/Pages/History/History";
+import Review from "./components/Pages/review/Review";
 import DoctorHeader from "./components/Pages/Team/DoctorHeader";
 import Team from "./components/Pages/Team/Team";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
@@ -48,7 +49,16 @@ import Oncologist from "./components/Specialization/Oncologist/Oncologist";
 import Psychiatrists from "./components/Specialization/Psychiatrists/Psychiatrists";
 import BloodRequestHistory from "./components/BloodDashboard/BloodRequestHistory/BloodRequestHistory";
 import BloodDonation from "./components/BloodDashboard/BloodDonation/BloodDonation";
+import BloodDonationHistory from "./components/BloodDashboard/BloodDonationHistory/BloodDonationHistory";
+import RegisterDonor from "./components/BloodDashboard/RegisterDonor/RegisterDonor";
 import PatientInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/PatientInvoice/PatientInvoice";
+import Messenger from "./components/Share/Messenger/Messenger";
+<<<<<<< HEAD
+import AboutHome from "./components/Pages/History/AboutHome/AboutHome";
+=======
+// import AdminRoute from "./components/PrivateRoute/AdminRoute";
+import UserDashboard from "./components/Dashboard/UserDashboard/UserHome/UserDashboard";
+>>>>>>> 555f45bae350a28b800bfaf02fbd44d4f4791f32
 
 // import PaymentSuccess from "./components/Dashboard/Pharmacy/PaymentSuccess/PaymentSuccess";
 
@@ -56,10 +66,12 @@ function App() {
   return (
     <div>
       <Router>
+      <Messenger />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/" element={<PrivateRoute />}>
             <Route path="/appointment" element={<AppointmentHeader />} />
+            <Route path="/userDashboard" element={<UserDashboard />}></Route>
           </Route>
           <Route path="/blog/:id" element={<SingleBlog />} />
 
@@ -77,13 +89,14 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/review" element={<Review />} />
           {/* <Route path="/chat" element={<ChatPage />} /> */}
           <Route path="/doctor" element={<DoctorHeader />} />
           <Route path="/blogForm" element={<BlogForm />} />
           <Route path="/blog" element={<Blogs />} />
           <Route path="/medicineCart" element={<Cart />} />
           {/* <Route path="/contact" element={<Contact />} /> */}
-          <Route path="/about" element={<History />} />
+          <Route path="/about" element={<AboutHome />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/singleDoctor/:id" element={<SingleDoctor />} />
 
@@ -105,6 +118,7 @@ function App() {
           />
 
           {/* dashboard */}
+          {/* <Route path="/dashboard" element={<AdminRoute />}> */}
           <Route path="/dashboard" element={<DashboardMain />}>
             <Route path="/dashboard" element={<AdminHomeMain />}></Route>
             <Route
@@ -131,8 +145,14 @@ function App() {
             {/* nurse route end */}
             {/* patients route start */}
             <Route path="/dashboard/patientsInfo" element={<PatientData />} />
-            <Route path="/dashboard/prescription/:id" element={<PatientPrescription />} />
-            <Route path="/dashboard/patient/invoice" element={<PatientInvoice />} />
+            <Route
+              path="/dashboard/prescription/:id"
+              element={<PatientPrescription />}
+            />
+            <Route
+              path="/dashboard/patient/invoice"
+              element={<PatientInvoice />}
+            />
 
             <Route path="/dashboard/pharmacy" element={<PharmacyHome />} />
             <Route path="/dashboard/order" element={<Order />} />
@@ -143,17 +163,22 @@ function App() {
 
             {/* patients route end */}
           </Route>
+          {/* </Route> */}
           {/*  blood bank */}
           <Route path="/bloodBank" element={<BloodDashboardMain />}>
             <Route path="/bloodBank" element={<BloodDashboardHome />}></Route>
             <Route path="/bloodBank/allDOnor" element={<AllDonors />}></Route>
+            <Route
+              path="/bloodBank/registerDonor"
+              element={<RegisterDonor />}
+            ></Route>
             <Route
               path="/bloodBank/bloodDonation"
               element={<BloodDonation />}
             ></Route>
             <Route
               path="/bloodBank/donationHistory"
-              element={<BloodDonation />}
+              element={<BloodDonationHistory />}
             ></Route>
             <Route
               path="/bloodBank/bloodRequest"

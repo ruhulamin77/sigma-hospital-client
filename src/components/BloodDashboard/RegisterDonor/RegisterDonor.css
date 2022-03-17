@@ -1,13 +1,13 @@
-.blood-donation-form-container {
+.register-donor-form-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-.blood-donation-form input,
-.blood-donation-form button,
-.blood-donation-form select {
+.register-donor-form input,
+.register-donor-form button,
+.register-donor-form select {
   padding: 10px;
   border-radius: 3px;
   margin-bottom: 30px;
@@ -17,10 +17,10 @@
   /* border: 1px solid #7093e6; */
 }
 
-.blood-donation-form {
+.register-donor-form {
   padding: 25px 50px;
   border-radius: 10px;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
   background-color: #7093e64f;
   /* background-color: #f687853a; */
 }
