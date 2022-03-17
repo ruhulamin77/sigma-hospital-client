@@ -10,6 +10,7 @@
 .register-donor-form select {
   padding: 10px;
   border-radius: 3px;
+  margin-bottom: 30px;
   width: 100%;
   border: 1px solid #f68685;
   outline: 0;
