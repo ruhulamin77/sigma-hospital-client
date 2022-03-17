@@ -50,7 +50,7 @@ const RegisterDonor = () => {
   };
   return (
     <div className="register-donor-form-container ">
-      <h2 className="m-3">Be a Donar ! </h2>
+      <h2 className="m-3">Register as a Donar ! </h2>
       <h5 className="pb-3">
         "There is a hope of life to someone in your blood donation"
       </h5>
@@ -140,7 +140,9 @@ const RegisterDonor = () => {
                 })}
               />
             </div>
-            <div className="col-md-6 col-lg-5">
+            <div></div>
+
+            <div className="col-md-6 col-lg-4">
               <button className="btn btn-danger mt-4" type="submit">
                 Submit <i className="fas fa-tint"></i>
               </button>
