@@ -7,7 +7,7 @@ import Doctors from "../Doctors/Doctors";
 import Services from "../Services/Services";
 import Header from "../../Share/Header/Header";
 import Footer from "../Footer/Footer";
-import Messenger from "../../Share/Messenger/Messenger";
+// import Messenger from "../../Share/Messenger/Messenger";
 
 const Home = () => {
   return (
@@ -19,7 +19,7 @@ const Home = () => {
       <Services />
       <Doctors />
       <Testimonial />
-      <Messenger />
+      {/* <Messenger /> */}
       <Footer />
     </div>
   );
