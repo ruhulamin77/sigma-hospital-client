@@ -20,7 +20,7 @@ const History = () => {
 
   return (
     <>
-      <Header />
+
       <section className="history padding-container">
         <h4
           style={{
@@ -57,7 +57,6 @@ const History = () => {
           </Row>
         </Container>
       </section>
-      <Footer />
     </>
   );
 };

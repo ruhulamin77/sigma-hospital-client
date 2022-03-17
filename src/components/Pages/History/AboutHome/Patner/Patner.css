@@ -1,0 +1,14 @@
+.slick-prev::before,
+.slick-prev::after {
+  font-family: "slick" !important;
+  font-size: 20px;
+  line-height: 1;
+  opacity: 0.75;
+  color: red !important;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.slick-prev::before {
+  content: "←" !important;
+}

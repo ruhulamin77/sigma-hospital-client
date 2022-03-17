@@ -33,7 +33,6 @@ import Login from "./components/Login/Login/Login";
 import OnlineDoctor from "./components/OnlineDoctor/OnlineDoctor";
 import Contact from "./components/Pages/Contact/Contact";
 import FAQ from "./components/Pages/FAQ/FAQ";
-import History from "./components/Pages/History/History";
 import Review from "./components/Pages/review/Review";
 import DoctorHeader from "./components/Pages/Team/DoctorHeader";
 import Team from "./components/Pages/Team/Team";
@@ -54,8 +53,12 @@ import BloodDonationHistory from "./components/BloodDashboard/BloodDonationHisto
 import RegisterDonor from "./components/BloodDashboard/RegisterDonor/RegisterDonor";
 import PatientInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/PatientInvoice/PatientInvoice";
 import Messenger from "./components/Share/Messenger/Messenger";
+<<<<<<< HEAD
+import AboutHome from "./components/Pages/History/AboutHome/AboutHome";
+=======
 // import AdminRoute from "./components/PrivateRoute/AdminRoute";
 import UserDashboard from "./components/Dashboard/UserDashboard/UserHome/UserDashboard";
+>>>>>>> 555f45bae350a28b800bfaf02fbd44d4f4791f32
 
 // import PaymentSuccess from "./components/Dashboard/Pharmacy/PaymentSuccess/PaymentSuccess";
 
@@ -93,7 +96,7 @@ function App() {
           <Route path="/blog" element={<Blogs />} />
           <Route path="/medicineCart" element={<Cart />} />
           {/* <Route path="/contact" element={<Contact />} /> */}
-          <Route path="/about" element={<History />} />
+          <Route path="/about" element={<AboutHome />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/singleDoctor/:id" element={<SingleDoctor />} />
 
