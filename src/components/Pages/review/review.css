@@ -8,6 +8,11 @@
   align-items: center;
   margin: 100px 0;
 }
+.error-des {
+  color: red;
+  font-size: 12;
+  padding: 5px 0;
+}
 .one .re {
   color: #f68685;
 }
@@ -100,5 +105,14 @@
   opacity: 1;
 }
 .reviewRating {
+  color: #f68685;
+}
+.low {
+  color: red;
+}
+.medium {
+  color: #7093e5;
+}
+.high {
   color: #f68685;
 }
