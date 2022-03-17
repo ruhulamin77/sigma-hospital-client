@@ -7,7 +7,7 @@ export default function AdminRoute() {
     let location = useLocation();
     return (
         <>
-            {admin ? <Navigate to="/dashboardload" />: <Navigate to="/adminLogin" state={{ from: location }} />};
+            {admin ? <Navigate to="/dashboard" />: <Navigate to="/adminLogin" state={{ from: location }} />};
         </>
     )
 }

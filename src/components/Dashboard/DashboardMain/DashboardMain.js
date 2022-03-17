@@ -26,7 +26,7 @@ import { logOut } from "../../../features/adminSlice";
 import "./DashboardMain.css";
 
 import { Link, Outlet } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // import Header from "../../Share/Header/Header";
 
 const DashboardMain = () => {
@@ -34,7 +34,7 @@ const DashboardMain = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  const dispatch = useDispatch();
   return (
     <>
       <div className="dashboard_mobile_header">
@@ -99,7 +99,7 @@ const DashboardMain = () => {
                       className="dash_drop_item"
                     >
                       <RiLogoutCircleLine />
-                      <span onClick={logOut}>Logout</span>
+                      <span onClick={() => dispatch(logOut())}>Logout</span>
                     </NavDropdown.Item>
                   </NavDropdown>
                 </div>
@@ -482,7 +482,7 @@ const DashboardMain = () => {
               <li data-tag="Setting">
                 <GiSettingsKnobs />
               </li>
-              <li data-tag="Logout" onClick={logOut}>
+              <li data-tag="Logout" onClick={() => dispatch(logOut())}>
                 <BiLogIn />
               </li>
             </ul>
@@ -527,7 +527,7 @@ const DashboardMain = () => {
                   <NavDropdown.Divider />
                   <NavDropdown.Item as={Link} to="" className="dash_drop_item">
                     <RiLogoutCircleLine />
-                    <span onClick={logOut}>Logout</span>
+                    <span onClick={() => dispatch(logOut())}>Logout</span>
                   </NavDropdown.Item>
                 </NavDropdown>
               </div>
