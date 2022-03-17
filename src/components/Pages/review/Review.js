@@ -1,33 +1,50 @@
 import axios from "axios";
 import { useState } from "react";
 import { Col, Container, Row } from 'react-bootstrap';
+import { useForm } from "react-hook-form";
 import { BiHappyHeartEyes } from 'react-icons/bi';
 import { BsHeartFill } from 'react-icons/bs';
 import { FaRegAngry } from 'react-icons/fa';
 import Rating from "react-rating";
 import { useSelector } from "react-redux";
+import Swal from "sweetalert2";
 import Header from "../../Share/Header/Header";
 import "./review.css";
 
 const Review = () => {
     const user = useSelector((state) => state.auth.value);
     const [rating, setRate] = useState(0)
-    const [data, setData] = useState("")
+    const { register,reset , formState: { errors }, handleSubmit } = useForm();// initialize the hook
+    const onSubmit = (data) => {
+        data["rating"] = rating;
+        data["email"] = user?.email;
+        data["displayName"] = user?.displayName;
+        data["photoURL"] = user?.photoURL;
+        axios.post("http://localhost:7050/reviewAdd", data).then(data => {
+            console.log(data, "info");
+            if (data.status === 200) {
+                reset()
+                setRate(0)
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Your Review has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+            } else {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'Your Review has not been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                  }) 
+            }
+        })    
+    };
 
-    const handleReview = (e) => {
-        e.preventDefault()
-        const info = {
-            describe: data,
-            rating: rating,
-            email: user?.email,
-            displayName: user?.displayName,
-            photoURL: user?.photoURL,
-        }
-        axios.post("http://localhost:7050/reviewAdd", info)
-        console.log(info);
 
-    }
-    console.log(user, "user");
 
     return (
         <>
@@ -41,7 +58,7 @@ const Review = () => {
                                 <div class="one">
                                     <h1 className="re">Give Us Feedback</h1>
                                 </div>
-                                <form onSubmit={(e) => handleReview(e)} >
+                                <form onSubmit={handleSubmit(onSubmit)} >
                                     <Rating className="reviewRating"
                                         stop={5}
                                         fractions={5}
@@ -57,9 +74,11 @@ const Review = () => {
                                     {
                                         rating <= 2 && rating > 0 ? <p>I hate This <FaRegAngry /></p> : rating <= 4 ? <p>It is Awesome.  <BiHappyHeartEyes /></p> : <p>I just love it.  <BsHeartFill /></p>
                                     }
-                                    <textarea placeholder="Describe your experience..." onChange={(e) => setData(e.target.value)} id="" cols="30" rows="10">
+                                    <textarea placeholder="Describe your experience..." {...register("describe", { required: true })} >
+                                    
 
                                     </textarea>
+                                    {errors.describe?.type === 'required' && <p className="error-des">Description is required</p>}
                                     <button className="bttn" type="submit">Post</button>
                                 </form>
                             </div>
