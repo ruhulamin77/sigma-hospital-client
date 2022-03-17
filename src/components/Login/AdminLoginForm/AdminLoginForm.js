@@ -3,16 +3,13 @@ import { useForm } from 'react-hook-form';
 import {adminLogin} from '../../../features/adminSlice'
 import {useDispatch,} from 'react-redux'
 import "./AdminLoginForm.css";
-import { useNavigate } from 'react-router-dom';
 
 const AdminLoginForm = () => {
-  const { register, handleSubmit, reset } = useForm();
-  let navigate = useNavigate();  
+  const { register, handleSubmit, reset } = useForm(); 
   const dispatch = useDispatch()
   const onSubmit = data =>{
     reset()
     dispatch(adminLogin(data)) 
-    navigate(`/dashboard`);
   }
     return (
         <div>
@@ -26,7 +23,6 @@ const AdminLoginForm = () => {
                         <div className="col-lg-12 login-title">
                             ADMIN PANEL LOGIN
                         </div>
-      
                             <div className="col-lg-12 login-for">
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     <div className="form-group">

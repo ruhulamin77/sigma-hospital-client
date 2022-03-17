@@ -9,6 +9,7 @@ import BloodDashboardMain from "./components/BloodDashboard/BloodDashboardMain/B
 import ChatPage from "./components/ChatHome/ChatPage/ChatPage";
 import AdminHomeMain from "./components/Dashboard/AdminDashboard/AdminHome/AdminHomeMain/AdminHomeMain";
 import CreateAdmin from "./components/Dashboard/CreateAdmin/CreateAdmin";
+// import DashboardLoad from "./components/Dashboard/DashboardLoad/DashboardLoad";
 import DashboardMain from "./components/Dashboard/DashboardMain/DashboardMain";
 import AddDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AddDoctors/AddDoctors";
 import AllDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AllDoctors/AllDoctors";
@@ -53,6 +54,8 @@ import BloodDonationHistory from "./components/BloodDashboard/BloodDonationHisto
 import RegisterDonor from "./components/BloodDashboard/RegisterDonor/RegisterDonor";
 import PatientInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/PatientInvoice/PatientInvoice";
 import Messenger from "./components/Share/Messenger/Messenger";
+// import AdminRoute from "./components/PrivateRoute/AdminRoute";
+import UserDashboard from "./components/Dashboard/UserDashboard/UserHome/UserDashboard";
 
 // import PaymentSuccess from "./components/Dashboard/Pharmacy/PaymentSuccess/PaymentSuccess";
 
@@ -65,6 +68,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/" element={<PrivateRoute />}>
             <Route path="/appointment" element={<AppointmentHeader />} />
+            <Route path="/userDashboard" element={<UserDashboard />}></Route>
           </Route>
           <Route path="/blog/:id" element={<SingleBlog />} />
 
@@ -111,6 +115,7 @@ function App() {
           />
 
           {/* dashboard */}
+          {/* <Route path="/dashboard" element={<AdminRoute />}> */}
           <Route path="/dashboard" element={<DashboardMain />}>
             <Route path="/dashboard" element={<AdminHomeMain />}></Route>
             <Route
@@ -155,6 +160,7 @@ function App() {
 
             {/* patients route end */}
           </Route>
+          {/* </Route> */}
           {/*  blood bank */}
           <Route path="/bloodBank" element={<BloodDashboardMain />}>
             <Route path="/bloodBank" element={<BloodDashboardHome />}></Route>

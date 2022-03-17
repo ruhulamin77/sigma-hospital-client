@@ -9,7 +9,7 @@ import Header from "../../Share/Header/Header"
 import Footer from "../../Home/Footer/Footer"
 
 const Login = () => {
-    const { loginUser, registerUser, signInWithGoogle } = useFirebase();
+    const { loginUser, registerUser, signInWithGoogle, authError } = useFirebase();
     const navigate = useNavigate();
     const location = useLocation();
     const [classAdd, setClassAdd] = useState("")
@@ -40,6 +40,7 @@ const Login = () => {
     return (
         <>
             <Header />
+            {authError && <h5 className='text-center'>{authError}</h5>}
             <Container className='padding-container'>
                 <div className={`con ${classAdd}`} id="container">
                     <div className="form-container sign-up-container">
