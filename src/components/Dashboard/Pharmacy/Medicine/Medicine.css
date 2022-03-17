@@ -25,7 +25,7 @@ tr td{
     color: white;
 }
 
-.search{
+.search-medicen{
     display: flex;
     justify-content: end;
 }
@@ -43,12 +43,13 @@ tr td{
 .cart{
     color: #4169e1;
     display: flex;
-    justify-content: flex-end;
-    
+    justify-content: flex-end; 
     margin-bottom: 21px;
+    position: relative;
 }
 .cart-icon{
-    font-size: 33px;
+    font-size: 36px;
+    /* position: relative; */
 }
 
 .cart-item{
@@ -56,12 +57,13 @@ tr td{
     background-color: #f68685;
     color: #fff;
     border-radius: 50%;
-    margin-top: -11px;
-    margin-left: 19px;
+    margin-top: -10px;
+    margin-left: 13px;
     width: 25px;
     height: 25px;
     text-align: center;
     line-height: 25px;
+    z-index: 1;
 }
 
 .Medicine-spnir{
@@ -74,4 +76,26 @@ tr td{
     letter-spacing: 1px;
     font-size: 24px;
     color: #f68685;
+}
+
+
+.pageCount{
+    margin-left: 21px;
+    margin-top: 18px;
+}
+.pageCount button{
+    margin-left: 16px;
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 0px 27px;
+
+}
+
+.pageCount .selected{
+    background-color: #f68685;
+}
+.pageNumber{
+    font-size: 20px;
+    font-weight: 500;
+    font-family: revert;
 }

@@ -53,12 +53,9 @@ import BloodDonationHistory from "./components/BloodDashboard/BloodDonationHisto
 import RegisterDonor from "./components/BloodDashboard/RegisterDonor/RegisterDonor";
 import PatientInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/PatientInvoice/PatientInvoice";
 import Messenger from "./components/Share/Messenger/Messenger";
-<<<<<<< HEAD
-import AboutHome from "./components/Pages/History/AboutHome/AboutHome";
-=======
 // import AdminRoute from "./components/PrivateRoute/AdminRoute";
 import UserDashboard from "./components/Dashboard/UserDashboard/UserHome/UserDashboard";
->>>>>>> 555f45bae350a28b800bfaf02fbd44d4f4791f32
+import AddMedicine from "./components/Dashboard/Pharmacy/AddMedicine/AddMedicine";
 
 // import PaymentSuccess from "./components/Dashboard/Pharmacy/PaymentSuccess/PaymentSuccess";
 
@@ -66,7 +63,7 @@ function App() {
   return (
     <div>
       <Router>
-      <Messenger />
+        <Messenger />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/" element={<PrivateRoute />}>
@@ -96,7 +93,7 @@ function App() {
           <Route path="/blog" element={<Blogs />} />
           <Route path="/medicineCart" element={<Cart />} />
           {/* <Route path="/contact" element={<Contact />} /> */}
-          <Route path="/about" element={<AboutHome />} />
+          {/* <Route path="/about" element={< AboutHome />} /> */}
           <Route path="/contact" element={<Contact />} />
           <Route path="/singleDoctor/:id" element={<SingleDoctor />} />
 
@@ -159,6 +156,7 @@ function App() {
             <Route path="/dashboard/receive" element={<ProductRecive />} />
             <Route path="/dashboard/invoice" element={<Invoice />} />
 
+            <Route path="/dashboard/AddMedicine" element={<AddMedicine />} />
             <Route path="/dashboard/pdfInvoice/:id" element={<PdfInvoice />} />
 
             {/* patients route end */}

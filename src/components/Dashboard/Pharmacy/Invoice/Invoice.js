@@ -27,8 +27,7 @@ const Invoice = () => {
         <section>
             <div className='container mt-5'>
                 <h1>All Invoice</h1>
-                <div className='search'>
-
+                <div className='search-medicen'>
                     <input type="text" onChange={handelsearchData} className='search-option-medicen' placeholder='Search Medicine' />
                 </div>
                 <div className='row mt-5'>
