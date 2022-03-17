@@ -11,8 +11,8 @@ const ChooseUs = () => {
 
   return (
     <div className="section chooseUs-Fild">
-      <h2 style={{ transform: `translateX(${(pageUs - 1000) * .5}px)` }}>WHY CHOOSE US</h2>
-      <Container className="why-choose padding-container">
+      <h2 style={{ transform: `translateX(${(pageUs - 700) * .5}px)` }}>WHY CHOOSE US</h2>
+      <Container className="why-choose ">
         <div className="outer-why-content row">
           <div className="col-lg-2"></div>
           <div className="why-content col-lg-10">
@@ -26,7 +26,7 @@ const ChooseUs = () => {
           </div>
         </div>
 
-        <div className=" row mt-5">
+        <div className=" row mt-3">
           <div className="col-lg-2"></div>
           <div className="peaper col-lg-10">
             <div className="row gy-5 gx-4">

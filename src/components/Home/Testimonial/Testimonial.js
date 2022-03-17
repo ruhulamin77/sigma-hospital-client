@@ -1,25 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import './Testimonial.css';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import manager from '../../../icons/performance.png';
 import packages from '../../../icons/packaging.png';
+import manager from '../../../icons/performance.png';
 import award from '../../../icons/trophy.png';
+import './Testimonial.css';
 import TestimonialSlider from './TestimonialSlider/TestimonialSlider';
-
 const Testimonial = () => {
     const [pageServices, setPageServices] = useState(0)
     const handleHight = () => setPageServices(window.pageYOffset);
     useEffect(() => {
         window.addEventListener("scroll", handleHight)
     }, [])
-    /* console.log((pageServices -pageServices)+ 1); */
+    
     return (
         <div className='our-service' style={{ backgroundColor: "#FDF4F4" }}>
-            <h3 style={{ transform: `translateX(${(pageServices - 3000) * .5}px)` }}>TESTIMONIAL</h3>
-            <Container className='service-section'>
-                <Row className="g-0">
+            <h3 style={{ transform: `translateX(${(pageServices - 3200) * .5}px)` }}>TESTIMONIAL</h3>
+            <Container className='testimonial-section'>
+                <Row className="gx-4 align-items-center">
                     <Col className='col-12 col-md-8'>
-                        <Card className='service-left border-0 rounded-0'>
+                        <Card className='service-lef border-0 rounded-0'>
                             <Card.Body>
                                 <h6 style={{ letterSpacing: "3px" }}>TESTIMONIAL</h6>
                                 <h1>What Our <br /> <span className='fw-light'> Patients Says</span></h1>
