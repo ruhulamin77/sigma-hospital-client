@@ -51,7 +51,6 @@ import BloodRequestHistory from "./components/BloodDashboard/BloodRequestHistory
 import BloodDonation from "./components/BloodDashboard/BloodDonation/BloodDonation";
 import BloodDonationHistory from "./components/BloodDashboard/BloodDonationHistory/BloodDonationHistory";
 import RegisterDonor from "./components/BloodDashboard/RegisterDonor/RegisterDonor";
-import PatientInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/PatientInvoice/PatientInvoice";
 import Messenger from "./components/Share/Messenger/Messenger";
 // import AdminRoute from "./components/PrivateRoute/AdminRoute";
 import UserDashboard from "./components/Dashboard/UserDashboard/UserHome/UserDashboard";
@@ -146,10 +145,10 @@ function App() {
               path="/dashboard/prescription/:id"
               element={<PatientPrescription />}
             />
-            <Route
+            {/* <Route
               path="/dashboard/patient/invoice"
               element={<PatientInvoice />}
-            />
+            /> */}
 
             <Route path="/dashboard/pharmacy" element={<PharmacyHome />} />
             <Route path="/dashboard/order" element={<Order />} />

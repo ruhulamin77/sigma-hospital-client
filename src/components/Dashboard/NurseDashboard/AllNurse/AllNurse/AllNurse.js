@@ -6,6 +6,7 @@ import SingleNurseCard from '../SingleNurseCard/SingleNurseCard';
 
 const AllNurse = () => {
     const allNurse = useGetNursesQuery();
+    console.log(allNurse.data);
     if (!allNurse?.data?.length) {
         return <Button variant="primary" disabled>
             <Spinner
