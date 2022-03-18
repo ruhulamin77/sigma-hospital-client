@@ -20,10 +20,9 @@ import { FaRegCalendarAlt, FaUser } from "react-icons/fa";
 import { BsChevronDown, BsListTask } from "react-icons/bs";
 import { IoSettingsSharp } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
-
+import { useDispatch, useSelector } from "react-redux";
 import { Link, Outlet } from "react-router-dom";
-import { useSelector } from "react-redux";
-import useFirebase from "../../../../hooks/useFirebase";
+import { removeUser } from "../../../../features/authSlice";
 // import Header from "../../Share/Header/Header";
 
 const UserDashboard = () => {
@@ -31,10 +30,8 @@ const UserDashboard = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const user = useSelector((state) => state.auth);
-
-  const { logout } = useFirebase();
-
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.auth.auth);
   return (
     <>
       <div className="dashboard_mobile_header">
@@ -94,12 +91,10 @@ const UserDashboard = () => {
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item
-                      as={Link}
-                      to=""
                       className="dash_drop_item"
                     >
                       <RiLogoutCircleLine />
-                      <span onClick={logout}>Logout</span>
+                      <span onClick={() => dispatch(removeUser())}>Logout</span>
                     </NavDropdown.Item>
                   </NavDropdown>
                 </div>
@@ -372,7 +367,7 @@ const UserDashboard = () => {
               <li data-tag="Setting">
                 <GiSettingsKnobs />
               </li>
-              <li data-tag="Logout" onClick={logout}>
+              <li data-tag="Logout" onClick={() => dispatch(removeUser())}>
                 <BiLogIn />
               </li>
             </ul>
@@ -417,7 +412,7 @@ const UserDashboard = () => {
                   <NavDropdown.Divider />
                   <NavDropdown.Item as={Link} to="" className="dash_drop_item">
                     <RiLogoutCircleLine />
-                    <span onClick={logout}>Logout</span>
+                    <span onClick={() => dispatch(removeUser())}>Logout</span>
                   </NavDropdown.Item>
                 </NavDropdown>
               </div>

@@ -5,7 +5,7 @@ import useFirebase from "../../../hooks/useFirebase";
 import "./BloodDashboardHome.css";
 
 const BloodDashboardHome = () => {
-  const user = useSelector((state) => state.auth.value);
+  const user = useSelector((state) => state.auth.auth);
 
   const { logout } = useFirebase();
   const [donations, setDonations] = useState([]);

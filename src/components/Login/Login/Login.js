@@ -36,7 +36,6 @@ const Login = () => {
         loginUser(data?.Email, data?.password, location, navigate)
     }
 
-
     return (
         <>
             <Header />

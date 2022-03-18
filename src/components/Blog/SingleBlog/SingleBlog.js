@@ -27,7 +27,7 @@ const SingleBlog = () => {
 
     // const [isLike, setIsLike] = useState([]);
     const blogInfo = useGetBlogQuery();
-    const user = useSelector((state) => state.auth.value)
+    const user = useSelector((state) => state.auth.auth)
 
     useEffect(() => {
         axios.get(`https://shrouded-headland-44423.herokuapp.com/users/${user?.email}`).then(res => setLoginUser(res.data))
