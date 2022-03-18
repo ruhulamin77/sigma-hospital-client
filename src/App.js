@@ -53,12 +53,9 @@ import BloodDonationHistory from "./components/BloodDashboard/BloodDonationHisto
 import RegisterDonor from "./components/BloodDashboard/RegisterDonor/RegisterDonor";
 import PatientInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/PatientInvoice/PatientInvoice";
 import Messenger from "./components/Share/Messenger/Messenger";
-<<<<<<< HEAD
 import AboutHome from "./components/Pages/History/AboutHome/AboutHome";
-=======
 // import AdminRoute from "./components/PrivateRoute/AdminRoute";
 import UserDashboard from "./components/Dashboard/UserDashboard/UserHome/UserDashboard";
->>>>>>> 555f45bae350a28b800bfaf02fbd44d4f4791f32
 
 // import PaymentSuccess from "./components/Dashboard/Pharmacy/PaymentSuccess/PaymentSuccess";
 
