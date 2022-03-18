@@ -1,29 +1,26 @@
-import React, { useEffect, useState, useRef } from "react";
-import { useReactToPrint } from "react-to-print";
+import React, { useEffect, useState } from "react";
 import { Button, Card, Form, Table } from "react-bootstrap";
 import Swal from "sweetalert2";
 import "./PatientPrescription.css";
 import { useSelector } from "react-redux";
 import { MdSend } from 'react-icons/md';
-import { HiLocationMarker, HiMail, HiPhoneMissedCall } from "react-icons/hi";
 import { useParams } from "react-router-dom";
-import { useGetAppointmentsQuery, useGetPrescriptionsQuery } from "../../../../features/sigmaApi";
+import { useGetAppointmentsQuery, useGetPrescriptionsQuery, useGetNursesQuery } from "../../../../features/sigmaApi";
 
 const PatientPrescription = () => {
-  const componentRef = useRef();
-  const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
-  });
 
   const { id } = useParams();
   const allAppoint = useGetAppointmentsQuery();
   const allPrescription = useGetPrescriptionsQuery();
+  const allNurse = useGetNursesQuery();
+  console.log(allNurse.data);
   const [singleAppointment, setSingleAppointment] = useState([]);
   const [singlePrescriptionData, setSinglePrescriptionData] = useState([]);
-  console.log(id);
-  console.log("allPrescriptionData", allPrescription.data);
-  console.log("singleAppointment", singleAppointment);
-  console.log("singlePrescriptionData", singlePrescriptionData);
+  const [nurseTime, setNurseTime] = useState([]);
+  const [nurseDay, setNurseDay] = useState([]);
+  const [nurseName, setNurseName] = useState([]);
+  console.log(nurseName);
+  console.log(singlePrescriptionData);
 
   useEffect(() => {
     const singleAppoint = allAppoint?.data?.find(appoint => appoint._id === id);
@@ -75,9 +72,11 @@ const PatientPrescription = () => {
       })
   };
 
+
   const updateValue = {
     inputFields: inputFields
-  }
+  };
+
   const updatePrescription = e => {
     e.preventDefault();
     fetch(`http://localhost:7050/prescriptions/${singlePrescriptionData._id}`, {
@@ -102,6 +101,35 @@ const PatientPrescription = () => {
       })
   };
 
+  let today = new Date().toLocaleDateString()
+  console.log(today)
+
+  const appointNurse = {
+    nurseData: nurseName,
+    appointDate: today
+  };
+  console.log(appointNurse);
+  const handleAppointNurse = e => {
+    e.preventDefault();
+    fetch(`http://localhost:7050/appointNurse/${singlePrescriptionData._id}`, {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(appointNurse),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount) {
+          Swal.fire({
+            icon: 'success',
+            title: 'The Nurse has been successfully appointed!',
+            showConfirmButton: false,
+            timer: 2000
+          });
+        }
+      })
+  };
+
   const handleAddFields = () => {
     setInputFields([
       ...inputFields,
@@ -113,6 +141,30 @@ const PatientPrescription = () => {
     const values = [...inputFields];
     values.splice(index + 1, 1);
     setInputFields(values);
+  };
+
+  const handleNurseTime = e => {
+    const time = e.target.value;
+    // console.log(time);
+    const filterNurseTime = allNurse?.data?.filter(
+      (nurses) => nurses?.time === time
+    );
+    setNurseTime(filterNurseTime);
+  };
+  const handleNurseDay = e => {
+    const day = e.target.value;
+    const filterNurseDay = nurseTime?.filter(
+      (nurses) => nurses?.day === day
+    );
+    setNurseDay(filterNurseDay);
+  };
+
+  const handleNurseName = e => {
+    const name = e.target.value;
+    const filterNurseName = nurseDay?.filter(
+      (nurse) => nurse?.name === name
+    );
+    setNurseName(filterNurseName);
   };
 
   return (
@@ -192,60 +244,110 @@ const PatientPrescription = () => {
       </Card>
 
 
-      <Card ref={componentRef} style={{ backgroundColor: "#C3D4F6" }} className="mt-5">
-        <div className='p-5'>
+      <Card className="shadow p-3 mt-5">
+        <h4 className="mb-5">Appoint Nurse</h4>
+        <Form onSubmit={updatePrescription}>
           <div className='row'>
-            <div className='col-12 col-sm-6 col-md-6 col-lg-8'>
-              <img className="w-25" src="https://i.ibb.co/hRX83Sc/logo.png" alt="SigmaCareLogo" />
-            </div>
-            <div className='col-12 col-sm-6 col-md-6 col-lg-4'>
-              <h6>Sigma Care Hospial</h6>
-              <p><HiLocationMarker className='me-2' />1234 North Avenue Luke, South Bend, IN 360001</p>
-              <p><HiPhoneMissedCall className='me-2' />+8801629094984</p>
-              <p><HiMail className='me-2' />support@gmail.com</p>
+            <h5 className="mb-3">Patient Details</h5>
+            <hr />
+            <div className="row">
+              <div className="col-12 col-sm-6 col-md-6 col-lg-4">
+                <p><b>Patient Name:</b> {singlePrescriptionData?.patientFirstName} {singlePrescriptionData?.patientLastName}</p>
+                <p><b>Patient Age:</b> {singlePrescriptionData?.patientAge}</p>
+                <p><b>Patient Gender:</b> {singlePrescriptionData?.patientGender}</p>
+              </div>
+              <div className="col-12 col-sm-6 col-md-6 col-lg-8">
+                <Table responsive>
+                  <thead>
+                    <tr>
+                      <th>Number of Medicine</th>
+                      <th>Medicine Name and Power</th>
+                      <th>Feeding System</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {singlePrescriptionData?.inputFields?.map((singleData, index) => (
+                      <tr key={index}>
+                        <td>{singleData?.number}</td>
+                        <td>{singleData?.medicineName}</td>
+                        <td>{singleData?.feedingSystem}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </Table>
+              </div>
             </div>
           </div>
-          <div style={{ marginTop: "3rem" }} className='row'>
-            <div className='col-12 col-sm-6 col-md-6 col-lg-8'>
-              <h6>Doctor Name</h6>
-              <p>{singlePrescriptionData?.doctorName}</p>
-              <h6 className='mt-3'>Patient Details</h6>
-              <p>{singlePrescriptionData?.patientFirstName} {singlePrescriptionData?.patientLastName}</p>
-              <p>Gender: {singlePrescriptionData?.patientGender}</p>
-              <p>Age: {singlePrescriptionData?.patientAge}</p>
-            </div>
-            <div className='col-12 col-sm-6 col-md-6 col-lg-4'>
-              <h6>Invoice number</h6>
-              <p>{singlePrescriptionData?._id}</p>
-            </div>
+          <h5 className="mt-5 mb-3">Nurse Details</h5>
+          <hr style={{ borderTop: "1px solid black" }} />
+          <div className='row'>
+            {
+
+            }
+            <Form.Group className="col-12 col-md-2 mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Time</Form.Label>
+              <Form.Select
+                defaultValue={nurseName?.time}
+                onBlur={handleNurseTime}
+                aria-label="Default select example"
+              >
+                <option>- Select -</option>
+                <option>7.00 am - 3.00 pm</option>
+                <option>3.00 pm - 10.00 pm</option>
+                <option>10.00 pm - 7.00 am</option>
+
+              </Form.Select>
+            </Form.Group>
+
+            <Form.Group className="col-12 col-md-2 mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Day</Form.Label>
+              <Form.Select
+                type="text"
+                name="day"
+                onBlur={handleNurseDay}
+                aria-label="Default select example"
+              >
+                <option>- Select -</option>
+                <option>Monday - Friday</option>
+                <option>Friday - Monday</option>
+                <option>Sunday - Thrusday</option>
+
+              </Form.Select>
+            </Form.Group>
+
+            <Form.Group className="col-12 col-md-4 mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Nurse Name</Form.Label>
+              <Form.Select
+                onChange={handleNurseName}
+                aria-label="Default select example"
+              >
+                <option>Select</option>
+                {
+                  nurseDay?.map(singleNurse =>
+                    <option key={singleNurse?._id} value={singleNurse?.name}>{singleNurse?.name}</option>
+                  )
+                }
+              </Form.Select>
+            </Form.Group>
+
+            <Form.Group className="col-12 col-md-2 mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Appoint Date</Form.Label>
+              <Form.Control
+                defaultValue={today}
+                type="email"
+                placeholder="Patient Gender"
+              />
+            </Form.Group>
+
           </div>
-          <div style={{ marginTop: "3rem" }}>
-            <Table responsive>
-              <thead>
-                <tr>
-                  <th>Number of Medicine</th>
-                  <th>Medicine Name and Power</th>
-                  <th>Feeding System</th>
-                </tr>
-              </thead>
-              <tbody>
-                {singlePrescriptionData?.inputFields?.map((singleData, index) => (
-                  <tr key={index}>
-                    <td>{singleData?.number}</td>
-                    <td>{singleData?.medicineName}</td>
-                    <td>{singleData?.feedingSystem}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </Table>
-          </div>
-        </div>
+          <Button onClick={handleAppointNurse} className="doctor-update">Appoint Nurse</Button>
+        </Form>
       </Card>
 
-      {singlePrescriptionData &&
-        <Button onClick={handlePrint} className="d-flex mx-auto mt-2" variant="outline-dark">Download invoice</Button>
-      }
-    </div>
+
+
+
+    </div >
   );
 };
 

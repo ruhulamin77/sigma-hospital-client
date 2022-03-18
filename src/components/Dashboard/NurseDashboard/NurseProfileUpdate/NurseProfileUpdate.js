@@ -14,6 +14,7 @@ const NurseProfileUpdate = () => {
         const doctorData = allNurse?.data?.find(doctorId => doctorId._id === id);
         setSingleNurseInfo(doctorData);
     }, [allNurse?.data, id]);
+
     const handleUpdateNurse = e => {
         const field = e.target.name;
         const value = e.target.value;
@@ -21,6 +22,8 @@ const NurseProfileUpdate = () => {
         newDoctorData[field] = value;
         setNurseUpdateData(newDoctorData);
     }
+    console.log(nurseUpdateData);
+
     const handleSubmit = e => {
         e.preventDefault();
 
@@ -31,6 +34,7 @@ const NurseProfileUpdate = () => {
         })
             .then(res => res.json())
             .then(data => {
+                console.log(data);
                 if (data.modifiedCount > 0) {
                     Swal.fire({
                         icon: 'success',
@@ -142,7 +146,7 @@ const NurseProfileUpdate = () => {
                                                 <option>Working Time</option>
                                                 <option value="7.00 am - 3.00 pm">7.00 am - 3.00 pm</option>
                                                 <option value="3.00 pm - 10.00 pm">3.00 pm - 10.00 pm</option>
-                                                <option value="10.00 pm - 7.00 pm">10.00 pm - 7.00 pm</option>
+                                                <option value="10.00 pm - 7.00 am">10.00 pm - 7.00 am</option>
                                             </Form.Select>
                                         </Form.Group>
                                     </div>

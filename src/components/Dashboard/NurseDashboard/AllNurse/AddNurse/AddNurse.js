@@ -151,7 +151,7 @@ const AddNurse = () => {
                                             <option>Working Time</option>
                                             <option value="7.00 am - 3.00 pm">7.00 am - 3.00 pm</option>
                                             <option value="3.00 pm - 10.00 pm">3.00 pm - 10.00 pm</option>
-                                            <option value="10.00 pm - 7.00 pm">10.00 pm - 7.00 pm</option>
+                                            <option value="10.00 pm - 7.00 pm">10.00 pm - 7.00 am</option>
                                         </Form.Select>
                                     </Form.Group>
                                 </div>
