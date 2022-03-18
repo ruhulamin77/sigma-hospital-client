@@ -241,10 +241,10 @@ const DashboardMain = () => {
                         <span className="nav_icon">--</span>
                         <span>Add Nurses</span>
                       </Link>
-                      {/* <Link to="/dashboard/allNurse/update/:id">
-                      <span className="nav_icon">--</span>
-                      <span>Nurse Profile</span> 
-                  </Link>*/}
+                      <Link to="/dashboard/appointedpatient">
+                        <span className="nav_icon">--</span>
+                        <span>Appointed Patients</span>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -672,6 +672,10 @@ const DashboardMain = () => {
                     <Link to="/dashboard/addNurse">
                       <span className="nav_icon">--</span>
                       <span>Add Nurses</span>
+                    </Link>
+                    <Link to="/dashboard/appointedpatient">
+                      <span className="nav_icon">--</span>
+                      <span>Appointed Patients</span>
                     </Link>
 
                   </li>
