@@ -8,7 +8,6 @@ const AddMedicine = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {
-        console.log(data)
         axios.post('https://shrouded-headland-44423.herokuapp.com/medicine', data)
             .then(res => {
                 if (res.data.insertedId) {
@@ -33,7 +32,7 @@ const AddMedicine = () => {
                         aria-label="Default select example"
                         {...register("type", { required: true })}
                     >
-                        <option>- Type -</option>
+                        <option >- Type -</option>
                         <option value="Tablet">Tablet</option>
                         <option value="Syrup">Syrup</option>
                         <option value="Capsul">Capsul</option>

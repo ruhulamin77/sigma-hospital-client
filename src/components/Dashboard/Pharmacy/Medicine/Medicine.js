@@ -14,17 +14,27 @@ const Medicine = () => {
     const cart = useSelector((state) => state.cart);
 
 
+    const [pageCount, setPageCount] = useState(0)
+    const [page, setPage] = useState(0)
+    const size = 6;
+
+
+
 
 
     useEffect(() => {
-        fetch("https://shrouded-headland-44423.herokuapp.com/medicine")
+        fetch(`http://localhost:7050/medicine?page=${page}&&size=${size}`)
             .then(res => res.json())
             .then(data => {
-                setMedicines(data)
-                setSearchData(data)
+                setMedicines(data.medicine)
+                setSearchData(data.medicine)
+
+                const count = data.count;
+                const pagenumber = Math.ceil(count / size);
+                setPageCount(pagenumber)
 
             })
-    }, [])
+    }, [page])
 
     const handelsearchData = (e) => {
         let search = e.target.value.toLowerCase()
@@ -49,8 +59,7 @@ const Medicine = () => {
                 </div>
 
 
-                <div className='search'>
-
+                <div className='search-medicen'>
                     <input type="text" onChange={handelsearchData} className='search-option-medicen' placeholder='Search Medicine' />
                 </div>
 
@@ -93,6 +102,18 @@ const Medicine = () => {
 
 
                 }
+                <div className='pageCount'>
+
+                    <small className='pageNumber'>Pages :</small>   {[...Array(pageCount).keys()]
+                        .map(number => <button
+                            className={number === page ? "selected" : " "}
+                            key={number}
+                            onClick={() => setPage(number)}
+                        >{number + 1}</button>)
+
+                    }
+
+                </div>
             </div>
 
         </div >

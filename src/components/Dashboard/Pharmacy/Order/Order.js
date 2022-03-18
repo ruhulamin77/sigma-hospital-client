@@ -82,7 +82,6 @@ const Order = () => {
             .then(res => res.json())
             .then(data => {
                 window.location.replace(data)
-                console.log(data)
                 handelcrealecart()
             })
 

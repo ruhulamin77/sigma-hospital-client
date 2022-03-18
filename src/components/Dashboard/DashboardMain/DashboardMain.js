@@ -796,6 +796,11 @@ const DashboardMain = () => {
                       <span className="nav_icon">--</span>
                       <span>Invoice</span>
                     </Link>
+
+                    <Link to="/dashboard/AddMedicine">
+                      <span className="nav_icon">--</span>
+                      <span>Add New Medicine</span>
+                    </Link>
                   </li>
                 </ul>
               </div>

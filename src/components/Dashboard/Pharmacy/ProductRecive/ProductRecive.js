@@ -14,11 +14,11 @@ const ProductRecive = () => {
 
 
     useEffect(() => {
-        fetch("https://shrouded-headland-44423.herokuapp.com/medicine")
+        fetch("http://localhost:7050/medicine")
             .then(res => res.json())
             .then(data => {
-                setMedicines(data)
-                setSearchData(data)
+                setMedicines(data.medicine)
+                setSearchData(data.medicine)
 
             })
     }, [])
@@ -35,7 +35,7 @@ const ProductRecive = () => {
             <div>
                 <div className='cart'>
                 </div>
-                <div className='search'>
+                <div className='search-medicen'>
                     <input type="text" onChange={handelsearchData} className='search-option-medicen' placeholder='Search Medicine' />
                 </div>
 
@@ -45,32 +45,34 @@ const ProductRecive = () => {
                             color={"#7093e5"} size={150} />
                     </div>
                         :
+                        <div>
+                            <h4 className='Medicine-Center'>Add Product Stock</h4>
+                            <Table striped bordered hover size="sm" className=' mt-5'>
+                                <thead>
+                                    <tr>
+                                        <th>Sl</th>
+                                        <th>brand</th>
+                                        <th>Medicine-Name</th>
+                                        <th>pawer</th>
+                                        <th>type</th>
+                                        <th>stock</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {searchData?.map((medicine, index) => (
+                                        <ProductReciveData medicine={medicine}
+                                            key={medicine._id}
+                                            index={index}
+                                        ></ProductReciveData>
 
-                        <Table striped bordered hover size="sm" className=' mt-5'>
-                            <thead>
-                                <tr>
-                                    <th>Sl</th>
-                                    <th>brand</th>
-                                    <th>Medicine-Name</th>
-                                    <th>pawer</th>
-                                    <th>type</th>
-                                    <th>stock</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {searchData?.map((medicine, index) => (
-                                    <ProductReciveData medicine={medicine}
-                                        key={medicine._id}
-                                        index={index}
-                                    ></ProductReciveData>
+                                    ))}
 
-                                ))}
-
-                            </tbody>
-                        </Table>
+                                </tbody>
+                            </Table>
+                        </div>
                 }
             </div>
 
