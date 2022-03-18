@@ -55,6 +55,7 @@ import Messenger from "./components/Share/Messenger/Messenger";
 // import AdminRoute from "./components/PrivateRoute/AdminRoute";
 import UserDashboard from "./components/Dashboard/UserDashboard/UserHome/UserDashboard";
 import AddMedicine from "./components/Dashboard/Pharmacy/AddMedicine/AddMedicine";
+import AppointedPatient from "./components/Dashboard/NurseDashboard/AppointedPatient/AppointedPatient/AppointedPatient";
 
 // import PaymentSuccess from "./components/Dashboard/Pharmacy/PaymentSuccess/PaymentSuccess";
 
@@ -134,6 +135,7 @@ function App() {
             {/* nurse route start */}
             <Route path="/dashboard/addNurse" element={<AddNurse />} />
             <Route path="/dashboard/allNurse" element={<AllNurse />} />
+            <Route path="/dashboard/appointedpatient" element={<AppointedPatient />} />
             <Route
               path="/dashboard/allNurse/update/:id"
               element={<NurseProfileUpdate />}
