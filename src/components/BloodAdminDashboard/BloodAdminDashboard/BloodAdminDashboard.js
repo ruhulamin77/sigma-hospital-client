@@ -21,6 +21,8 @@ const BloodAdminDashboard = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const user = useSelector((state) => state.auth.auth);
+  // http://localhost:7050/
+  // https://shrouded-headland-44423.herokuapp.com/
 
   return (
     <>
