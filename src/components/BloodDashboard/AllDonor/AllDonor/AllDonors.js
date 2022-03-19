@@ -19,11 +19,11 @@ const AllDonors = () => {
     setUidonor(seacredonor);
   };
 
-  // const reqData = useGetBloodRequestQuery();
-  // console.log(reqData);
+  // http://localhost:7050/
+  // https://shrouded-headland-44423.herokuapp.com/
 
   useEffect(() => {
-    fetch("https://hidden-coast-99117.herokuapp.com/donateBlood")
+    fetch("https://shrouded-headland-44423.herokuapp.com/donors")
       .then((res) => res.json())
       .then((Donordata) => {
         const AproveDonorData = Donordata.filter(

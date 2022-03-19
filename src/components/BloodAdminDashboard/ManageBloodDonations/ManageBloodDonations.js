@@ -6,8 +6,11 @@ import Swal from "sweetalert2";
 const ManageBloodDonations = () => {
   const [donationRequest, setDonationRequest] = useState([]);
 
+  // http://localhost:7050/
+  // https://shrouded-headland-44423.herokuapp.com/
+
   useEffect(() => {
-    fetch("https://hidden-coast-99117.herokuapp.com/bloods")
+    fetch("https://shrouded-headland-44423.herokuapp.com/bloodDonation")
       .then((res) => res.json())
       .then((data) => {
         // const AproveRequestData =data.filter(data =>data.status ==="Approved")
@@ -17,9 +20,12 @@ const ManageBloodDonations = () => {
   // update approved status
   const handleApproved = (id) => {
     axios
-      .put(`https://hidden-coast-99117.herokuapp.com/bloods/${id}`, {
-        status: "Approved",
-      })
+      .put(
+        `https://shrouded-headland-44423.herokuapp.com/bloodDonation/${id}`,
+        {
+          status: "Approved",
+        }
+      )
       .then((res) => {
         console.log(res);
         if (res.data.matchedCount > 0) {
@@ -33,9 +39,12 @@ const ManageBloodDonations = () => {
   // // update rejected status
   const handleRejected = (id) => {
     axios
-      .put(`https://hidden-coast-99117.herokuapp.com/bloods/${id}`, {
-        status: "Rejected",
-      })
+      .put(
+        `https://shrouded-headland-44423.herokuapp.com/bloodDonation/${id}`,
+        {
+          status: "Rejected",
+        }
+      )
       .then((res) => {
         console.log(res);
         if (res.data.matchedCount > 0) {
@@ -63,14 +72,14 @@ const ManageBloodDonations = () => {
       <div>
         <h4 className="donor-details mt-3">Blood Donation</h4>
         <div className="pt-3">
-          <Table striped brequestblooded hover>
+          <Table striped responsive brequestblooded hover>
             <thead>
               <tr className="t-head">
                 <th>Sl</th>
                 <th>Name</th>
                 <th>Age</th>
                 <th>Gender</th>
-                <th>Blood Group</th>
+                <th>B. Group</th>
                 <th>Address</th>
                 <th>Mobile</th>
                 <th>Donate Date</th>

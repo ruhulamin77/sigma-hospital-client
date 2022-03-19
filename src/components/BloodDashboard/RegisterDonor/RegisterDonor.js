@@ -13,7 +13,7 @@ const RegisterDonor = () => {
   const [donars, setDonars] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:7050/donors").then((res) =>
+    fetch("https://shrouded-headland-44423.herokuapp.com/donors").then((res) =>
       res.json().then((data) => setDonars(data))
     );
   }, []);
@@ -35,18 +35,20 @@ const RegisterDonor = () => {
         showConfirmButton: true,
       });
     }
-    axios.post("http://localhost:7050/donors", data).then((res) => {
-      if (res.data.insertedId) {
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Thank you for your kindness",
-          showConfirmButton: true,
-        });
+    axios
+      .post("https://shrouded-headland-44423.herokuapp.com/donors", data)
+      .then((res) => {
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Thank you for your kindness",
+            showConfirmButton: true,
+          });
 
-        reset();
-      }
-    });
+          reset();
+        }
+      });
   };
   return (
     <div className="register-donor-form-container ">
