@@ -35,6 +35,7 @@ const DashboardMain = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const dispatch = useDispatch();
+  // console.log(admin, "maindashboard");
   return (
     <>
       <div className="dashboard_mobile_header">

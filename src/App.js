@@ -52,8 +52,10 @@ import BloodDonation from "./components/BloodDashboard/BloodDonation/BloodDonati
 import BloodDonationHistory from "./components/BloodDashboard/BloodDonationHistory/BloodDonationHistory";
 import RegisterDonor from "./components/BloodDashboard/RegisterDonor/RegisterDonor";
 import Messenger from "./components/Share/Messenger/Messenger";
+import AboutHome from "./components/Pages/History/AboutHome/AboutHome";
 // import AdminRoute from "./components/PrivateRoute/AdminRoute";
 import UserDashboard from "./components/Dashboard/UserDashboard/UserHome/UserDashboard";
+// import AdminRoute from "./components/PrivateRoute/AdminRoute";
 import AddMedicine from "./components/Dashboard/Pharmacy/AddMedicine/AddMedicine";
 import AppointedPatient from "./components/Dashboard/NurseDashboard/AppointedPatient/AppointedPatient/AppointedPatient";
 
@@ -135,7 +137,10 @@ function App() {
             {/* nurse route start */}
             <Route path="/dashboard/addNurse" element={<AddNurse />} />
             <Route path="/dashboard/allNurse" element={<AllNurse />} />
-            <Route path="/dashboard/appointedpatient" element={<AppointedPatient />} />
+            <Route
+              path="/dashboard/appointedpatient"
+              element={<AppointedPatient />}
+            />
             <Route
               path="/dashboard/allNurse/update/:id"
               element={<NurseProfileUpdate />}

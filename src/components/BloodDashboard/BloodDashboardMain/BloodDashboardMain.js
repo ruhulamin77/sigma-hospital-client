@@ -1,32 +1,15 @@
 import React, { useState } from "react";
 import "./BloodDashboardMain.css";
 import { Button, NavDropdown, Offcanvas } from "react-bootstrap";
-import { GiSettingsKnobs } from "react-icons/gi";
-import { RiLogoutCircleLine, RiSearchLine, RiWechatLine } from "react-icons/ri";
-import { ImStack, ImDroplet } from "react-icons/im";
-import {
-  AiOutlineMail,
-  AiOutlineUser,
-  AiOutlineUsergroupDelete,
-} from "react-icons/ai";
-import { GrHome, GrLocation } from "react-icons/gr";
-import {
-  MdOutlinePayment,
-  MdSupervisedUserCircle,
-  MdBloodtype,
-} from "react-icons/md";
+import { RiLogoutCircleLine } from "react-icons/ri";
+import { ImDroplet } from "react-icons/im";
+import { GrHome } from "react-icons/gr";
+import { MdSupervisedUserCircle, MdBloodtype } from "react-icons/md";
 import { BiDonateBlood } from "react-icons/bi";
-import {
-  HiMailOpen,
-  HiOutlineLockClosed,
-  HiOutlinePuzzle,
-} from "react-icons/hi";
-import { IoMdNotificationsOutline } from "react-icons/io";
-import { BiLogIn } from "react-icons/bi";
-import { FaRegCalendarAlt, FaUser } from "react-icons/fa";
-import { BsChevronDown, BsListTask } from "react-icons/bs";
+import { HiMailOpen } from "react-icons/hi";
+import { FaUser } from "react-icons/fa";
+import { BsChevronDown } from "react-icons/bs";
 import { IoSettingsSharp } from "react-icons/io5";
-import { RiNurseLine } from "react-icons/ri";
 import { GiHamburgerMenu, GiArchiveRegister } from "react-icons/gi";
 
 import { Link, Outlet } from "react-router-dom";
@@ -39,7 +22,6 @@ const BloodDashboardMain = () => {
   const handleShow = () => setShow(true);
   const user = useSelector((state) => state.auth.auth);
 
-  const { logout } = useFirebase();
   return (
     <>
       <div className="dashboard_mobile_header">
@@ -104,7 +86,7 @@ const BloodDashboardMain = () => {
                       className="dash_drop_item"
                     >
                       <RiLogoutCircleLine />
-                      <span onClick={logout}>Logout</span>
+                      <span onClick="">Logout</span>
                     </NavDropdown.Item>
                   </NavDropdown>
                 </div>
@@ -268,7 +250,7 @@ const BloodDashboardMain = () => {
                   <NavDropdown.Divider />
                   <NavDropdown.Item as={Link} to="" className="dash_drop_item">
                     <RiLogoutCircleLine />
-                    <span onClick={logout}>Logout</span>
+                    <span onClick="">Logout</span>
                   </NavDropdown.Item>
                 </NavDropdown>
               </div>
