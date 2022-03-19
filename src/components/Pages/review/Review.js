@@ -19,7 +19,7 @@ const Review = () => {
         data["email"] = user?.email;
         data["displayName"] = user?.displayName;
         data["photoURL"] = user?.photoURL;
-        axios.post("http://localhost:7050/reviewAdd", data).then(data => {
+        axios.post("https://shrouded-headland-44423.herokuapp.com/reviewAdd", data).then(data => {
             console.log(data, "info");
             if (data.status === 200) {
                 reset()

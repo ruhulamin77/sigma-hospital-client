@@ -152,7 +152,7 @@ const SingleBlog = () => {
     // const dddd = blogInfo?.data.sort((a, b) => {
     //     return a.likes.length - b.likes.length
     // })
-    // console.log(dddd, "ddddd");
+    console.log(blogInfo.data, "ddddd");
     return (
         <>
             <Header />
@@ -219,15 +219,18 @@ const SingleBlog = () => {
 
                             {
                                 blogInfo?.data?.map(item => (
+                                    <Link to={`/Blog/${item?._id}`}>
                                     <div className='d-flex justify-content-between align-items-center'>
                                         <div className="info-slider">
-                                            <h5>{item.title }</h5>
-                                            <p>{item.description }</p>
+                                            <h5>{item?.title }</h5>
+                                            <p>{item?.description}</p>
+                                          
                                         </div>
                                         <div className="info-img">
-                                            <img className='img-fluid' src={`data:image/*;base64,${singleBlog?.photo}`} alt="" />
+                                            <img className='img-fluid' src={`data:image/*;base64,${item?.photo}`} alt="" />
                                         </div>
                                     </div>
+                                    </Link>
                                 ))
                             }
                         </Slider>

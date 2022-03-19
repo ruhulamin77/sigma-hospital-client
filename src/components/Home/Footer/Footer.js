@@ -1,10 +1,17 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
 import { FaPaperPlane, FaFacebookF, FaTwitter, FaInstagram, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import "./Footer.css";
 
 const Footer = () => {
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const onSubmit = data => {
+        axios.post("/eamilSub", data)
+        console.log(data);
+    }
     return (
         <footer>
             <Container>
@@ -18,10 +25,10 @@ const Footer = () => {
                             <p>It is a long established fact that a reader will be distracted by the readable content.</p>
                         </div>
                         <div className="footer-form">
-                            <form>
+                            <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="form-cover d-flex justify-content-between">
-                                    <input type="email" placeholder='Email Adress' />
-                                    <button type='submit' value="sign up">
+                                    <input type="email"  {...register("email", { required: true })} placeholder='Email Adress' />
+                                    <button  type='submit' value="sign up">
                                         <FaPaperPlane />
                                     </button>
                                 </div>
@@ -33,10 +40,10 @@ const Footer = () => {
                             <h3>Useful Links</h3>
                         </div>
                         <ul className="footer-menu">
-                            <Link className='footer-item' to="/about-us">About Us</Link>
+                            <Link className='footer-item' to="/about">About Us</Link>
                             <Link className='footer-item' to="/appointment">Appointment</Link>
                             <Link className='footer-item' to="/Service">Service</Link>
-                            <Link className='footer-item' to="/contact-us">Contact  Us</Link>
+                            <Link className='footer-item' to="/contact">Contact  Us</Link>
                         </ul>
                     </Col>
                     <Col sm={6} lg={3} >
