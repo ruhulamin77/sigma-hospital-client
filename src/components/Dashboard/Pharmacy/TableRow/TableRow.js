@@ -21,7 +21,6 @@ const TableRow = ({ medicine, index }) => {
                 console.log(err);
 
             });
-
     };
 
     const handelquantity = (e) => {
