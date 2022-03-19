@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import { ScaleLoader } from 'react-spinners';
-import "./ProductRecive.css"
 import ProductReciveData from '../ProductReciveData/ProductReciveData';
+import "./ProductRecive.css";
 
 const ProductRecive = () => {
 
@@ -14,7 +14,7 @@ const ProductRecive = () => {
 
 
     useEffect(() => {
-        fetch("http://localhost:7050/medicine")
+        fetch("https://shrouded-headland-44423.herokuapp.com/medicine")
             .then(res => res.json())
             .then(data => {
                 setMedicines(data.medicine)

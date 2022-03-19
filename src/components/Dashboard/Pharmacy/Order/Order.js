@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
-import './Order.css'
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
-import { Table } from 'react-bootstrap';
-import OrderData from '../OrderData/OrderData';
-import { Link } from 'react-router-dom';
-import { removeFromCart, clearCart } from '../../../../features/cartSlice';
 import axios from 'axios';
+import React, { useState } from 'react';
+import { Table } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { clearCart, removeFromCart } from '../../../../features/cartSlice';
+import OrderData from '../OrderData/OrderData';
+import './Order.css';
 
 const Order = () => {
     const [name, setName] = useState('')
@@ -20,7 +19,7 @@ const Order = () => {
 
     //remove cart//
     const handelremovecart = (cartItems) => {
-        axios.put(`http://localhost:7050/medicine`, {
+        axios.put(`https://shrouded-headland-44423.herokuapp.com/medicine`, {
             item: { cartItems },
         })
             .then((data) => {
@@ -72,7 +71,7 @@ const Order = () => {
             item: cart.cartItems,
             Total: grandTotal
         }
-        fetch('http://localhost:7050/init', {
+        fetch('https://shrouded-headland-44423.herokuapp.com/init', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"

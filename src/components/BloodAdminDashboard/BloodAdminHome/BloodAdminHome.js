@@ -11,7 +11,7 @@ const BloodAdminHome = () => {
   const [panding, setBloodPanding] = useState([]);
   const [rejected, setBloodRejected] = useState([]);
 
-  // http://localhost:7050/
+  // https://shrouded-headland-44423.herokuapp.com/
   // https://shrouded-headland-44423.herokuapp.com/
 
   useEffect(() => {

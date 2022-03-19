@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
 import { useGetBlogQuery } from "../features/blogApi";
 
 
@@ -18,7 +17,7 @@ const useBlog = () => {
     const user = useSelector((state) => state.auth.auth)
     // find loginn user form db
     useEffect(() => {
-        axios.get(`http://localhost:7050/users/${user?.email}`).then(res => setLoginUser(res.data))
+        axios.get(`https://shrouded-headland-44423.herokuapp.com/users/${user?.email}`).then(res => setLoginUser(res.data))
     }, [user?.email])
 
     

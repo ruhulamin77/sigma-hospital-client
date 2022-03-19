@@ -146,8 +146,8 @@
   transition: 0.2s all ease-in-out;
 }
 .info-slider {
-  width: 50%;
+  width: 50% !important;
 }
 .info-img {
-  width: 50%;
+  width: 50% !important;
 }

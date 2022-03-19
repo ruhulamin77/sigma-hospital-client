@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card, Form, Table } from "react-bootstrap";
-import Swal from "sweetalert2";
-import "./PatientPrescription.css";
-import { useSelector } from "react-redux";
 import { MdSend } from 'react-icons/md';
 import { useParams } from "react-router-dom";
-import { useGetAppointmentsQuery, useGetPrescriptionsQuery, useGetNursesQuery } from "../../../../features/sigmaApi";
+import Swal from "sweetalert2";
+import { useGetAppointmentsQuery, useGetNursesQuery, useGetPrescriptionsQuery } from "../../../../features/sigmaApi";
+import "./PatientPrescription.css";
 
 const PatientPrescription = () => {
 
@@ -54,7 +53,7 @@ const PatientPrescription = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:7050/prescriptions`, {
+    fetch(`https://shrouded-headland-44423.herokuapp.com/prescriptions`, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(newValue),
@@ -84,7 +83,7 @@ const PatientPrescription = () => {
 
   const updatePrescription = e => {
     e.preventDefault();
-    fetch(`http://localhost:7050/prescriptions/${singlePrescriptionData._id}`, {
+    fetch(`https://shrouded-headland-44423.herokuapp.com/prescriptions/${singlePrescriptionData._id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(updateValue),
@@ -118,7 +117,7 @@ const PatientPrescription = () => {
   console.log(appointNurse);
   const handleAppointNurse = e => {
     e.preventDefault();
-    fetch(`http://localhost:7050/appointNurse/${singlePrescriptionData._id}`, {
+    fetch(`https://shrouded-headland-44423.herokuapp.com/appointNurse/${singlePrescriptionData._id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(appointNurse),
