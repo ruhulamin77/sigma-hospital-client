@@ -15,7 +15,7 @@ const PdfInvoice = () => {
                 setData(Order)
 
             })
-    }, [])
+    }, [id])
 
 
 
