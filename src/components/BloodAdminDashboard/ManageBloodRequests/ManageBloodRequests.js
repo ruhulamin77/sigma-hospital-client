@@ -10,7 +10,7 @@ const ManageBloodRequests = () => {
   // https://shrouded-headland-44423.herokuapp.com/
 
   useEffect(() => {
-    fetch("http://localhost:7050/bloodRequest")
+    fetch("https://shrouded-headland-44423.herokuapp.com/bloodRequest")
       .then((res) => res.json())
       .then((data) => {
         // const AproveRequestData =data.filter(data =>data.status ==="Approved")
@@ -20,7 +20,7 @@ const ManageBloodRequests = () => {
   // update approved status
   const handleApproved = (id) => {
     axios
-      .put(`http://localhost:7050/bloodRequest/${id}`, {
+      .put(`https://shrouded-headland-44423.herokuapp.com/bloodRequest/${id}`, {
         status: "Approved",
       })
       .then((res) => {
@@ -36,7 +36,7 @@ const ManageBloodRequests = () => {
   // // update rejected status
   const handleRejected = (id) => {
     axios
-      .put(`http://localhost:7050/bloodRequest/${id}`, {
+      .put(`https://shrouded-headland-44423.herokuapp.com/bloodRequest/${id}`, {
         status: "Rejected",
       })
       .then((res) => {

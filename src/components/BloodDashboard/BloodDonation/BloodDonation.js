@@ -12,8 +12,8 @@ const BloodDonation = () => {
   const user = useSelector((state) => state.auth.auth);
 
   useEffect(() => {
-    fetch("http://localhost:7050/bloodDonation").then((res) =>
-      res.json().then((data) => setBloods(data))
+    fetch("https://shrouded-headland-44423.herokuapp.com/bloodDonation").then(
+      (res) => res.json().then((data) => setBloods(data))
     );
   }, []);
 
@@ -29,18 +29,20 @@ const BloodDonation = () => {
     //     showConfirmButton: true,
     //   });
     // }
-    axios.post("http://localhost:7050/bloodDonation", data).then((res) => {
-      if (res.data.insertedId) {
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Thank you for your kindness",
-          showConfirmButton: true,
-        });
+    axios
+      .post("https://shrouded-headland-44423.herokuapp.com/bloodDonation", data)
+      .then((res) => {
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Thank you for your kindness",
+            showConfirmButton: true,
+          });
 
-        reset();
-      }
-    });
+          reset();
+        }
+      });
   };
   return (
     <div className="blood-donation-form-container">

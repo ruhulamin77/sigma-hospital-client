@@ -17,7 +17,7 @@ const Charts = () => {
 
   //////load data//
   useEffect(() => {
-    fetch("http://localhost:7050/donors")
+    fetch("https://shrouded-headland-44423.herokuapp.com/donors")
       .then((res) => res.json())
       .then((donors) => {
         console.log(donors);
