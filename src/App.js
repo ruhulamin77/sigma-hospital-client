@@ -59,6 +59,16 @@ import Neurologist from "./components/Specialization/Neurologist/Neurologist";
 import Oncologist from "./components/Specialization/Oncologist/Oncologist";
 import Psychiatrists from "./components/Specialization/Psychiatrists/Psychiatrists";
 
+// import AdminRoute from "./components/PrivateRoute/AdminRoute";
+
+// import AdminRoute from "./components/PrivateRoute/AdminRoute";
+
+import BloodAdminDashboard from "./components/BloodAdminDashboard/BloodAdminDashboard/BloodAdminDashboard";
+import BloodAdminHome from "./components/BloodAdminDashboard/BloodAdminHome/BloodAdminHome";
+import ManageAllDonor from "./components/BloodAdminDashboard/ManageAllDonor/ManageAllDonor";
+import ManageBloodRequests from "./components/BloodAdminDashboard/ManageBloodRequests/ManageBloodRequests";
+import ManageBloodDonations from "./components/BloodAdminDashboard/ManageBloodDonations/ManageBloodDonations";
+
 // import PaymentSuccess from "./components/Dashboard/Pharmacy/PaymentSuccess/PaymentSuccess";
 
 function App() {
@@ -97,7 +107,7 @@ function App() {
           <Route path="/blog" element={<Blogs />} />
           <Route path="/medicineCart" element={<Cart />} />
           {/* <Route path="/contact" element={<Contact />} /> */}
-          <Route path="/about" element={< AboutHome />} />
+          <Route path="/about" element={<AboutHome />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/singleDoctor/:id" element={<SingleDoctor />} />
 
@@ -195,6 +205,24 @@ function App() {
               element={<BloodRequestHistory />}
             ></Route>
           </Route>
+          {/* blood bank */}
+          {/* blood bank admin */}
+          <Route path="/bloodBankAdmin" element={<BloodAdminDashboard />}>
+            <Route path="/bloodBankAdmin" element={<BloodAdminHome />}></Route>
+            <Route
+              path="/bloodBankAdmin/manageAllDonors"
+              element={<ManageAllDonor />}
+            ></Route>
+            <Route
+              path="/bloodBankAdmin/ManageBloodDonations"
+              element={<ManageBloodDonations />}
+            ></Route>
+            <Route
+              path="/bloodBankAdmin/manageBloodRequests"
+              element={<ManageBloodRequests />}
+            ></Route>
+          </Route>
+          {/* blood bank admin */}
         </Routes>
       </Router>
     </div>
