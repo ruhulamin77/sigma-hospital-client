@@ -285,10 +285,10 @@ const DashboardMain = () => {
                         <span className="nav_icon">--</span>
                         <span>Patients Profile</span>
                       </Link> */}
-                      {/* <Link to="/dashboard/patient/invoice">
+                      <Link to="/dashboard/patient/invoice">
                         <span className="nav_icon">--</span>
                         <span>Invoice</span>
-                      </Link> */}
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -718,10 +718,10 @@ const DashboardMain = () => {
                         <span className="nav_icon">--</span>
                         <span>Patients Profile</span>
                       </Link> */}
-                    {/* <Link to="/dashboard/patient/invoice">
+                    <Link to="/dashboard/patient/invoice">
                       <span className="nav_icon">--</span>
                       <span>Invoice</span>
-                    </Link> */}
+                    </Link>
                   </li>
                 </ul>
               </div>

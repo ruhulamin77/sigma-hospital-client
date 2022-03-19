@@ -67,7 +67,12 @@ const PatientPrescription = () => {
             title: 'Patient prescription has been successfully added!',
             showConfirmButton: false,
             timer: 2000
-          })
+          });
+          if (Swal) {
+            setTimeout(() => {
+              window.location.reload();
+            }, 2000);
+          }
         }
       })
   };
@@ -94,9 +99,11 @@ const PatientPrescription = () => {
             showConfirmButton: false,
             timer: 2000
           });
-          setTimeout(() => {
-            window.location.reload();
-          }, 2000);
+          if (Swal) {
+            setTimeout(() => {
+              window.location.reload();
+            }, 2000);
+          }
         }
       })
   };

@@ -69,6 +69,8 @@ import ManageAllDonor from "./components/BloodAdminDashboard/ManageAllDonor/Mana
 import ManageBloodRequests from "./components/BloodAdminDashboard/ManageBloodRequests/ManageBloodRequests";
 import ManageBloodDonations from "./components/BloodAdminDashboard/ManageBloodDonations/ManageBloodDonations";
 import Stockout from "./components/Dashboard/Pharmacy/Stockout/Stockout";
+import PatientInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/PatientInvoice/PatientInvoice";
+import SingleInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/SingleInvoice/SingleInvoice";
 
 // import PaymentSuccess from "./components/Dashboard/Pharmacy/PaymentSuccess/PaymentSuccess";
 
@@ -163,10 +165,14 @@ function App() {
               path="/dashboard/prescription/:id"
               element={<PatientPrescription />}
             />
-            {/* <Route
+            <Route
               path="/dashboard/patient/invoice"
               element={<PatientInvoice />}
-            /> */}
+            />
+            <Route
+              path="/dashboard/singlePatient/invoice/:id"
+              element={<SingleInvoice />}
+            />
 
             <Route path="/dashboard/pharmacy" element={<PharmacyHome />} />
             <Route path="/dashboard/order" element={<Order />} />
