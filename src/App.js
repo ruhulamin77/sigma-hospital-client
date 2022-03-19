@@ -58,6 +58,11 @@ import UserDashboard from "./components/Dashboard/UserDashboard/UserHome/UserDas
 // import AdminRoute from "./components/PrivateRoute/AdminRoute";
 import AddMedicine from "./components/Dashboard/Pharmacy/AddMedicine/AddMedicine";
 import AppointedPatient from "./components/Dashboard/NurseDashboard/AppointedPatient/AppointedPatient/AppointedPatient";
+import BloodAdminDashboard from "./components/BloodAdminDashboard/BloodAdminDashboard/BloodAdminDashboard";
+import BloodAdminHome from "./components/BloodAdminDashboard/BloodAdminHome/BloodAdminHome";
+import ManageAllDonor from "./components/BloodAdminDashboard/ManageAllDonor/ManageAllDonor";
+import ManageBloodRequests from "./components/BloodAdminDashboard/ManageBloodRequests/ManageBloodRequests";
+import ManageBloodDonations from "./components/BloodAdminDashboard/ManageBloodDonations/ManageBloodDonations";
 
 // import PaymentSuccess from "./components/Dashboard/Pharmacy/PaymentSuccess/PaymentSuccess";
 
@@ -193,6 +198,24 @@ function App() {
               element={<BloodRequestHistory />}
             ></Route>
           </Route>
+          {/* blood bank */}
+          {/* blood bank admin */}
+          <Route path="/bloodBankAdmin" element={<BloodAdminDashboard />}>
+            <Route path="/bloodBankAdmin" element={<BloodAdminHome />}></Route>
+            <Route
+              path="/bloodBankAdmin/manageAllDonors"
+              element={<ManageAllDonor />}
+            ></Route>
+            <Route
+              path="/bloodBankAdmin/ManageBloodDonations"
+              element={<ManageBloodDonations />}
+            ></Route>
+            <Route
+              path="/bloodBankAdmin/manageBloodRequests"
+              element={<ManageBloodRequests />}
+            ></Route>
+          </Route>
+          {/* blood bank admin */}
         </Routes>
       </Router>
     </div>
