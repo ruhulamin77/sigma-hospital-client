@@ -30,10 +30,22 @@ export const sigmaApi = createApi({
         method: "GET",
       }),
     }),
+    getBloodRequest: builder.query({
+      query: () => ({
+        url: "bloodRequest",
+        method: "GET",
+      }),
+    }),
   }),
 });
 
-export const { useGetDoctorsQuery, useGetNursesQuery, useGetAppointmentsQuery, useGetPrescriptionsQuery } = sigmaApi;
+export const {
+  useGetDoctorsQuery,
+  useGetNursesQuery,
+  useGetAppointmentsQuery,
+  useGetPrescriptionsQuery,
+  useGetBloodRequestQuery,
+} = sigmaApi;
 
 // http://localhost:7050
 // https://shrouded-headland-44423.herokuapp.com/

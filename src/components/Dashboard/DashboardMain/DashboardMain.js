@@ -35,6 +35,7 @@ const DashboardMain = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const dispatch = useDispatch();
+  // console.log(admin, "maindashboard");
   return (
     <>
       <div className="dashboard_mobile_header">
@@ -673,7 +674,6 @@ const DashboardMain = () => {
                       <span className="nav_icon">--</span>
                       <span>Add Nurses</span>
                     </Link>
-
                   </li>
                 </ul>
               </div>

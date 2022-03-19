@@ -53,6 +53,7 @@ const Header = () => {
   /* const user = useSelector((state) => state?.auth?.value) */
   const { logout } = useFirebase();
   const user = useSelector((state) => state.auth.value);
+  console.log(user, "header");
 
   return (
     <header className="header__middle">

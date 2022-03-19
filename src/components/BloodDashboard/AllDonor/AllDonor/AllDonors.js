@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
+// import { useGetBloodRequestQuery } from "../../../../features/sigmaApi";
 import SingleDonor from "../SingleDonar/SingleDonor";
 
 import "./AllDonors.css";
@@ -17,6 +18,9 @@ const AllDonors = () => {
     );
     setUidonor(seacredonor);
   };
+
+  // const reqData = useGetBloodRequestQuery();
+  // console.log(reqData);
 
   useEffect(() => {
     fetch("https://hidden-coast-99117.herokuapp.com/donateBlood")
