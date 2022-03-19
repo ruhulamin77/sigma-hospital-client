@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import Footer from "../../Home/Footer/Footer";
-import Header from "../../Share/Header/Header";
 import "./History.css";
 
 const History = () => {

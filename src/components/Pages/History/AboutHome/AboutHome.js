@@ -3,14 +3,16 @@ import Footer from '../../../Home/Footer/Footer';
 import Header from '../../../Share/Header/Header';
 import History from '../History';
 import Patner from './Patner/Patner';
+import Progress from './Progress/Progress';
 
 const AboutHome = () => {
     return (
         <div>
-            <Header />
-            <History />
+            {/* <Header /> */}
+            <Progress />
+            {/* <History />
             <Patner />
-            <Footer />
+            <Footer /> */}
         </div>
     );
 };

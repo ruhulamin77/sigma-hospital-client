@@ -20,7 +20,7 @@ const RegisterDonor = () => {
 
   const onSubmit = (data) => {
     data.status = `Pending`;
-    data.email = user.email;
+    data.email = user?.email;
     if (
       donars.find(
         (donar) =>
