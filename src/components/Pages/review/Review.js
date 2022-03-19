@@ -36,7 +36,7 @@ const Review = () => {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'error',
-                    title: 'Your Review has not been saved',
+                    title: 'Your Review has been not saved',
                     showConfirmButton: false,
                     timer: 1500
                   }) 

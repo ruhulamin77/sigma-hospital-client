@@ -8,11 +8,11 @@ import Progress from './Progress/Progress';
 const AboutHome = () => {
     return (
         <div>
-            {/* <Header /> */}
+            <Header />
             <Progress />
-            {/* <History />
+            <History />
             <Patner />
-            <Footer /> */}
+            <Footer />
         </div>
     );
 };

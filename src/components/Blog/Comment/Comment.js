@@ -4,6 +4,7 @@ import { Col, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { RiCodeFill, RiCodeSSlashFill } from 'react-icons/ri';
 import Rating from "react-rating";
+import Swal from "sweetalert2";
 import { format } from "timeago.js";
 import "./Comment.css";
 
@@ -22,29 +23,44 @@ const Comment = ({ blogId, loginUser }) => {
         data["email"] = loginUser?.email
         data["img"] = loginUser?.photoURL
         data["time"] = new Date()
-        console.log(data);
+        console.log(data, "commmmmmm");
         try {
-            const res = await axios.put(`https://shrouded-headland-44423.herokuapp.com/commentPut/${blogId?._id}`, data)
+            const res = await axios.put(`http://localhost:7050/commentPut/${blogId?._id}`, data)
             console.log(data);
             console.log(res);
             console.log(res?.status);
             if (res?.status === 200) {
                 setCommentPost([...commentPost, data])
                 setPost(false)
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Your Comment has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
             }
 
         } catch (error) {
             console.log(error);
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: 'Your Comment has been not saved',
+                showConfirmButton: false,
+                timer: 1500
+              }) 
         }
 
     }
     useEffect(() => {
         setCommentPost(blogId?.comments)
         const getComment = async () => {
-            const find = blogId?.comments?.find((i) => i.id === loginUser?._id)
+            const find = blogId?.comments?.find((i) => i?.id === loginUser?._id)
             console.log(find);
             if (find) {
                 setPost(false)
+
             } else {
                 setPost(true)
             }
@@ -55,7 +71,7 @@ const Comment = ({ blogId, loginUser }) => {
 
     }, [loginUser?._id, blogId?.comments])
 
-
+console.log(commentPost,"commentPost");
 
     return (
         <>
