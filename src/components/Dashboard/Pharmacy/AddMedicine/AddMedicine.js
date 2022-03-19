@@ -8,6 +8,7 @@ const AddMedicine = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {
+        console.log(data)
         axios.post('https://shrouded-headland-44423.herokuapp.com/medicine', data)
             .then(res => {
                 if (res.data.insertedId) {
@@ -38,10 +39,10 @@ const AddMedicine = () => {
                         <option value="Capsul">Capsul</option>
                         <option value="Others">Others</option>
                     </select> <br />
-                    <input tupe="number" {...register("stock")} placeholder="Stock" required />  <br />
-                    <input tupe="number"  {...register("unitPrice")} placeholder="Unit-Price" required />  <br />
-                    <input tupe="number" {...register("salePrice")} placeholder="Sale-Price" required />  <br />
-                    <input {...register("uses")} placeholder="Uses" required />  <br />
+                    <input type="number" {...register("stock")} placeholder="Stock" required />  <br />
+                    <input type="number"  {...register("unitPrice")} placeholder="Unit-Price" required />  <br />
+                    <input type="number" {...register("salePrice")} placeholder="Sale-Price" required />  <br />
+                    <input {...register("uses")} placeholder="Uses" />  <br />
 
 
 
