@@ -8,7 +8,6 @@ import { FaRegAngry } from 'react-icons/fa';
 import Rating from "react-rating";
 import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
-import Header from "../../Share/Header/Header";
 import "./review.css";
 
 const Review = () => {
@@ -48,7 +47,6 @@ const Review = () => {
 
     return (
         <>
-            <Header />
             <div className='review-section '>
                 <Container>
                     <Row className="align-items-center">

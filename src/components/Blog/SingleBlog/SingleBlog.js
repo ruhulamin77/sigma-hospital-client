@@ -3,8 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { FaHeart } from 'react-icons/fa';
 import { GrDislike, GrLike } from 'react-icons/gr';
-import {  useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
+import Slider from 'react-slick/lib/slider';
 import { format } from 'timeago.js';
 import { useGetBlogQuery } from '../../../features/blogApi';
 import Footer from '../../Home/Footer/Footer';
@@ -23,14 +24,14 @@ const SingleBlog = () => {
     const [search, setSearch] = useState("");
     const [number, setNumber] = useState(Number);
 
-    
+
 
     // const [isLike, setIsLike] = useState([]);
     const blogInfo = useGetBlogQuery();
     const user = useSelector((state) => state.auth.auth)
-console.log(user, "user comment");
+    console.log(user, "user comment");
     useEffect(() => {
-        axios.get(`http://localhost:7050/users/${user?.email}`).then(res => setLoginUser(res.data))
+        axios.get(`https://shrouded-headland-44423.herokuapp.com/users/${user?.email}`).then(res => setLoginUser(res.data))
     }, [user?.email])
 
     useEffect(() => {
@@ -52,7 +53,7 @@ console.log(user, "user comment");
         if (singleBlog?.totalVisitor?.length === 0 && singleBlog?._id && loginUser?._id) {
             const getvisitor = async () => {
                 try {
-                    const res = await axios.put(`http://localhost:7050/totalVisitor/${singleBlog?._id}`, userVisit)
+                    const res = await axios.put(`https://shrouded-headland-44423.herokuapp.com/totalVisitor/${singleBlog?._id}`, userVisit)
                     console.log(res, "res", "2nd");
                 } catch (error) {
                     console.log(error);
@@ -66,7 +67,7 @@ console.log(user, "user comment");
             if (!findId && loginUser?._id) {
                 const getvisitor = async () => {
                     try {
-                        const res = await axios.put(`http://localhost:7050/totalVisitor/${singleBlog?._id}`, userVisit)
+                        const res = await axios.put(`https://shrouded-headland-44423.herokuapp.com/totalVisitor/${singleBlog?._id}`, userVisit)
                         console.log(res, "res", "2nd");
                     } catch (error) {
                         console.log(error);
@@ -82,9 +83,9 @@ console.log(user, "user comment");
             likes: loginUser?._id,
         }
 
-        
 
-        const res = await axios.put(`http://localhost:7050/updateBloglike/${id}`, docLike)
+
+        const res = await axios.put(`https://shrouded-headland-44423.herokuapp.com/updateBloglike/${id}`, docLike)
         if (res.data) {
             console.log(" if doclike");
             setLiked(true)
@@ -96,7 +97,7 @@ console.log(user, "user comment");
         const docUnLike = {
             likes: loginUser?._id,
         }
-        const res = await axios.put(`http://localhost:7050/updateBlogUnlike/${id}`, docUnLike)
+        const res = await axios.put(`https://shrouded-headland-44423.herokuapp.com/updateBlogUnlike/${id}`, docUnLike)
         if (res.data) {
             console.log(res.data.value);
             setNumber(number - 1)
@@ -120,7 +121,7 @@ console.log(user, "user comment");
             })
             setNewHelp(find)
         }
-     
+
         console.log(newData, "find");
 
 
@@ -129,6 +130,29 @@ console.log(user, "user comment");
 
     console.log(newData);
     console.log(newHelp, "search ===");
+
+    const settings = {
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        vertical: true,
+        verticalSwiping: true,
+        autoplay: true,
+        speed: 2000,
+
+        autoplaySpeed: 2000,
+        beforeChange: function (currentSlide, nextSlide) {
+            console.log("before change", currentSlide, nextSlide);
+        },
+        afterChange: function (currentSlide) {
+            console.log("after change", currentSlide);
+        }
+    };
+
+    // const dddd = blogInfo?.data.sort((a, b) => {
+    //     return a.likes.length - b.likes.length
+    // })
+    // console.log(dddd, "ddddd");
     return (
         <>
             <Header />
@@ -182,18 +206,33 @@ console.log(user, "user comment");
                                 onClick={() => handleSearch()} className="btn btn-primary">Search</button> </div>
                         {
                             newHelp.length > 0 && newHelp.map((item, i) => (
-                            
-                            <div className="help" key={i}>
-                                <Link to={`/Blog/${item?._id}`}>
-                                <h3>{item?.title}</h3> 
-                                </Link>
-                            </div> 
-                            
-                        ))
-                    }
 
+                                <div className="help" key={i}>
+                                    <Link to={`/Blog/${item?._id}`}>
+                                        <h3>{item?.title}</h3>
+                                    </Link>
+                                </div>
+
+                            ))
+                        }
+                        <Slider {...settings}>
+
+                            {
+                                blogInfo?.data?.map(item => (
+                                    <div className='d-flex justify-content-between align-items-center'>
+                                        <div className="info-slider">
+                                            <h5>{item.title }</h5>
+                                            <p>{item.description }</p>
+                                        </div>
+                                        <div className="info-img">
+                                            <img className='img-fluid' src={`data:image/*;base64,${singleBlog?.photo}`} alt="" />
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </Slider>
                     </Col>
-                    
+
                 </Row>
                 <Comment blogId={singleBlog} loginUser={loginUser} />
             </Container>
