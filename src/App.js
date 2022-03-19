@@ -68,6 +68,7 @@ import BloodAdminHome from "./components/BloodAdminDashboard/BloodAdminHome/Bloo
 import ManageAllDonor from "./components/BloodAdminDashboard/ManageAllDonor/ManageAllDonor";
 import ManageBloodRequests from "./components/BloodAdminDashboard/ManageBloodRequests/ManageBloodRequests";
 import ManageBloodDonations from "./components/BloodAdminDashboard/ManageBloodDonations/ManageBloodDonations";
+import Stockout from "./components/Dashboard/Pharmacy/Stockout/Stockout";
 
 // import PaymentSuccess from "./components/Dashboard/Pharmacy/PaymentSuccess/PaymentSuccess";
 
@@ -171,8 +172,9 @@ function App() {
             <Route path="/dashboard/order" element={<Order />} />
             <Route path="/dashboard/receive" element={<ProductRecive />} />
             <Route path="/dashboard/invoice" element={<Invoice />} />
-
             <Route path="/dashboard/AddMedicine" element={<AddMedicine />} />
+            <Route path="/dashboard/Stockout" element={<Stockout />} />
+
             <Route path="/dashboard/pdfInvoice/:id" element={<PdfInvoice />} />
 
             {/* patients route end */}

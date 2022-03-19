@@ -806,6 +806,11 @@ const DashboardMain = () => {
                       <span className="nav_icon">--</span>
                       <span>Add New Medicine</span>
                     </Link>
+
+                    <Link to="/dashboard/Stockout">
+                      <span className="nav_icon">--</span>
+                      <span>Stock out Medicine</span>
+                    </Link>
                   </li>
                 </ul>
               </div>

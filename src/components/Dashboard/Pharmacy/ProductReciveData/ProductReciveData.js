@@ -33,8 +33,8 @@ const ProductReciveData = ({ index, medicine }) => {
                 <td>{index + 1}</td>
                 <td>{medicine?.brand}</td>
                 <td>{medicine?.name}</td>
-                <td>{medicine?.pawer[0]}</td>
-                <td>{medicine?.type[0]}</td>
+                <td>{medicine?.pawer}</td>
+                <td>{medicine?.type}</td>
                 <td>{medicine?.stock}</td>
                 <td>{medicine?.salePrice}</td>
                 <td className='quantity'><input type="text" onBlur={handelvalue} className='add-stock-input' /></td>

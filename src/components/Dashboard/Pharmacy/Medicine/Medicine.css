@@ -99,3 +99,7 @@ tr td{
     font-weight: 500;
     font-family: revert;
 }
+
+.stockOut{
+    color: red;
+}
