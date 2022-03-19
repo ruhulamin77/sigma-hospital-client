@@ -12,37 +12,44 @@ const Charts = () => {
   const [onegative, setOnegative] = useState([]);
   const [abnegative, setAbnegative] = useState([]);
 
+  // http://localhost:7050/
+  // https://shrouded-headland-44423.herokuapp.com/
+
   //////load data//
   useEffect(() => {
-    fetch("https://hidden-coast-99117.herokuapp.com/bloods")
+    fetch("http://localhost:7050/donors")
       .then((res) => res.json())
-      .then((approve) => {
-        const data = approve.filter((data) => data?.status === "Approved");
+      .then((donors) => {
+        console.log(donors);
 
-        const aPositive = data.filter((d) => d?.bloodGroup === "A+");
+        const donorsData = donors.filter((data) => data?.status === "Approved");
+        console.log(donorsData);
+
+        const aPositive = donorsData.filter((d) => d?.bloodGroup === "A+");
         setApositive(aPositive);
-        const singlebloodgroup = data.filter((d) => d?.bloodGroup === "B+");
+        const singlebloodgroup = donorsData.filter(
+          (d) => d?.bloodGroup === "B+"
+        );
         setBpositive(singlebloodgroup);
-        const oposi = data.filter((d) => d?.bloodGroup === "O+");
+        const oposi = donorsData.filter((d) => d?.bloodGroup === "O+");
         setOpositive(oposi);
-        const abposi = data.filter((d) => d.bloodGroup === "AB+");
+        const abposi = donorsData.filter((d) => d.bloodGroup === "AB+");
         setAbpositive(abposi);
 
-        const Anegative = data.filter((d) => d?.bloodGroup === "A-");
+        const Anegative = donorsData.filter((d) => d?.bloodGroup === "A-");
         setAnegative(Anegative);
 
-        const Bnegative = data.filter((d) => d?.bloodGroup === "B-");
+        const Bnegative = donorsData.filter((d) => d?.bloodGroup === "B-");
         setBnegative(Bnegative);
 
-        const Onegativea = data.filter((d) => d?.bloodGroup === "O-");
+        const Onegativea = donorsData.filter((d) => d?.bloodGroup === "O-");
         setOnegative(Onegativea);
 
-        const Abnegative = data.filter((d) => d?.bloodGroup === "AB-");
+        const Abnegative = donorsData.filter((d) => d?.bloodGroup === "AB-");
         setAbnegative(Abnegative);
       });
   }, []);
   ////load data///
-
   return (
     <div>
       <h2>Bloods in stock</h2>
