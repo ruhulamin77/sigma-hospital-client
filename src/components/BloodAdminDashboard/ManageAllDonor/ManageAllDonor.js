@@ -2,22 +2,36 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import Swal from "sweetalert2";
-
-const DonationRequests = () => {
-  const [donationRequest, setDonationRequest] = useState([]);
+import "./ManageAllDonor.css";
+const ManageAllDonor = () => {
+  const [donorslist, setDonorslist] = useState([]);
+  // http://localhost:7050/
+  // https://shrouded-headland-44423.herokuapp.com/
 
   useEffect(() => {
-    fetch("https://hidden-coast-99117.herokuapp.com/bloods")
+    fetch("https://shrouded-headland-44423.herokuapp.com/donors")
       .then((res) => res.json())
-      .then((data) => {
-        // const AproveRequestData =data.filter(data =>data.status ==="Approved")
-        setDonationRequest(data);
-      });
-  }, [donationRequest]);
+      .then((data) => setDonorslist(data));
+  }, [donorslist]);
+
+  if (!donorslist?.length) {
+    return (
+      <button class="btn btn-primary spner-btn" type="button" disabled>
+        <span
+          class="spinner-border spinner-border-sm"
+          role="status"
+          aria-hidden="true"
+        ></span>
+        Loading...
+      </button>
+    );
+  }
+
   // update approved status
-  const handleApproved = (id) => {
+  const handleApprovedStatus = (id) => {
+    console.log(id);
     axios
-      .put(`https://hidden-coast-99117.herokuapp.com/bloods/${id}`, {
+      .put(`https://shrouded-headland-44423.herokuapp.com/donors/${id}`, {
         status: "Approved",
       })
       .then((res) => {
@@ -30,10 +44,11 @@ const DonationRequests = () => {
         console.log(err);
       });
   };
-  // // update rejected status
-  const handleRejected = (id) => {
+
+  // update rejected status
+  const handleRejectedStatus = (id) => {
     axios
-      .put(`https://hidden-coast-99117.herokuapp.com/bloods/${id}`, {
+      .put(`https://shrouded-headland-44423.herokuapp.com/donors/${id}`, {
         status: "Rejected",
       })
       .then((res) => {
@@ -46,72 +61,60 @@ const DonationRequests = () => {
         console.log(err);
       });
   };
-  if (!donationRequest?.length) {
-    return (
-      <button class="btn btn-primary spner-btn" type="button" disabled>
-        <span
-          class="spinner-border spinner-border-sm"
-          role="status"
-          aria-hidden="true"
-        ></span>
-        Loading...
-      </button>
-    );
-  }
   return (
     <div>
-      <div>
-        <h4 className="donor-details mt-3">Blood Donation</h4>
-        <div className="pt-3">
-          <Table striped brequestblooded hover>
-            <thead>
-              <tr className="t-head">
-                <th>Sl</th>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Gender</th>
-                <th>Blood Group</th>
-                <th>Address</th>
-                <th>Mobile</th>
-                <th>Donate Date</th>
-                <th>Status</th>
-                <th>Action</th>
+      <h4 className="donor-details mt-3">DONOR DETAILS</h4>
+      <div className="pt-3">
+        <Table striped responsive size="sm" bdonorslisted hover>
+          <thead>
+            <tr className="t-head">
+              <th>Sl</th>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Gender</th>
+              <th>B. Group</th>
+              <th>Disease</th>
+              <th>L.D.Date</th>
+              <th>Address</th>
+              <th>Mobile</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {donorslist?.map((donorslist, index) => (
+              <tr>
+                <td>{index + 1}</td>
+                <td>{donorslist?.name}</td>
+                <td>{donorslist?.age}</td>
+                <td>{donorslist?.gender}</td>
+                <td>{donorslist?.bloodGroup}</td>
+                <td>{donorslist?.disease}</td>
+                <td>{donorslist?.lastDonateDate}</td>
+                <td>{donorslist?.address}</td>
+                <td>{donorslist?.mobile}</td>
+                <td>{donorslist?.status}</td>
+                <td>
+                  <button
+                    className="btn btn-sm btn-success mx-1"
+                    onClick={() => handleApprovedStatus(donorslist._id)}
+                  >
+                    Approve
+                  </button>
+                  <button
+                    className="btn btn-sm btn-danger"
+                    onClick={() => handleRejectedStatus(donorslist._id)}
+                  >
+                    Reject
+                  </button>
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {donationRequest?.map((requestblood, index) => (
-                <tr>
-                  <td>{index + 1}</td>
-                  <td>{requestblood?.name}</td>
-                  <td>{requestblood?.age}</td>
-                  <td>{requestblood?.gender}</td>
-                  <td>{requestblood?.bloodGroup}</td>
-                  <td>{requestblood?.address}</td>
-                  <td>{requestblood?.mobile}</td>
-                  <td>{requestblood?.DonateDate}</td>
-                  <td>{requestblood?.status}</td>
-                  <td>
-                    <button
-                      className="btn btn-success btn-sm mx-1"
-                      onClick={() => handleApproved(requestblood._id)}
-                    >
-                      Approve
-                    </button>
-                    <button
-                      className="btn btn-danger btn-sm"
-                      onClick={() => handleRejected(requestblood._id)}
-                    >
-                      Reject
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-        </div>
+            ))}
+          </tbody>
+        </Table>
       </div>
     </div>
   );
 };
 
-export default DonationRequests;
+export default ManageAllDonor;
