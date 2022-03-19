@@ -6,9 +6,11 @@ import "./ManageBloodRequests.css";
 
 const ManageBloodRequests = () => {
   const [bloodrequest, setBloodrequest] = useState([]);
+  // http://localhost:7050/
+  // https://shrouded-headland-44423.herokuapp.com/
 
   useEffect(() => {
-    fetch("https://hidden-coast-99117.herokuapp.com/bloodRequest")
+    fetch("http://localhost:7050/bloodRequest")
       .then((res) => res.json())
       .then((data) => {
         // const AproveRequestData =data.filter(data =>data.status ==="Approved")
@@ -18,7 +20,7 @@ const ManageBloodRequests = () => {
   // update approved status
   const handleApproved = (id) => {
     axios
-      .put(`https://hidden-coast-99117.herokuapp.com/bloodRequest/${id}`, {
+      .put(`http://localhost:7050/bloodRequest/${id}`, {
         status: "Approved",
       })
       .then((res) => {
@@ -34,7 +36,7 @@ const ManageBloodRequests = () => {
   // // update rejected status
   const handleRejected = (id) => {
     axios
-      .put(`https://hidden-coast-99117.herokuapp.com/bloodRequest/${id}`, {
+      .put(`http://localhost:7050/bloodRequest/${id}`, {
         status: "Rejected",
       })
       .then((res) => {
