@@ -3,14 +3,14 @@ import { Offcanvas } from "react-bootstrap";
 import { FiChevronDown } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GrClose } from "react-icons/gr";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import useFirebase from "../../../hooks/useFirebase";
+import { removeUser } from "../../../features/authSlice";
 import "./Header.css";
 
 const Header = () => {
   const [show, setShow] = useState(false);
-
+  const dispatch = useDispatch();
   const handleClose = () => setShow(false);
   const toggleShow = () => setShow((s) => !s);
 
@@ -49,11 +49,7 @@ const Header = () => {
   } else {
     boxClassSubMenu.push("");
   }
-
-  /* const user = useSelector((state) => state?.auth?.value) */
-  const { logout } = useFirebase();
-  const user = useSelector((state) => state.auth.value);
-  console.log(user, "header");
+  const user = useSelector((state) => state.auth.auth);
 
   return (
     <header className="header__middle">
@@ -277,9 +273,9 @@ const Header = () => {
                     </ul>
                   </li>
                   {user?.email ? (
-                    <li className="menu-item" onClick={() => logout()}>
+                    <li className="menu-item" onClick={() => dispatch(removeUser())}>
                       {" "}
-                      <a href="#"> Logout </a>{" "}
+                       <a> Logout </a>{" "}
                     </li>
                   ) : (
                     <li className="menu-item">

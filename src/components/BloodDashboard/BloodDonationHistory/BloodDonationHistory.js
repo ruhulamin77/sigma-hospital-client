@@ -5,7 +5,7 @@ import "./BloodDonationHistory.css";
 import { useSelector } from "react-redux";
 const BloodDonationHistory = () => {
   const [donations, setDonations] = useState([]);
-  const user = useSelector((state) => state.auth.value);
+  const user = useSelector((state) => state.auth.auth);
 
   useEffect(() => {
     fetch(`http://localhost:7050/bloodDonation/${user?.email}`)

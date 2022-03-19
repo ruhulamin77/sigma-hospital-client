@@ -12,7 +12,7 @@ import Header from "../../Share/Header/Header";
 import "./review.css";
 
 const Review = () => {
-    const user = useSelector((state) => state.auth.value);
+    const user = useSelector((state) => state.auth.auth);
     const [rating, setRate] = useState(0)
     const { register,reset , formState: { errors }, handleSubmit } = useForm();// initialize the hook
     const onSubmit = (data) => {

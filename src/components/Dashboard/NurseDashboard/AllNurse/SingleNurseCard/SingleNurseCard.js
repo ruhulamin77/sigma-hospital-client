@@ -50,7 +50,7 @@ const SingleNurseCard = ({ nurse }) => {
                         <small className='text-secondary'>{email}</small>
                         <div className='row mb-3 mt-3'>
                             <div className='col-7'>Contact: {phone}</div>
-                            <div className='col-5'>Gernder: {gender}</div>
+                            <div className='col-5'>Gender: {gender}</div>
                         </div>
                         <hr />
                         <div className='row mb-3 mt-3'>

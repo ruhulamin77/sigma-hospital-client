@@ -51,11 +51,13 @@ import BloodRequestHistory from "./components/BloodDashboard/BloodRequestHistory
 import BloodDonation from "./components/BloodDashboard/BloodDonation/BloodDonation";
 import BloodDonationHistory from "./components/BloodDashboard/BloodDonationHistory/BloodDonationHistory";
 import RegisterDonor from "./components/BloodDashboard/RegisterDonor/RegisterDonor";
-import PatientInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/PatientInvoice/PatientInvoice";
 import Messenger from "./components/Share/Messenger/Messenger";
 import AboutHome from "./components/Pages/History/AboutHome/AboutHome";
 // import AdminRoute from "./components/PrivateRoute/AdminRoute";
 import UserDashboard from "./components/Dashboard/UserDashboard/UserHome/UserDashboard";
+// import AdminRoute from "./components/PrivateRoute/AdminRoute";
+import AddMedicine from "./components/Dashboard/Pharmacy/AddMedicine/AddMedicine";
+import AppointedPatient from "./components/Dashboard/NurseDashboard/AppointedPatient/AppointedPatient/AppointedPatient";
 
 // import PaymentSuccess from "./components/Dashboard/Pharmacy/PaymentSuccess/PaymentSuccess";
 
@@ -93,7 +95,7 @@ function App() {
           <Route path="/blog" element={<Blogs />} />
           <Route path="/medicineCart" element={<Cart />} />
           {/* <Route path="/contact" element={<Contact />} /> */}
-          <Route path="/about" element={<AboutHome />} />
+          {/* <Route path="/about" element={< AboutHome />} /> */}
           <Route path="/contact" element={<Contact />} />
           <Route path="/singleDoctor/:id" element={<SingleDoctor />} />
 
@@ -136,6 +138,10 @@ function App() {
             <Route path="/dashboard/addNurse" element={<AddNurse />} />
             <Route path="/dashboard/allNurse" element={<AllNurse />} />
             <Route
+              path="/dashboard/appointedpatient"
+              element={<AppointedPatient />}
+            />
+            <Route
               path="/dashboard/allNurse/update/:id"
               element={<NurseProfileUpdate />}
             />
@@ -146,16 +152,17 @@ function App() {
               path="/dashboard/prescription/:id"
               element={<PatientPrescription />}
             />
-            <Route
+            {/* <Route
               path="/dashboard/patient/invoice"
               element={<PatientInvoice />}
-            />
+            /> */}
 
             <Route path="/dashboard/pharmacy" element={<PharmacyHome />} />
             <Route path="/dashboard/order" element={<Order />} />
             <Route path="/dashboard/receive" element={<ProductRecive />} />
             <Route path="/dashboard/invoice" element={<Invoice />} />
 
+            <Route path="/dashboard/AddMedicine" element={<AddMedicine />} />
             <Route path="/dashboard/pdfInvoice/:id" element={<PdfInvoice />} />
 
             {/* patients route end */}

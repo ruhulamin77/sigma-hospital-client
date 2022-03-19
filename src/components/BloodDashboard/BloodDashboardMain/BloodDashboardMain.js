@@ -20,12 +20,7 @@ const BloodDashboardMain = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  // const user = useSelector((state) => state.auth.value);
-  const admin = useSelector((state) => state.admin);
-
-  const { logout, user } = useFirebase();
-  console.log(user, "bloodbank");
-  console.log(admin, "bloodbank");
+  const user = useSelector((state) => state.auth.auth);
 
   return (
     <>
@@ -91,7 +86,7 @@ const BloodDashboardMain = () => {
                       className="dash_drop_item"
                     >
                       <RiLogoutCircleLine />
-                      <span onClick={logout}>Logout</span>
+                      <span onClick="">Logout</span>
                     </NavDropdown.Item>
                   </NavDropdown>
                 </div>
@@ -255,7 +250,7 @@ const BloodDashboardMain = () => {
                   <NavDropdown.Divider />
                   <NavDropdown.Item as={Link} to="" className="dash_drop_item">
                     <RiLogoutCircleLine />
-                    <span onClick={logout}>Logout</span>
+                    <span onClick="">Logout</span>
                   </NavDropdown.Item>
                 </NavDropdown>
               </div>

@@ -6,9 +6,8 @@ import SingleRequest from "./SingleRequest/SingleRequest";
 import { useSelector } from "react-redux";
 const BloodRequestHistory = () => {
   const [requests, setRequests] = useState([]);
-  const user = useSelector((state) => state.auth.value);
-  // const allBloodRequests = useGetBloodRequestQuery() || {};
-  // console.log(allBloodRequests);
+  const user = useSelector((state) => state.auth.auth);
+
   useEffect(() => {
     fetch(`http://localhost:7050/bloodRequest/${user?.email}`)
       .then((res) => res.json())
