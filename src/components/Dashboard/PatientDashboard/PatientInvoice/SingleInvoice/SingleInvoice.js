@@ -23,8 +23,8 @@ const SingleInvoice = () => {
   });
 
   return (
-    <div>
-      <Card ref={componentRef} style={{ backgroundColor: "#C3D4F6" }} className="mt-5">
+    <div className="p-3">
+      <Card ref={componentRef} style={{ backgroundColor: "#C3D4F6" }} className="mt-3">
         <div className='p-5'>
           <div className='row'>
             <div className='col-12 col-sm-6 col-md-6 col-lg-8'>
