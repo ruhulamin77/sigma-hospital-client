@@ -29,8 +29,9 @@ const ManageAllDonor = () => {
 
   // update approved status
   const handleApprovedStatus = (id) => {
+    console.log(id);
     axios
-      .put(`http://localhost:7050/${id}`, {
+      .put(`http://localhost:7050/donors/${id}`, {
         status: "Approved",
       })
       .then((res) => {
@@ -47,7 +48,7 @@ const ManageAllDonor = () => {
   // update rejected status
   const handleRejectedStatus = (id) => {
     axios
-      .put(`http://localhost:7050/${id}`, {
+      .put(`http://localhost:7050/donors/${id}`, {
         status: "Rejected",
       })
       .then((res) => {
