@@ -3,17 +3,28 @@ import { useReactToPrint } from "react-to-print";
 import { Button, Card, Table } from "react-bootstrap";
 import Swal from "sweetalert2";
 import { HiLocationMarker, HiMail, HiPhoneMissedCall } from "react-icons/hi";
+import { useParams } from "react-router-dom";
+import { useGetPrescriptionsQuery } from "../../../../../features/sigmaApi";
 
 const SingleInvoice = () => {
-    const componentRef = useRef();
-    const handlePrint = useReactToPrint({
-        content: () => componentRef.current,
-    });
+  const { id } = useParams();
+  const allPrescription = useGetPrescriptionsQuery();
+  const [singlePatientData, setSinglePatientData] = useState([]);
+  console.log(singlePatientData);
 
-    return (
-        <div>
-            jygu
-            {/* <Card ref={componentRef} style={{ backgroundColor: "#C3D4F6" }} className="mt-5">
+  useEffect(() => {
+    const singlePatient = allPrescription?.data?.find(singlePrec => singlePrec?._id === id);
+    setSinglePatientData(singlePatient);
+  }, [allPrescription?.data, id]);
+
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
+
+  return (
+    <div>
+      <Card ref={componentRef} style={{ backgroundColor: "#C3D4F6" }} className="mt-5">
         <div className='p-5'>
           <div className='row'>
             <div className='col-12 col-sm-6 col-md-6 col-lg-8'>
@@ -29,15 +40,15 @@ const SingleInvoice = () => {
           <div style={{ marginTop: "3rem" }} className='row'>
             <div className='col-12 col-sm-6 col-md-6 col-lg-8'>
               <h6>Doctor Name</h6>
-              <p>{singlePrescriptionData?.doctorName}</p>
+              <p>{singlePatientData?.doctorName}</p>
               <h6 className='mt-3'>Patient Details</h6>
-              <p>{singlePrescriptionData?.patientFirstName} {singlePrescriptionData?.patientLastName}</p>
-              <p>Gender: {singlePrescriptionData?.patientGender}</p>
-              <p>Age: {singlePrescriptionData?.patientAge}</p>
+              <p>{singlePatientData?.patientFirstName} {singlePatientData?.patientLastName}</p>
+              <p>Gender: {singlePatientData?.patientGender}</p>
+              <p>Age: {singlePatientData?.patientAge}</p>
             </div>
             <div className='col-12 col-sm-6 col-md-6 col-lg-4'>
               <h6>Invoice number</h6>
-              <p>{singlePrescriptionData?._id}</p>
+              <p>{singlePatientData?._id}</p>
             </div>
           </div>
           <div style={{ marginTop: "3rem" }}>
@@ -50,7 +61,7 @@ const SingleInvoice = () => {
                 </tr>
               </thead>
               <tbody>
-                {singlePrescriptionData?.inputFields?.map((singleData, index) => (
+                {singlePatientData?.inputFields?.map((singleData, index) => (
                   <tr key={index}>
                     <td>{singleData?.number}</td>
                     <td>{singleData?.medicineName}</td>
@@ -63,11 +74,11 @@ const SingleInvoice = () => {
         </div>
       </Card>
 
-      {singlePrescriptionData &&
+      {singlePatientData &&
         <Button onClick={handlePrint} className="d-flex mx-auto mt-2" variant="outline-dark">Download invoice</Button>
-      } */}
-        </div>
-    );
+      }
+    </div>
+  );
 };
 
 export default SingleInvoice;
