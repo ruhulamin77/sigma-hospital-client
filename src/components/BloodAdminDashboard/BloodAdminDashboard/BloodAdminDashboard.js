@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./BloodDashboardMain.css";
+import "./BloodAdminDashboard.css";
 import { Button, NavDropdown, Offcanvas } from "react-bootstrap";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import { ImDroplet } from "react-icons/im";
@@ -16,7 +16,7 @@ import { Link, Outlet } from "react-router-dom";
 import useFirebase from "../../../hooks/useFirebase";
 import { useSelector } from "react-redux";
 
-const BloodDashboardMain = () => {
+const BloodAdminDashboard = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -111,7 +111,7 @@ const BloodDashboardMain = () => {
                     <span className="nav_icon">
                       <MdSupervisedUserCircle />
                     </span>
-                    <span>All Donor</span>
+                    <span>Manage All Donors</span>
                   </span>
                 </Link>
               </li>
@@ -121,7 +121,7 @@ const BloodDashboardMain = () => {
                     <span className="nav_icon">
                       <GiArchiveRegister />
                     </span>
-                    <span>Register as a Donor</span>
+                    <span>Manage Blood Donations</span>
                   </span>
                 </Link>
               </li>
@@ -139,56 +139,10 @@ const BloodDashboardMain = () => {
                     <span className="nav_icon">
                       <BiDonateBlood />
                     </span>
-                    <span>Blood Donation</span>
+                    <span>Manage Blood Requests</span>
                   </span>
                   <BsChevronDown />
                 </Link>
-                <div className="collapse" id="collapseDonation">
-                  <ul className="dashboard_sub_menu">
-                    <li>
-                      <Link to="/bloodBank/bloodDonation">
-                        <span className="nav_icon">--</span>
-                        <span>Donate Blood</span>
-                      </Link>
-                      <Link to="/bloodBank/donationHistory">
-                        <span className="nav_icon">--</span>
-                        <span>Donation History</span>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li>
-                <Link
-                  /* className="btn btn-primary" */
-                  data-bs-toggle="collapse"
-                  to="#collapseRequest"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="collapseExample"
-                >
-                  <span className="dashboard_nav_icon">
-                    <span className="nav_icon">
-                      <MdBloodtype />
-                    </span>
-                    <span>Blood Request</span>
-                  </span>
-                  <BsChevronDown />
-                </Link>
-                <div className="collapse" id="collapseRequest">
-                  <ul className="dashboard_sub_menu">
-                    <li>
-                      <Link to="/bloodBank/bloodRequest">
-                        <span className="nav_icon">--</span>
-                        <span>Make Request</span>
-                      </Link>
-                      <Link to="/bloodBank/requestHistory">
-                        <span className="nav_icon">--</span>
-                        <span>Request History</span>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
               </li>
             </ul>
           </div>
@@ -260,7 +214,7 @@ const BloodDashboardMain = () => {
 
           <ul className="dashboard_left_nav">
             <li className="dashboard_nav_item">
-              <Link to="/bloodBank">
+              <Link to="/bloodBankAdmin">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <GrHome />
@@ -270,89 +224,34 @@ const BloodDashboardMain = () => {
               </Link>
             </li>
             <li>
-              <Link to="/bloodBank/allDonor">
+              <Link to="/bloodBankAdmin/manageAllDonors">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <MdSupervisedUserCircle />
                   </span>
-                  <span>All Donor</span>
+                  <span>Manage All Donors</span>
                 </span>
               </Link>
             </li>
             <li>
-              <Link to="/bloodBank/registerDonor">
+              <Link to="/bloodBankAdmin/ManageBloodDonations">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <GiArchiveRegister />
                   </span>
-                  <span>Register as a Donor</span>
+                  <span>Manage Blood Donations</span>
                 </span>
               </Link>
             </li>
-
             <li>
-              <Link
-                /* className="btn btn-primary" */
-                data-bs-toggle="collapse"
-                to="#collapseDonation"
-                role="button"
-                aria-expanded="false"
-                aria-controls="collapseExample"
-              >
+              <Link to="/bloodBankAdmin/ManageBloodRequests">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
-                    <BiDonateBlood />
+                    <GiArchiveRegister />
                   </span>
-                  <span>Blood Donation</span>
+                  <span>Manage Blood Requests</span>
                 </span>
-                <BsChevronDown />
               </Link>
-              <div className="collapse" id="collapseDonation">
-                <ul className="dashboard_sub_menu">
-                  <li>
-                    <Link to="/bloodBank/bloodDonation">
-                      <span className="nav_icon">--</span>
-                      <span>Donate Blood</span>
-                    </Link>
-                    <Link to="/bloodBank/donationHistory">
-                      <span className="nav_icon">--</span>
-                      <span>Donation History</span>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <Link
-                /* className="btn btn-primary" */
-                data-bs-toggle="collapse"
-                to="#collapseRequest"
-                role="button"
-                aria-expanded="false"
-                aria-controls="collapseExample"
-              >
-                <span className="dashboard_nav_icon">
-                  <span className="nav_icon">
-                    <MdBloodtype />
-                  </span>
-                  <span>Blood Request</span>
-                </span>
-                <BsChevronDown />
-              </Link>
-              <div className="collapse" id="collapseRequest">
-                <ul className="dashboard_sub_menu">
-                  <li>
-                    <Link to="/bloodBank/bloodRequest">
-                      <span className="nav_icon">--</span>
-                      <span>Make Request</span>
-                    </Link>
-                    <Link to="/bloodBank/requestHistory">
-                      <span className="nav_icon">--</span>
-                      <span>Request History</span>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
             </li>
           </ul>
         </div>
@@ -364,4 +263,4 @@ const BloodDashboardMain = () => {
   );
 };
 
-export default BloodDashboardMain;
+export default BloodAdminDashboard;
