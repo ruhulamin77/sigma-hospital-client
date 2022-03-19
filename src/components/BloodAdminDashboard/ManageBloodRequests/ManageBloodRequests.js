@@ -65,17 +65,17 @@ const ManageBloodRequests = () => {
       <div>
         <h4 className="donor-details mt-3">Blood Requests</h4>
         <div className="pt-3">
-          <Table striped brequestblooded hover>
+          <Table striped responsive size="sm" brequestblooded hover>
             <thead>
               <tr className="t-head">
                 <th>Sl</th>
                 <th>Name</th>
                 <th>Age</th>
                 <th>Gender</th>
-                <th>Blood Group</th>
+                <th>B. Group</th>
                 <th>Address</th>
                 <th>Reason</th>
-                <th>Doctor Name</th>
+                {/* <th>Doctor Name</th> */}
                 <th>Mobile</th>
                 <th>Date</th>
                 <th>Quantity</th>
@@ -93,7 +93,7 @@ const ManageBloodRequests = () => {
                   <td>{requestblood?.bloodGroup}</td>
                   <td>{requestblood?.address}</td>
                   <td>{requestblood?.reason}</td>
-                  <td>{requestblood?.doctorName}</td>
+                  {/* <td>{requestblood?.doctorName}</td> */}
                   <td>{requestblood?.mobile}</td>
                   <td>{requestblood?.requestDate}</td>
                   <td>{requestblood?.quantity}</td>

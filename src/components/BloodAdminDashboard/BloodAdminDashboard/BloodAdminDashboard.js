@@ -96,7 +96,7 @@ const BloodAdminDashboard = () => {
 
             <ul className="dashboard_left_nav">
               <li className="dashboard_nav_item">
-                <Link to="/bloodBank">
+                <Link to="/bloodBankAdmin">
                   <span className="dashboard_nav_icon">
                     <span className="nav_icon">
                       <GrHome />
@@ -106,7 +106,7 @@ const BloodAdminDashboard = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/bloodBank/allDonor">
+                <Link to="/bloodBankAdmin/manageAllDonors">
                   <span className="dashboard_nav_icon">
                     <span className="nav_icon">
                       <MdSupervisedUserCircle />
@@ -116,32 +116,23 @@ const BloodAdminDashboard = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/bloodBank/registerDonor">
+                <Link to="/bloodBankAdmin/ManageBloodDonations">
                   <span className="dashboard_nav_icon">
                     <span className="nav_icon">
                       <GiArchiveRegister />
                     </span>
-                    <span>Manage Blood Donations</span>
+                    <span>Manage Donations</span>
                   </span>
                 </Link>
               </li>
-
               <li>
-                <Link
-                  /* className="btn btn-primary" */
-                  data-bs-toggle="collapse"
-                  to="#collapseDonation"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="collapseExample"
-                >
+                <Link to="/bloodBankAdmin/ManageBloodRequests">
                   <span className="dashboard_nav_icon">
                     <span className="nav_icon">
-                      <BiDonateBlood />
+                      <GiArchiveRegister />
                     </span>
-                    <span>Manage Blood Requests</span>
+                    <span>Manage Requests</span>
                   </span>
-                  <BsChevronDown />
                 </Link>
               </li>
             </ul>
@@ -239,7 +230,7 @@ const BloodAdminDashboard = () => {
                   <span className="nav_icon">
                     <GiArchiveRegister />
                   </span>
-                  <span>Manage Blood Donations</span>
+                  <span>Manage Donations</span>
                 </span>
               </Link>
             </li>
@@ -249,7 +240,7 @@ const BloodAdminDashboard = () => {
                   <span className="nav_icon">
                     <GiArchiveRegister />
                   </span>
-                  <span>Manage Blood Requests</span>
+                  <span>Manage Requests</span>
                 </span>
               </Link>
             </li>

@@ -63,14 +63,14 @@ const ManageBloodDonations = () => {
       <div>
         <h4 className="donor-details mt-3">Blood Donation</h4>
         <div className="pt-3">
-          <Table striped brequestblooded hover>
+          <Table striped responsive brequestblooded hover>
             <thead>
               <tr className="t-head">
                 <th>Sl</th>
                 <th>Name</th>
                 <th>Age</th>
                 <th>Gender</th>
-                <th>Blood Group</th>
+                <th>B. Group</th>
                 <th>Address</th>
                 <th>Mobile</th>
                 <th>Donate Date</th>
