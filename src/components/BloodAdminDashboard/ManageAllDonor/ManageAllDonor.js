@@ -5,9 +5,11 @@ import Swal from "sweetalert2";
 import "./ManageAllDonor.css";
 const ManageAllDonor = () => {
   const [donorslist, setDonorslist] = useState([]);
+  // http://localhost:7050/
+  // https://shrouded-headland-44423.herokuapp.com/
 
   useEffect(() => {
-    fetch("https://hidden-coast-99117.herokuapp.com/donateBlood")
+    fetch("http://localhost:7050/donors")
       .then((res) => res.json())
       .then((data) => setDonorslist(data));
   }, [donorslist]);
@@ -28,7 +30,7 @@ const ManageAllDonor = () => {
   // update approved status
   const handleApprovedStatus = (id) => {
     axios
-      .put(`https://hidden-coast-99117.herokuapp.com/donateBlood/${id}`, {
+      .put(`http://localhost:7050/${id}`, {
         status: "Approved",
       })
       .then((res) => {
@@ -45,7 +47,7 @@ const ManageAllDonor = () => {
   // update rejected status
   const handleRejectedStatus = (id) => {
     axios
-      .put(`https://hidden-coast-99117.herokuapp.com/donateBlood/${id}`, {
+      .put(`http://localhost:7050/${id}`, {
         status: "Rejected",
       })
       .then((res) => {
