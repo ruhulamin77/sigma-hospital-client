@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, updateProfile, signOut, sendPasswordResetEmail } from "firebase/auth";
+import { useState } from 'react';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, updateProfile } from "firebase/auth";
 import { useSelector, useDispatch } from "react-redux";
 import { saveUser } from "../features/authSlice";
-
+import Swal from 'sweetalert2';
 /* initial firebase */
 import { initializeApp } from "firebase/app";
 import firebaseConfig from '../Firebase/Firebase.config';
@@ -12,7 +12,7 @@ initializeApp(firebaseConfig);
 const useFirebase = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
-    const user = useSelector((state) => state.auth.value);
+    const user = useSelector((state) => state.auth.auth);
     const dispatch = useDispatch();
 
     const auth = getAuth();
@@ -48,6 +48,16 @@ const useFirebase = () => {
             .then((userCredential) => {
                 const user = userCredential.user;
                 console.log("Singed in user: ", user);
+                dispatch(saveUser(user));
+                if (user.uid) {
+                    Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Logged in SuccessFully',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                }
                 const destination = location?.state?.from || '/';
                 navigate(destination);
                 localStorage.setItem('user', JSON.stringify(user))
@@ -58,17 +68,17 @@ const useFirebase = () => {
             })
             .finally(() => setIsLoading(false));
     }
-    const handleReset = (email) => {
-        sendPasswordResetEmail(auth, email)
-        .then(() => {
-            console.log("success");
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log("An error has occured: ", errorCode, errorMessage);
-        });
-    };
+    // const handleReset = (email) => {
+    //     sendPasswordResetEmail(auth, email)
+    //     .then(() => {
+    //         console.log("success");
+    //     })
+    //     .catch((error) => {
+    //         const errorCode = error.code;
+    //         const errorMessage = error.message;
+    //         console.log("An error has occured: ", errorCode, errorMessage);
+    //     });
+    // };
 
     const signInWithGoogle = (location, navigate) => {
         setIsLoading(true);
@@ -77,6 +87,16 @@ const useFirebase = () => {
                 const user = result.user;
                 incertUser(user.email, user.displayName, user.photoURL, 'PUT');
                 setAuthError('');
+                dispatch(saveUser(user));
+                if (user.uid) {
+                    Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Logged in SuccessFully',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                }
                 const destination = location?.state?.from || '/';
                 navigate(destination);
                 localStorage.setItem('user', JSON.stringify(user))
@@ -85,30 +105,28 @@ const useFirebase = () => {
             }).finally(() => setIsLoading(false));
     }
 
-    /* observer user state */
-    useEffect(() => {
-        const unsubscribed = onAuthStateChanged(auth, (user) => {
-            if (user) {
-              dispatch(saveUser(user));
-              localStorage.setItem('user', JSON.stringify(user))  
-            } else {
-              dispatch(saveUser(undefined));
-            }
-            setIsLoading(false);
-        });
-        return () => unsubscribed;
-    }, [auth, dispatch])
+    // /* observer user state */
+    // useEffect(() => {
+    //     const unsubscribed = onAuthStateChanged(auth, (user) => {
+    //         if (user) {
+    //           dispatch(saveUser(user)); 
+    //         } else {
+    //           dispatch(saveUser(null));
+    //         }
+    //         setIsLoading(false);
+    //     });
+    //     return () => unsubscribed;
+    // }, [auth, dispatch])
 
-    const logout = () => {
-        setIsLoading(true);
-        signOut(auth).then(() => {
-        localStorage.removeItem('user');
-        }).catch((error) =>
-        {
-            console.log("error", error);
-        })
-            .finally(() => setIsLoading(false));
-    }
+    // const logout = () => {
+    //     setIsLoading(true);
+    //     signOut(auth).then(() => {
+    //     }).catch((error) =>
+    //     {
+    //         console.log("error", error);
+    //     })
+    //         .finally(() => setIsLoading(false));
+    // }
 
     const incertUser = (email, displayName, photoURL, method) => {
         const user = { email, displayName, photoURL, role: "user" };
@@ -125,11 +143,11 @@ const useFirebase = () => {
         user,
         isLoading,
         authError,
-        handleReset,
+        // handleReset,
         registerUser,
         loginUser,
         signInWithGoogle,
-        logout,
+        // logout,
     }
 }
 export default useFirebase;

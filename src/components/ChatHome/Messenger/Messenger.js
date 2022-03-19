@@ -20,7 +20,7 @@ const Messenger = () => {
     const [onlineUser, setOnlineUser] = useState([])
     const scrollRef = useRef()
     const socket = useRef()
-    const user = useSelector((state) => state.auth.value)
+    const user = useSelector((state) => state.auth.auth)
     console.log(user, "user");
 
     // find my Id form db

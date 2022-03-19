@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import "./BloodRequest.css";
 
 const BloodRequest = () => {
-  const user = useSelector((state) => state.auth.value);
+  const user = useSelector((state) => state.auth.auth);
 
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
