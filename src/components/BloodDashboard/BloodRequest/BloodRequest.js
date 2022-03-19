@@ -7,11 +7,11 @@ import Swal from "sweetalert2";
 import "./BloodRequest.css";
 
 const BloodRequest = () => {
-  const user = useSelector((state) => state.auth.value);
+  const user = useSelector((state) => state.auth.auth);
 
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    data.email = user.email;
+    data.email = user?.email;
     data.status = `Pending`;
     console.log(data);
     axios.post("http://localhost:7050/bloodRequest", data).then((res) => {

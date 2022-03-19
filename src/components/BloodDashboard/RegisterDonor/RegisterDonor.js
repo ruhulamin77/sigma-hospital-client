@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { Row } from "react-bootstrap";
 
 const RegisterDonor = () => {
-  const user = useSelector((state) => state.auth.value);
+  const user = useSelector((state) => state.auth.auth);
 
   const { register, handleSubmit, reset } = useForm();
   const [donars, setDonars] = useState([]);
@@ -20,7 +20,7 @@ const RegisterDonor = () => {
 
   const onSubmit = (data) => {
     data.status = `Pending`;
-    data.email = user.email;
+    data.email = user?.email;
     if (
       donars.find(
         (donar) =>

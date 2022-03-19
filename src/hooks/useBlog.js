@@ -15,7 +15,7 @@ const useBlog = () => {
     const [number, setNumber] = useState(Number);
 
     const blogInfo = useGetBlogQuery();
-    const user = useSelector((state) => state.auth.value)
+    const user = useSelector((state) => state.auth.auth)
     // find loginn user form db
     useEffect(() => {
         axios.get(`http://localhost:7050/users/${user?.email}`).then(res => setLoginUser(res.data))
@@ -44,4 +44,4 @@ const useBlog = () => {
     }
 };
 
-export default useBlog; 
+export default useBlog;

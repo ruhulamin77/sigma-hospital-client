@@ -20,9 +20,9 @@ import AllDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AllDo
 import DoctorProfile from "./components/Dashboard/DoctorsDashboard/DoctorProfile/DoctorProfile";
 import AddNurse from "./components/Dashboard/NurseDashboard/AllNurse/AddNurse/AddNurse";
 import AllNurse from "./components/Dashboard/NurseDashboard/AllNurse/AllNurse/AllNurse";
+import AppointedPatient from "./components/Dashboard/NurseDashboard/AppointedPatient/AppointedPatient/AppointedPatient";
 import NurseProfileUpdate from "./components/Dashboard/NurseDashboard/NurseProfileUpdate/NurseProfileUpdate";
 import PatientData from "./components/Dashboard/PatientDashboard/PatientData/PatientData/PatientData";
-import PatientInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/PatientInvoice/PatientInvoice";
 import PatientPrescription from "./components/Dashboard/PatientDashboard/PatientPrescription/PatientPrescription";
 // import AdminRoute from "./components/PrivateRoute/AdminRoute";
 import AddMedicine from "./components/Dashboard/Pharmacy/AddMedicine/AddMedicine";
@@ -138,6 +138,10 @@ function App() {
             <Route path="/dashboard/addNurse" element={<AddNurse />} />
             <Route path="/dashboard/allNurse" element={<AllNurse />} />
             <Route
+              path="/dashboard/appointedpatient"
+              element={<AppointedPatient />}
+            />
+            <Route
               path="/dashboard/allNurse/update/:id"
               element={<NurseProfileUpdate />}
             />
@@ -148,10 +152,10 @@ function App() {
               path="/dashboard/prescription/:id"
               element={<PatientPrescription />}
             />
-            <Route
+            {/* <Route
               path="/dashboard/patient/invoice"
               element={<PatientInvoice />}
-            />
+            /> */}
 
             <Route path="/dashboard/pharmacy" element={<PharmacyHome />} />
             <Route path="/dashboard/order" element={<Order />} />

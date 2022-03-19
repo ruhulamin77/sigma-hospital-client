@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const sigmaApi = createApi({
   reducerPath: "sigmaApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://shrouded-headland-44423.herokuapp.com/",
+    baseUrl: "http://localhost:7050/",
   }),
   endpoints: (builder) => ({
     getDoctors: builder.query({
@@ -30,10 +30,22 @@ export const sigmaApi = createApi({
         method: "GET",
       }),
     }),
+    getBloodRequest: builder.query({
+      query: () => ({
+        url: "bloodRequest",
+        method: "GET",
+      }),
+    }),
   }),
 });
 
-export const { useGetDoctorsQuery, useGetNursesQuery, useGetAppointmentsQuery, useGetPrescriptionsQuery } = sigmaApi;
+export const {
+  useGetDoctorsQuery,
+  useGetNursesQuery,
+  useGetAppointmentsQuery,
+  useGetPrescriptionsQuery,
+  useGetBloodRequestQuery,
+} = sigmaApi;
 
-// http://localhost:7050
+// http://localhost:7050/
 // https://shrouded-headland-44423.herokuapp.com/

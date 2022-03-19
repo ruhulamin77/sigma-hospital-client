@@ -9,7 +9,7 @@ import "./BloodDonation.css";
 const BloodDonation = () => {
   const { register, handleSubmit, reset } = useForm();
   const [bloods, setBloods] = useState([]);
-  const user = useSelector((state) => state.auth.value);
+  const user = useSelector((state) => state.auth.auth);
 
   useEffect(() => {
     fetch("http://localhost:7050/bloodDonation").then((res) =>

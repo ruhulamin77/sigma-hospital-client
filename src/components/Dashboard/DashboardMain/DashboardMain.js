@@ -35,6 +35,7 @@ const DashboardMain = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const dispatch = useDispatch();
+  // console.log(admin, "maindashboard");
   return (
     <>
       <div className="dashboard_mobile_header">
@@ -241,10 +242,10 @@ const DashboardMain = () => {
                         <span className="nav_icon">--</span>
                         <span>Add Nurses</span>
                       </Link>
-                      {/* <Link to="/dashboard/allNurse/update/:id">
-                      <span className="nav_icon">--</span>
-                      <span>Nurse Profile</span> 
-                  </Link>*/}
+                      <Link to="/dashboard/appointedpatient">
+                        <span className="nav_icon">--</span>
+                        <span>Appointed Patients</span>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -284,10 +285,10 @@ const DashboardMain = () => {
                         <span className="nav_icon">--</span>
                         <span>Patients Profile</span>
                       </Link> */}
-                      <Link to="/dashboard/patient/invoice">
+                      {/* <Link to="/dashboard/patient/invoice">
                         <span className="nav_icon">--</span>
                         <span>Invoice</span>
-                      </Link>
+                      </Link> */}
                     </li>
                   </ul>
                 </div>
@@ -673,6 +674,10 @@ const DashboardMain = () => {
                       <span className="nav_icon">--</span>
                       <span>Add Nurses</span>
                     </Link>
+                    <Link to="/dashboard/appointedpatient">
+                      <span className="nav_icon">--</span>
+                      <span>Appointed Patients</span>
+                    </Link>
 
                   </li>
                 </ul>
@@ -713,10 +718,10 @@ const DashboardMain = () => {
                         <span className="nav_icon">--</span>
                         <span>Patients Profile</span>
                       </Link> */}
-                    <Link to="/dashboard/patient/invoice">
+                    {/* <Link to="/dashboard/patient/invoice">
                       <span className="nav_icon">--</span>
                       <span>Invoice</span>
-                    </Link>
+                    </Link> */}
                   </li>
                 </ul>
               </div>
