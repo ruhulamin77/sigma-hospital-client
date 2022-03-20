@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Row, Spinner } from 'react-bootstrap';
-import PatientInfo from '../PatientInfo/PatientInfo';
 
 const AppointedPatient = () => {
     const nurse = JSON.parse(localStorage.getItem("admin"));
@@ -9,7 +8,7 @@ const AppointedPatient = () => {
     console.log(appointment);
 
     useEffect(() => {
-        fetch(`http://localhost:7050/nurseAppoint/${nurse?.adminEmail}`)
+        fetch(`https://shrouded-headland-44423.herokuapp.com/nurseAppoint/${nurse?.adminEmail}`)
             .then(res => res.json())
             .then(data => setAppoinment(data))
     }, [nurse?.adminEmail]);

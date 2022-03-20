@@ -3,8 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { FaHeart } from 'react-icons/fa';
 import { GrDislike, GrLike } from 'react-icons/gr';
-import {  useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
+import Slider from 'react-slick/lib/slider';
 import { format } from 'timeago.js';
 import { useGetBlogQuery } from '../../../features/blogApi';
 import Footer from '../../Home/Footer/Footer';
@@ -23,12 +24,12 @@ const SingleBlog = () => {
     const [search, setSearch] = useState("");
     const [number, setNumber] = useState(Number);
 
-    
+
 
     // const [isLike, setIsLike] = useState([]);
     const blogInfo = useGetBlogQuery();
     const user = useSelector((state) => state.auth.auth)
-
+    console.log(user, "user comment");
     useEffect(() => {
         axios.get(`https://shrouded-headland-44423.herokuapp.com/users/${user?.email}`).then(res => setLoginUser(res.data))
     }, [user?.email])
@@ -48,6 +49,7 @@ const SingleBlog = () => {
         const userVisit = {
             visit: loginUser?._id,
         }
+        console.log(loginUser?._id, singleBlog?._id);
         if (singleBlog?.totalVisitor?.length === 0 && singleBlog?._id && loginUser?._id) {
             const getvisitor = async () => {
                 try {
@@ -58,9 +60,10 @@ const SingleBlog = () => {
                 }
             }
             getvisitor()
-            const res = axios.put(`https://shrouded-headland-44423.herokuapp.com/totalVisitor/${singleBlog?._id}`, userVisit)
         } else {
             const findId = singleBlog?.totalVisitor?.includes(loginUser?._id)
+            console.log(findId, "findId");
+
             if (!findId && loginUser?._id) {
                 const getvisitor = async () => {
                     try {
@@ -80,7 +83,7 @@ const SingleBlog = () => {
             likes: loginUser?._id,
         }
 
-        
+
 
         const res = await axios.put(`https://shrouded-headland-44423.herokuapp.com/updateBloglike/${id}`, docLike)
         if (res.data) {
@@ -118,7 +121,7 @@ const SingleBlog = () => {
             })
             setNewHelp(find)
         }
-     
+
         console.log(newData, "find");
 
 
@@ -127,6 +130,29 @@ const SingleBlog = () => {
 
     console.log(newData);
     console.log(newHelp, "search ===");
+
+    const settings = {
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        vertical: true,
+        verticalSwiping: true,
+        autoplay: true,
+        speed: 2000,
+
+        autoplaySpeed: 2000,
+        beforeChange: function (currentSlide, nextSlide) {
+            console.log("before change", currentSlide, nextSlide);
+        },
+        afterChange: function (currentSlide) {
+            console.log("after change", currentSlide);
+        }
+    };
+
+    // const dddd = blogInfo?.data.sort((a, b) => {
+    //     return a.likes.length - b.likes.length
+    // })
+    console.log(blogInfo.data, "ddddd");
     return (
         <>
             <Header />
@@ -180,18 +206,36 @@ const SingleBlog = () => {
                                 onClick={() => handleSearch()} className="btn btn-primary">Search</button> </div>
                         {
                             newHelp.length > 0 && newHelp.map((item, i) => (
-                            
-                            <div className="help" key={i}>
-                                <Link to={`/Blog/${item?._id}`}>
-                                <h3>{item?.title}</h3> 
-                                </Link>
-                            </div> 
-                            
-                        ))
-                    }
 
+                                <div className="help" key={i}>
+                                    <Link to={`/Blog/${item?._id}`}>
+                                        <h3>{item?.title}</h3>
+                                    </Link>
+                                </div>
+
+                            ))
+                        }
+                        <Slider {...settings}>
+
+                            {
+                                blogInfo?.data?.map(item => (
+                                    <Link to={`/Blog/${item?._id}`}>
+                                    <div className='d-flex justify-content-between align-items-center'>
+                                        <div className="info-slider">
+                                            <h5>{item?.title }</h5>
+                                            <p>{item?.description}</p>
+                                          
+                                        </div>
+                                        <div className="info-img">
+                                            <img className='img-fluid' src={`data:image/*;base64,${item?.photo}`} alt="" />
+                                        </div>
+                                    </div>
+                                    </Link>
+                                ))
+                            }
+                        </Slider>
                     </Col>
-                    
+
                 </Row>
                 <Comment blogId={singleBlog} loginUser={loginUser} />
             </Container>

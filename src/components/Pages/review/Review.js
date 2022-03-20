@@ -8,7 +8,6 @@ import { FaRegAngry } from 'react-icons/fa';
 import Rating from "react-rating";
 import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
-import Header from "../../Share/Header/Header";
 import "./review.css";
 
 const Review = () => {
@@ -20,7 +19,7 @@ const Review = () => {
         data["email"] = user?.email;
         data["displayName"] = user?.displayName;
         data["photoURL"] = user?.photoURL;
-        axios.post("http://localhost:7050/reviewAdd", data).then(data => {
+        axios.post("https://shrouded-headland-44423.herokuapp.com/reviewAdd", data).then(data => {
             console.log(data, "info");
             if (data.status === 200) {
                 reset()
@@ -36,7 +35,7 @@ const Review = () => {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'error',
-                    title: 'Your Review has not been saved',
+                    title: 'Your Review has been not saved',
                     showConfirmButton: false,
                     timer: 1500
                   }) 
@@ -48,7 +47,6 @@ const Review = () => {
 
     return (
         <>
-            <Header />
             <div className='review-section '>
                 <Container>
                     <Row className="align-items-center">

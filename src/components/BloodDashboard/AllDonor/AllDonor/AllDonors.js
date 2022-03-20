@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { NavLink } from "react-router-dom";
 // import { useGetBloodRequestQuery } from "../../../../features/sigmaApi";
 import SingleDonor from "../SingleDonar/SingleDonor";
-
 import "./AllDonors.css";
+
 
 const AllDonors = () => {
   const [donors, setDonor] = useState([]);
@@ -19,7 +18,7 @@ const AllDonors = () => {
     setUidonor(seacredonor);
   };
 
-  // http://localhost:7050/
+  // https://shrouded-headland-44423.herokuapp.com/
   // https://shrouded-headland-44423.herokuapp.com/
 
   useEffect(() => {

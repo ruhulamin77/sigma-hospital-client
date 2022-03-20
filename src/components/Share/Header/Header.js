@@ -50,6 +50,7 @@ const Header = () => {
     boxClassSubMenu.push("");
   }
   const user = useSelector((state) => state.auth.auth);
+  console.log(user, "user");
 
   return (
     <header className="header__middle">
