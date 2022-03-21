@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Card, Container, Form } from 'react-bootstrap';
-import './AddDoctors.css';
 import Swal from 'sweetalert2';
+import './AddDoctors.css';
 
 const AddDoctors = () => {
     const [doctorData, setDoctorData] = useState({});
@@ -27,7 +27,7 @@ const AddDoctors = () => {
         }
         formData.append('image', image);
 
-        fetch('https://shrouded-headland-44423.herokuapp.com/addDoctor', {
+        fetch('http://localhost:7050/addDoctor', {
             method: 'POST',
             body: formData
         })

@@ -39,8 +39,8 @@ const Login = () => {
     return (
         <>
             <Header />
-            {authError && <h5 className='text-center'>{authError}</h5>}
-            <Container className='padding-container'>
+            <div className="login-section">
+            <Container>
                 <div className={`con ${classAdd}`} id="container">
                     <div className="form-container sign-up-container">
                         <form onSubmit={handleSubmit(onSubmit)} className='login-form'>
@@ -95,6 +95,8 @@ const Login = () => {
                     </div>
                 </div>
             </Container>
+            </div>
+          
             <Footer />
         </>
     );

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import "./RegisterDonor.css";
-import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
+import { useForm } from "react-hook-form";
+import { useSelector } from "react-redux";
+import Swal from "sweetalert2";
+import "./RegisterDonor.css";
 
 const RegisterDonor = () => {
   const user = useSelector((state) => state.auth.auth);
@@ -13,7 +13,7 @@ const RegisterDonor = () => {
   const [donars, setDonars] = useState([]);
 
   useEffect(() => {
-    fetch("https://shrouded-headland-44423.herokuapp.com/donors").then((res) =>
+    fetch("http://localhost:7050/donors").then((res) =>
       res.json().then((data) => setDonars(data))
     );
   }, []);
@@ -36,7 +36,7 @@ const RegisterDonor = () => {
       });
     }
     axios
-      .post("https://shrouded-headland-44423.herokuapp.com/donors", data)
+      .post("http://localhost:7050/donors", data)
       .then((res) => {
         if (res.data.insertedId) {
           Swal.fire({

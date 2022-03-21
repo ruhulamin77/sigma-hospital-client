@@ -1,4 +1,4 @@
-import {createSlice,createAsyncThunk} from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { adminData } from './helpers/adminFetch';
 
 const initialState = localStorage.getItem("admin") ? JSON.parse(localStorage.getItem("admin")): {};
@@ -6,14 +6,14 @@ const initialState = localStorage.getItem("admin") ? JSON.parse(localStorage.get
 export const adminRegister = createAsyncThunk(
     'adminRegister',
     async (body)=>{
-       const result =  await adminData('https://shrouded-headland-44423.herokuapp.com/adminRegistar',body)
+       const result =  await adminData('http://localhost:7050/adminRegistar',body)
        return result
     }
 )
 export const adminLogin = createAsyncThunk(
     'adminLogin',
     async (body)=>{
-       const result =  await adminData('https://shrouded-headland-44423.herokuapp.com/adminLogin',body)
+       const result =  await adminData('http://localhost:7050/adminLogin',body)
        return result
     }
 )

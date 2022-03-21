@@ -14,7 +14,7 @@ const ProductRecive = () => {
 
 
     useEffect(() => {
-        fetch("https://shrouded-headland-44423.herokuapp.com/medicine")
+        fetch("http://localhost:7050/medicine")
             .then(res => res.json())
             .then(data => {
                 setMedicines(data.medicine)

@@ -25,7 +25,7 @@ const Comment = ({ blogId, loginUser }) => {
         data["time"] = new Date()
         console.log(data, "commmmmmm");
         try {
-            const res = await axios.put(`https://shrouded-headland-44423.herokuapp.com/commentPut/${blogId?._id}`, data)
+            const res = await axios.put(`http://localhost:7050/commentPut/${blogId?._id}`, data)
             console.log(data);
             console.log(res);
             console.log(res?.status);

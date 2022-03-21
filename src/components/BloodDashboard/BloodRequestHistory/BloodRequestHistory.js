@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
+import { useSelector } from "react-redux";
 // import { useGetBloodRequestQuery } from "../../../features/sigmaApi";
 import SingleRequest from "./SingleRequest/SingleRequest";
 
-import { useSelector } from "react-redux";
 const BloodRequestHistory = () => {
   const [requests, setRequests] = useState([]);
   const user = useSelector((state) => state.auth.auth);
 
   useEffect(() => {
     fetch(
-      `https://shrouded-headland-44423.herokuapp.com/bloodRequest/${user?.email}`
+      `http://localhost:7050/bloodRequest/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => setRequests(data));

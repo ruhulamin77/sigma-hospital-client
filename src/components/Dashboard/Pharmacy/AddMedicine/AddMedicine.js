@@ -1,15 +1,15 @@
-import React from 'react';
-import './AddMedicine.css'
-import { useForm } from "react-hook-form";
 import axios from 'axios';
+import React from 'react';
+import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
+import './AddMedicine.css';
 
 const AddMedicine = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {
         console.log(data)
-        axios.post('https://shrouded-headland-44423.herokuapp.com/medicine', data)
+        axios.post('http://localhost:7050/medicine', data)
             .then(res => {
                 if (res.data.insertedId) {
                     toast.success(`Add to Product`, {

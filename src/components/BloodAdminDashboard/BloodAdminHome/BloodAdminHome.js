@@ -11,11 +11,11 @@ const BloodAdminHome = () => {
   const [panding, setBloodPanding] = useState([]);
   const [rejected, setBloodRejected] = useState([]);
 
-  // https://shrouded-headland-44423.herokuapp.com/
-  // https://shrouded-headland-44423.herokuapp.com/
+  // http://localhost:7050/
+  // http://localhost:7050/
 
   useEffect(() => {
-    fetch("https://shrouded-headland-44423.herokuapp.com/bloodDonation")
+    fetch("http://localhost:7050/bloodDonation")
       .then((res) => res.json())
       .then((data) => {
         const Aprove = data.filter((data) => data?.status === "Approved");
@@ -29,7 +29,7 @@ const BloodAdminHome = () => {
   }, []);
 
   useEffect(() => {
-    fetch("https://shrouded-headland-44423.herokuapp.com/bloodRequest")
+    fetch("http://localhost:7050/bloodRequest")
       .then((res) => res.json())
       .then((data) => {
         const AproveRequestData = data.filter(

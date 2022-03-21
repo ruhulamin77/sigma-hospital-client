@@ -8,7 +8,7 @@ const AppointedPatient = () => {
     console.log(appointment);
 
     useEffect(() => {
-        fetch(`https://shrouded-headland-44423.herokuapp.com/nurseAppoint/${nurse?.adminEmail}`)
+        fetch(`http://localhost:7050/nurseAppoint/${nurse?.adminEmail}`)
             .then(res => res.json())
             .then(data => setAppoinment(data))
     }, [nurse?.adminEmail]);

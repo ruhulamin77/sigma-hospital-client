@@ -14,14 +14,14 @@ const BloodDashboardHome = () => {
 
   useEffect(() => {
     fetch(
-      `https://shrouded-headland-44423.herokuapp.com/bloodDonate/${user?.email}`
+      `http://localhost:7050/bloodDonate/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => setDonations(data));
   }, []);
 
   useEffect(() => {
-    fetch(`https://shrouded-headland-44423.herokuapp.com/${user?.email}`)
+    fetch(`http://localhost:7050/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setrequests(data));
   }, []);

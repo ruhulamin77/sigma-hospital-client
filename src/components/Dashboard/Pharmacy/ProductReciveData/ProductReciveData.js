@@ -14,7 +14,7 @@ const ProductReciveData = ({ index, medicine }) => {
     }
 
     const handeldata = (data) => {
-        axios.put(`https://shrouded-headland-44423.herokuapp.com/medicine/${medicine._id}`, {
+        axios.put(`http://localhost:7050/medicine/${medicine._id}`, {
             stock: { data },
         })
             .then((data) => {
