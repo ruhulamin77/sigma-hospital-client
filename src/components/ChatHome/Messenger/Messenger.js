@@ -140,15 +140,19 @@ const Messenger = () => {
 
    
     const reserveConversation = [...conversation].reverse()
-    const handleSearchDoctor = (e) => {
-        const newData =  conversation.filter(item => {
-            return item?.adminName?.toLowerCase().includes(e.target.value.toLowerCase())
+    const handleSearchDoctor = async (e) => {
+        
+        const value = (e.target.value);
+        console.log(value);
+        const newData = await conversation?.filter(item => {
+            return item?.adminName?.toLowerCase().includes(value.toLowerCase())
         })
-        setConversation(newData)
+        console.log(newData);
+        // setConversation(newData)
     }
     console.log(onlineUser, "onlineUser");
     console.log(curremtChat, "curremtChat");
-    console.log(messages, "messages");
+    console.log(conversation, "messages");
     console.log(loginUsers?._id, "loginUsers?._id");
     return (
         <div className='messenger'>
