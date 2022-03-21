@@ -9,7 +9,7 @@ const PatientData = () => {
     console.log(appointment);
 
     useEffect(() => {
-        fetch(`https://shrouded-headland-44423.herokuapp.com/appointments/${doctor?.adminEmail}`)
+        fetch(`http://localhost:7050/appointments/${doctor?.adminEmail}`)
             .then(res => res.json())
             .then(data => setAppoinment(data))
     }, [doctor?.adminEmail]);

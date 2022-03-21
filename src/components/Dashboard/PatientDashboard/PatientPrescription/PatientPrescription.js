@@ -19,6 +19,7 @@ const PatientPrescription = () => {
   const [nurseDay, setNurseDay] = useState([]);
   const [nurseName, setNurseName] = useState([]);
   console.log(nurseName);
+  console.log(singleAppointment);
   console.log(singlePrescriptionData);
 
   useEffect(() => {
@@ -30,6 +31,8 @@ const PatientPrescription = () => {
     const singlePrecData = allPrescription?.data?.find(precData => precData?.patientFirstName === singleAppointment?.firstName);
     setSinglePrescriptionData(singlePrecData);
   }, [allPrescription?.data, singleAppointment?.firstName]);
+
+
 
   const [inputFields, setInputFields] = useState([
     { number: "", medicineName: "", feedingSystem: "" },
@@ -107,17 +110,14 @@ const PatientPrescription = () => {
       })
   };
 
-  let today = new Date().toLocaleDateString()
-  console.log(today)
-
+  let today = new Date().toLocaleDateString();
   const appointNurse = {
     nurseData: nurseName,
-    appointDate: today
+    appointDate: today,
   };
-  console.log(appointNurse);
   const handleAppointNurse = e => {
     e.preventDefault();
-    fetch(`https://shrouded-headland-44423.herokuapp.com/appointNurse/${singlePrescriptionData._id}`, {
+    fetch(`http://localhost:7050/appointNurse/${singlePrescriptionData._id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(appointNurse),
@@ -132,6 +132,11 @@ const PatientPrescription = () => {
             showConfirmButton: false,
             timer: 2000
           });
+          if (Swal) {
+            setTimeout(() => {
+              window.location.reload();
+            }, 2000);
+          }
         }
       })
   };
@@ -151,7 +156,6 @@ const PatientPrescription = () => {
 
   const handleNurseTime = e => {
     const time = e.target.value;
-    // console.log(time);
     const filterNurseTime = allNurse?.data?.filter(
       (nurses) => nurses?.time === time
     );
