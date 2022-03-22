@@ -1,13 +1,12 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom'
+import { Navigate, Outlet } from 'react-router-dom'
 
 export default function AdminRoute() {
-    let navigate = useNavigate();
-    const admin = useSelector(state => state?.admin?.token)
+    const admin = useSelector(state => state?.admin?.admin?.token)
     return (
         <>
-            {admin ? navigate(`/dashboard`) : navigate(`/adminLogin`)};
+            {admin ? <Outlet /> : <Navigate to="/adminLogin" />}
         </>
     )
 }

@@ -24,7 +24,7 @@ import AppointedPatient from "./components/Dashboard/NurseDashboard/AppointedPat
 import NurseProfileUpdate from "./components/Dashboard/NurseDashboard/NurseProfileUpdate/NurseProfileUpdate";
 import PatientData from "./components/Dashboard/PatientDashboard/PatientData/PatientData/PatientData";
 import PatientPrescription from "./components/Dashboard/PatientDashboard/PatientPrescription/PatientPrescription";
-// import AdminRoute from "./components/PrivateRoute/AdminRoute";
+import AdminRoute from "./components/PrivateRoute/AdminRoute";
 import AddMedicine from "./components/Dashboard/Pharmacy/AddMedicine/AddMedicine";
 import Cart from "./components/Dashboard/Pharmacy/Cart/Cart";
 import Invoice from "./components/Dashboard/Pharmacy/Invoice/Invoice";
@@ -132,7 +132,7 @@ function App() {
           />
 
           {/* dashboard */}
-          {/* <Route path="/dashboard" element={<AdminRoute />}> */}
+          <Route path="/" element={<AdminRoute />}>
           <Route path="/dashboard" element={<DashboardMain />}>
             <Route path="/dashboard" element={<AdminHomeMain />}></Route>
             <Route
@@ -187,7 +187,7 @@ function App() {
 
             {/* patients route end */}
           </Route>
-          {/* </Route> */}
+          </Route>
           {/*  blood bank */}
           <Route path="/bloodBank" element={<BloodDashboardMain />}>
             <Route path="/bloodBank" element={<BloodDashboardHome />}></Route>
