@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Row, Spinner } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 import PatientTable from '../PatientTable/PatientTable';
 
 const PatientData = () => {
-    const doctor = JSON.parse(localStorage.getItem("admin"));
+    const doctor = useSelector((state) => state.admin);
     console.log(doctor?.adminEmail);
     const [appointment, setAppoinment] = useState([]);
     console.log(appointment);
