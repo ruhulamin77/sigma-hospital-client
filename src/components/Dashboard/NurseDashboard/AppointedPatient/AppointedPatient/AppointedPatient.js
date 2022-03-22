@@ -1,23 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Row, Spinner } from 'react-bootstrap';
+import { Button, Spinner, Table } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
+import { useGetPrescriptionsQuery } from '../../../../../features/sigmaApi';
 
 const AppointedPatient = () => {
     const nurse = JSON.parse(localStorage.getItem("admin"));
-    console.log(nurse?.adminEmail);
-    const [appointment, setAppoinment] = useState([]);
-    console.log(appointment);
+    const allNurseData = useGetPrescriptionsQuery();
+    const [singleApointData, setSingleApointData] = useState([]);
+    console.log(singleApointData);
 
     useEffect(() => {
-        fetch(`http://localhost:7050/nurseAppoint/${nurse?.adminEmail}`)
-            .then(res => res.json())
-            .then(data => setAppoinment(data))
-    }, [nurse?.adminEmail]);
+        const singleNurseData = allNurseData?.data?.filter(allNurse => (
+            allNurse?.nurseData?.filter(singleNurse => singleNurse.email === nurse?.adminEmail)
+        ));
+        setSingleApointData(singleNurseData);
+    }, [allNurseData?.data, nurse?.adminEmail]);
 
     return (
         <div style={{ backgroundColor: "#F4F7F6", padding: "20px" }}>
             <h3 className='mb-3'>{nurse?.adminName}</h3>
             <h5 className='mb-3'>Patient Data</h5>
-            {!appointment.length ? <Button variant="primary" disabled>
+            {!singleApointData ? <Button variant="primary" disabled>
                 <Spinner
                     as="span"
                     animation="grow"
@@ -27,15 +30,33 @@ const AppointedPatient = () => {
                 />
                 Loading...
             </Button> :
-                <Row xs={1} md={3} className="g-4">
-                    {appointment.map((appointNurse) => (
-                        console.log(appointNurse)
-                        // <PatientInfo
-                        //     key={appointNurse._id}
-                        //     appointNurse={appointNurse}
-                        // ></PatientInfo>
-                    ))}
-                </Row>}
+                <Table responsive>
+                    <thead>
+                        <tr>
+                            <th>Patient ID</th>
+                            <th>Patient Name</th>
+                            <th>Patient Age</th>
+                            <th>Patient Gender</th>
+                            <th>Appoint Date</th>
+                            <th>Doctor Name</th>
+                            <th>Prescription</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {singleApointData.map((apointData) => (
+                            <tr key={apointData?._id}>
+                                <td>{apointData?._id}</td>
+                                <td>{apointData?.patientFirstName} {apointData?.patientLastName}</td>
+                                <td>{apointData?.patientAge}</td>
+                                <td>{apointData?.patientGender}</td>
+                                <td>{apointData?.nurseApointDate}</td>
+                                <td>{apointData?.doctorName}</td>
+                                <td><NavLink to={`/dashboard/singlePatient/invoice/${apointData?._id}`}>Invoice</NavLink></td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </Table>
+            }
         </div>
     );
 };

@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Card, Form, Table } from "react-bootstrap";
 import { MdSend } from 'react-icons/md';
@@ -17,8 +18,9 @@ const PatientPrescription = () => {
   const [singlePrescriptionData, setSinglePrescriptionData] = useState([]);
   const [nurseTime, setNurseTime] = useState([]);
   const [nurseDay, setNurseDay] = useState([]);
-  const [nurseName, setNurseName] = useState([]);
+  const [nurseName, setNurseName] = useState({});
   console.log(nurseName);
+  console.log(singleAppointment);
   console.log(singlePrescriptionData);
 
   useEffect(() => {
@@ -30,6 +32,8 @@ const PatientPrescription = () => {
     const singlePrecData = allPrescription?.data?.find(precData => precData?.patientFirstName === singleAppointment?.firstName);
     setSinglePrescriptionData(singlePrecData);
   }, [allPrescription?.data, singleAppointment?.firstName]);
+
+
 
   const [inputFields, setInputFields] = useState([
     { number: "", medicineName: "", feedingSystem: "" },
@@ -48,7 +52,9 @@ const PatientPrescription = () => {
     patientLastName: singleAppointment?.lastName,
     patientName: singleAppointment?.firstName,
     patientAge: singleAppointment?.Age,
-    patientGender: singleAppointment?.gender
+    patientGender: singleAppointment?.gender,
+    
+
   }
 
   const handleSubmit = (e) => {
@@ -107,33 +113,46 @@ const PatientPrescription = () => {
       })
   };
 
-  let today = new Date().toLocaleDateString()
-  console.log(today)
-
-  const appointNurse = {
-    nurseData: nurseName,
-    appointDate: today
-  };
-  console.log(appointNurse);
-  const handleAppointNurse = e => {
+  let today = new Date().toLocaleDateString();
+  const handleAppointNurse = async (e) => {
     e.preventDefault();
-    fetch(`http://localhost:7050/appointNurse/${singlePrescriptionData._id}`, {
-      method: "PUT",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(appointNurse),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.modifiedCount) {
-          Swal.fire({
-            icon: 'success',
-            title: 'The Nurse has been successfully appointed!',
-            showConfirmButton: false,
-            timer: 2000
-          });
-        }
-      })
+    try {
+      const res = await axios.put(`http://localhost:7050/appointNurse/${singlePrescriptionData._id}`, "okkkk")
+      
+      if (res?.status === 200) { 
+        console.log(res?.status);
+        Swal.fire({
+                icon: 'success',
+                title: 'The Nurse has been successfully appointed!',
+                showConfirmButton: false,
+                timer: 2000
+              });
+      }
+      //   if (data.modifiedCount) {
+      //     Swal.fire({
+      //       icon: 'success',
+      //       title: 'The Nurse has been successfully appointed!',
+      //       showConfirmButton: false,
+      //       timer: 2000
+      //     });
+      //     if (Swal) {
+      //       setTimeout(() => {
+      //         window.location.reload();
+      //       }, 2000);
+      //     }
+      //   }
+      // })
+
+    } catch (error) {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: 'Your Comment has been not saved',
+        showConfirmButton: false,
+        timer: 1500
+      }) 
+    }
+    
   };
 
   const handleAddFields = () => {
@@ -151,7 +170,6 @@ const PatientPrescription = () => {
 
   const handleNurseTime = e => {
     const time = e.target.value;
-    // console.log(time);
     const filterNurseTime = allNurse?.data?.filter(
       (nurses) => nurses?.time === time
     );
@@ -167,11 +185,12 @@ const PatientPrescription = () => {
 
   const handleNurseName = e => {
     const name = e.target.value;
-    const filterNurseName = nurseDay?.filter(
-      (nurse) => nurse?.name === name
-    );
+
+    const filterNurseName = nurseDay?.find(
+      (nurse) => nurse?.name === name);
     setNurseName(filterNurseName);
   };
+
 
   return (
     <div style={{ backgroundColor: "#F4F7F6", padding: "20px" }} className="borderSetup">

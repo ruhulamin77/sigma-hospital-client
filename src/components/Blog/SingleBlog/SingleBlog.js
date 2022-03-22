@@ -20,7 +20,6 @@ const SingleBlog = () => {
     const [singleBlog, setSingleBlog] = useState([]);
     const [liked, setLiked] = useState([]);
     const [newData, setNewData] = useState([]);
-    const [newHelp, setNewHelp] = useState([]);
     const [search, setSearch] = useState("");
     const [number, setNumber] = useState(Number);
 
@@ -110,26 +109,28 @@ const SingleBlog = () => {
             return item.title.toLowerCase().includes(search.toLowerCase())
         })
         setNewData(newData)
-    }
-    const handleHelp = (e) => {
-        e.preventDefault();
-        setSearch(e.target.value)
-        console.log(e.target.value);
-        if (search.length !== 0 && search !== "" && search !== " ") {
-            const find = blogInfo?.data.filter((item) => {
-                return item?.title?.toLowerCase()?.includes(search?.toLowerCase())
-            })
-            setNewHelp(find)
-        }
-
-        console.log(newData, "find");
-
-
 
     }
-
     console.log(newData);
-    console.log(newHelp, "search ===");
+    // const handleHelp = (e) => {
+    //     e.preventDefault();
+    //     setSearch(e.target.value)
+    //     console.log(e.target.value);
+    //     if (search.length !== 0 && search !== "" && search !== " ") {
+    //         const find = blogInfo?.data.filter((item) => {
+    //             return item?.title?.toLowerCase()?.includes(search?.toLowerCase())
+    //         })
+    //         setNewHelp(find)
+    //     }
+
+    //     console.log(newData, "find");
+
+
+
+    // }
+
+    // console.log(newData);
+    // console.log(newHelp, "search ===");
 
     const settings = {
         infinite: true,
@@ -202,10 +203,10 @@ const SingleBlog = () => {
                     </Col>
                     <Col lg={4} className="my-5">
                         <div className="search"> <i className="fa fa-search"></i> <input
-                            onChange={(e) => handleHelp(e)} type="text" className="form-control" placeholder="Have a question? Ask Now" /> <button
-                                onClick={() => handleSearch()} className="btn btn-primary">Search</button> </div>
+                            onChange={(e) => setSearch(e.target.value)} type="text" className="form-control" placeholder="Have a question? Ask Now" /> <button
+                               onClick={() => handleSearch()} className="btn btn-primary">Search</button> </div>
                         {
-                            newHelp.length > 0 && newHelp.map((item, i) => (
+                            search.length > 0 && newData.map((item, i) => (
 
                                 <div className="help" key={i}>
                                     <Link to={`/Blog/${item?._id}`}>
