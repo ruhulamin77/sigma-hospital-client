@@ -8,7 +8,7 @@ const PdfInvoice = () => {
     console.log(itemdata)
     const { id } = useParams()
     useEffect(() => {
-        fetch('https://shrouded-headland-44423.herokuapp.com/order')
+        fetch('http://localhost:7050/order')
             .then(res => res.json())
             .then(data => {
                 const Order = data.find((data) => data?._id === `${id}`);

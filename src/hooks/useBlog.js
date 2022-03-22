@@ -17,7 +17,7 @@ const useBlog = () => {
     const user = useSelector((state) => state.auth.auth)
     // find loginn user form db
     useEffect(() => {
-        axios.get(`https://shrouded-headland-44423.herokuapp.com/users/${user?.email}`).then(res => setLoginUser(res.data))
+        axios.get(`http://localhost:7050/users/${user?.email}`).then(res => setLoginUser(res.data))
     }, [user?.email])
 
     

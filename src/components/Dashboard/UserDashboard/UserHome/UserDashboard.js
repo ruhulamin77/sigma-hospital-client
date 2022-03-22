@@ -157,7 +157,7 @@ const UserDashboard = () => {
                   </span>
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/chat">
                   <span className="dashboard_nav_icon">
                     <span className="nav_icon">
@@ -167,7 +167,7 @@ const UserDashboard = () => {
                     <span>Chat App</span>
                   </span>
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link
                   /* className="btn btn-primary" */
@@ -475,7 +475,7 @@ const UserDashboard = () => {
                 </span>
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/dashboard/chat">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
@@ -485,7 +485,7 @@ const UserDashboard = () => {
                   <span>Chat App</span>
                 </span>
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link
                 /* className="btn btn-primary" */

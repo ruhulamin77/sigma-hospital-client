@@ -3,7 +3,7 @@ import Messenger from '../Messenger/Messenger';
 
 const ChatPage = () => {
     return (
-        <div>
+        <div className='scrool'>
             <Messenger />
         </div>
     );

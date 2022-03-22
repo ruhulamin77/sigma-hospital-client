@@ -12,12 +12,12 @@ const Charts = () => {
   const [onegative, setOnegative] = useState([]);
   const [abnegative, setAbnegative] = useState([]);
 
-  // https://shrouded-headland-44423.herokuapp.com/
-  // https://shrouded-headland-44423.herokuapp.com/
+  // http://localhost:7050/
+  // http://localhost:7050/
 
   //////load data//
   useEffect(() => {
-    fetch("https://shrouded-headland-44423.herokuapp.com/donors")
+    fetch("http://localhost:7050/donors")
       .then((res) => res.json())
       .then((donors) => {
         console.log(donors);

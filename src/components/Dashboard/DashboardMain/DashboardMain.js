@@ -8,6 +8,8 @@ import {
   AiOutlineUser,
   AiOutlineUsergroupDelete,
 } from "react-icons/ai";
+import { MdOutlineLocalPharmacy } from "react-icons/md";
+import { MdOutlineBloodtype } from "react-icons/md";
 import { GrHome, GrLocation } from "react-icons/gr";
 import { MdOutlinePayment } from "react-icons/md";
 import {
@@ -121,7 +123,6 @@ const DashboardMain = () => {
                 <span className="dasboard_leftbar_count">213</span>
               </div>
             </div>
-
             <ul className="dashboard_left_nav">
               <li>
                 <Link to="/dashboard">
@@ -133,6 +134,48 @@ const DashboardMain = () => {
                   </span>
                 </Link>
               </li>
+              <li>
+                <Link
+                  /* className="btn btn-primary" */
+                  data-bs-toggle="collapse"
+                  to="#collapseBloodBank"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="collapseExample"
+                >
+                  <span className="dashboard_nav_icon">
+                    <span className="nav_icon">
+                      <MdOutlineBloodtype />
+                    </span>
+                    <span>Blood Bank</span>
+                  </span>
+                  <BsChevronDown />
+                </Link>
+
+                <div className="collapse" id="collapseBloodBank">
+                  <ul className="dashboard_sub_menu">
+                    <li>
+                      <Link to="/dashboard/bloodBankAdmin">
+                        <span className="nav_icon">--</span>
+                        <span>Blood Bank Home</span>
+                      </Link>
+                      <Link to="/dashboard/manageAllDonors">
+                        <span className="nav_icon">--</span>
+                        <span>Manage All Donors</span>
+                      </Link>
+                      <Link to="/dashboard/ManageBloodDonations">
+                        <span className="nav_icon">--</span>
+                        <span>Manage Donations</span>
+                      </Link>
+                      <Link to="/dashboard/manageBloodRequests">
+                        <span className="nav_icon">--</span>
+                        <span>ManageBloodRequests</span>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
               <li>
                 <Link to="/dashboard/appointment">
                   <span className="dashboard_nav_icon">
@@ -154,7 +197,7 @@ const DashboardMain = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/chat">
+                <Link to="/dashboard/chat">
                   <span className="dashboard_nav_icon">
                     <span className="nav_icon">
                       <RiWechatLine />
@@ -194,10 +237,14 @@ const DashboardMain = () => {
                         <span className="nav_icon">--</span>
                         <span>Add Doctors</span>
                       </Link>
-                      {/* <Link to="/dashboard/patientsInfo">
-                        <span className="nav_icon">--</span>
-                        <span>Patients Information</span>
-                      </Link> */}
+                      {/* <Link to="/dashboard/allDoctors/update/:id">
+                      <span className="nav_icon">--</span>
+                      <span>Doctor Profile</span>
+                    </Link> */}
+                      {/* <Link to="/dashboard/doctorPrescription">
+                      <span className="nav_icon">--</span>
+                      <span>Doctor Prescription</span>
+                    </Link> */}
                     </li>
                   </ul>
                 </div>
@@ -311,6 +358,58 @@ const DashboardMain = () => {
                       <Link to="/dashboard">
                         <span className="nav_icon">--</span>
                         <span>Invoie</span>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <li>
+                <Link
+                  /* className="btn btn-primary" */
+                  data-bs-toggle="collapse"
+                  to="#collapsePaymentss"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="collapseExample"
+                >
+                  <span className="dashboard_nav_icon">
+                    <span className="nav_icon">
+                      <MdOutlineLocalPharmacy />
+                    </span>
+                    <span>Pharmacy</span>
+                  </span>
+                  <BsChevronDown />
+                </Link>
+                <div className="collapse" id="collapsePaymentss">
+                  <ul className="dashboard_sub_menu">
+                    <li>
+                      <Link to="/dashboard/pharmacy">
+                        <span className="nav_icon">--</span>
+                        <span>Pharmacy</span>
+                      </Link>
+                      <Link to="/dashboard/order">
+                        <span className="nav_icon">--</span>
+                        <span>Order</span>
+                      </Link>
+                      <Link to="/dashboard/receive">
+                        <span className="nav_icon">--</span>
+                        <span>Receive</span>
+                      </Link>
+
+                      <Link to="/dashboard/invoice">
+                        <span className="nav_icon">--</span>
+                        <span>Invoice</span>
+                      </Link>
+
+                      <Link to="/dashboard/AddMedicine">
+                        <span className="nav_icon">--</span>
+                        <span>Add New Medicine</span>
+                      </Link>
+
+                      <Link to="/dashboard/Stockout">
+                        <span className="nav_icon">--</span>
+                        <span>Stock out Medicine</span>
                       </Link>
                     </li>
                   </ul>
@@ -537,6 +636,71 @@ const DashboardMain = () => {
           </div>
 
           <ul className="dashboard_left_nav">
+<<<<<<< HEAD
+=======
+            <li className="dashboard_nav_item">
+              <Link to="/dashboard">
+                <span className="dashboard_nav_icon">
+                  <span className="nav_icon">
+                    <GrHome />
+                  </span>
+                  <span>Dashboard</span>
+                </span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                /* className="btn btn-primary" */
+                data-bs-toggle="collapse"
+                to="#collapseBloodBank"
+                role="button"
+                aria-expanded="false"
+                aria-controls="collapseExample"
+              >
+                <span className="dashboard_nav_icon">
+                  <span className="nav_icon">
+                    <MdOutlineBloodtype />
+                  </span>
+                  <span>Blood Bank</span>
+                </span>
+                <BsChevronDown />
+              </Link>
+
+              <div className="collapse" id="collapseBloodBank">
+                <ul className="dashboard_sub_menu">
+                  <li>
+                    <Link to="/dashboard/bloodBankAdmin">
+                      <span className="nav_icon">--</span>
+                      <span>Blood Bank Home</span>
+                    </Link>
+                    <Link to="/dashboard/manageAllDonors">
+                      <span className="nav_icon">--</span>
+                      <span>Manage All Donors</span>
+                    </Link>
+                    <Link to="/dashboard/ManageBloodDonations">
+                      <span className="nav_icon">--</span>
+                      <span>Manage Donations</span>
+                    </Link>
+                    <Link to="/dashboard/manageBloodRequests">
+                      <span className="nav_icon">--</span>
+                      <span>ManageBloodRequests</span>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li>
+              <Link to="/dashboard/appointment">
+                <span className="dashboard_nav_icon">
+                  <span className="nav_icon">
+                    <FaRegCalendarAlt />
+                  </span>
+                  <span>Appointment</span>
+                </span>
+              </Link>
+            </li>
+>>>>>>> 692ff83899ec8a521f06e6551fe53f6d90ee02f4
             <li>
               <Link to="/dashboard">
                 <span className="dashboard_nav_icon">
@@ -639,6 +803,13 @@ const DashboardMain = () => {
                       <span className="nav_icon">--</span>
                       <span>Add Nurses</span>
                     </Link>
+<<<<<<< HEAD
+=======
+                    <Link to="/dashboard/appointedpatient">
+                      <span className="nav_icon">--</span>
+                      <span>Appointed Patients</span>
+                    </Link>
+>>>>>>> 692ff83899ec8a521f06e6551fe53f6d90ee02f4
                   </li>
                 </ul>
               </div>
@@ -735,7 +906,7 @@ const DashboardMain = () => {
               >
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
-                    <MdOutlinePayment />
+                    <MdOutlineLocalPharmacy />
                   </span>
                   <span>Pharmacy</span>
                 </span>

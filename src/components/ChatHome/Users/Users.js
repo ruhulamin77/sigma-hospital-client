@@ -7,7 +7,7 @@ const Users = ({item}) => {
                 <div className="ChatOnlineFriendImgContainer">
                     <img src={item?.photoURL ? item?.photoURL : "https://www.kindpng.com/picc/m/78-786207_user-avatar-png-user-avatar-icon-png-transparent.png" } alt="" />
                 </div>
-                <span>{item?.displayName}</span>
+                <span>{item?.adminName}</span>
             </div>
         </div>
     );

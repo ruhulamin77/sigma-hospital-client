@@ -11,7 +11,7 @@ const Conversation = ({ conversation, loginUsers }) => {
         console.log(firend, "firend");
         const getFriend = async () => {
             try {
-                const res = await axios.get(`https://shrouded-headland-44423.herokuapp.com/getUsers/${firend}`)
+                const res = await axios.get(`http://localhost:7050/getUsers/${firend}`)
                 setFriendId(res?.data);
             } catch (err) {
                 console.log(err);
@@ -31,7 +31,7 @@ const Conversation = ({ conversation, loginUsers }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://shrouded-headland-44423.herokuapp.com/conversationDelete/${conversationId}`, {
+                fetch(`http://localhost:7050/conversationDelete/${conversationId}`, {
                     method: 'DELETE',
                     headers: { 'content-type': 'application/json' },
                 })
@@ -55,7 +55,7 @@ const Conversation = ({ conversation, loginUsers }) => {
             <div>
                 <img className='conversation-img' src={friendId?.photoURL ? friendId?.photoURL : "https://www.kindpng.com/picc/m/78-786207_user-avatar-png-user-avatar-icon-png-transparent.png"} alt="" />
                 <span className='conversation-name'>
-                    {friendId?.displayName}
+                    {friendId?.adminName}
                 </span>
             </div>
             <span onClick={() => handleDeleteConversation(conversation?._id)} className='threeDot'>< BsThreeDots /></span>

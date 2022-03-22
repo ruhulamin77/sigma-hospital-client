@@ -4,16 +4,17 @@
   align-items: center;
   flex-wrap: wrap;
   padding: 10px;
+  height: 80px;
 }
 .dashboardHeader .logo_area {
-  flex-basis: 180px;
+  flex-basis: 300px;
 }
 .dashboardHeader .menu_area {
   flex-grow: 1;
 }
 
 .dashboardHeader .logo_area img {
-  width: 150px;
+  max-width: 180px;
 }
 .dashboardHeader .menu_area {
   display: flex;
@@ -101,7 +102,7 @@
   padding: 15px;
   /* flex-basis: 350px; */
   min-width: 300px;
-  height: calc(100vh - 90px);
+  height: calc(100vh - 80px);
   overflow: scroll;
   overflow-x: hidden;
   background-color: #f4f7f6;
@@ -153,7 +154,7 @@
 }
 .dashboard_content_area {
   flex-grow: 1;
-  height: calc(100vh - 90px);
+  height: calc(100vh - 80px);
 
   overflow: scroll;
   overflow-x: hidden;
