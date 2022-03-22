@@ -14,7 +14,7 @@ const BloodAdminHome = () => {
   // https://shrouded-headland-44423.herokuapp.com/
 
   useEffect(() => {
-    fetch("https://shrouded-headland-44423.herokuapp.com/bloodDonation")
+    fetch("http://localhost:7050/bloodDonation")
       .then((res) => res.json())
       .then((data) => {
         const ApprovedDonation = data.filter(
@@ -34,7 +34,7 @@ const BloodAdminHome = () => {
   }, []);
 
   useEffect(() => {
-    fetch("https://shrouded-headland-44423.herokuapp.com/bloodRequest")
+    fetch("http://localhost:7050/bloodRequest")
       .then((res) => res.json())
       .then((data) => {
         const AproveBloodRequest = data.filter(

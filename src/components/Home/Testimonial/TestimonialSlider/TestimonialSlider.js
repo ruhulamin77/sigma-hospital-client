@@ -14,7 +14,7 @@ const TestimonialSlider = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const data = await axios.get("https://shrouded-headland-44423.herokuapp.com/reviewAdd")
+        const data = await axios.get("http://localhost:7050/reviewAdd")
         console.log(data);
         setData(data?.data)
       } catch (error) {

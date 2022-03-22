@@ -27,7 +27,7 @@ const AddNurse = () => {
         }
         formData.append('image', image);
 
-        fetch('https://shrouded-headland-44423.herokuapp.com/addNurse', {
+        fetch('http://localhost:7050/addNurse', {
             method: 'POST',
             body: formData
         })

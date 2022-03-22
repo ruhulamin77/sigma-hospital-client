@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const blogApi = createApi({
     reducerPath: 'blogApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://shrouded-headland-44423.herokuapp.com/' }),
+    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:7050/' }),
     endpoints: (builder) => ({
         getBlog: builder.query({
             query: () => ({
@@ -15,5 +15,5 @@ export const blogApi = createApi({
 
 export const { useGetBlogQuery } = blogApi
 
-// https://shrouded-headland-44423.herokuapp.com
-// https://shrouded-headland-44423.herokuapp.com/
+// http://localhost:7050
+// http://localhost:7050/

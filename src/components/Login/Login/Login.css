@@ -37,8 +37,7 @@ button.ghost {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 0 50px;
-  height: 100%;
+  padding: 50px;
   text-align: center;
 }
 
@@ -197,8 +196,18 @@ button.ghost {
   letter-spacing: 0.5px;
   margin: 20px 0 30px;
 }
+.login-section {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 @media (max-width: 992px) {
+  .login-section {
+    height: 100% !important;
+    margin: 20px 0;
+  }
   .con {
     background-color: #fff;
     border-radius: 10px;

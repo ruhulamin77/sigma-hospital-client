@@ -23,7 +23,7 @@ const Medicine = () => {
 
 
     useEffect(() => {
-        fetch(`https://shrouded-headland-44423.herokuapp.com/medicine?page=${page}&&size=${size}`)
+        fetch(`http://localhost:7050/medicine?page=${page}&&size=${size}`)
             .then(res => res.json())
             .then(data => {
                 setMedicines(data.medicine)

@@ -7,7 +7,7 @@ const Invoice = () => {
     const [searchinvoice, setsearchinvoice] = useState([])
 
     useEffect(() => {
-        fetch('https://shrouded-headland-44423.herokuapp.com/order')
+        fetch('http://localhost:7050/order')
             .then(res => res.json())
             .then(data => {
                 setInvoice(data)

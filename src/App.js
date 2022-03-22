@@ -1,7 +1,13 @@
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashLoader } from "react-spinners";
 import BlogForm from "./components/Blog/BlogForm/BlogForm";
 import Blogs from "./components/Blog/Blogs/Blogs";
 import SingleBlog from "./components/Blog/SingleBlog/SingleBlog";
+import BloodAdminHome from "./components/BloodAdminDashboard/BloodAdminHome/BloodAdminHome";
+import ManageAllDonor from "./components/BloodAdminDashboard/ManageAllDonor/ManageAllDonor";
+import ManageBloodDonations from "./components/BloodAdminDashboard/ManageBloodDonations/ManageBloodDonations";
+import ManageBloodRequests from "./components/BloodAdminDashboard/ManageBloodRequests/ManageBloodRequests";
 import AllDonors from "./components/BloodDashboard/AllDonor/AllDonor/AllDonors";
 import BloodDashboardHome from "./components/BloodDashboard/BloodDashboardHome/BloodDashboardHome";
 import BloodDashboardMain from "./components/BloodDashboard/BloodDashboardMain/BloodDashboardMain";
@@ -23,6 +29,8 @@ import AllNurse from "./components/Dashboard/NurseDashboard/AllNurse/AllNurse/Al
 import AppointedPatient from "./components/Dashboard/NurseDashboard/AppointedPatient/AppointedPatient/AppointedPatient";
 import NurseProfileUpdate from "./components/Dashboard/NurseDashboard/NurseProfileUpdate/NurseProfileUpdate";
 import PatientData from "./components/Dashboard/PatientDashboard/PatientData/PatientData/PatientData";
+import PatientInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/PatientInvoice/PatientInvoice";
+import SingleInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/SingleInvoice/SingleInvoice";
 import PatientPrescription from "./components/Dashboard/PatientDashboard/PatientPrescription/PatientPrescription";
 // import AdminRoute from "./components/PrivateRoute/AdminRoute";
 import AddMedicine from "./components/Dashboard/Pharmacy/AddMedicine/AddMedicine";
@@ -32,6 +40,7 @@ import PdfInvoice from "./components/Dashboard/Pharmacy/Invoice/PdfInvoice";
 import Order from "./components/Dashboard/Pharmacy/Order/Order";
 import PharmacyHome from "./components/Dashboard/Pharmacy/PharmacyHome/PharmacyHome";
 import ProductRecive from "./components/Dashboard/Pharmacy/ProductRecive/ProductRecive";
+import Stockout from "./components/Dashboard/Pharmacy/Stockout/Stockout";
 // import AdminRoute from "./components/PrivateRoute/AdminRoute";
 import UserDashboard from "./components/Dashboard/UserDashboard/UserHome/UserDashboard";
 import Appointment from "./components/Home/Appointment/Appointment";
@@ -59,27 +68,21 @@ import Neurologist from "./components/Specialization/Neurologist/Neurologist";
 import Oncologist from "./components/Specialization/Oncologist/Oncologist";
 import Psychiatrists from "./components/Specialization/Psychiatrists/Psychiatrists";
 
-// import AdminRoute from "./components/PrivateRoute/AdminRoute";
-
-// import AdminRoute from "./components/PrivateRoute/AdminRoute";
-
-import BloodAdminHome from "./components/BloodAdminDashboard/BloodAdminHome/BloodAdminHome";
-import ManageAllDonor from "./components/BloodAdminDashboard/ManageAllDonor/ManageAllDonor";
-import ManageBloodRequests from "./components/BloodAdminDashboard/ManageBloodRequests/ManageBloodRequests";
-import ManageBloodDonations from "./components/BloodAdminDashboard/ManageBloodDonations/ManageBloodDonations";
-import Stockout from "./components/Dashboard/Pharmacy/Stockout/Stockout";
-import PatientInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/PatientInvoice/PatientInvoice";
-import SingleInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/SingleInvoice/SingleInvoice";
-import { useSelector } from "react-redux";
-
 // import PaymentSuccess from "./components/Dashboard/Pharmacy/PaymentSuccess/PaymentSuccess";
-
 function App() {
-  const admin = useSelector((state) => state.admin);
-  const user = useSelector((state) => state.auth.auth);
+  const [loading, setLoading] = useState(true)
+  useEffect(() => {
+    setLoading(false)
+    setTimeout(() => {
+      setLoading(true)
+    }, 3000)
+  }, [])
+
   return (
     <div>
-      <Router>
+      {
+        loading ? 
+        <Router>
         <Messenger />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -235,7 +238,11 @@ function App() {
           </Route>
           {/* blood bank user dashboard*/}
         </Routes>
-      </Router>
+          </Router>
+          : <div className="loder-app">
+            <HashLoader color="#f68685"   size={150} />
+          </div>
+      }
     </div>
   );
 }
