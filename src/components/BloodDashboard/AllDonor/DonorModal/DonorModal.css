@@ -11,6 +11,9 @@
   line-height: 30px;
   border-bottom: 1px solid rgb(201, 200, 200);
 }
+.modal_info h6:last-child {
+  border-bottom: none;
+}
 
 .close-btn {
   background-color: #f68685;

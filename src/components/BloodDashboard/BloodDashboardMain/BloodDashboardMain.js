@@ -26,7 +26,7 @@ const BloodDashboardMain = () => {
   return (
     <>
       {" "}
-      <div className="dashboard_mobile_header">
+      <div className="dashboard_mobile_header blood_dashboard_mobile_header">
         <div>
           <Button
             className="d-block d-md-none dashboard_hamburger_btn"
