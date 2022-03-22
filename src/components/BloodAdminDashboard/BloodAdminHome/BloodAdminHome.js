@@ -3,27 +3,32 @@ import Charts from "../Charts/Charts";
 
 const BloodAdminHome = () => {
   const [donors, setDonors] = useState([]);
-  const [approve, setApprove] = useState([]);
-  const [pandingdata, setPandingdata] = useState([]);
-  const [rejecteddata, setRejecteddata] = useState([]);
-  const [bloodrequest, setBloodrequest] = useState([]);
-  const [bloodAprove, setBloodAprove] = useState([]);
-  const [panding, setBloodPanding] = useState([]);
-  const [rejected, setBloodRejected] = useState([]);
+  const [approvedDonation, setApproveDonation] = useState([]);
+  const [pendingDonation, setPendingDonation] = useState([]);
+  const [rejectedDonation, setRejectedDonation] = useState([]);
+  const [totalBloodRequest, setTotalBloodrequest] = useState([]);
+  const [approvedBloodRequest, setApprovedBloodRequest] = useState([]);
+  const [pendingBloodRequest, setPendingBloodRequest] = useState([]);
+  const [rejectedBloodRequest, setReectedBloodRequest] = useState([]);
 
-  // http://localhost:7050/
-  // http://localhost:7050/
+  // https://shrouded-headland-44423.herokuapp.com/
 
   useEffect(() => {
     fetch("http://localhost:7050/bloodDonation")
       .then((res) => res.json())
       .then((data) => {
-        const Aprove = data.filter((data) => data?.status === "Approved");
-        const panding = data.filter((data) => data?.status === "Pending");
-        const Rejected = data.filter((data) => data?.status === "Rejected");
-        setApprove(Aprove);
-        setPandingdata(panding);
-        setRejecteddata(Rejected);
+        const ApprovedDonation = data.filter(
+          (data) => data?.status === "Approved"
+        );
+        const pendingDonation = data.filter(
+          (data) => data?.status === "Pending"
+        );
+        const RejectedDonation = data.filter(
+          (data) => data?.status === "Rejected"
+        );
+        setApproveDonation(ApprovedDonation);
+        setPendingDonation(pendingDonation);
+        setRejectedDonation(RejectedDonation);
         setDonors(data);
       });
   }, []);
@@ -32,15 +37,19 @@ const BloodAdminHome = () => {
     fetch("http://localhost:7050/bloodRequest")
       .then((res) => res.json())
       .then((data) => {
-        const AproveRequestData = data.filter(
+        const AproveBloodRequest = data.filter(
           (data) => data?.status === "Approved"
         );
-        const pandingData = data.filter((data) => data?.status === "Pending");
-        const Rejected = data.filter((data) => data?.status === "Rejected");
-        setBloodAprove(AproveRequestData);
-        setBloodPanding(pandingData);
-        setBloodRejected(Rejected);
-        setBloodrequest(data);
+        const pendingBloodRequest = data.filter(
+          (data) => data?.status === "Pending"
+        );
+        const rejectedBloodRequest = data.filter(
+          (data) => data?.status === "Rejected"
+        );
+        setApprovedBloodRequest(AproveBloodRequest);
+        setPendingBloodRequest(pendingBloodRequest);
+        setReectedBloodRequest(rejectedBloodRequest);
+        setTotalBloodrequest(data);
       });
   }, []);
   return (
@@ -65,7 +74,7 @@ const BloodAdminHome = () => {
                 <i class="fas fa-users"></i>
               </p>
               <p className="total">Total Pending</p>
-              <p className="count">{pandingdata.length}</p>
+              <p className="count">{pendingDonation.length}</p>
             </div>
           </div>
 
@@ -75,7 +84,7 @@ const BloodAdminHome = () => {
                 <i class="fas fa-users"></i>
               </p>
               <p className="total">Total Approved</p>
-              <p className="count">{approve.length}</p>
+              <p className="count">{approvedDonation.length}</p>
             </div>
           </div>
 
@@ -85,7 +94,7 @@ const BloodAdminHome = () => {
                 <i class="fas fa-users"></i>
               </p>
               <p className="total">Total Rejected</p>
-              <p className="count">{rejecteddata.length}</p>
+              <p className="count">{rejectedDonation.length}</p>
             </div>
           </div>
         </div>
@@ -100,7 +109,7 @@ const BloodAdminHome = () => {
                   <i class="fas fa-spinner"></i>
                 </p>
                 <p className="total">Total Requests</p>
-                <p className="count">{bloodrequest.length}</p>
+                <p className="count">{totalBloodRequest.length}</p>
               </div>
             </div>
             <div className="col">
@@ -109,7 +118,7 @@ const BloodAdminHome = () => {
                   <i class="far fa-check-circle"></i>
                 </p>
                 <p className="total">Pending Requests</p>
-                <p className="count">{panding.length}</p>
+                <p className="count">{pendingBloodRequest.length}</p>
               </div>
             </div>
             <div className="col">
@@ -118,7 +127,7 @@ const BloodAdminHome = () => {
                   <i class="far fa-check-circle"></i>
                 </p>
                 <p className="total">Approved Requests</p>
-                <p className="count">{bloodAprove?.length}</p>
+                <p className="count">{approvedBloodRequest?.length}</p>
               </div>
             </div>
             <div className="col">
@@ -127,7 +136,7 @@ const BloodAdminHome = () => {
                   <i class="fas fa-burn "></i>
                 </p>
                 <p className="total">Total Rejected</p>
-                <p className="count">{rejected.length}</p>
+                <p className="count">{rejectedBloodRequest.length}</p>
               </div>
             </div>
           </div>

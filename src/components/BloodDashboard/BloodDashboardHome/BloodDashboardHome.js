@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import useFirebase from "../../../hooks/useFirebase";
 import "./BloodDashboardHome.css";
 
 const BloodDashboardHome = () => {
   const user = useSelector((state) => state.auth.auth);
-
-  const { logout } = useFirebase();
   const [donations, setDonations] = useState([]);
-  const [requests, setrequests] = useState([]);
+  const [requests, setRequests] = useState([]);
   console.log(donations, requests);
 
   useEffect(() => {
@@ -23,7 +20,7 @@ const BloodDashboardHome = () => {
   useEffect(() => {
     fetch(`http://localhost:7050/${user?.email}`)
       .then((res) => res.json())
-      .then((data) => setrequests(data));
+      .then((data) => setRequests(data));
   }, []);
 
   const donationsPending = donations.filter(
