@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import "./ManageAllDonor.css";
 const ManageAllDonor = () => {
   const [donorslist, setDonorslist] = useState([]);
-  // http://localhost:7050/
+  // https://shrouded-headland-44423.herokuapp.com/
   // https://shrouded-headland-44423.herokuapp.com/
 
   useEffect(() => {

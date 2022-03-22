@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import './Invoice.css';
 import ManageInvoice from './ManageInvoice';
-import './Invoice.css'
 
 const Invoice = () => {
     const [invoice, setInvoice] = useState([])
     const [searchinvoice, setsearchinvoice] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:7050/order')
+        fetch('https://shrouded-headland-44423.herokuapp.com/order')
             .then(res => res.json())
             .then(data => {
                 setInvoice(data)

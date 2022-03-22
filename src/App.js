@@ -84,11 +84,13 @@ function App() {
           <Route path="/" element={<PrivateRoute />}>
             <Route path="/appointment" element={<AppointmentHeader />} />
             <Route path="/userDashboard" element={<UserDashboard />}></Route>
+            <Route path="/blog/:id" element={<SingleBlog />} />
           </Route>
-          <Route path="/blog/:id" element={<SingleBlog />} />
+       
 
           <Route exact element={<PrivateRoute />}>
             <Route exact path="/contact" element={<Contact />} />
+
           </Route>
           <Route path="/home" element={<Home />} />
           <Route path="/service" element={<Service />} />

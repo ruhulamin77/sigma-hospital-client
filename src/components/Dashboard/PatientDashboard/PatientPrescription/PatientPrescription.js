@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card, Form, Table } from "react-bootstrap";
-import Swal from "sweetalert2";
-import "./PatientPrescription.css";
-import { useSelector } from "react-redux";
 import { MdSend } from 'react-icons/md';
 import { useParams } from "react-router-dom";
-import { useGetAppointmentsQuery, useGetPrescriptionsQuery, useGetNursesQuery } from "../../../../features/sigmaApi";
+import Swal from "sweetalert2";
+import { useGetAppointmentsQuery, useGetNursesQuery, useGetPrescriptionsQuery } from "../../../../features/sigmaApi";
+import "./PatientPrescription.css";
 
 const PatientPrescription = () => {
 
@@ -20,6 +19,7 @@ const PatientPrescription = () => {
   const [nurseDay, setNurseDay] = useState([]);
   const [nurseName, setNurseName] = useState([]);
   console.log(nurseName);
+  console.log(singleAppointment);
   console.log(singlePrescriptionData);
 
   useEffect(() => {
@@ -31,6 +31,8 @@ const PatientPrescription = () => {
     const singlePrecData = allPrescription?.data?.find(precData => precData?.patientFirstName === singleAppointment?.firstName);
     setSinglePrescriptionData(singlePrecData);
   }, [allPrescription?.data, singleAppointment?.firstName]);
+
+
 
   const [inputFields, setInputFields] = useState([
     { number: "", medicineName: "", feedingSystem: "" },
@@ -54,7 +56,7 @@ const PatientPrescription = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:7050/prescriptions`, {
+    fetch(`https://shrouded-headland-44423.herokuapp.com/prescriptions`, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(newValue),
@@ -84,7 +86,7 @@ const PatientPrescription = () => {
 
   const updatePrescription = e => {
     e.preventDefault();
-    fetch(`http://localhost:7050/prescriptions/${singlePrescriptionData._id}`, {
+    fetch(`https://shrouded-headland-44423.herokuapp.com/prescriptions/${singlePrescriptionData._id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(updateValue),
@@ -108,14 +110,11 @@ const PatientPrescription = () => {
       })
   };
 
-  let today = new Date().toLocaleDateString()
-  console.log(today)
-
+  let today = new Date().toLocaleDateString();
   const appointNurse = {
     nurseData: nurseName,
-    appointDate: today
+    appointDate: today,
   };
-  console.log(appointNurse);
   const handleAppointNurse = e => {
     e.preventDefault();
     fetch(`http://localhost:7050/appointNurse/${singlePrescriptionData._id}`, {
@@ -133,6 +132,11 @@ const PatientPrescription = () => {
             showConfirmButton: false,
             timer: 2000
           });
+          if (Swal) {
+            setTimeout(() => {
+              window.location.reload();
+            }, 2000);
+          }
         }
       })
   };
@@ -152,7 +156,6 @@ const PatientPrescription = () => {
 
   const handleNurseTime = e => {
     const time = e.target.value;
-    // console.log(time);
     const filterNurseTime = allNurse?.data?.filter(
       (nurses) => nurses?.time === time
     );

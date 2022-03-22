@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
-import './Medicine.css'
-import TableRow from '../TableRow/TableRow';
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { ScaleLoader } from 'react-spinners';
+import TableRow from '../TableRow/TableRow';
+import './Medicine.css';
 
 
 const Medicine = () => {
@@ -23,7 +23,7 @@ const Medicine = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:7050/medicine?page=${page}&&size=${size}`)
+        fetch(`https://shrouded-headland-44423.herokuapp.com/medicine?page=${page}&&size=${size}`)
             .then(res => res.json())
             .then(data => {
                 setMedicines(data.medicine)
