@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Table } from 'react-bootstrap';
 import './Invoice.css';
 import ManageInvoice from './ManageInvoice';
 
@@ -30,20 +31,31 @@ const Invoice = () => {
                 <div className='search-medicen'>
                     <input type="text" onChange={handelsearchData} className='search-option-medicen' placeholder='Search Medicine' />
                 </div>
-                <div className='row mt-5'>
-                    {
-                        searchinvoice?.map(invoice => <ManageInvoice
-                            key={invoice._id}
-                            invoice={invoice}
+
+                <Table striped bordered hover size="sm" className=' mt-5'>
+                    <thead>
+                        <tr>
+                            <th>Sl</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Number</th>
+                            <th>Invoice</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            searchinvoice?.map((invoice, index) => <ManageInvoice
+                                key={invoice._id}
+                                invoice={invoice}
+                                index={index}
+                            >
+                            </ManageInvoice>)
+                        }
 
 
-                        >
-
-                        </ManageInvoice>)
-                    }
-
-                </div>
-
+                    </tbody>
+                </Table>
             </div>
         </section>
     );
