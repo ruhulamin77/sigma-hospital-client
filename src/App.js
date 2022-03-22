@@ -47,6 +47,7 @@ import Review from "./components/Pages/review/Review";
 import DoctorHeader from "./components/Pages/Team/DoctorHeader";
 import Team from "./components/Pages/Team/Team";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import AdminRoute from "./components/PrivateRoute/AdminRoute";
 import Service from "./components/Service/Service";
 import Messenger from "./components/Share/Messenger/Messenger";
 import PaymentForm from "./components/Share/Payment/PaymentForm/PaymentForm";
@@ -71,10 +72,13 @@ import ManageBloodDonations from "./components/BloodAdminDashboard/ManageBloodDo
 import Stockout from "./components/Dashboard/Pharmacy/Stockout/Stockout";
 import PatientInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/PatientInvoice/PatientInvoice";
 import SingleInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/SingleInvoice/SingleInvoice";
+import { useSelector } from "react-redux";
 
 // import PaymentSuccess from "./components/Dashboard/Pharmacy/PaymentSuccess/PaymentSuccess";
 
 function App() {
+  const admin = useSelector((state) => state.admin);
+  const user = useSelector((state) => state.auth.auth);
   return (
     <div>
       <Router>
@@ -86,12 +90,7 @@ function App() {
             <Route path="/userDashboard" element={<UserDashboard />}></Route>
             <Route path="/blog/:id" element={<SingleBlog />} />
           </Route>
-       
 
-          <Route exact element={<PrivateRoute />}>
-            <Route exact path="/contact" element={<Contact />} />
-
-          </Route>
           <Route path="/home" element={<Home />} />
           <Route path="/service" element={<Service />} />
           <Route path="/onlineDoctor" element={<OnlineDoctor />} />
@@ -189,29 +188,31 @@ function App() {
           </Route>
           {/* </Route> */}
           {/*  blood bank */}
-          <Route path="/bloodBank" element={<BloodDashboardMain />}>
-            <Route path="/bloodBank" element={<BloodDashboardHome />}></Route>
-            <Route path="/bloodBank/allDOnor" element={<AllDonors />}></Route>
-            <Route
-              path="/bloodBank/registerDonor"
-              element={<RegisterDonor />}
-            ></Route>
-            <Route
-              path="/bloodBank/bloodDonation"
-              element={<BloodDonation />}
-            ></Route>
-            <Route
-              path="/bloodBank/donationHistory"
-              element={<BloodDonationHistory />}
-            ></Route>
-            <Route
-              path="/bloodBank/bloodRequest"
-              element={<BloodRequest />}
-            ></Route>
-            <Route
-              path="/bloodBank/requestHistory"
-              element={<BloodRequestHistory />}
-            ></Route>
+          <Route exact element={<PrivateRoute />}>
+            <Route path="/bloodBank" element={<BloodDashboardMain />}>
+              <Route path="/bloodBank" element={<BloodDashboardHome />}></Route>
+              <Route path="/bloodBank/allDonor" element={<AllDonors />}></Route>
+              <Route
+                path="/bloodBank/registerDonor"
+                element={<RegisterDonor />}
+              ></Route>
+              <Route
+                path="/bloodBank/bloodDonation"
+                element={<BloodDonation />}
+              ></Route>
+              <Route
+                path="/bloodBank/donationHistory"
+                element={<BloodDonationHistory />}
+              ></Route>
+              <Route
+                path="/bloodBank/bloodRequest"
+                element={<BloodRequest />}
+              ></Route>
+              <Route
+                path="/bloodBank/requestHistory"
+                element={<BloodRequestHistory />}
+              ></Route>
+            </Route>
           </Route>
           {/* blood bank */}
           {/* blood bank admin */}
@@ -230,6 +231,7 @@ function App() {
               element={<ManageBloodRequests />}
             ></Route>
           </Route>
+
           {/* blood bank admin */}
         </Routes>
       </Router>
