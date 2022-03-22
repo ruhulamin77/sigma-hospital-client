@@ -1,0 +1,17 @@
+.contact-btn {
+  background-color: #f68685;
+  border: none;
+  margin-top: 20px;
+}
+
+.contact-btn:hover {
+  background-color: #7093e6;
+}
+.modal_info h6 {
+  line-height: 30px;
+  border-bottom: 1px solid rgb(201, 200, 200);
+}
+
+.close-btn {
+  background-color: #f68685;
+}
