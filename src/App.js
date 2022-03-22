@@ -4,9 +4,6 @@ import { HashLoader } from "react-spinners";
 import BlogForm from "./components/Blog/BlogForm/BlogForm";
 import Blogs from "./components/Blog/Blogs/Blogs";
 import SingleBlog from "./components/Blog/SingleBlog/SingleBlog";
-// import AdminRoute from "./components/PrivateRoute/AdminRoute";
-// import AdminRoute from "./components/PrivateRoute/AdminRoute";
-import BloodAdminDashboard from "./components/BloodAdminDashboard/BloodAdminDashboard/BloodAdminDashboard";
 import BloodAdminHome from "./components/BloodAdminDashboard/BloodAdminHome/BloodAdminHome";
 import ManageAllDonor from "./components/BloodAdminDashboard/ManageAllDonor/ManageAllDonor";
 import ManageBloodDonations from "./components/BloodAdminDashboard/ManageBloodDonations/ManageBloodDonations";
@@ -71,9 +68,7 @@ import Neurologist from "./components/Specialization/Neurologist/Neurologist";
 import Oncologist from "./components/Specialization/Oncologist/Oncologist";
 import Psychiatrists from "./components/Specialization/Psychiatrists/Psychiatrists";
 
-
 // import PaymentSuccess from "./components/Dashboard/Pharmacy/PaymentSuccess/PaymentSuccess";
-
 function App() {
   const [loading, setLoading] = useState(true)
   useEffect(() => {
@@ -82,6 +77,7 @@ function App() {
       setLoading(true)
     }, 3000)
   }, [])
+
   return (
     <div>
       {
@@ -95,12 +91,7 @@ function App() {
             <Route path="/userDashboard" element={<UserDashboard />}></Route>
             <Route path="/blog/:id" element={<SingleBlog />} />
           </Route>
-       
 
-          <Route exact element={<PrivateRoute />}>
-            <Route exact path="/contact" element={<Contact />} />
-
-          </Route>
           <Route path="/home" element={<Home />} />
           <Route path="/service" element={<Service />} />
           <Route path="/onlineDoctor" element={<OnlineDoctor />} />
@@ -194,52 +185,58 @@ function App() {
 
             <Route path="/dashboard/pdfInvoice/:id" element={<PdfInvoice />} />
 
+            {/* blood bank admin */}
+
+            <Route
+              path="/dashboard/bloodBankAdmin"
+              element={<BloodAdminHome />}
+            />
+            <Route
+              path="/dashboard/manageAllDonors"
+              element={<ManageAllDonor />}
+            />
+            <Route
+              path="/dashboard/ManageBloodDonations"
+              element={<ManageBloodDonations />}
+            />
+            <Route
+              path="/dashboard/manageBloodRequests"
+              element={<ManageBloodRequests />}
+            />
+
+            {/* blood bank admin */}
+
             {/* patients route end */}
           </Route>
           {/* </Route> */}
-          {/*  blood bank */}
-          <Route path="/bloodBank" element={<BloodDashboardMain />}>
-            <Route path="/bloodBank" element={<BloodDashboardHome />}></Route>
-            <Route path="/bloodBank/allDOnor" element={<AllDonors />}></Route>
-            <Route
-              path="/bloodBank/registerDonor"
-              element={<RegisterDonor />}
-            ></Route>
-            <Route
-              path="/bloodBank/bloodDonation"
-              element={<BloodDonation />}
-            ></Route>
-            <Route
-              path="/bloodBank/donationHistory"
-              element={<BloodDonationHistory />}
-            ></Route>
-            <Route
-              path="/bloodBank/bloodRequest"
-              element={<BloodRequest />}
-            ></Route>
-            <Route
-              path="/bloodBank/requestHistory"
-              element={<BloodRequestHistory />}
-            ></Route>
+          {/*  blood bank user dashboard*/}
+          <Route exact element={<PrivateRoute />}>
+            <Route path="/bloodBank" element={<BloodDashboardMain />}>
+              <Route path="/bloodBank" element={<BloodDashboardHome />}></Route>
+              <Route path="/bloodBank/allDonor" element={<AllDonors />}></Route>
+              <Route
+                path="/bloodBank/registerDonor"
+                element={<RegisterDonor />}
+              ></Route>
+              <Route
+                path="/bloodBank/bloodDonation"
+                element={<BloodDonation />}
+              ></Route>
+              <Route
+                path="/bloodBank/donationHistory"
+                element={<BloodDonationHistory />}
+              ></Route>
+              <Route
+                path="/bloodBank/bloodRequest"
+                element={<BloodRequest />}
+              ></Route>
+              <Route
+                path="/bloodBank/requestHistory"
+                element={<BloodRequestHistory />}
+              ></Route>
+            </Route>
           </Route>
-          {/* blood bank */}
-          {/* blood bank admin */}
-          <Route path="/bloodBankAdmin" element={<BloodAdminDashboard />}>
-            <Route path="/bloodBankAdmin" element={<BloodAdminHome />}></Route>
-            <Route
-              path="/bloodBankAdmin/manageAllDonors"
-              element={<ManageAllDonor />}
-            ></Route>
-            <Route
-              path="/bloodBankAdmin/ManageBloodDonations"
-              element={<ManageBloodDonations />}
-            ></Route>
-            <Route
-              path="/bloodBankAdmin/manageBloodRequests"
-              element={<ManageBloodRequests />}
-            ></Route>
-          </Route>
-          {/* blood bank admin */}
+          {/* blood bank user dashboard*/}
         </Routes>
           </Router>
           : <div className="loder-app">

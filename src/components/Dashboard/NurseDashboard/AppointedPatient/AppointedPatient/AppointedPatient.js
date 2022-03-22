@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Spinner, Table } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { useGetPrescriptionsQuery } from '../../../../../features/sigmaApi';
 
 const AppointedPatient = () => {
-    const nurse = JSON.parse(localStorage.getItem("admin"));
+    const nurse = useSelector((state) => state.admin);
     const allNurseData = useGetPrescriptionsQuery();
     const [singleApointData, setSingleApointData] = useState([]);
     console.log(singleApointData);

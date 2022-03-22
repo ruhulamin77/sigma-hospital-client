@@ -12,15 +12,21 @@ import { useSelector } from "react-redux";
 import { Link, Outlet } from "react-router-dom";
 import "./BloodAdminDashboard.css";
 
-
 const BloodAdminDashboard = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const user = useSelector((state) => state.auth.auth);
+<<<<<<< HEAD
   // http://localhost:7050/
   // http://localhost:7050/
+=======
+  const admin = useSelector((state) => state.admin);
+  // https://shrouded-headland-44423.herokuapp.com/
+  // https://shrouded-headland-44423.herokuapp.com/
+>>>>>>> 6316f03034ceddfe3bd72e05a2fb386403ed595c
 
+  console.log(user, admin);
   return (
     <>
       <div className="dashboard_mobile_header">
@@ -48,14 +54,14 @@ const BloodAdminDashboard = () => {
         <Offcanvas.Body>
           <div className="dashboard_left_side_bar">
             <div className="dasboard_user">
-              <img src={user?.photoURL} alt="doctor or user" />
+              <img src={admin?.photoURL} alt="doctor or user" />
               <div>
                 <span>Welcome, </span>
                 <div>
                   <NavDropdown
                     id="basic-nav-dropdown"
                     className="basic_nav_dropdown_custom"
-                    title={user?.displayName}
+                    title={admin?.displayName}
                   >
                     <NavDropdown.Item
                       href="#action/3.1"

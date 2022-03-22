@@ -13,18 +13,20 @@ import { IoSettingsSharp } from "react-icons/io5";
 import { GiHamburgerMenu, GiArchiveRegister } from "react-icons/gi";
 
 import { Link, Outlet } from "react-router-dom";
-import useFirebase from "../../../hooks/useFirebase";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { removeUser } from "../../../features/authSlice";
 
 const BloodDashboardMain = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  // const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.auth);
 
   return (
     <>
-      <div className="dashboard_mobile_header">
+      {" "}
+      <div className="dashboard_mobile_header blood_dashboard_mobile_header">
         <div>
           <Button
             className="d-block d-md-none dashboard_hamburger_btn"
@@ -41,7 +43,6 @@ const BloodDashboardMain = () => {
           </Link>
         </div>
       </div>
-
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton className="offcanvas_header">
           <Offcanvas.Title>Blood Bank</Offcanvas.Title>
@@ -194,7 +195,6 @@ const BloodDashboardMain = () => {
           </div>
         </Offcanvas.Body>
       </Offcanvas>
-
       <div className="dashboardHeader bloodBankHeader container-fluid">
         <div className="logo_area">
           <Link to="/home">
@@ -212,7 +212,6 @@ const BloodDashboardMain = () => {
           </div>
         </div>
       </div>
-
       {/* left side bar */}
       <div className="dashboard_main">
         <div className="dashboard_left_side_bar d-none d-md-block">
@@ -250,7 +249,7 @@ const BloodDashboardMain = () => {
                   <NavDropdown.Divider />
                   <NavDropdown.Item as={Link} to="" className="dash_drop_item">
                     <RiLogoutCircleLine />
-                    <span onClick="">Logout</span>
+                    <span>Logout</span>
                   </NavDropdown.Item>
                 </NavDropdown>
               </div>
