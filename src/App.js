@@ -47,7 +47,6 @@ import Review from "./components/Pages/review/Review";
 import DoctorHeader from "./components/Pages/Team/DoctorHeader";
 import Team from "./components/Pages/Team/Team";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
-import AdminRoute from "./components/PrivateRoute/AdminRoute";
 import Service from "./components/Service/Service";
 import Messenger from "./components/Share/Messenger/Messenger";
 import PaymentForm from "./components/Share/Payment/PaymentForm/PaymentForm";
@@ -64,7 +63,6 @@ import Psychiatrists from "./components/Specialization/Psychiatrists/Psychiatris
 
 // import AdminRoute from "./components/PrivateRoute/AdminRoute";
 
-import BloodAdminDashboard from "./components/BloodAdminDashboard/BloodAdminDashboard/BloodAdminDashboard";
 import BloodAdminHome from "./components/BloodAdminDashboard/BloodAdminHome/BloodAdminHome";
 import ManageAllDonor from "./components/BloodAdminDashboard/ManageAllDonor/ManageAllDonor";
 import ManageBloodRequests from "./components/BloodAdminDashboard/ManageBloodRequests/ManageBloodRequests";
@@ -184,10 +182,31 @@ function App() {
 
             <Route path="/dashboard/pdfInvoice/:id" element={<PdfInvoice />} />
 
+            {/* blood bank admin */}
+
+            <Route
+              path="/dashboard/bloodBankAdmin"
+              element={<BloodAdminHome />}
+            />
+            <Route
+              path="/dashboard/manageAllDonors"
+              element={<ManageAllDonor />}
+            />
+            <Route
+              path="/dashboard/ManageBloodDonations"
+              element={<ManageBloodDonations />}
+            />
+            <Route
+              path="/dashboard/manageBloodRequests"
+              element={<ManageBloodRequests />}
+            />
+
+            {/* blood bank admin */}
+
             {/* patients route end */}
           </Route>
           {/* </Route> */}
-          {/*  blood bank */}
+          {/*  blood bank user dashboard*/}
           <Route exact element={<PrivateRoute />}>
             <Route path="/bloodBank" element={<BloodDashboardMain />}>
               <Route path="/bloodBank" element={<BloodDashboardHome />}></Route>
@@ -214,25 +233,7 @@ function App() {
               ></Route>
             </Route>
           </Route>
-          {/* blood bank */}
-          {/* blood bank admin */}
-          <Route path="/bloodBankAdmin" element={<BloodAdminDashboard />}>
-            <Route path="/bloodBankAdmin" element={<BloodAdminHome />}></Route>
-            <Route
-              path="/bloodBankAdmin/manageAllDonors"
-              element={<ManageAllDonor />}
-            ></Route>
-            <Route
-              path="/bloodBankAdmin/ManageBloodDonations"
-              element={<ManageBloodDonations />}
-            ></Route>
-            <Route
-              path="/bloodBankAdmin/manageBloodRequests"
-              element={<ManageBloodRequests />}
-            ></Route>
-          </Route>
-
-          {/* blood bank admin */}
+          {/* blood bank user dashboard*/}
         </Routes>
       </Router>
     </div>

@@ -70,7 +70,7 @@ const AllDonors = () => {
           </div>
         </form>
       </div>
-      <hr className="mb-5" />
+      <hr className="mb-4" />
       {/* <div className="mx-5 mb-5 make-req">
         <h5>
           If you did't find a donar, please send blood request to the blood
