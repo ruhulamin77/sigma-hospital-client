@@ -1,11 +1,16 @@
 .single-donor {
   border: 1px solid #7093e6;
+  border-radius: 5px;
+  padding: 0;
+  /* text-align: center; */
+  flex-basis: 300px;
+  flex-grow: 1;
 }
 
 .user-icon {
   font-size: 22px;
-  margin-right: 8px;
-  color: blueviolet;
+  margin-right: 10px;
+  color: #7093e6;
 }
 .blood-grp {
   color: #ff0000ba;
@@ -13,25 +18,10 @@
 
 .card-titels {
   font-family: auto;
-  letter-spacing: 1px;
   font-weight: 600;
 }
 
 .name-donor {
-  font-family: math;
+  font-family: auto;
   font-size: 24px;
-  letter-spacing: 1px;
-}
-
-.btn-contact {
-  border: navajowhite;
-  background-color: #f68685;
-  color: rgb(255, 255, 255);
-  margin: 0 auto;
-  border: none;
-}
-
-.btn-contact:hover {
-  background-color: #7093e6;
-  color: rgb(255, 255, 255);
 }
