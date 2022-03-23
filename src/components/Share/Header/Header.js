@@ -210,17 +210,6 @@ const Header = () => {
                         <Link
                           onClick={toggleClass}
                           activeClassName="is-active"
-                          to="/"
-                        >
-                          {" "}
-                          Shop{" "}
-                        </Link>{" "}
-                      </li>
-                      <li>
-                        {" "}
-                        <Link
-                          onClick={toggleClass}
-                          activeClassName="is-active"
                           to="/about"
                         >
                           {" "}
@@ -274,9 +263,12 @@ const Header = () => {
                     </ul>
                   </li>
                   {user?.email ? (
-                    <li className="menu-item" onClick={() => dispatch(removeUser())}>
+                    <li
+                      className="menu-item"
+                      onClick={() => dispatch(removeUser())}
+                    >
                       {" "}
-                       <a> Logout </a>{" "}
+                      <a> Logout </a>{" "}
                     </li>
                   ) : (
                     <li className="menu-item">
@@ -303,25 +295,12 @@ const Header = () => {
                     Deshboard <i className="fas fa-plus header-icon"></i>
                   </Link>
                 </ul>
-                <span onClick={toggleShow} className="icon">
+                {/* <span onClick={toggleShow} className="icon">
                   <GiHamburgerMenu />
-                </span>
-                {/* 
-              
-              <span className="icon position-relative">
-                <FaShoppingBasket />
-                <ul className="position-absolute  icon-position">
-                  <li>
-                    <FaHeart />
-                  </li>
-                  <li>
-                    <FaShoppingCart />
-                  </li>
-                  </ul>
-              </span> */}
+                </span> */}
               </nav>
 
-              <Offcanvas placement={"end"} show={show} onHide={handleClose}>
+              {/* <Offcanvas placement={"end"} show={show} onHide={handleClose}>
                 <Offcanvas.Header closeButton></Offcanvas.Header>
                 <Offcanvas.Body>
                   <div className="users-info text-center">
@@ -329,7 +308,7 @@ const Header = () => {
                     <h3>{user?.displayName}</h3>
                   </div>
                 </Offcanvas.Body>
-              </Offcanvas>
+              </Offcanvas> */}
             </div>
           </div>
         </div>
