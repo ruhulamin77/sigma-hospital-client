@@ -39,20 +39,19 @@ const MedicalTest = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
-                // if (data.insertedId) {
-                //     Swal.fire({
-                //         icon: 'success',
-                //         title: 'Patient medical test has been successfully appointed!',
-                //         showConfirmButton: false,
-                //         timer: 2000
-                //     });
-                //     if (Swal) {
-                //         setTimeout(() => {
-                //             window.location.reload();
-                //         }, 2000);
-                //     }
-                // }
+                if (data.modifiedCount) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Patient medical test has been successfully appointed!',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                    if (Swal) {
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 2000);
+                    }
+                }
             });
     };
 

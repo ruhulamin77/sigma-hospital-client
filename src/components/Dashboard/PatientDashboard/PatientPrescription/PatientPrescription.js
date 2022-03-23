@@ -295,6 +295,23 @@ const PatientPrescription = () => {
                     ))}
                   </tbody>
                 </Table>
+                {singlePrescriptionData?.medicalTest &&
+                  <Table className="mt-3" responsive>
+                    <thead>
+                      <tr>
+                        <th>Serial no.</th>
+                        <th>Medical Test Name</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {singlePrescriptionData?.medicalTest?.map((test, index) => (
+                        <tr key={index}>
+                          <td>{test?.number}</td>
+                          <td>{test?.medicalTestName}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </Table>}
               </div>
             </div>
           </div>
