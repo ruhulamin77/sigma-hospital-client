@@ -71,6 +71,7 @@ import Stockout from "./components/Dashboard/Pharmacy/Stockout/Stockout";
 import PatientInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/PatientInvoice/PatientInvoice";
 import SingleInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/SingleInvoice/SingleInvoice";
 import { useSelector } from "react-redux";
+import PatientDbInfo from "./components/Dashboard/PatientDbInfo/PatientDbInfo";
 
 // import PaymentSuccess from "./components/Dashboard/Pharmacy/PaymentSuccess/PaymentSuccess";
 
@@ -97,6 +98,7 @@ function App() {
           <Route path="/success/:id" element={<Success />} />
           <Route path="/adminRegister" element={<CreateAdmin />} />
           <Route path="/adminLogin" element={<AdminLoginForm />} />
+          <Route path="/patientdbinfo" element={<PatientDbInfo />} />
           <Route path="/login" element={<Login />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/team" element={<Team />} />
