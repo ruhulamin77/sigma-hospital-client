@@ -44,17 +44,18 @@
 
 .back-shoping{
     background-color: #F68685;
-    padding: 9px 15px;
-    color: #030303;
+    padding: 6px 12px;
+    color: #fff;
     border-radius: 5px;
     display: inline-block;
-    margin-top: 17px;
+    margin-top: 53px;
 
 }
 
 .back-shoping:hover{
-    color: white;
+    color: #352b2c;
 }
+
 .btn-td{
     width: 200px;
 }
