@@ -26,6 +26,17 @@ const useFirebase = () => {
                 const user = userCredential.user;
                 console.log("Registered user: ", user);
                 incertUser(email, name, photoURL, 'POST');
+                dispatch(saveUser(user));
+                localStorage.setItem('user', JSON.stringify(user))
+                if (user.uid) {
+                    Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Registered SuccessFully',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                }
                 /* send name to firebase after creation */
                 updateProfile(auth.currentUser, {
                     displayName: name,

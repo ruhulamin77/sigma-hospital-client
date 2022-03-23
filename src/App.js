@@ -32,7 +32,7 @@ import PatientData from "./components/Dashboard/PatientDashboard/PatientData/Pat
 import PatientInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/PatientInvoice/PatientInvoice";
 import SingleInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/SingleInvoice/SingleInvoice";
 import PatientPrescription from "./components/Dashboard/PatientDashboard/PatientPrescription/PatientPrescription";
-// import AdminRoute from "./components/PrivateRoute/AdminRoute";
+import AdminRoute from "./components/PrivateRoute/AdminRoute";
 import AddMedicine from "./components/Dashboard/Pharmacy/AddMedicine/AddMedicine";
 import Cart from "./components/Dashboard/Pharmacy/Cart/Cart";
 import Invoice from "./components/Dashboard/Pharmacy/Invoice/Invoice";
@@ -132,7 +132,7 @@ function App() {
           />
 
           {/* dashboard */}
-          {/* <Route path="/dashboard" element={<AdminRoute />}> */}
+          <Route path="/" element={<AdminRoute />}>
           <Route path="/dashboard" element={<DashboardMain />}>
             <Route path="/dashboard" element={<AdminHomeMain />}></Route>
             <Route
@@ -185,8 +185,34 @@ function App() {
 
             <Route path="/dashboard/pdfInvoice/:id" element={<PdfInvoice />} />
 
+<<<<<<< HEAD
+            {/* patients route end */}
+          </Route>
+          </Route>
+          {/*  blood bank */}
+          <Route path="/bloodBank" element={<BloodDashboardMain />}>
+            <Route path="/bloodBank" element={<BloodDashboardHome />}></Route>
+            <Route path="/bloodBank/allDOnor" element={<AllDonors />}></Route>
+            <Route
+              path="/bloodBank/registerDonor"
+              element={<RegisterDonor />}
+            ></Route>
+            <Route
+              path="/bloodBank/bloodDonation"
+              element={<BloodDonation />}
+            ></Route>
+            <Route
+              path="/bloodBank/donationHistory"
+              element={<BloodDonationHistory />}
+            ></Route>
+            <Route
+              path="/bloodBank/bloodRequest"
+              element={<BloodRequest />}
+            ></Route>
+=======
             {/* blood bank admin */}
 
+>>>>>>> 692ff83899ec8a521f06e6551fe53f6d90ee02f4
             <Route
               path="/dashboard/bloodBankAdmin"
               element={<BloodAdminHome />}
