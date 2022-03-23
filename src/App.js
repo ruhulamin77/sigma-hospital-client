@@ -71,16 +71,17 @@ import Psychiatrists from "./components/Specialization/Psychiatrists/Psychiatris
 
 // import PaymentSuccess from "./components/Dashboard/Pharmacy/PaymentSuccess/PaymentSuccess";
 function App() {
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
-    setLoading(false)
+    setLoading(false);
     setTimeout(() => {
-      setLoading(true)
-    }, 3000)
-  }, [])
+      setLoading(true);
+    }, 3000);
+  }, []);
 
   return (
     <div>
+<<<<<<< HEAD
       {
         loading ?
           <Router>
@@ -245,6 +246,212 @@ function App() {
             <HashLoader color="#f68685" size={150} />
           </div>
       }
+=======
+      {loading ? (
+        <Router>
+          <Messenger />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/" element={<PrivateRoute />}>
+              <Route path="/appointment" element={<AppointmentHeader />} />
+              <Route path="/userDashboard" element={<UserDashboard />}></Route>
+              <Route path="/blog/:id" element={<SingleBlog />} />
+            </Route>
+
+            <Route path="/home" element={<Home />} />
+            <Route path="/service" element={<Service />} />
+            <Route path="/onlineDoctor" element={<OnlineDoctor />} />
+            <Route path="/adminhome" element={<AdminHomeMain />} />
+            <Route path="/paymentForm" element={<PaymentForm />} />
+            <Route path="/success/:id" element={<Success />} />
+            <Route path="/adminRegister" element={<CreateAdmin />} />
+            <Route path="/adminLogin" element={<AdminLoginForm />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/team" element={<Team />} />
+            <Route path="/review" element={<Review />} />
+            {/* <Route path="/chat" element={<ChatPage />} /> */}
+            <Route path="/doctor" element={<DoctorHeader />} />
+            <Route path="/blogForm" element={<BlogForm />} />
+            <Route path="/blog" element={<Blogs />} />
+            <Route path="/medicineCart" element={<Cart />} />
+            {/* <Route path="/contact" element={<Contact />} /> */}
+            <Route path="/about" element={<AboutHome />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/singleDoctor/:id" element={<SingleDoctor />} />
+
+            <Route path="/team/:id" element={<SingleDoctor />} />
+            <Route path="/specialization/oncologist" element={<Oncologist />} />
+            <Route
+              path="/specialization/neurologist"
+              element={<Neurologist />}
+            />
+            <Route
+              path="/specialization/ent-specialist"
+              element={<ENTspecialist />}
+            />
+            <Route
+              path="/specialization/cardiologist"
+              element={<Cardiologist />}
+            />
+            <Route
+              path="/specialization/audiologist"
+              element={<Audiologist />}
+            />
+            <Route
+              path="/specialization/psychiatrists"
+              element={<Psychiatrists />}
+            />
+
+            {/* dashboard */}
+            <Route path="/" element={<AdminRoute />}>
+              <Route path="/dashboard" element={<DashboardMain />}>
+                <Route path="/dashboard" element={<AdminHomeMain />}></Route>
+                <Route
+                  path="/dashboard/appointment"
+                  element={<Appointment />}
+                ></Route>
+                <Route path="/dashboard/chat" element={<ChatPage />}></Route>
+
+                {/* doctor route start */}
+                <Route path="/dashboard/allDoctors" element={<AllDoctors />} />
+                <Route
+                  path="/dashboard/allDoctors/update/:id"
+                  element={<DoctorProfile />}
+                />
+                <Route path="/dashboard/addDoctors" element={<AddDoctors />} />
+                {/*  doctor route end */}
+                {/* nurse route start */}
+                <Route path="/dashboard/addNurse" element={<AddNurse />} />
+                <Route path="/dashboard/allNurse" element={<AllNurse />} />
+                <Route
+                  path="/dashboard/appointedpatient"
+                  element={<AppointedPatient />}
+                />
+                <Route
+                  path="/dashboard/allNurse/update/:id"
+                  element={<NurseProfileUpdate />}
+                />
+                {/* nurse route end */}
+                {/* patients route start */}
+                <Route
+                  path="/dashboard/patientsInfo"
+                  element={<PatientData />}
+                />
+                <Route
+                  path="/dashboard/prescription/:id"
+                  element={<PatientPrescription />}
+                />
+                <Route
+                  path="/dashboard/patient/invoice"
+                  element={<PatientInvoice />}
+                />
+                <Route
+                  path="/dashboard/singlePatient/invoice/:id"
+                  element={<SingleInvoice />}
+                />
+
+                <Route path="/dashboard/pharmacy" element={<PharmacyHome />} />
+                <Route path="/dashboard/order" element={<Order />} />
+                <Route path="/dashboard/receive" element={<ProductRecive />} />
+                <Route path="/dashboard/invoice" element={<Invoice />} />
+                <Route
+                  path="/dashboard/AddMedicine"
+                  element={<AddMedicine />}
+                />
+                <Route path="/dashboard/Stockout" element={<Stockout />} />
+
+                <Route
+                  path="/dashboard/pdfInvoice/:id"
+                  element={<PdfInvoice />}
+                />
+                {/* patients route end */}
+                {/* blood bank admin start */}
+
+                <Route
+                  path="/dashboard/bloodBankAdmin"
+                  element={<BloodAdminHome />}
+                />
+                <Route
+                  path="/dashboard/manageAllDonors"
+                  element={<ManageAllDonor />}
+                />
+                <Route
+                  path="/dashboard/ManageBloodDonations"
+                  element={<ManageBloodDonations />}
+                />
+                <Route
+                  path="/dashboard/manageBloodRequests"
+                  element={<ManageBloodRequests />}
+                />
+
+                {/* blood bank admin */}
+              </Route>
+            </Route>
+            {/*  blood bank */}
+            {/* <Route path="/bloodBank" element={<BloodDashboardMain />}>
+              <Route path="/bloodBank" element={<BloodDashboardHome />}></Route>
+              <Route path="/bloodBank/allDOnor" element={<AllDonors />}></Route>
+              <Route
+                path="/bloodBank/registerDonor"
+                element={<RegisterDonor />}
+              ></Route>
+              <Route
+                path="/bloodBank/bloodDonation"
+                element={<BloodDonation />}
+              ></Route>
+              <Route
+                path="/bloodBank/donationHistory"
+                element={<BloodDonationHistory />}
+              ></Route>
+              <Route
+                path="/bloodBank/bloodRequest"
+                element={<BloodRequest />}
+              ></Route>
+            </Route> */}
+
+            {/*  blood bank user dashboard*/}
+            <Route exact element={<PrivateRoute />}>
+              <Route path="/bloodBank" element={<BloodDashboardMain />}>
+                <Route
+                  path="/bloodBank"
+                  element={<BloodDashboardHome />}
+                ></Route>
+                <Route
+                  path="/bloodBank/allDonor"
+                  element={<AllDonors />}
+                ></Route>
+                <Route
+                  path="/bloodBank/registerDonor"
+                  element={<RegisterDonor />}
+                ></Route>
+                <Route
+                  path="/bloodBank/bloodDonation"
+                  element={<BloodDonation />}
+                ></Route>
+                <Route
+                  path="/bloodBank/donationHistory"
+                  element={<BloodDonationHistory />}
+                ></Route>
+                <Route
+                  path="/bloodBank/bloodRequest"
+                  element={<BloodRequest />}
+                ></Route>
+                <Route
+                  path="/bloodBank/requestHistory"
+                  element={<BloodRequestHistory />}
+                ></Route>
+              </Route>
+            </Route>
+            {/* blood bank user dashboard*/}
+          </Routes>
+        </Router>
+      ) : (
+        <div className="loder-app">
+          <HashLoader color="#f68685" size={150} />
+        </div>
+      )}
+>>>>>>> c02f36027d0eb31c9ce79fa28b9a06b7babd5542
     </div>
   );
 }
