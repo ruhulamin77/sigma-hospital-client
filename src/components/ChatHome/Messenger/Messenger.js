@@ -22,7 +22,7 @@ const Messenger = () => {
     const socket = useRef()
     // const user = useSelector((state) => state.auth.auth)
 
-    const admin = useSelector((state) => state.admin);
+    const admin = useSelector((state) => state.admin.admin);
     console.log(admin, "chat admin");
  
 
