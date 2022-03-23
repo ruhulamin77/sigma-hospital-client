@@ -101,5 +101,5 @@ tr td{
 }
 
 .stockOut{
-    color: red;
+    color: red !important;
 }

@@ -56,7 +56,8 @@ button.ghost {
   position: relative;
   overflow: hidden;
   max-width: 100%;
-  min-height: 480px;
+  min-height: 200px;
+
   z-index: 1;
 }
 
