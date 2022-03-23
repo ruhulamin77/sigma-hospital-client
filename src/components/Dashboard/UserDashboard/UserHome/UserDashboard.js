@@ -7,17 +7,15 @@ import {
   AiOutlineUser,
   AiOutlineUsergroupDelete,
 } from "react-icons/ai";
-import { GrHome, GrLocation } from "react-icons/gr";
+import { GrHome } from "react-icons/gr";
 import { MdOutlinePayment } from "react-icons/md";
 import {
-  HiMailOpen,
-  HiOutlineLockClosed,
-  HiOutlinePuzzle,
+  HiMailOpen
 } from "react-icons/hi";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { BiLogIn } from "react-icons/bi";
 import { FaRegCalendarAlt, FaUser } from "react-icons/fa";
-import { BsChevronDown, BsListTask } from "react-icons/bs";
+import { BsChevronDown } from "react-icons/bs";
 import { IoSettingsSharp } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useDispatch, useSelector } from "react-redux";
@@ -101,24 +99,9 @@ const UserDashboard = () => {
               </div>
             </div>
             <hr />
-            <div className="dasboard_leftbar_counter">
-              <div>
-                <p>Exp</p>
-                <span className="dasboard_leftbar_count">18</span>
-              </div>
-              <div>
-                <p>Awards</p>
-                <span className="dasboard_leftbar_count">13</span>
-              </div>
-              <div>
-                <p>Clients</p>
-                <span className="dasboard_leftbar_count">213</span>
-              </div>
-            </div>
-
             <ul className="dashboard_left_nav">
               <li className="dashboard_nav_item">
-                <Link to="/dashboard">
+                <Link to="/userDashboard">
                   <span className="dashboard_nav_icon">
                     <span className="nav_icon">
                       <GrHome />
@@ -128,43 +111,12 @@ const UserDashboard = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/dashboard/appointment">
+                <Link to="/userDashboard/appointment">
                   <span className="dashboard_nav_icon">
                     <span className="nav_icon">
                       <FaRegCalendarAlt />
                     </span>
                     <span>Appointment</span>
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/dashboard">
-                  <span className="dashboard_nav_icon">
-                    <span className="nav_icon">
-                      <BsListTask />
-                    </span>
-                    <span>Taskboard</span>
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/dashboard">
-                  <span className="dashboard_nav_icon">
-                    <span className="nav_icon">
-                      <AiOutlineMail />
-                    </span>
-                    <span>Inbox App</span>
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/chat">
-                  <span className="dashboard_nav_icon">
-                    <span className="nav_icon">
-                      <RiWechatLine />
-                    </span>
-
-                    <span>Chat App</span>
                   </span>
                 </Link>
               </li>
@@ -190,7 +142,7 @@ const UserDashboard = () => {
                 <div className="collapse" id="collapseDoctors">
                   <ul className="dashboard_sub_menu">
                     <li>
-                      <Link to="/dashboard/allDoctors">
+                      <Link to="/userDashboard/allDoctors">
                         <span className="nav_icon">--</span>
                         <span>All Doctors</span>
                       </Link>
@@ -257,82 +209,6 @@ const UserDashboard = () => {
                     <span>Payments</span>
                   </span>
                   <BsChevronDown />
-                </Link>
-                <div className="collapse" id="collapsePayments">
-                  <ul className="dashboard_sub_menu">
-                    <li>
-                      <Link to="/dashboard/allDoctors">
-                        <span className="nav_icon">--</span>
-                        <span>Payments</span>
-                      </Link>
-                      <Link to="/dashboard">
-                        <span className="nav_icon">--</span>
-                        <span>Add Payments</span>
-                      </Link>
-                      <Link to="/dashboard">
-                        <span className="nav_icon">--</span>
-                        <span>Invoie</span>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li>
-                <Link to="/dashboard">
-                  <span className="dashboard_nav_icon">
-                    <span className="nav_icon">
-                      <GrLocation />
-                    </span>
-                    <span>Worlwide Centres</span>
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  /* className="btn btn-primary" */
-                  data-bs-toggle="collapse"
-                  to="#collapseAuthentications"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="collapseExample"
-                >
-                  <span className="dashboard_nav_icon">
-                    <span className="nav_icon">
-                      <HiOutlineLockClosed />
-                    </span>
-
-                    <span>Authentications</span>
-                  </span>
-                  <BsChevronDown />
-                </Link>
-                <div className="collapse" id="collapseAuthentications">
-                  <ul className="dashboard_sub_menu">
-                    <li>
-                      <Link to="/dashboard/allDoctors">
-                        <span className="nav_icon">--</span>
-                        <span>Login</span>
-                      </Link>
-                      <Link to="/dashboard">
-                        <span className="nav_icon">--</span>
-                        <span>Register</span>
-                      </Link>
-                      <Link to="/dashboard">
-                        <span className="nav_icon">--</span>
-                        <span>Lock Screen</span>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li>
-                <Link to="/dashboard">
-                  <span className="dashboard_nav_icon">
-                    <span className="nav_icon">
-                      <HiOutlinePuzzle />
-                    </span>
-
-                    <span>Widgets</span>
-                  </span>
                 </Link>
               </li>
             </ul>
@@ -419,24 +295,10 @@ const UserDashboard = () => {
             </div>
           </div>
           <hr />
-          <div className="dasboard_leftbar_counter">
-            <div>
-              <p>Exp</p>
-              <span className="dasboard_leftbar_count">18</span>
-            </div>
-            <div>
-              <p>Awards</p>
-              <span className="dasboard_leftbar_count">13</span>
-            </div>
-            <div>
-              <p>Clients</p>
-              <span className="dasboard_leftbar_count">213</span>
-            </div>
-          </div>
 
           <ul className="dashboard_left_nav">
             <li className="dashboard_nav_item">
-              <Link to="/dashboard">
+              <Link to="/userDashboard">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <GrHome />
@@ -446,43 +308,12 @@ const UserDashboard = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/appointment">
+              <Link to="/userDashboard/appointment">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <FaRegCalendarAlt />
                   </span>
                   <span>Appointment</span>
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/dashboard">
-                <span className="dashboard_nav_icon">
-                  <span className="nav_icon">
-                    <BsListTask />
-                  </span>
-                  <span>Taskboard</span>
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/dashboard">
-                <span className="dashboard_nav_icon">
-                  <span className="nav_icon">
-                    <AiOutlineMail />
-                  </span>
-                  <span>Inbox App</span>
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/dashboard/chat">
-                <span className="dashboard_nav_icon">
-                  <span className="nav_icon">
-                    <RiWechatLine />
-                  </span>
-
-                  <span>Chat App</span>
                 </span>
               </Link>
             </li>
@@ -508,11 +339,7 @@ const UserDashboard = () => {
               <div className="collapse" id="collapsePatients">
                 <ul className="dashboard_sub_menu">
                   <li>
-                    <Link to="/dashboard/patientsInfo">
-                      <span className="nav_icon">--</span>
-                      <span>All Patients</span>
-                    </Link>
-                    <Link to="/dashboard/appointment">
+                    <Link to="/userDashboard/appointment">
                       <span className="nav_icon">--</span>
                       <span>Add Patient</span>
                     </Link>
@@ -520,7 +347,7 @@ const UserDashboard = () => {
                         <span className="nav_icon">--</span>
                         <span>Patients Profile</span>
                       </Link> */}
-                    <Link to="/dashboard/patient/invoice">
+                    <Link to="/userDashboard/patient/invoice">
                       <span className="nav_icon">--</span>
                       <span>Invoice</span>
                     </Link>
@@ -546,24 +373,6 @@ const UserDashboard = () => {
                 </span>
                 <BsChevronDown />
               </Link>
-              <div className="collapse" id="collapsePayments">
-                <ul className="dashboard_sub_menu">
-                  <li>
-                    <Link to="/dashboard/allDoctors">
-                      <span className="nav_icon">--</span>
-                      <span>Payments</span>
-                    </Link>
-                    <Link to="/dashboard">
-                      <span className="nav_icon">--</span>
-                      <span>Add Payments</span>
-                    </Link>
-                    <Link to="/dashboard">
-                      <span className="nav_icon">--</span>
-                      <span>Invoie</span>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
             </li>
 
             <li>
@@ -582,39 +391,6 @@ const UserDashboard = () => {
                   <span>Pharmacy</span>
                 </span>
                 <BsChevronDown />
-              </Link>
-              <div className="collapse" id="collapsePaymentss">
-                <ul className="dashboard_sub_menu">
-                  <li>
-                    <Link to="/dashboard/pharmacy">
-                      <span className="nav_icon">--</span>
-                      <span>Pharmacy</span>
-                    </Link>
-                    <Link to="/dashboard/order">
-                      <span className="nav_icon">--</span>
-                      <span>Order</span>
-                    </Link>
-                    <Link to="/dashboard/receive">
-                      <span className="nav_icon">--</span>
-                      <span>Receive</span>
-                    </Link>
-
-                    <Link to="/dashboard/invoice">
-                      <span className="nav_icon">--</span>
-                      <span>Invoice</span>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <Link to="/dashboard">
-                <span className="dashboard_nav_icon">
-                  <span className="nav_icon">
-                    <GrLocation />
-                  </span>
-                  <span>Worlwide Centres</span>
-                </span>
               </Link>
             </li>
           </ul>

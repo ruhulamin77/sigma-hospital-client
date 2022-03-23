@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-import { useGetNursesQuery } from '../../../../features/sigmaApi';
 import Swal from 'sweetalert2';
+import { useGetNursesQuery } from '../../../../features/sigmaApi';
 import { useForm } from "react-hook-form";
 
 const NurseProfileUpdate = () => {

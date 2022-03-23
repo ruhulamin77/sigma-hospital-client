@@ -51,13 +51,13 @@ const ThirdSection = () => {
     ];
     return (
         <section className='thard-section'>
-            <div className='container pt-5 pb-5'>
+            <div className='container pt-5 pb-5 '>
                 <div className='row'>
                     <div className='col-lg-6 col-sm-12'>
-                        <Card className='thard'>
-                            <div className='d-flex justify-content-between'>
+                        <Card className='thard-item'>
+                            <div className='d-flex justify-content-between patient-asnt'>
                                 <p className='patient-history'>Patient history</p>
-                                <ul>
+                                <ul className='month'>
                                     <li>W</li>
                                     <li>M</li>
                                     <li>Y</li>
@@ -107,6 +107,43 @@ const ThirdSection = () => {
                     </div>
 
                     <div className='col-lg-6 col-sm-12'>
+                        <div className='Hospital-Activities'>
+                            <h4 className='Activities'>Hospital Activities</h4>
+                            <div className='timeline-item green'>
+                                <p className='today green'> 20-04-2018 - Today</p>
+                                <div className='today-containt'>
+                                    <h5>A Brief History Of Anesthetics</h5>
+                                    <p>Elisse Joson San Francisco, CA</p>
+                                    <p>I'm speaking with myself, number one, because I have a very good brain and I've said a lot of things.</p>
+                                </div>
+
+
+                            </div>
+
+                            <div className='timeline-item Blue'>
+                                <p className='today Blue'> 19-04-2018 - Yesterday</p>
+                                <div className='today-containt'>
+                                    <h5>Using Laser Teatment to Help</h5>
+                                    <p>Katherine Lumaad Oakland, CA</p>
+                                    <p>web by far While that's mock-ups and this is politics, are they really so different? I think the only card she has is the Lorem card</p>
+                                </div>
+
+
+                            </div>
+
+                            <div className='timeline-item orange'>
+                                <p className='today orange'> 21-02-2018</p>
+                                <div className='today-containt'>
+                                    <h5>Selecting the right Apnea Treatment</h5>
+                                    <p>Gary Camara San Francisco, CA</p>
+                                    <p>I write the best placeholder text, and I'm the biggest developer on the web by far... While that's mock-ups and this is politics, is the Lorem card.</p>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
 
                     </div>
 

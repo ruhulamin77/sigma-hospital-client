@@ -1,29 +1,25 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import {adminLogin} from '../../../features/adminSlice'
-import { useDispatch } from 'react-redux'
-import Swal from 'sweetalert2';
+import { useDispatch, useSelector } from 'react-redux'
 import "./AdminLoginForm.css";
 import { useNavigate } from 'react-router-dom';
 
 const AdminLoginForm = () => {
-  const { register, handleSubmit, reset } = useForm(); 
+  const { register, handleSubmit, reset } = useForm();
+    const navigate = useNavigate();
   const dispatch = useDispatch()
-  let navigate = useNavigate();  
-  const onSubmit = data =>{
+  const token = useSelector((state) => state?.admin?.admin?.token);  
+ 
+  const onSubmit = data => {
     reset()
-    dispatch(adminLogin(data))
-    Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Logged in SuccessFully',
-        showConfirmButton: false,
-        timer: 1500
-        })
-    navigate(`/dashboard`)  
-  }
+    dispatch(adminLogin(data))  
+    }
+    if (token) {
+        navigate(`/dashboard`)
+    }
     return (
-        <div>
+        <div className='admin-login-section'>
             <div className="container">
                 <div className="row">
                     <div className="col-lg-3 col-md-2"></div>

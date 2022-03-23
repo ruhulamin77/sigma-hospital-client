@@ -14,7 +14,7 @@ const TestimonialSlider = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const data = await axios.get("https://shrouded-headland-44423.herokuapp.com/reviewAdd")
+        const data = await axios.get("http://localhost:7050/reviewAdd")
         console.log(data);
         setData(data?.data)
       } catch (error) {
@@ -60,12 +60,13 @@ const TestimonialSlider = () => {
                   fractions={5}
                   initialRating={item?.rating}
                   readonly
-                  emptySymbol={['fa fa-star-o fa-2x low', 'fa fa-star-o fa-2x low',
-                    'fa fa-star-o fa-2x medium', 'fa fa-star-o fa-2x medium',
-                    'fa fa-star-o fa-2x high']}
-                  fullSymbol={['fa fa-star fa-2x low', 'fa fa-star fa-2x low',
-                    'fa fa-star fa-2x medium', 'fa fa-star fa-2x medium',
-                    'fa fa-star fa-2x high']}
+
+                  emptySymbol={['fa fa-star-o fa-2x ', 'fa fa-star-o fa-2x ',
+                    'fa fa-star-o fa-2x ', 'fa fa-star-o fa-2x ',
+                    'fa fa-star-o fa-2x ']}
+                  fullSymbol={['fa fa-star fa-2x', 'fa fa-star fa-2x ',
+                    'fa fa-star fa-2x ', 'fa fa-star fa-2x ',
+                    'fa fa-star fa-2x ']}
                 />
                 {
                   item?.rating <= 2 && item?.rating > 0 ? <p>I hate This <FaRegAngry /></p> : item?.rating <= 4 ? <p>It is Awesome.  <BiHappyHeartEyes /></p> : <p>I just love it.  <BsHeartFill /></p>

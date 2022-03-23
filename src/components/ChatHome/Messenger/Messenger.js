@@ -20,16 +20,20 @@ const Messenger = () => {
     const [onlineUser, setOnlineUser] = useState([])
     const scrollRef = useRef()
     const socket = useRef()
-    const user = useSelector((state) => state.auth.auth)
-    console.log(user, "user");
+    // const user = useSelector((state) => state.auth.auth)
+
+    const admin = useSelector((state) => state.admin.admin);
+    console.log(admin, "chat admin");
+ 
 
     // find my Id form db
     useEffect(() => {
-        axios.get(`https://shrouded-headland-44423.herokuapp.com/users/${user?.email}`).then(res => setLoginUsers(res.data))
-    }, [user?.email])
+        axios.get(`http://localhost:7050/adminUser/${admin?.adminEmail}`).then(res => setLoginUsers(res.data))
+
+    }, [admin?.adminEmail])
     console.log(loginUsers, "loginUsers");
     useEffect(() => {
-        socket.current = io("ws://localhost:8900");
+        socket.current = io("https://glacial-sea-16602.herokuapp.com/", {transports:["websocket"]});
         socket.current.on("getMessage", (data) => {
             setArrivalMessages({
                 sender: data.senderId,
@@ -39,7 +43,7 @@ const Messenger = () => {
         })
     }, [])
     useEffect(() => {
-        axios.get("https://shrouded-headland-44423.herokuapp.com/users").then(data => setUsers(data))
+        axios.get("http://localhost:7050/adminUsers").then(data => setUsers(data))
     }, [loginUsers?._id])
     console.log(users, "users");
     useEffect(() => {
@@ -64,7 +68,7 @@ const Messenger = () => {
     useEffect(() => {
         const getconversation = async () => {
             try {
-                const res = await axios.get(`https://shrouded-headland-44423.herokuapp.com/conversation/${loginUsers?._id}`)
+                const res = await axios.get(`http://localhost:7050/conversation/${loginUsers?._id}`)
                 setConversation(res?.data);
 
             } catch (err) {
@@ -77,7 +81,7 @@ const Messenger = () => {
     useEffect(() => {
         const getMessages = async () => {
             try {
-                const res = await axios.get(`https://shrouded-headland-44423.herokuapp.com/messages/${curremtChat?._id}`)
+                const res = await axios.get(`http://localhost:7050/messages/${curremtChat?._id}`)
                 setMessages(res?.data);
             } catch (err) {
                 console.log(err);
@@ -103,7 +107,7 @@ const Messenger = () => {
             time: new Date()
         })
         try {
-            const res = await axios.post("https://shrouded-headland-44423.herokuapp.com/messages", message)
+            const res = await axios.post("http://localhost:7050/messages", message)
             setMessages([...messages, res.data])
             setNewMessages("");
         } catch (err) {
@@ -124,8 +128,8 @@ const Messenger = () => {
                 member: [loginUsers?._id, reciverId]
             }
             try {
-                const res = await axios.post("https://shrouded-headland-44423.herokuapp.com/conversation", data)
-                const accc = await axios.get(`https://shrouded-headland-44423.herokuapp.com/conversatio/${res?.data?.insertedId}`)
+                const res = await axios.post("http://localhost:7050/conversation", data)
+                const accc = await axios.get(`http://localhost:7050/conversatio/${res?.data?.insertedId}`)
                 setCurremtChat(accc?.data)
                 setConversation([...conversation, accc?.data])
             } catch (err) {
@@ -134,16 +138,27 @@ const Messenger = () => {
         }
     }
 
+   
     const reserveConversation = [...conversation].reverse()
+    const handleSearchDoctor = async (e) => {
+        
+        const value = (e.target.value);
+        console.log(value);
+        const newData = await conversation?.filter(item => {
+            return item?.adminName?.toLowerCase().includes(value.toLowerCase())
+        })
+        console.log(newData);
+        // setConversation(newData)
+    }
     console.log(onlineUser, "onlineUser");
     console.log(curremtChat, "curremtChat");
-    console.log(messages, "messages");
+    console.log(conversation, "messages");
     console.log(loginUsers?._id, "loginUsers?._id");
     return (
         <div className='messenger'>
             <div className="chatMenu">
                 <div className="chatMenuWrapper">
-                    <input type="text" placeholder='Search for Doctors' className='chatMenuInput' />
+                    <input type="text" onChange={(e)=> handleSearchDoctor(e)} placeholder='Search for Doctors' className='chatMenuInput' />
                     {
                         reserveConversation.map((c) => (
                             <div onClick={() => setCurremtChat(c)}>
@@ -162,7 +177,7 @@ const Messenger = () => {
                                     {
                                         messages.map((m) => (
                                             <div ref={scrollRef}>
-                                                <Message message={m} key={Math.random()} own={m?.senderId === loginUsers?._id} user={user} fd={loginUsers} />
+                                                <Message message={m} key={Math.random()} own={m?.senderId === loginUsers?._id} user={admin} fd={loginUsers} />
                                             </div>
                                         ))
                                     }
@@ -191,7 +206,9 @@ const Messenger = () => {
                     }
                     {
                         onlineUser?.map((item) => (
+                            <div onClick={() => handelesetMessage(item?.userId)} >
                                 <ChatOnline key={item._id} user={item} />
+                                </div>
                         ))
                     }
                     <hr />

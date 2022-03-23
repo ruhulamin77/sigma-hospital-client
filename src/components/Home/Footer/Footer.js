@@ -4,13 +4,36 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { FaEnvelope, FaFacebookF, FaInstagram, FaMapMarkerAlt, FaPaperPlane, FaPhone, FaTwitter } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import "./Footer.css";
 
 const Footer = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => {
-        axios.post("/eamilSub", data)
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const onSubmit =  (data) => {
         console.log(data);
+        axios.post("http://localhost:7050/emailSub", data).then(res => {
+            if (res.status === 200) {
+                reset()
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Your Email has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                  }) 
+            } else {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'Your Email has been not saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+            }
+        })
+      
+        
+
     }
     return (
         <footer>
@@ -28,10 +51,15 @@ const Footer = () => {
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="form-cover d-flex justify-content-between">
                                     <input type="email"  {...register("email", { required: true })} placeholder='Email Adress' />
+                              
+                                  
                                     <button  type='submit' value="sign up">
                                         <FaPaperPlane />
                                     </button>
+                                   
                                 </div>
+                             
+                                    {errors.email && errors.email.type === "required" && <span className="py-4 text-danger" >This is required</span>}
                             </form>
                         </div>
                     </Col>

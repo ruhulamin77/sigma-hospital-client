@@ -32,7 +32,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import Header from "../../Share/Header/Header";
 
 const DashboardMain = () => {
-  const admin = useSelector((state) => state.admin);
+  const admin = useSelector((state) => state.admin.admin);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -72,7 +72,7 @@ const DashboardMain = () => {
                   <NavDropdown
                     id="basic-nav-dropdown"
                     className="basic_nav_dropdown_custom"
-                    title={admin.adminName}
+                    title={admin.displayName}
                   >
                     <NavDropdown.Item
                       href="#action/3.1"
@@ -124,13 +124,13 @@ const DashboardMain = () => {
               </div>
             </div>
             <ul className="dashboard_left_nav">
-              <li className="dashboard_nav_item">
+              <li>
                 <Link to="/dashboard">
                   <span className="dashboard_nav_icon">
                     <span className="nav_icon">
-                      <GrHome />
+                      <BsListTask />
                     </span>
-                    <span>Dashboard</span>
+                    <span>Taskboard</span>
                   </span>
                 </Link>
               </li>
@@ -183,16 +183,6 @@ const DashboardMain = () => {
                       <FaRegCalendarAlt />
                     </span>
                     <span>Appointment</span>
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/dashboard">
-                  <span className="dashboard_nav_icon">
-                    <span className="nav_icon">
-                      <BsListTask />
-                    </span>
-                    <span>Taskboard</span>
                   </span>
                 </Link>
               </li>
@@ -289,10 +279,6 @@ const DashboardMain = () => {
                         <span className="nav_icon">--</span>
                         <span>Add Nurses</span>
                       </Link>
-                      <Link to="/dashboard/appointedpatient">
-                        <span className="nav_icon">--</span>
-                        <span>Appointed Patients</span>
-                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -328,10 +314,10 @@ const DashboardMain = () => {
                         <span className="nav_icon">--</span>
                         <span>Add Patient</span>
                       </Link>
-                      {/* <Link to="/dashboard">
+                      <Link to="/dashboard/appointedpatient">
                         <span className="nav_icon">--</span>
-                        <span>Patients Profile</span>
-                      </Link> */}
+                        <span>Appointed Patients</span>
+                      </Link>
                       <Link to="/dashboard/patient/invoice">
                         <span className="nav_icon">--</span>
                         <span>Invoice</span>
@@ -599,7 +585,7 @@ const DashboardMain = () => {
               <span>Welcome, </span>
               <div>
                 <NavDropdown
-                  title={admin.adminName}
+                  title={admin.displayName}
                   id="basic-nav-dropdown"
                   className="basic_nav_dropdown_custom"
                 >
@@ -723,12 +709,12 @@ const DashboardMain = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard">
+              <Link to="/dashboard/appointment">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
-                    <AiOutlineMail />
+                    <FaRegCalendarAlt />
                   </span>
-                  <span>Inbox App</span>
+                  <span>Appointment</span>
                 </span>
               </Link>
             </li>
@@ -738,7 +724,6 @@ const DashboardMain = () => {
                   <span className="nav_icon">
                     <RiWechatLine />
                   </span>
-
                   <span>Chat App</span>
                 </span>
               </Link>
@@ -854,10 +839,10 @@ const DashboardMain = () => {
                       <span className="nav_icon">--</span>
                       <span>Add Patient</span>
                     </Link>
-                    {/* <Link to="/dashboard">
-                        <span className="nav_icon">--</span>
-                        <span>Patients Profile</span>
-                      </Link> */}
+                    <Link to="/dashboard/appointedpatient">
+                      <span className="nav_icon">--</span>
+                      <span>Appointed Patients</span>
+                    </Link>
                     <Link to="/dashboard/patient/invoice">
                       <span className="nav_icon">--</span>
                       <span>Invoice</span>

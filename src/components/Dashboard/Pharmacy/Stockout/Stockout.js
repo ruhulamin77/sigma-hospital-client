@@ -7,7 +7,7 @@ const Stockout = () => {
     const [stockOut, setStockOut] = useState([])
 
     useEffect(() => {
-        fetch(`https://shrouded-headland-44423.herokuapp.com/medicine`)
+        fetch(`http://localhost:7050/medicine`)
             .then(res => res.json())
             .then(data => {
                 const stockout = data.medicine.filter(data => data?.stock === 0)
@@ -22,12 +22,12 @@ const Stockout = () => {
                 <thead>
                     <tr>
                         <th>Sl</th>
-                        <th>brand</th>
+                        <th>Brand</th>
                         <th>Medicine-Name</th>
-                        <th>pawer</th>
-                        <th>type</th>
-                        <th>stock</th>
-                        <th> Sale Price</th>
+                        <th>Power</th>
+                        <th>Type</th>
+                        <th>Stock</th>
+                        <th>Sale Price</th>
                         <th>Unit Price</th>
 
                     </tr>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { NavLink } from "react-router-dom";
 // import { useGetBloodRequestQuery } from "../../../../features/sigmaApi";
 import SingleDonor from "../SingleDonar/SingleDonor";
 import "./AllDonors.css";
@@ -18,10 +17,11 @@ const AllDonors = () => {
     setUidonor(seacredonor);
   };
 
-  // https://shrouded-headland-44423.herokuapp.com/
+  // http://localhost:7050/
+  // http://localhost:7050/
 
   useEffect(() => {
-    fetch("https://shrouded-headland-44423.herokuapp.com/donors")
+    fetch("http://localhost:7050/donors")
       .then((res) => res.json())
       .then((Donordata) => {
         const AproveDonorData = Donordata.filter(
@@ -91,7 +91,7 @@ const AllDonors = () => {
           <h4 className="no-fund">Opps ! No Donor Found</h4>
         </div>
       )}
-      <div className="row all_donor">
+      <div className="row g-5">
         {uidonor.map((donordata) => (
           <SingleDonor donordata={donordata} key={donordata._id}></SingleDonor>
         ))}

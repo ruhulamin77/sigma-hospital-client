@@ -14,7 +14,7 @@ const ProductRecive = () => {
 
 
     useEffect(() => {
-        fetch("https://shrouded-headland-44423.herokuapp.com/medicine")
+        fetch("http://localhost:7050/medicine")
             .then(res => res.json())
             .then(data => {
                 setMedicines(data.medicine)
@@ -51,11 +51,11 @@ const ProductRecive = () => {
                                 <thead>
                                     <tr>
                                         <th>Sl</th>
-                                        <th>brand</th>
+                                        <th>Brand</th>
                                         <th>Medicine-Name</th>
-                                        <th>pawer</th>
-                                        <th>type</th>
-                                        <th>stock</th>
+                                        <th>Power</th>
+                                        <th>Type</th>
+                                        <th>Stock</th>
                                         <th>Price</th>
                                         <th>Quantity</th>
                                         <th>Action</th>

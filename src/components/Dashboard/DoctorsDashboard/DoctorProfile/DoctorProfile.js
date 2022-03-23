@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Alert, Button, Card, Container, Form } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-import { useGetDoctorsQuery } from '../../../../features/sigmaApi';
 import Swal from 'sweetalert2';
+import { useGetDoctorsQuery } from '../../../../features/sigmaApi';
 import './DoctorProfile.css';
 
 const DoctorProfile = () => {
@@ -27,7 +27,7 @@ const DoctorProfile = () => {
     const handleSubmit = e => {
         e.preventDefault();
 
-        fetch(`https://shrouded-headland-44423.herokuapp.com/updateDoctor/${id}`, {
+        fetch(`http://localhost:7050/updateDoctor/${id}`, {
             method: 'PUT',
             headers: { "content-type": "application/json" },
             body: JSON.stringify(doctorUpdateData)

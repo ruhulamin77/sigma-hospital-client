@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { useGetPrescriptionsQuery } from '../../../../../features/sigmaApi';
 
 const AppointedPatient = () => {
-    const nurse = useSelector((state) => state.admin);
+    const nurse = useSelector((state) => state.admin.admin);
     const allNurseData = useGetPrescriptionsQuery();
     const [singleApointData, setSingleApointData] = useState([]);
     console.log(singleApointData);

@@ -6,11 +6,11 @@ import Swal from "sweetalert2";
 const ManageBloodDonations = () => {
   const [donationRequest, setDonationRequest] = useState([]);
 
-  // https://shrouded-headland-44423.herokuapp.com/
-  // https://shrouded-headland-44423.herokuapp.com/
+  // http://localhost:7050/
+  // http://localhost:7050/
 
   useEffect(() => {
-    fetch("https://shrouded-headland-44423.herokuapp.com/bloodDonation")
+    fetch("http://localhost:7050/bloodDonation")
       .then((res) => res.json())
       .then((data) => {
         // const AproveRequestData =data.filter(data =>data.status ==="Approved")
@@ -21,7 +21,7 @@ const ManageBloodDonations = () => {
   const handleApproved = (id) => {
     axios
       .put(
-        `https://shrouded-headland-44423.herokuapp.com/bloodDonation/${id}`,
+        `http://localhost:7050/bloodDonation/${id}`,
         {
           status: "Approved",
         }
@@ -40,7 +40,7 @@ const ManageBloodDonations = () => {
   const handleRejected = (id) => {
     axios
       .put(
-        `https://shrouded-headland-44423.herokuapp.com/bloodDonation/${id}`,
+        `http://localhost:7050/bloodDonation/${id}`,
         {
           status: "Rejected",
         }

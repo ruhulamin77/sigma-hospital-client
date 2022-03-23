@@ -23,7 +23,7 @@ const Services = () => {
                                 <p className='text-secondary lh-2 mt-3'>It is a long established fact that a reader will be distracted by the <br /> readable content of a page when looking at its layout.</p>
                                 <NavLink to="/service">
                                     <button className="services-btn mt-5 mb-5">
-                                       <span>Services</span><i className="fas fa-plus btn-icon"></i>
+                                        <span>Services</span><i className="fas fa-plus btn-icon"></i>
                                     </button>
                                 </NavLink>
                             </Card.Body>
@@ -46,9 +46,9 @@ const Services = () => {
                             <Card.Text className='mt-4 mb-4 text-secondary'>
                                 It is a long established fact that a will be distracted by the readable content of a page looking at its layout.
                             </Card.Text>
-                            <Nav.Link className='read-more-link'>
-                                READ MORE <i className="fas fa-plus"></i>
-                            </Nav.Link>
+                            {/* <Nav.Link className='read-more-link'>
+                                APPOINTMENT <i className="fas fa-plus"></i>
+                            </Nav.Link> */}
                         </Card.Body>
                     </Card>
                     <Card className='service-middle-card rounded-0'>
@@ -60,9 +60,9 @@ const Services = () => {
                             <Card.Text className='mt-4 mb-4 text-secondary'>
                                 It is a long established fact that a will be distracted by the readable content of a page looking at its layout.
                             </Card.Text>
-                            <Nav.Link className='read-more-link'>
-                                READ MORE <i className="fas fa-plus"></i>
-                            </Nav.Link>
+                            {/* <Nav.Link className='read-more-link'>
+                                APPOINTMENT <i className="fas fa-plus"></i>
+                            </Nav.Link> */}
                         </Card.Body>
                     </Card>
                     <Card className='border-0 rounded-0'>
@@ -74,9 +74,9 @@ const Services = () => {
                             <Card.Text className='mt-4 mb-4 text-secondary'>
                                 It is a long established fact that a will be distracted by the readable content of a page looking at its layout.
                             </Card.Text>
-                            <Nav.Link className='read-more-link'>
-                                READ MORE <i className="fas fa-plus"></i>
-                            </Nav.Link>
+                            {/* <Nav.Link className='read-more-link'>
+                                APPOINTMENT <i className="fas fa-plus"></i>
+                            </Nav.Link> */}
                         </Card.Body>
                     </Card>
                 </CardGroup>

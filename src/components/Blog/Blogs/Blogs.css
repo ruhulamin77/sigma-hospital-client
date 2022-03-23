@@ -1,18 +1,18 @@
 .blog-my .card-design .blog-des {
-  font-size: 18px;
+  font-size: 16px;
   color: #9c9ca0;
   font-weight: 500;
 }
 .blog-my .img-design {
   overflow: hidden;
-  height: 400px;
+  /* height: 400px; */
   width: 100%;
   position: relative;
 }
 .blog-my .img-design img {
   transition: all 0.5s linear;
   width: 100%;
-  height: 400px;
+  height: 150px;
   object-fit: cover;
 }
 .blog-my .card-design:hover .img-design img {
@@ -24,7 +24,7 @@
 }
 .blog-my .card-design {
   border: 1px solid gray;
-  background-color: #000000ef;
+  background-color: #e3090900;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
@@ -37,7 +37,7 @@
   cursor: pointer;
 }
 .blog-my .card-design:hover {
-  transform: translateY(15px);
+  /* transform: translateY(15px); */
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
 /* Heading title */
@@ -55,16 +55,20 @@
   transition: 0.2s all ease-in-out;
 }
 
+.title-heading h2 {
+  font-size: 20px;
+}
+
 .blog-my .title-heading::before {
   background-color: #f68685;
   position: absolute;
   content: attr(data-tag);
   top: 0px;
   left: 0%;
-  font-size: 18px;
+  /* font-size: 18px; */
   color: #fff;
   display: none;
-  padding: 5px 15px;
+  padding: 0px 10px;
   border-radius: 5px;
   word-wrap: unset;
   transition: 0.5s;
@@ -129,12 +133,12 @@
   background-color: #f68685;
   color: white;
   display: block;
-  width: 70px;
-  height: 35px;
+  width: 50px;
+  height: 25px;
   border-radius: 5px;
   text-align: center;
-  line-height: 33px;
-  font-size: 20px;
+  /* line-height: 33px; */
+  /* font-size: 20px; */
 }
 .like svg {
   color: white;
@@ -157,11 +161,11 @@
   content: attr(data-tag);
 
   position: absolute;
-  font-size: 18px;
+  font-size: 16px;
   color: #fff;
   opacity: 0;
   visibility: hidden;
-  padding: 5px 15px;
+  padding: 2px 10px;
   border-radius: 5px;
   word-wrap: unset;
   transition: 0.5s;
@@ -169,12 +173,12 @@
   font-weight: 400;
 }
 .view-div::before {
-  left: 90px;
-  top: 10px;
+  left: 5px;
+  top: 45px;
 }
 .love-div::before {
-  right: 90px;
-  top: 10px;
+  right: 5px;
+  top: 45px;
 }
 
 .liked::before {
@@ -194,6 +198,9 @@
   align-items: center;
   height: 400px;
   width: 100%;
+}
+.blog-writer {
+  color: #666c6d;
 }
 .custom-btn {
   width: 130px;
@@ -215,6 +222,7 @@
   z-index: 2;
   transition: all 0.3s ease;
   overflow: hidden;
+  color: #f68685;
 }
 .btn-9:after {
   position: absolute;

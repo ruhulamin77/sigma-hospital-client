@@ -98,7 +98,7 @@ console.log(tags);
   
        
  
-        fetch('https://shrouded-headland-44423.herokuapp.com/addBlog', {
+        fetch('http://localhost:7050/addBlog', {
             method: 'POST',
             body: formData
         })

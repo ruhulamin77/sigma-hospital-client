@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button, Card, Col } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-import './SingleCardDoctor.css';
 import Swal from 'sweetalert2';
+import './SingleCardDoctor.css';
 
 const SingleCardDoctor = ({ doc }) => {
     const { _id, photo, name, title, address, linkedin, facebook, twitter } = doc;
@@ -19,7 +19,7 @@ const SingleCardDoctor = ({ doc }) => {
         })
             .then((result) => {
                 if (result.isConfirmed) {
-                    fetch(`https://shrouded-headland-44423.herokuapp.com/doctors/${id}`, {
+                    fetch(`http://localhost:7050/doctors/${id}`, {
                         method: 'DELETE',
                         headers: { 'content-type': 'application/json' },
                     })

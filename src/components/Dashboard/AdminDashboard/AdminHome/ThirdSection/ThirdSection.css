@@ -1,9 +1,10 @@
 .thard-section {
     background-color: #f4f7f6;
 }
-.thard {
+.thard-item {
     box-shadow: 0 0 3px 0 #acb3bf;
     border-radius: 7px;
+    height: 635px;
 }
 .patient-history{
     font-size: 18px;
@@ -77,5 +78,88 @@
 }
 .barChart-2nd-part{
     width: 100%;
-    height: 370px;
+    height: 385px;
+    margin-top: 30px;
+}
+.patient-asnt{
+    margin-top: 17px;
+}
+.icu-section{
+    margin-top: 24px;
+}
+
+.month{
+    display: flex;
+    margin-right:31px;
+
+}
+.month li{
+    margin-top: 20px;
+    background-color: #0b9999;
+    margin-right: 6px;
+    height: 29px;
+    width: 29px;
+    line-height: 29px;
+    text-align: center;
+    border-radius: 50%;
+
+}
+
+.month li:hover{
+    background-color: #AB7DF6;
+}
+
+.Hospital-Activities{
+    background-color: #fff;
+    padding: 26px;
+    border-radius: 7px;
+    box-shadow: 0px 0px 4px 0px grey;
+}
+.timeline-item{
+    padding: 1em 2em 2em;
+    position: relative;
+    border-left: 1px solid #0b9999;
+}
+.timeline-item.green:after {
+    border-color: #86c541;
+}
+.timeline-item.Blue:after {
+    border-color: #1d80e6;
+}
+.timeline-item.orange:after {
+    border-color: #f9a11d;
+}
+.timeline-item:after {
+    width: 15px;
+    height: 15px;
+    top: 1em;
+    position: absolute;
+    left: -8px;
+    border-radius: 10px;
+    content: '';
+    background: #fff;
+    border: 3px solid;
+}
+.Activities{
+    margin-top: 10px;
+    margin-bottom: 30px;
+
+}
+.today.green{
+    color: #155f02;
+    margin-bottom: 13px;
+
+}
+.today.Blue{
+    color: #1d80e6;
+    margin-bottom: 13px;
+
+}
+.today.orange{
+    color: #f9a11d;
+    margin-bottom: 13px;
+
+}
+.today-containt{
+    line-height: 25px;
 }

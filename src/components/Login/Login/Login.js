@@ -4,9 +4,9 @@ import { useForm } from "react-hook-form";
 import { FaFacebookF, FaGoogle, FaTwitter } from 'react-icons/fa';
 import { useLocation, useNavigate } from 'react-router-dom';
 import useFirebase from "../../../hooks/useFirebase";
+import Footer from "../../Home/Footer/Footer";
+import Header from "../../Share/Header/Header";
 import "./Login.css";
-import Header from "../../Share/Header/Header"
-import Footer from "../../Home/Footer/Footer"
 
 const Login = () => {
     const { loginUser, registerUser, signInWithGoogle, authError } = useFirebase();
@@ -39,8 +39,8 @@ const Login = () => {
     return (
         <>
             <Header />
-            {authError && <h5 className='text-center'>{authError}</h5>}
-            <Container className='padding-container'>
+            <div className="login-section">
+            <Container>
                 <div className={`con ${classAdd}`} id="container">
                     <div className="form-container sign-up-container">
                         <form onSubmit={handleSubmit(onSubmit)} className='login-form'>
@@ -95,6 +95,8 @@ const Login = () => {
                     </div>
                 </div>
             </Container>
+            </div>
+          
             <Footer />
         </>
     );

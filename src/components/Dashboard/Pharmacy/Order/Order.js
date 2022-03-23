@@ -19,7 +19,7 @@ const Order = () => {
 
     //remove cart//
     const handelremovecart = (cartItems) => {
-        axios.put(`https://shrouded-headland-44423.herokuapp.com/medicine`, {
+        axios.put(`http://localhost:7050/medicine`, {
             item: { cartItems },
         })
             .then((data) => {
@@ -71,7 +71,7 @@ const Order = () => {
             item: cart.cartItems,
             Total: grandTotal
         }
-        fetch('https://shrouded-headland-44423.herokuapp.com/init', {
+        fetch('http://localhost:7050/init', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"
@@ -102,10 +102,10 @@ const Order = () => {
                     <thead>
                         <tr>
                             <th>Sl</th>
-                            <th>brand</th>
+                            <th>Brand</th>
                             <th>Medicine-Name</th>
-                            <th>pawer</th>
-                            <th>type</th>
+                            <th>Power</th>
+                            <th>Type</th>
                             <th>Price</th>
                             <th >Quantity</th>
                             <th>Total</th>

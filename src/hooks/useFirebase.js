@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, updateProfile } from "firebase/auth";
-import { useSelector, useDispatch } from "react-redux";
-import { saveUser } from "../features/authSlice";
-import Swal from 'sweetalert2';
 /* initial firebase */
 import { initializeApp } from "firebase/app";
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, updateProfile } from "firebase/auth";
+import { useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import Swal from 'sweetalert2';
+import { saveUser } from "../features/authSlice";
 import firebaseConfig from '../Firebase/Firebase.config';
 
 initializeApp(firebaseConfig);
@@ -26,6 +26,17 @@ const useFirebase = () => {
                 const user = userCredential.user;
                 console.log("Registered user: ", user);
                 incertUser(email, name, photoURL, 'POST');
+                dispatch(saveUser(user));
+                localStorage.setItem('user', JSON.stringify(user))
+                if (user.uid) {
+                    Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Registered SuccessFully',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                }
                 /* send name to firebase after creation */
                 updateProfile(auth.currentUser, {
                     displayName: name,
