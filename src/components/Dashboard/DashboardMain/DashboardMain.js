@@ -37,7 +37,8 @@ const DashboardMain = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const dispatch = useDispatch();
-  // console.log(admin, "maindashboard");
+  console.log(admin, "maindashboard");
+
   return (
     <>
       <div className="dashboard_mobile_header">
@@ -553,21 +554,25 @@ const DashboardMain = () => {
           </div>
           <div className="right_icon_area">
             <ul>
-              <li data-tag="Appointment">
-                <FaRegCalendarAlt />
-              </li>
-              <li data-noti="" data-tag="Chat">
-                <RiWechatLine />
-              </li>
-              <li data-noti="" data-tag="Inbox">
+              <Link to="/dashboard/appointment">
+                <li data-tag="Appointment">
+                  <FaRegCalendarAlt />
+                </li>
+              </Link>
+              <Link to="/dashboard/chat">
+                <li data-noti="" data-tag="Chat">
+                  <RiWechatLine />
+                </li>
+              </Link>
+              {/* <li data-noti="" data-tag="Inbox">
                 <AiOutlineMail />
-              </li>
-              <li data-noti="" data-tag="Notification">
+              </li> */}
+              {/* <li data-noti="" data-tag="Notification">
                 <IoMdNotificationsOutline />
-              </li>
-              <li data-tag="Setting">
+              </li> */}
+              {/* <li data-tag="Setting">
                 <GiSettingsKnobs />
-              </li>
+              </li> */}
               <li data-tag="Logout" onClick={() => dispatch(logOut())}>
                 <BiLogIn />
               </li>
@@ -630,84 +635,68 @@ const DashboardMain = () => {
               <span className="dasboard_leftbar_count">13</span>
             </div>
             <div>
-              <p>Clients</p>
+              <p>Patients</p>
               <span className="dasboard_leftbar_count">213</span>
             </div>
           </div>
 
           <ul className="dashboard_left_nav">
-            <li className="dashboard_nav_item">
-              <Link to="/dashboard">
-                <span className="dashboard_nav_icon">
-                  <span className="nav_icon">
-                    <GrHome />
+            {admin.role === "admin" && (
+              <li className="dashboard_nav_item">
+                <Link to="/dashboard">
+                  <span className="dashboard_nav_icon">
+                    <span className="nav_icon">
+                      <GrHome />
+                    </span>
+                    <span>Dashboard</span>
                   </span>
-                  <span>Dashboard</span>
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                /* className="btn btn-primary" */
-                data-bs-toggle="collapse"
-                to="#collapseBloodBank"
-                role="button"
-                aria-expanded="false"
-                aria-controls="collapseExample"
-              >
-                <span className="dashboard_nav_icon">
-                  <span className="nav_icon">
-                    <MdOutlineBloodtype />
+                </Link>
+              </li>
+            )}
+            {admin.role === "admin" && (
+              <li>
+                <Link
+                  /* className="btn btn-primary" */
+                  data-bs-toggle="collapse"
+                  to="#collapseBloodBank"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="collapseExample"
+                >
+                  <span className="dashboard_nav_icon">
+                    <span className="nav_icon">
+                      <MdOutlineBloodtype />
+                    </span>
+                    <span>Blood Bank</span>
                   </span>
-                  <span>Blood Bank</span>
-                </span>
-                <BsChevronDown />
-              </Link>
+                  <BsChevronDown />
+                </Link>
 
-              <div className="collapse" id="collapseBloodBank">
-                <ul className="dashboard_sub_menu">
-                  <li>
-                    <Link to="/dashboard/bloodBankAdmin">
-                      <span className="nav_icon">--</span>
-                      <span>Blood Bank Home</span>
-                    </Link>
-                    <Link to="/dashboard/manageAllDonors">
-                      <span className="nav_icon">--</span>
-                      <span>Manage All Donors</span>
-                    </Link>
-                    <Link to="/dashboard/ManageBloodDonations">
-                      <span className="nav_icon">--</span>
-                      <span>Manage Donations</span>
-                    </Link>
-                    <Link to="/dashboard/manageBloodRequests">
-                      <span className="nav_icon">--</span>
-                      <span>ManageBloodRequests</span>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
+                <div className="collapse" id="collapseBloodBank">
+                  <ul className="dashboard_sub_menu">
+                    <li>
+                      <Link to="/dashboard/bloodBankAdmin">
+                        <span className="nav_icon">--</span>
+                        <span>Blood Bank Home</span>
+                      </Link>
+                      <Link to="/dashboard/manageAllDonors">
+                        <span className="nav_icon">--</span>
+                        <span>Manage All Donors</span>
+                      </Link>
+                      <Link to="/dashboard/ManageBloodDonations">
+                        <span className="nav_icon">--</span>
+                        <span>Manage Donations</span>
+                      </Link>
+                      <Link to="/dashboard/manageBloodRequests">
+                        <span className="nav_icon">--</span>
+                        <span>ManageBloodRequests</span>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            )}
 
-            <li>
-              <Link to="/dashboard/appointment">
-                <span className="dashboard_nav_icon">
-                  <span className="nav_icon">
-                    <FaRegCalendarAlt />
-                  </span>
-                  <span>Appointment</span>
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/dashboard">
-                <span className="dashboard_nav_icon">
-                  <span className="nav_icon">
-                    <BsListTask />
-                  </span>
-                  <span>Taskboard</span>
-                </span>
-              </Link>
-            </li>
             <li>
               <Link to="/dashboard/appointment">
                 <span className="dashboard_nav_icon">
@@ -728,221 +717,225 @@ const DashboardMain = () => {
                 </span>
               </Link>
             </li>
-            <li>
-              <Link
-                /* className="btn btn-primary" */
-                data-bs-toggle="collapse"
-                to="#collapseDoctors"
-                role="button"
-                aria-expanded="false"
-                aria-controls="collapseExample"
-              >
-                <span className="dashboard_nav_icon">
-                  <span className="nav_icon">
-                    <AiOutlineUser />
+            {admin.role === "admin" && (
+              <li>
+                <Link
+                  /* className="btn btn-primary" */
+                  data-bs-toggle="collapse"
+                  to="#collapseDoctors"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="collapseExample"
+                >
+                  <span className="dashboard_nav_icon">
+                    <span className="nav_icon">
+                      <AiOutlineUser />
+                    </span>
+                    <span>Doctors</span>
                   </span>
+                  <BsChevronDown />
+                </Link>
+                <div className="collapse" id="collapseDoctors">
+                  <ul className="dashboard_sub_menu">
+                    <li>
+                      <Link to="/dashboard/allDoctors">
+                        <span className="nav_icon">--</span>
+                        <span>All Doctors</span>
+                      </Link>
+                      <Link to="/dashboard/addDoctors">
+                        <span className="nav_icon">--</span>
+                        <span>Add Doctors</span>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            )}
 
-                  <span>Doctors</span>
-                </span>
-                <BsChevronDown />
-              </Link>
-
-              <div className="collapse" id="collapseDoctors">
-                <ul className="dashboard_sub_menu">
-                  <li>
-                    <Link to="/dashboard/allDoctors">
-                      <span className="nav_icon">--</span>
-                      <span>All Doctors</span>
-                    </Link>
-                    <Link to="/dashboard/addDoctors">
-                      <span className="nav_icon">--</span>
-                      <span>Add Doctors</span>
-                    </Link>
-                    {/* <Link to="/dashboard/allDoctors/update/:id">
-                      <span className="nav_icon">--</span>
-                      <span>Doctor Profile</span>
-                    </Link> */}
-                    {/* <Link to="/dashboard/doctorPrescription">
-                      <span className="nav_icon">--</span>
-                      <span>Doctor Prescription</span>
-                    </Link> */}
-                  </li>
-                </ul>
-              </div>
-            </li>
-
-            <li>
-              <Link
-                /* className="btn btn-primary" */
-                data-bs-toggle="collapse"
-                to="#collapseNurses"
-                role="button"
-                aria-expanded="false"
-                aria-controls="collapseExample"
-              >
-                <span className="dashboard_nav_icon">
-                  <span className="nav_icon">
-                    <RiNurseLine />
+            {(admin.role === "nurse" || admin.role === "admin") && (
+              <li>
+                <Link
+                  /* className="btn btn-primary" */
+                  data-bs-toggle="collapse"
+                  to="#collapseNurses"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="collapseExample"
+                >
+                  <span className="dashboard_nav_icon">
+                    <span className="nav_icon">
+                      <RiNurseLine />
+                    </span>
+                    <span>Nurses</span>
                   </span>
-                  <span>Nurses</span>
-                </span>
-                <BsChevronDown />
-              </Link>
+                  <BsChevronDown />
+                </Link>
 
-              <div className="collapse" id="collapseNurses">
-                <ul className="dashboard_sub_menu">
-                  <li>
-                    <Link to="/dashboard/allNurse">
-                      <span className="nav_icon">--</span>
-                      <span>All Nurses</span>
-                    </Link>
-                    <Link to="/dashboard/addNurse">
-                      <span className="nav_icon">--</span>
-                      <span>Add Nurses</span>
-                    </Link>
-                    <Link to="/dashboard/appointedpatient">
-                      <span className="nav_icon">--</span>
-                      <span>Appointed Patients</span>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
+                <div className="collapse" id="collapseNurses">
+                  <ul className="dashboard_sub_menu">
+                    <li>
+                      {admin.role === "admin" && (
+                        <>
+                          <Link to="/dashboard/allNurse">
+                            <span className="nav_icon">--</span>
+                            <span>All Nurses</span>
+                          </Link>
+                          <Link to="/dashboard/addNurse">
+                            <span className="nav_icon">--</span>
+                            <span>Add Nurses</span>
+                          </Link>
+                        </>
+                      )}
+                      {(admin.role === "nurse" || admin.role === "admin") && (
+                        <Link to="/dashboard/appointedpatient">
+                          <span className="nav_icon">--</span>
+                          <span>Appointed Patients</span>
+                        </Link>
+                      )}
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            )}
 
-            <li>
-              <Link
-                /* className="btn btn-primary" */
-                data-bs-toggle="collapse"
-                to="#collapsePatients"
-                role="button"
-                aria-expanded="false"
-                aria-controls="collapseExample"
-              >
-                <span className="dashboard_nav_icon">
-                  <span className="nav_icon">
-                    <AiOutlineUsergroupDelete />
+            {admin.role === "doctor" && (
+              <li>
+                <Link
+                  /* className="btn btn-primary" */
+                  data-bs-toggle="collapse"
+                  to="#collapsePatients"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="collapseExample"
+                >
+                  <span className="dashboard_nav_icon">
+                    <span className="nav_icon">
+                      <AiOutlineUsergroupDelete />
+                    </span>
+
+                    <span>Patients</span>
                   </span>
+                  <BsChevronDown />
+                </Link>
 
-                  <span>Patients</span>
-                </span>
-                <BsChevronDown />
-              </Link>
+                <div className="collapse" id="collapsePatients">
+                  <ul className="dashboard_sub_menu">
+                    <li>
+                      <Link to="/dashboard/patientsInfo">
+                        <span className="nav_icon">--</span>
+                        <span>All Patients</span>
+                      </Link>
+                      <Link to="/dashboard/appointment">
+                        <span className="nav_icon">--</span>
+                        <span>Add Patient</span>
+                      </Link>
+                      <Link to="/dashboard/appointedpatient">
+                        <span className="nav_icon">--</span>
+                        <span>Appointed Patients</span>
+                      </Link>
+                      <Link to="/dashboard/patient/invoice">
+                        <span className="nav_icon">--</span>
+                        <span>Invoice</span>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            )}
 
-              <div className="collapse" id="collapsePatients">
-                <ul className="dashboard_sub_menu">
-                  <li>
-                    <Link to="/dashboard/patientsInfo">
-                      <span className="nav_icon">--</span>
-                      <span>All Patients</span>
-                    </Link>
-                    <Link to="/dashboard/appointment">
-                      <span className="nav_icon">--</span>
-                      <span>Add Patient</span>
-                    </Link>
-                    <Link to="/dashboard/appointedpatient">
-                      <span className="nav_icon">--</span>
-                      <span>Appointed Patients</span>
-                    </Link>
-                    <Link to="/dashboard/patient/invoice">
-                      <span className="nav_icon">--</span>
-                      <span>Invoice</span>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
-
-            <li>
-              <Link
-                /* className="btn btn-primary" */
-                data-bs-toggle="collapse"
-                to="#collapsePayments"
-                role="button"
-                aria-expanded="false"
-                aria-controls="collapseExample"
-              >
-                <span className="dashboard_nav_icon">
-                  <span className="nav_icon">
-                    <MdOutlinePayment />
+            {(admin.role === "admin" || admin.role === "recip") && (
+              <li>
+                <Link
+                  data-bs-toggle="collapse"
+                  to="#collapsePayments"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="collapseExample"
+                >
+                  <span className="dashboard_nav_icon">
+                    <span className="nav_icon">
+                      <MdOutlinePayment />
+                    </span>
+                    <span>Payments</span>
                   </span>
-                  <span>Payments</span>
-                </span>
-                <BsChevronDown />
-              </Link>
-              <div className="collapse" id="collapsePayments">
-                <ul className="dashboard_sub_menu">
-                  <li>
-                    <Link to="/dashboard/allDoctors">
-                      <span className="nav_icon">--</span>
-                      <span>Payments</span>
-                    </Link>
-                    <Link to="/dashboard">
-                      <span className="nav_icon">--</span>
-                      <span>Add Payments</span>
-                    </Link>
-                    <Link to="/dashboard">
-                      <span className="nav_icon">--</span>
-                      <span>Invoie</span>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
+                  <BsChevronDown />
+                </Link>
+                <div className="collapse" id="collapsePayments">
+                  <ul className="dashboard_sub_menu">
+                    <li>
+                      <Link to="/dashboard/allDoctors">
+                        <span className="nav_icon">--</span>
+                        <span>Payments</span>
+                      </Link>
+                      <Link to="/dashboard">
+                        <span className="nav_icon">--</span>
+                        <span>Add Payments</span>
+                      </Link>
+                      <Link to="/dashboard">
+                        <span className="nav_icon">--</span>
+                        <span>Invoie</span>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            )}
 
-            <li>
-              <Link
-                /* className="btn btn-primary" */
-                data-bs-toggle="collapse"
-                to="#collapsePaymentss"
-                role="button"
-                aria-expanded="false"
-                aria-controls="collapseExample"
-              >
-                <span className="dashboard_nav_icon">
-                  <span className="nav_icon">
-                    <MdOutlineLocalPharmacy />
+            {admin.role === "pharma" && (
+              <li>
+                <Link
+                  /* className="btn btn-primary" */
+                  data-bs-toggle="collapse"
+                  to="#collapsePaymentss"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="collapseExample"
+                >
+                  <span className="dashboard_nav_icon">
+                    <span className="nav_icon">
+                      <MdOutlineLocalPharmacy />
+                    </span>
+                    <span>Pharmacy</span>
                   </span>
-                  <span>Pharmacy</span>
-                </span>
-                <BsChevronDown />
-              </Link>
-              <div className="collapse" id="collapsePaymentss">
-                <ul className="dashboard_sub_menu">
-                  <li>
-                    <Link to="/dashboard/pharmacy">
-                      <span className="nav_icon">--</span>
-                      <span>Pharmacy</span>
-                    </Link>
-                    <Link to="/dashboard/order">
-                      <span className="nav_icon">--</span>
-                      <span>Order</span>
-                    </Link>
-                    <Link to="/dashboard/receive">
-                      <span className="nav_icon">--</span>
-                      <span>Receive</span>
-                    </Link>
+                  <BsChevronDown />
+                </Link>
+                <div className="collapse" id="collapsePaymentss">
+                  <ul className="dashboard_sub_menu">
+                    <li>
+                      <Link to="/dashboard/pharmacy">
+                        <span className="nav_icon">--</span>
+                        <span>Pharmacy</span>
+                      </Link>
+                      <Link to="/dashboard/order">
+                        <span className="nav_icon">--</span>
+                        <span>Order</span>
+                      </Link>
+                      <Link to="/dashboard/receive">
+                        <span className="nav_icon">--</span>
+                        <span>Receive</span>
+                      </Link>
 
-                    <Link to="/dashboard/invoice">
-                      <span className="nav_icon">--</span>
-                      <span>Invoice</span>
-                    </Link>
+                      <Link to="/dashboard/invoice">
+                        <span className="nav_icon">--</span>
+                        <span>Invoice</span>
+                      </Link>
 
-                    <Link to="/dashboard/AddMedicine">
-                      <span className="nav_icon">--</span>
-                      <span>Add New Medicine</span>
-                    </Link>
+                      <Link to="/dashboard/AddMedicine">
+                        <span className="nav_icon">--</span>
+                        <span>Add New Medicine</span>
+                      </Link>
 
-                    <Link to="/dashboard/Stockout">
-                      <span className="nav_icon">--</span>
-                      <span>Stock out Medicine</span>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
+                      <Link to="/dashboard/Stockout">
+                        <span className="nav_icon">--</span>
+                        <span>Stock out Medicine</span>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            )}
+            {/* <li>
               <Link
-                /* className="btn btn-primary" */
                 data-bs-toggle="collapse"
                 to="#collapseDepartments"
                 role="button"
@@ -973,7 +966,7 @@ const DashboardMain = () => {
                       <span className="nav_icon">--</span>
                       <span>Oncology</span>
                     </Link>
-                    <Link to="/dashboard">
+                    <Link to="/dashboard/">
                       <span className="nav_icon">--</span>
                       <span>Neurology</span>
                     </Link>
@@ -1001,21 +994,10 @@ const DashboardMain = () => {
                   </li>
                 </ul>
               </div>
-            </li>
+            </li> */}
 
-            <li>
-              <Link to="/dashboard">
-                <span className="dashboard_nav_icon">
-                  <span className="nav_icon">
-                    <GrLocation />
-                  </span>
-                  <span>Worlwide Centres</span>
-                </span>
-              </Link>
-            </li>
-            <li>
+            {/* <li>
               <Link
-                /* className="btn btn-primary" */
                 data-bs-toggle="collapse"
                 to="#collapseAuthentications"
                 role="button"
@@ -1049,18 +1031,7 @@ const DashboardMain = () => {
                   </li>
                 </ul>
               </div>
-            </li>
-            <li>
-              <Link to="/dashboard">
-                <span className="dashboard_nav_icon">
-                  <span className="nav_icon">
-                    <HiOutlinePuzzle />
-                  </span>
-
-                  <span>Widgets</span>
-                </span>
-              </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
         <div className="dashboard_content_area">
