@@ -15,7 +15,7 @@ const Blogs = () => {
   return (
     <>
       <Header />
-      <Container className="padding-container">
+      <Container className="mb-5 pb-5">
         <div className="blog-tle pb-5">
           <h1>Our Recent Article</h1>
         </div>
