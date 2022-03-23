@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Card, Form, Table } from "react-bootstrap";
 import { MdSend } from 'react-icons/md';
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useGetAppointmentsQuery, useGetNursesQuery, useGetPrescriptionsQuery } from "../../../../features/sigmaApi";
 import "./PatientPrescription.css";
@@ -21,7 +21,7 @@ const PatientPrescription = () => {
   const [nurseName, setNurseName] = useState({});
   console.log(nurseName);
   console.log(singleAppointment);
-  console.log(singlePrescriptionData);
+  console.log("singlePrescriptionData", singlePrescriptionData);
 
   useEffect(() => {
     const singleAppoint = allAppoint?.data?.find(appoint => appoint._id === id);
@@ -53,7 +53,7 @@ const PatientPrescription = () => {
     patientName: singleAppointment?.firstName,
     patientAge: singleAppointment?.Age,
     patientGender: singleAppointment?.gender,
-    
+
 
   }
 
@@ -114,45 +114,34 @@ const PatientPrescription = () => {
   };
 
   let today = new Date().toLocaleDateString();
-  const handleAppointNurse = async (e) => {
+  const appointNurse = {
+    nurseData: nurseName,
+    appointDate: today,
+  };
+  const handleAppointNurse = e => {
     e.preventDefault();
-    try {
-      const res = await axios.put(`http://localhost:7050/appointNurse/${singlePrescriptionData._id}`, "okkkk")
-      
-      if (res?.status === 200) { 
-        console.log(res?.status);
-        Swal.fire({
-                icon: 'success',
-                title: 'The Nurse has been successfully appointed!',
-                showConfirmButton: false,
-                timer: 2000
-              });
-      }
-      //   if (data.modifiedCount) {
-      //     Swal.fire({
-      //       icon: 'success',
-      //       title: 'The Nurse has been successfully appointed!',
-      //       showConfirmButton: false,
-      //       timer: 2000
-      //     });
-      //     if (Swal) {
-      //       setTimeout(() => {
-      //         window.location.reload();
-      //       }, 2000);
-      //     }
-      //   }
-      // })
-
-    } catch (error) {
-      Swal.fire({
-        position: 'top-end',
-        icon: 'error',
-        title: 'Your Comment has been not saved',
-        showConfirmButton: false,
-        timer: 1500
-      }) 
-    }
-    
+    fetch(`http://localhost:7050/appointNurse/${singlePrescriptionData._id}`, {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(appointNurse),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount) {
+          Swal.fire({
+            icon: 'success',
+            title: 'The Nurse has been successfully appointed!',
+            showConfirmButton: false,
+            timer: 2000
+          });
+          if (Swal) {
+            setTimeout(() => {
+              window.location.reload();
+            }, 2000);
+          }
+        }
+      })
   };
 
   const handleAddFields = () => {
@@ -257,13 +246,19 @@ const PatientPrescription = () => {
           ))}
 
           {!singlePrescriptionData ?
-            <Button type="submit" className="doctor-delete me-3" data-bs-toggle="tooltip" title="Only press this button after writing the prescription for the first time">
+            <Button type="submit" className="doctor-delete me-3" data-bs-toggle="tooltip" title="Only press this button after writing the prescription for the first time" >
               Add Prescription <MdSend />
             </Button>
             :
-            <Button onClick={updatePrescription} className="doctor-update" data-bs-toggle="tooltip" title="Press this button to update the prescription each time">
+            <Button onClick={updatePrescription} className="doctor-update" data-bs-toggle="tooltip" title="Press this button to update the prescription each time" >
               Update Prescription <MdSend />
             </Button>}
+
+          <NavLink to={`/dashboard/patients/medicalTest/${singlePrescriptionData?._id}`}>
+            <Button type="submit" className="doctor-delete ms-3" data-bs-toggle="tooltip" title="Press this button to take medical test" >
+              Medical Test
+            </Button>
+          </NavLink>
 
         </Form>
       </Card>
@@ -300,6 +295,23 @@ const PatientPrescription = () => {
                     ))}
                   </tbody>
                 </Table>
+                {singlePrescriptionData?.medicalTest &&
+                  <Table className="mt-3" responsive>
+                    <thead>
+                      <tr>
+                        <th>Serial no.</th>
+                        <th>Medical Test Name</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {singlePrescriptionData?.medicalTest?.map((test, index) => (
+                        <tr key={index}>
+                          <td>{test?.number}</td>
+                          <td>{test?.medicalTestName}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </Table>}
               </div>
             </div>
           </div>
