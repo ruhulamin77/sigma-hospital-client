@@ -46,9 +46,9 @@ const Services = () => {
                             <Card.Text className='mt-4 mb-4 text-secondary'>
                                 It is a long established fact that a will be distracted by the readable content of a page looking at its layout.
                             </Card.Text>
-                            <Nav.Link className='read-more-link'>
-                                READ MORE <i className="fas fa-plus"></i>
-                            </Nav.Link>
+                            {/* <Nav.Link className='read-more-link'>
+                                APPOINTMENT <i className="fas fa-plus"></i>
+                            </Nav.Link> */}
                         </Card.Body>
                     </Card>
                     <Card className='service-middle-card rounded-0'>
@@ -60,9 +60,9 @@ const Services = () => {
                             <Card.Text className='mt-4 mb-4 text-secondary'>
                                 It is a long established fact that a will be distracted by the readable content of a page looking at its layout.
                             </Card.Text>
-                            <Nav.Link className='read-more-link'>
-                                READ MORE <i className="fas fa-plus"></i>
-                            </Nav.Link>
+                            {/* <Nav.Link className='read-more-link'>
+                                APPOINTMENT <i className="fas fa-plus"></i>
+                            </Nav.Link> */}
                         </Card.Body>
                     </Card>
                     <Card className='border-0 rounded-0'>
@@ -74,9 +74,9 @@ const Services = () => {
                             <Card.Text className='mt-4 mb-4 text-secondary'>
                                 It is a long established fact that a will be distracted by the readable content of a page looking at its layout.
                             </Card.Text>
-                            <Nav.Link className='read-more-link'>
-                                READ MORE <i className="fas fa-plus"></i>
-                            </Nav.Link>
+                            {/* <Nav.Link className='read-more-link'>
+                                APPOINTMENT <i className="fas fa-plus"></i>
+                            </Nav.Link> */}
                         </Card.Body>
                     </Card>
                 </CardGroup>
