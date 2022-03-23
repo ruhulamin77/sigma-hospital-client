@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import PatientTable from '../PatientTable/PatientTable';
 
 const PatientData = () => {
-    const doctor = useSelector((state) => state.admin);
+    const doctor = useSelector((state) => state.admin.admin);
     console.log(doctor?.adminEmail);
     const [appointment, setAppoinment] = useState([]);
     console.log(appointment);

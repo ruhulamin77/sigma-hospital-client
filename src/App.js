@@ -88,11 +88,12 @@ function App() {
           <ScrollButton />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/" element={<PrivateRoute />}>
+            {/* <Route path="/" element={<PrivateRoute />}> */}
               <Route path="/appointment" element={<AppointmentHeader />} />
               <Route path="/userDashboard" element={<UserDashboard />}></Route>
+              <Route path="/userDashboard/appointment" element={<Appointment />}></Route>
               <Route path="/blog/:id" element={<SingleBlog />} />
-            </Route>
+            {/* </Route> */}
 
             <Route path="/home" element={<Home />} />
             <Route path="/service" element={<Service />} />
