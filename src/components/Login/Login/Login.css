@@ -56,8 +56,13 @@ button.ghost {
   position: relative;
   overflow: hidden;
   max-width: 100%;
+<<<<<<< HEAD
+  min-height: 200px;
+
+=======
   margin-bottom: 30px;
   min-height: calc(90vh - 80px);
+>>>>>>> c02f36027d0eb31c9ce79fa28b9a06b7babd5542
   z-index: 1;
 }
 

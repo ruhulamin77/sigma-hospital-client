@@ -1,13 +1,13 @@
 import React from "react";
-import "./SingleDonor.css";
 import { Card } from "react-bootstrap";
 import DonorModal from "../DonorModal/DonorModal";
+import "./SingleDonor.css";
 
 const SingleDonor = (props) => {
   const { name, gender, bloodGroup, address } = props.donordata;
 
   return (
-    <div className="col-lg-4 col-md-6 col-sm-6 col-12 single-donor">
+      <div className="col-lg-4 col-md-6 col-sm-6 col-12">
       <Card>
         <Card.Header>
           {gender === "Male" ? (
