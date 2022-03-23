@@ -11,8 +11,8 @@ const PatientDbInfo = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Patient Status</h2>
+    <div className="mt-3">
+      <h2 className="pb-3">Patient Status</h2>
       <div className="request-history">
         <Table striped bordered hover>
           <thead>

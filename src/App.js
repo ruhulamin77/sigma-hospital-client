@@ -32,6 +32,7 @@ import PatientData from "./components/Dashboard/PatientDashboard/PatientData/Pat
 import PatientInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/PatientInvoice/PatientInvoice";
 import SingleInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/SingleInvoice/SingleInvoice";
 import PatientPrescription from "./components/Dashboard/PatientDashboard/PatientPrescription/PatientPrescription";
+import PatientDbInfo from "./components/Dashboard/PatientDbInfo/PatientDbInfo";
 // import AdminRoute from "./components/PrivateRoute/AdminRoute";
 import AddMedicine from "./components/Dashboard/Pharmacy/AddMedicine/AddMedicine";
 import Cart from "./components/Dashboard/Pharmacy/Cart/Cart";
@@ -70,23 +71,6 @@ import Neurologist from "./components/Specialization/Neurologist/Neurologist";
 import Oncologist from "./components/Specialization/Oncologist/Oncologist";
 import Psychiatrists from "./components/Specialization/Psychiatrists/Psychiatrists";
 
-<<<<<<< HEAD
-// import AdminRoute from "./components/PrivateRoute/AdminRoute";
-
-// import AdminRoute from "./components/PrivateRoute/AdminRoute";
-
-import BloodAdminHome from "./components/BloodAdminDashboard/BloodAdminHome/BloodAdminHome";
-import ManageAllDonor from "./components/BloodAdminDashboard/ManageAllDonor/ManageAllDonor";
-import ManageBloodRequests from "./components/BloodAdminDashboard/ManageBloodRequests/ManageBloodRequests";
-import ManageBloodDonations from "./components/BloodAdminDashboard/ManageBloodDonations/ManageBloodDonations";
-import Stockout from "./components/Dashboard/Pharmacy/Stockout/Stockout";
-import PatientInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/PatientInvoice/PatientInvoice";
-import SingleInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/SingleInvoice/SingleInvoice";
-import { useSelector } from "react-redux";
-import PatientDbInfo from "./components/Dashboard/PatientDbInfo/PatientDbInfo";
-
-=======
->>>>>>> c69fb1744730350c40e9e6ad2f8e36f440ccf953
 // import PaymentSuccess from "./components/Dashboard/Pharmacy/PaymentSuccess/PaymentSuccess";
 function App() {
   const [loading, setLoading] = useState(true);
@@ -99,57 +83,6 @@ function App() {
 
   return (
     <div>
-<<<<<<< HEAD
-      <Router>
-        <Messenger />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/" element={<PrivateRoute />}>
-            <Route path="/appointment" element={<AppointmentHeader />} />
-            <Route path="/userDashboard" element={<UserDashboard />}></Route>
-            <Route path="/blog/:id" element={<SingleBlog />} />
-          </Route>
-
-          <Route path="/home" element={<Home />} />
-          <Route path="/service" element={<Service />} />
-          <Route path="/onlineDoctor" element={<OnlineDoctor />} />
-          <Route path="/adminhome" element={<AdminHomeMain />} />
-          <Route path="/paymentForm" element={<PaymentForm />} />
-          <Route path="/success/:id" element={<Success />} />
-          <Route path="/adminRegister" element={<CreateAdmin />} />
-          <Route path="/adminLogin" element={<AdminLoginForm />} />
-          <Route path="/patientdbinfo" element={<PatientDbInfo />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/team" element={<Team />} />
-          <Route path="/review" element={<Review />} />
-          {/* <Route path="/chat" element={<ChatPage />} /> */}
-          <Route path="/doctor" element={<DoctorHeader />} />
-          <Route path="/blogForm" element={<BlogForm />} />
-          <Route path="/blog" element={<Blogs />} />
-          <Route path="/medicineCart" element={<Cart />} />
-          {/* <Route path="/contact" element={<Contact />} /> */}
-          <Route path="/about" element={<AboutHome />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/singleDoctor/:id" element={<SingleDoctor />} />
-
-          <Route path="/team/:id" element={<SingleDoctor />} />
-          <Route path="/specialization/oncologist" element={<Oncologist />} />
-          <Route path="/specialization/neurologist" element={<Neurologist />} />
-          <Route
-            path="/specialization/ent-specialist"
-            element={<ENTspecialist />}
-          />
-          <Route
-            path="/specialization/cardiologist"
-            element={<Cardiologist />}
-          />
-          <Route path="/specialization/audiologist" element={<Audiologist />} />
-          <Route
-            path="/specialization/psychiatrists"
-            element={<Psychiatrists />}
-          />
-=======
       {loading ? (
         <Router>
           <Messenger />
@@ -159,10 +92,12 @@ function App() {
             <Route path="/" element={<PrivateRoute />}>
               <Route path="/appointment" element={<AppointmentHeader />} />
               <Route path="/userDashboard" element={<UserDashboard />}></Route>
-              <Route path="/userDashboard/appointment" element={<Appointment />}></Route>
+              <Route
+                path="/userDashboard/appointment"
+                element={<Appointment />}
+              ></Route>
               <Route path="/blog/:id" element={<SingleBlog />} />
             </Route>
->>>>>>> c69fb1744730350c40e9e6ad2f8e36f440ccf953
 
             <Route path="/home" element={<Home />} />
             <Route path="/service" element={<Service />} />
@@ -180,6 +115,7 @@ function App() {
             <Route path="/doctor" element={<DoctorHeader />} />
             <Route path="/blogForm" element={<BlogForm />} />
             <Route path="/blog" element={<Blogs />} />
+            <Route path="/patientdbinfo" element={<PatientDbInfo />} />
             <Route path="/medicineCart" element={<Cart />} />
             {/* <Route path="/contact" element={<Contact />} /> */}
             <Route path="/about" element={<AboutHome />} />
