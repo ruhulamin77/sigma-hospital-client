@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { ScaleLoader } from "react-spinners";
 // import { useGetBloodRequestQuery } from "../../../../features/sigmaApi";
 import SingleDonor from "../SingleDonar/SingleDonor";
 import "./AllDonors.css";
@@ -34,14 +35,18 @@ const AllDonors = () => {
 
   if (!donors.length) {
     return (
-      <button class="btn btn-primary spner-btn mb-5" type="button" disabled>
-        <span
-          class="spinner-border spinner-border-sm"
-          role="status"
-          aria-hidden="true"
-        ></span>
-        Loading...
-      </button>
+      // <button class="btn btn-primary spner-btn mb-5" type="button" disabled>
+      //   <span
+      //     class="spinner-border spinner-border-sm"
+      //     role="status"
+      //     aria-hidden="true"
+      //   ></span>
+      //   Loading...
+      // </button>
+
+      <div className="looder-my">
+        <ScaleLoader color={"#7093e5"} size={150} />
+      </div>
     );
   }
   return (

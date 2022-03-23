@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { HashLoader } from "react-spinners";
 import BlogForm from "./components/Blog/BlogForm/BlogForm";
@@ -28,6 +29,7 @@ import AddNurse from "./components/Dashboard/NurseDashboard/AllNurse/AddNurse/Ad
 import AllNurse from "./components/Dashboard/NurseDashboard/AllNurse/AllNurse/AllNurse";
 import AppointedPatient from "./components/Dashboard/NurseDashboard/AppointedPatient/AppointedPatient/AppointedPatient";
 import NurseProfileUpdate from "./components/Dashboard/NurseDashboard/NurseProfileUpdate/NurseProfileUpdate";
+import MedicalTest from "./components/Dashboard/PatientDashboard/MedicalTest/MedicalTest";
 import PatientData from "./components/Dashboard/PatientDashboard/PatientData/PatientData/PatientData";
 import PatientInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/PatientInvoice/PatientInvoice";
 import SingleInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/SingleInvoice/SingleInvoice";
@@ -42,7 +44,7 @@ import PharmacyHome from "./components/Dashboard/Pharmacy/PharmacyHome/PharmacyH
 import ProductRecive from "./components/Dashboard/Pharmacy/ProductRecive/ProductRecive";
 import Stockout from "./components/Dashboard/Pharmacy/Stockout/Stockout";
 // import AdminRoute from "./components/PrivateRoute/AdminRoute";
-import UserDashboard from "./components/Dashboard/UserDashboard/UserHome/UserDashboard";
+// import UserDashboard from "./components/Dashboard/UserDashboard/UserHome/UserDashboard";
 import Appointment from "./components/Home/Appointment/Appointment";
 import AppointmentHeader from "./components/Home/Appointment/AppointmentHeader";
 import Home from "./components/Home/Home/Home";
@@ -79,6 +81,8 @@ function App() {
       setLoading(true);
     }, 3000);
   }, []);
+  const user = useSelector((state) => state.auth.auth);
+  const admin = useSelector((state) => state.admin.admin);
 
   return (
     <div>
@@ -90,8 +94,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/" element={<PrivateRoute />}>
               <Route path="/appointment" element={<AppointmentHeader />} />
-              <Route path="/userDashboard" element={<UserDashboard />}></Route>
-              <Route path="/userDashboard/appointment" element={<Appointment />}></Route>
+              {/* <Route path="/userDashboard" element={<UserDashboard />}></Route> */}
+              {/* <Route path="/userDashboard/appointment" element={<Appointment />}></Route> */}
               <Route path="/blog/:id" element={<SingleBlog />} />
             </Route>
 
@@ -143,7 +147,12 @@ function App() {
             {/* dashboard */}
             <Route path="/" element={<AdminRoute />}>
               <Route path="/dashboard" element={<DashboardMain />}>
-                <Route path="/dashboard" element={<AdminHomeMain />}></Route>
+                <Route
+                  path="/dashboard"
+                  element={
+                    admin.role === admin ? <AdminHomeMain /> : <AllDoctors />
+                  }
+                ></Route>
                 <Route
                   path="/dashboard/appointment"
                   element={<Appointment />}
@@ -187,6 +196,10 @@ function App() {
                   path="/dashboard/singlePatient/invoice/:id"
                   element={<SingleInvoice />}
                 />
+                <Route
+                  path="/dashboard/patients/medicalTest/:id"
+                  element={<MedicalTest />}
+                />
 
                 <Route path="/dashboard/pharmacy" element={<PharmacyHome />} />
                 <Route path="/dashboard/order" element={<Order />} />
@@ -221,7 +234,6 @@ function App() {
                   path="/dashboard/manageBloodRequests"
                   element={<ManageBloodRequests />}
                 />
-
                 {/* blood bank admin */}
               </Route>
             </Route>
