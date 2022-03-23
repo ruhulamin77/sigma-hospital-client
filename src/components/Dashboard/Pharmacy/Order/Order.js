@@ -102,10 +102,10 @@ const Order = () => {
                     <thead>
                         <tr>
                             <th>Sl</th>
-                            <th>brand</th>
+                            <th>Brand</th>
                             <th>Medicine-Name</th>
-                            <th>pawer</th>
-                            <th>type</th>
+                            <th>Power</th>
+                            <th>Type</th>
                             <th>Price</th>
                             <th >Quantity</th>
                             <th>Total</th>
