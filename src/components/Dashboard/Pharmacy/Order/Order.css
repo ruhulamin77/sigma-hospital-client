@@ -45,11 +45,15 @@
 .back-shoping{
     background-color: #F68685;
     padding: 9px 15px;
-    color: #fff;
+    color: #030303;
     border-radius: 5px;
     display: inline-block;
     margin-top: 17px;
 
+}
+
+.back-shoping:hover{
+    color: white;
 }
 .btn-td{
     width: 200px;

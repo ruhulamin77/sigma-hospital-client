@@ -44,7 +44,7 @@ const Order = () => {
             grandTotal += Number(cart.cartItems[index].Total)
         }
     }
-    ////costomer data Colaction ////
+
     const handelname = (e) => {
         const name = e.target.value;
         setName(name)
@@ -102,8 +102,8 @@ const Order = () => {
                     <thead>
                         <tr>
                             <th>Sl</th>
-                            <th>Brand</th>
                             <th>Medicine-Name</th>
+                            <th>Brand</th>
                             <th>Power</th>
                             <th>Type</th>
                             <th>Price</th>
@@ -118,8 +118,6 @@ const Order = () => {
                                 key={medicine._id}
                                 index={index}
                                 handelremovecart={handelremovecart}
-
-
                             ></OrderData>
 
                         ))}
@@ -133,7 +131,7 @@ const Order = () => {
 
                 <div className='continue-shoping'>
                     <div>
-                        <button onClick={() => handelcrealecart()} className='clear'>Clear -Cart</button>
+
                     </div>
 
                     <div>

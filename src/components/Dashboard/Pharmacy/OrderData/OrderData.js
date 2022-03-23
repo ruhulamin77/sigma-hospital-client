@@ -8,8 +8,8 @@ const OrderData = ({ medicine, index, handelremovecart }) => {
     return (
         <tr>
             <td>{index + 1}</td>
-            <td>{medicine?.brand}</td>
             <td>{medicine?.name}</td>
+            <td>{medicine?.brand}</td>
             <td>{medicine?.pawer}</td>
             <td>{medicine?.type}</td>
             <td>{medicine?.price}</td>

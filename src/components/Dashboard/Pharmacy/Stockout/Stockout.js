@@ -22,8 +22,8 @@ const Stockout = () => {
                 <thead>
                     <tr>
                         <th>Sl</th>
-                        <th>Brand</th>
                         <th>Medicine-Name</th>
+                        <th>Brand</th>
                         <th>Power</th>
                         <th>Type</th>
                         <th>Stock</th>

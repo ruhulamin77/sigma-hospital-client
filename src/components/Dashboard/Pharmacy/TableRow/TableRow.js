@@ -45,8 +45,8 @@ const TableRow = ({ medicine, index }) => {
         <>
             <tr>
                 <td>{index + 1}</td>
-                <td>{medicine?.brand}</td>
                 <td>{medicine?.name}</td>
+                <td>{medicine?.brand}</td>
                 <td>{medicine?.pawer}</td>
                 <td>{medicine?.type}</td>
                 <td className={medicine?.stock === 0 ? "stockOut" : " "}>{medicine?.stock}</td>
