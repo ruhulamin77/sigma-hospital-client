@@ -56,7 +56,8 @@ button.ghost {
   position: relative;
   overflow: hidden;
   max-width: 100%;
-  min-height: 480px;
+  margin-bottom: 30px;
+  min-height: calc(90vh - 80px);
   z-index: 1;
 }
 
@@ -197,7 +198,7 @@ button.ghost {
   margin: 20px 0 30px;
 }
 .login-section {
-  height: 60vh;
+  /* height: 100vh; */
   display: flex;
   align-items: center;
   justify-content: center;

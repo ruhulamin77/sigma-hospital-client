@@ -636,8 +636,6 @@ const DashboardMain = () => {
           </div>
 
           <ul className="dashboard_left_nav">
-<<<<<<< HEAD
-=======
             <li className="dashboard_nav_item">
               <Link to="/dashboard">
                 <span className="dashboard_nav_icon">
@@ -700,7 +698,6 @@ const DashboardMain = () => {
                 </span>
               </Link>
             </li>
->>>>>>> 692ff83899ec8a521f06e6551fe53f6d90ee02f4
             <li>
               <Link to="/dashboard">
                 <span className="dashboard_nav_icon">
@@ -803,13 +800,10 @@ const DashboardMain = () => {
                       <span className="nav_icon">--</span>
                       <span>Add Nurses</span>
                     </Link>
-<<<<<<< HEAD
-=======
                     <Link to="/dashboard/appointedpatient">
                       <span className="nav_icon">--</span>
                       <span>Appointed Patients</span>
                     </Link>
->>>>>>> 692ff83899ec8a521f06e6551fe53f6d90ee02f4
                   </li>
                 </ul>
               </div>
