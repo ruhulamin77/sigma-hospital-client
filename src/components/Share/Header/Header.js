@@ -289,7 +289,7 @@ const Header = () => {
                     Appointment <i className="fas fa-plus header-icon"></i>
                   </Link>
                   <Link
-                    to="/userDashboard"
+                    to="/dashboard"
                     className="header-btn text-decoration-none btn-hover"
                   >
                     Deshboard <i className="fas fa-plus header-icon"></i>
