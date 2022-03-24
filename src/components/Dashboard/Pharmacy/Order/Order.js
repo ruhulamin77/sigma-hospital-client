@@ -44,7 +44,7 @@ const Order = () => {
             grandTotal += Number(cart.cartItems[index].Total)
         }
     }
-    ////costomer data Colaction ////
+
     const handelname = (e) => {
         const name = e.target.value;
         setName(name)
@@ -94,16 +94,16 @@ const Order = () => {
             <div className='container mt-5'>
 
                 <span className='user_info' >Customer Name :</span>  <input type="text" onBlur={handelname} className='cus_info_fild' required={true} /> <br />
-                <span className='user_info'> Customer Number :</span>  <input type="text" onBlur={handelnumber} className='cus_info_fild' required={true} /> <br />
-                <span className='user_info'>Customer Address :</span>  <input type="text" onBlur={handeladdress} className='cus_info_fild' required={true} /> <br />
+                <span className='user_info'> Phone Number :</span>  <input type="text" onBlur={handelnumber} className='cus_info_fild' required={true} /> <br />
+                <span className='user_info'> Address :</span>  <input type="text" onBlur={handeladdress} className='cus_info_fild' required={true} /> <br />
 
 
                 <Table striped bordered hover size="sm" className=' mt-5'>
                     <thead>
                         <tr>
                             <th>Sl</th>
-                            <th>Brand</th>
                             <th>Medicine-Name</th>
+                            <th>Brand</th>
                             <th>Power</th>
                             <th>Type</th>
                             <th>Price</th>
@@ -118,8 +118,6 @@ const Order = () => {
                                 key={medicine._id}
                                 index={index}
                                 handelremovecart={handelremovecart}
-
-
                             ></OrderData>
 
                         ))}
@@ -133,16 +131,6 @@ const Order = () => {
 
                 <div className='continue-shoping'>
                     <div>
-                        <button onClick={() => handelcrealecart()} className='clear'>Clear -Cart</button>
-                    </div>
-
-                    <div>
-                        <h5 className='shoping-total'>Sub Total = {grandTotal} Tk</h5>
-                        <div>
-                            <button onClick={handelPayment}
-                                className='payment-btn'
-                            >Payment</button>
-                        </div>
                         <Link to="/dashboard/Pharmacy" className='back-shoping' >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -159,6 +147,17 @@ const Order = () => {
                             </svg>
                             <span >Continue Shopping</span>
                         </Link>
+
+                    </div>
+
+                    <div>
+                        <h5 className='shoping-total'>Sub Total = {grandTotal} Tk</h5>
+                        <div>
+                            <button onClick={handelPayment}
+                                className='payment-btn'
+                            >Payment</button>
+                        </div>
+
                     </div>
                 </div>
 
