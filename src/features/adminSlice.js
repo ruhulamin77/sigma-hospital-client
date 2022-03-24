@@ -7,14 +7,14 @@ const initialState = { admin: localStorage.getItem("admin") ? JSON.parse(localSt
 export const adminRegister = createAsyncThunk(
     'adminRegister',
     async (body)=>{
-       const result =  await adminData('http://localhost:7050/adminRegistar',body)
+       const result =  await adminData('https://shrouded-headland-44423.herokuapp.com/adminRegistar',body)
        return result
     }
 )
 export const adminLogin = createAsyncThunk(
     'adminLogin',
     async (body)=>{
-       const result =  await adminData('http://localhost:7050/adminLogin',body)
+       const result =  await adminData('https://shrouded-headland-44423.herokuapp.com/adminLogin',body)
        return result
     }
 )

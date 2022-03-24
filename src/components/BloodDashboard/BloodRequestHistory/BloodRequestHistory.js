@@ -10,7 +10,7 @@ const BloodRequestHistory = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:7050/bloodRequest/${user?.email}`
+      `https://shrouded-headland-44423.herokuapp.com/bloodRequest/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => setRequests(data));

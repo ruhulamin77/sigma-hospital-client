@@ -13,7 +13,7 @@ const RegisterDonor = () => {
   const [donars, setDonars] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:7050/donors").then((res) =>
+    fetch("https://shrouded-headland-44423.herokuapp.com/donors").then((res) =>
       res.json().then((data) => setDonars(data))
     );
   }, []);
@@ -36,7 +36,7 @@ const RegisterDonor = () => {
       });
     }
     axios
-      .post("http://localhost:7050/donors", data)
+      .post("https://shrouded-headland-44423.herokuapp.com/donors", data)
       .then((res) => {
         if (res.data.insertedId) {
           Swal.fire({

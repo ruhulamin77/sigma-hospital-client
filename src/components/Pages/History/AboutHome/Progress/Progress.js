@@ -1,13 +1,7 @@
-import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import "./Progress.css";
 
 const Progress = () => {
-    const [pageProgress, setPageProgress] = useState(0);
-    const handleHight = () => setPageProgress(window.pageYOffset);
-    useEffect(() => {
-        window.addEventListener("scroll", handleHight);
-    }, []);
     return (
         <section className="progres">
             <Container className="padding-container">
