@@ -18,11 +18,11 @@ const AllDonors = () => {
     setUidonor(seacredonor);
   };
 
-  // http://localhost:7050/
-  // http://localhost:7050/
+  // https://shrouded-headland-44423.herokuapp.com/
+  // https://shrouded-headland-44423.herokuapp.com/
 
   useEffect(() => {
-    fetch("http://localhost:7050/donors")
+    fetch("https://shrouded-headland-44423.herokuapp.com/donors")
       .then((res) => res.json())
       .then((Donordata) => {
         const AproveDonorData = Donordata.filter(

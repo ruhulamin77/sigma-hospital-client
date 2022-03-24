@@ -9,7 +9,7 @@ const AddMedicine = () => {
 
     const onSubmit = data => {
         console.log(data)
-        axios.post('http://localhost:7050/medicine', data)
+        axios.post('https://shrouded-headland-44423.herokuapp.com/medicine', data)
             .then(res => {
                 if (res.data.insertedId) {
                     toast.success(`Add to Product`, {

@@ -17,7 +17,7 @@ const NurseProfileUpdate = () => {
 
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        fetch(`http://localhost:7050/updateNurse/${id}`, {
+        fetch(`https://shrouded-headland-44423.herokuapp.com/updateNurse/${id}`, {
             method: 'PUT',
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data)

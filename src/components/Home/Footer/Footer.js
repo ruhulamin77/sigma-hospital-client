@@ -11,7 +11,7 @@ const Footer = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit =  (data) => {
         console.log(data);
-        axios.post("http://localhost:7050/emailSub", data).then(res => {
+        axios.post("https://shrouded-headland-44423.herokuapp.com/emailSub", data).then(res => {
             if (res.status === 200) {
                 reset()
                 Swal.fire({

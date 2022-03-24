@@ -11,10 +11,10 @@ const BloodAdminHome = () => {
   const [pendingBloodRequest, setPendingBloodRequest] = useState([]);
   const [rejectedBloodRequest, setReectedBloodRequest] = useState([]);
 
-  // http://localhost:7050/
+  // https://shrouded-headland-44423.herokuapp.com/
 
   useEffect(() => {
-    fetch("http://localhost:7050/bloodDonation")
+    fetch("https://shrouded-headland-44423.herokuapp.com/bloodDonation")
       .then((res) => res.json())
       .then((data) => {
         const ApprovedDonation = data.filter(
@@ -34,7 +34,7 @@ const BloodAdminHome = () => {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:7050/bloodRequest")
+    fetch("https://shrouded-headland-44423.herokuapp.com/bloodRequest")
       .then((res) => res.json())
       .then((data) => {
         const AproveBloodRequest = data.filter(

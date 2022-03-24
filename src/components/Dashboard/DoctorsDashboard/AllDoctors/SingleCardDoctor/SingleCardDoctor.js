@@ -19,7 +19,7 @@ const SingleCardDoctor = ({ doc }) => {
         })
             .then((result) => {
                 if (result.isConfirmed) {
-                    fetch(`http://localhost:7050/doctors/${id}`, {
+                    fetch(`https://shrouded-headland-44423.herokuapp.com/doctors/${id}`, {
                         method: 'DELETE',
                         headers: { 'content-type': 'application/json' },
                     })

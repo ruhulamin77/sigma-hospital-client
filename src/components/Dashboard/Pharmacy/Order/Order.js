@@ -19,7 +19,7 @@ const Order = () => {
 
     //remove cart//
     const handelremovecart = (cartItems) => {
-        axios.put(`http://localhost:7050/medicine`, {
+        axios.put(`https://shrouded-headland-44423.herokuapp.com/medicine`, {
             item: { cartItems },
         })
             .then((data) => {
@@ -71,7 +71,7 @@ const Order = () => {
             item: cart.cartItems,
             Total: grandTotal
         }
-        fetch('http://localhost:7050/init', {
+        fetch('https://shrouded-headland-44423.herokuapp.com/init', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"

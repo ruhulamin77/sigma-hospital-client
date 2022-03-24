@@ -27,7 +27,7 @@ const DoctorProfile = () => {
     const handleSubmit = e => {
         e.preventDefault();
 
-        fetch(`http://localhost:7050/updateDoctor/${id}`, {
+        fetch(`https://shrouded-headland-44423.herokuapp.com/updateDoctor/${id}`, {
             method: 'PUT',
             headers: { "content-type": "application/json" },
             body: JSON.stringify(doctorUpdateData)

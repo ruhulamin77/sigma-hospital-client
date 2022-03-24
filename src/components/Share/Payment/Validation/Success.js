@@ -18,7 +18,7 @@ const Success = () => {
             tran_id: id,
             /* val_id: medicine?.val_id ( must needed ) */
         }
-        axios.post(`http://localhost:7050/validate`, data)
+        axios.post(`https://shrouded-headland-44423.herokuapp.com/validate`, data)
             .then(res => {
                 if (res.data) {
                     alert("Order placed successfully")

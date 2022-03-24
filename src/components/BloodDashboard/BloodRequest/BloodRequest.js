@@ -14,7 +14,7 @@ const BloodRequest = () => {
     data.email = user?.email;
     data.status = `Pending`;
     console.log(data);
-    axios.post("http://localhost:7050/bloodRequest", data).then((res) => {
+    axios.post("https://shrouded-headland-44423.herokuapp.com/bloodRequest", data).then((res) => {
       if (res.data.insertedId) {
         Swal.fire({
           position: "center",
