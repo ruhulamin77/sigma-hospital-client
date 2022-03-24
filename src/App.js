@@ -34,6 +34,7 @@ import PatientData from "./components/Dashboard/PatientDashboard/PatientData/Pat
 import PatientInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/PatientInvoice/PatientInvoice";
 import SingleInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/SingleInvoice/SingleInvoice";
 import PatientPrescription from "./components/Dashboard/PatientDashboard/PatientPrescription/PatientPrescription";
+import PatientDbInfo from "./components/Dashboard/PatientDbInfo/PatientDbInfo";
 // import AdminRoute from "./components/PrivateRoute/AdminRoute";
 import AddMedicine from "./components/Dashboard/Pharmacy/AddMedicine/AddMedicine";
 import Cart from "./components/Dashboard/Pharmacy/Cart/Cart";
@@ -93,7 +94,7 @@ function App() {
           <Messenger />
           <ScrollButton />
           <Routes>
-          <Route path="*" element={<PageNotFound />} />
+            <Route path="*" element={<PageNotFound />} />
             <Route path="/" element={<Home />} />
             <Route path="/" element={<PrivateRoute />}>
               <Route path="/appointment" element={<AppointmentHeader />} />
@@ -104,7 +105,7 @@ function App() {
             </Route>
 
             <Route path="/home" element={<Home />} />
-            
+
             <Route path="/service" element={<Service />} />
             <Route path="/onlineDoctor" element={<OnlineDoctor />} />
             <Route path="/adminhome" element={<AdminHomeMain />} />
@@ -112,13 +113,14 @@ function App() {
             <Route path="/success/:id" element={<Success />} />
             <Route path="/adminRegister" element={<CreateAdmin />} />
             <Route path="/adminLogin" element={<AdminLoginForm />} />
+            <Route path="/patientdbinfo" element={<PatientDbInfo />} />
             <Route path="/login" element={<Login />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/team" element={<Team />} />
-            
+
             {/* <Route path="/chat" element={<ChatPage />} /> */}
             <Route path="/doctor" element={<DoctorHeader />} />
-     
+
             <Route path="/blog" element={<Blogs />} />
             <Route path="/medicineCart" element={<Cart />} />
             {/* <Route path="/contact" element={<Contact />} /> */}
@@ -240,10 +242,7 @@ function App() {
                   element={<ManageBloodRequests />}
                 />
                 {/* blood bank admin */}
-                <Route
-                  path="/dashboard/blogForm"
-                  element={<BlogForm />}
-                />
+                <Route path="/dashboard/blogForm" element={<BlogForm />} />
               </Route>
             </Route>
             {/*  blood bank */}
