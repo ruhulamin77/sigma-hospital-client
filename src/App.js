@@ -34,6 +34,7 @@ import PatientData from "./components/Dashboard/PatientDashboard/PatientData/Pat
 import PatientInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/PatientInvoice/PatientInvoice";
 import SingleInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/SingleInvoice/SingleInvoice";
 import PatientPrescription from "./components/Dashboard/PatientDashboard/PatientPrescription/PatientPrescription";
+import PatientDbInfo from "./components/Dashboard/PatientDbInfo/PatientDbInfo";
 // import AdminRoute from "./components/PrivateRoute/AdminRoute";
 import AddMedicine from "./components/Dashboard/Pharmacy/AddMedicine/AddMedicine";
 import Cart from "./components/Dashboard/Pharmacy/Cart/Cart";
@@ -116,6 +117,7 @@ function App() {
             <Route path="/blogForm" element={<BlogForm />} />
             <Route path="/blog" element={<Blogs />} />
             <Route path="/medicineCart" element={<Cart />} />
+            <Route path="/patientdbinfo" element={<PatientDbInfo />} />
             {/* <Route path="/contact" element={<Contact />} /> */}
             <Route path="/about" element={<AboutHome />} />
             <Route path="/contact" element={<Contact />} />
