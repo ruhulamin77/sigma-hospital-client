@@ -1,21 +1,15 @@
 import React, { useState } from "react";
 import { Button, NavDropdown, Offcanvas } from "react-bootstrap";
 import {
-  AiOutlineMail,
   AiOutlineUser,
   AiOutlineUsergroupDelete
 } from "react-icons/ai";
 import { BiLogIn } from "react-icons/bi";
-import { BsChevronDown, BsListTask } from "react-icons/bs";
+import { BsChevronDown} from "react-icons/bs";
 import { FaRegCalendarAlt, FaUser } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { GrHome, GrLocation } from "react-icons/gr";
-import {
-  HiMailOpen,
-  HiOutlineLockClosed,
-  HiOutlinePuzzle
-} from "react-icons/hi";
-import { ImStack } from "react-icons/im";
+import { GrHome } from "react-icons/gr";
+import {HiMailOpen} from "react-icons/hi";
 import { IoSettingsSharp } from "react-icons/io5";
 import { MdOutlineBloodtype, MdOutlineLocalPharmacy, MdOutlinePayment } from "react-icons/md";
 import { RiLogoutCircleLine, RiNurseLine, RiSearchLine, RiWechatLine } from "react-icons/ri";
