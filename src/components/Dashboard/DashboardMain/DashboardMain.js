@@ -313,10 +313,10 @@ const DashboardMain = () => {
                           <span className="nav_icon">--</span>
                           <span>Add Patient</span>
                         </Link>
-                        <Link to="/dashboard/appointedpatient">
+                        {/* <Link to="/dashboard/appointedpatient">
                           <span className="nav_icon">--</span>
                           <span>Appointed Patients</span>
-                        </Link>
+                        </Link> */}
                         <Link to="/dashboard/patient/invoice">
                           <span className="nav_icon">--</span>
                           <span>Invoice</span>
@@ -340,25 +340,25 @@ const DashboardMain = () => {
                       <span className="nav_icon">
                         <MdOutlinePayment />
                       </span>
-                      <span>Payments</span>
+                      <span>Access</span>
                     </span>
                     <BsChevronDown />
                   </Link>
                   <div className="collapse" id="collapsePayments">
                     <ul className="dashboard_sub_menu">
                       <li>
-                        <Link to="/dashboard/allDoctors">
+                        <Link to="/dashboard/patientAccess">
                           <span className="nav_icon">--</span>
-                          <span>Payments</span>
+                          <span>Patient Access</span>
                         </Link>
-                        <Link to="/dashboard">
+                        {/* <Link to="/dashboard">
                           <span className="nav_icon">--</span>
                           <span>Add Payments</span>
                         </Link>
                         <Link to="/dashboard">
                           <span className="nav_icon">--</span>
                           <span>Invoie</span>
-                        </Link>
+                        </Link> */}
                       </li>
                     </ul>
                   </div>
@@ -818,10 +818,10 @@ const DashboardMain = () => {
                         <span className="nav_icon">--</span>
                         <span>Add Patient</span>
                       </Link>
-                      <Link to="/dashboard/appointedpatient">
+                      {/* <Link to="/dashboard/appointedpatient">
                         <span className="nav_icon">--</span>
                         <span>Appointed Patients</span>
-                      </Link>
+                      </Link> */}
                       <Link to="/dashboard/patient/invoice">
                         <span className="nav_icon">--</span>
                         <span>Invoice</span>
@@ -845,25 +845,25 @@ const DashboardMain = () => {
                     <span className="nav_icon">
                       <MdOutlinePayment />
                     </span>
-                    <span>Payments</span>
+                    <span>Access</span>
                   </span>
                   <BsChevronDown />
                 </Link>
                 <div className="collapse" id="collapsePayments">
                   <ul className="dashboard_sub_menu">
                     <li>
-                      <Link to="/dashboard/allDoctors">
+                      <Link to="/dashboard/patientAccess">
                         <span className="nav_icon">--</span>
-                        <span>Payments</span>
+                        <span>Patient Access</span>
                       </Link>
-                      <Link to="/dashboard">
+                      {/* <Link to="/dashboard">
                         <span className="nav_icon">--</span>
                         <span>Add Payments</span>
                       </Link>
                       <Link to="/dashboard">
                         <span className="nav_icon">--</span>
                         <span>Invoie</span>
-                      </Link>
+                      </Link> */}
                     </li>
                   </ul>
                 </div>
