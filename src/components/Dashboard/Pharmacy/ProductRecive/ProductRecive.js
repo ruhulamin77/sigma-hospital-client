@@ -17,8 +17,8 @@ const ProductRecive = () => {
         fetch("http://localhost:7050/medicine")
             .then(res => res.json())
             .then(data => {
-                setMedicines(data.medicine)
-                setSearchData(data.medicine)
+                setMedicines(data)
+                setSearchData(data)
 
             })
     }, [])
@@ -51,8 +51,8 @@ const ProductRecive = () => {
                                 <thead>
                                     <tr>
                                         <th>Sl</th>
-                                        <th>Brand</th>
                                         <th>Medicine-Name</th>
+                                        <th>Brand</th>
                                         <th>Power</th>
                                         <th>Type</th>
                                         <th>Stock</th>

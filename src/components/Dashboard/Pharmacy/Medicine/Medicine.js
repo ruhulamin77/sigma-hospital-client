@@ -13,28 +13,14 @@ const Medicine = () => {
     const [searchData, setSearchData] = useState([])
     const cart = useSelector((state) => state.cart);
 
-
-    const [pageCount, setPageCount] = useState(0)
-    const [page, setPage] = useState(0)
-    const size = 6;
-
-
-
-
-
     useEffect(() => {
-        fetch(`http://localhost:7050/medicine?page=${page}&&size=${size}`)
+        fetch(`http://localhost:7050/medicine`)
             .then(res => res.json())
             .then(data => {
-                setMedicines(data.medicine)
-                setSearchData(data.medicine)
-
-                const count = data.count;
-                const pagenumber = Math.ceil(count / size);
-                setPageCount(pagenumber)
-
+                setMedicines(data)
+                setSearchData(data)
             })
-    }, [page])
+    }, [])
 
     const handelsearchData = (e) => {
         let search = e.target.value.toLowerCase()
@@ -75,8 +61,8 @@ const Medicine = () => {
                                 <thead>
                                     <tr>
                                         <th>Sl</th>
-                                        <th>Brand</th>
                                         <th>Medicine-Name</th>
+                                        <th>Brand</th>
                                         <th>Power</th>
                                         <th>Type</th>
                                         <th>Stock</th>
@@ -102,7 +88,7 @@ const Medicine = () => {
 
 
                 }
-                <div className='pageCount'>
+                {/* <div className='pageCount'>
 
                     <small className='pageNumber'>Pages :</small>   {[...Array(pageCount).keys()]
                         .map(number => <button
@@ -113,7 +99,7 @@ const Medicine = () => {
 
                     }
 
-                </div>
+                </div> */}
             </div>
 
         </div >
