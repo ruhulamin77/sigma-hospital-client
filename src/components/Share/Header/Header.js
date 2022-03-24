@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Offcanvas } from "react-bootstrap";
 import { FiChevronDown } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GrClose } from "react-icons/gr";
@@ -258,6 +257,17 @@ const Header = () => {
                         >
                           {" "}
                           Contact Us{" "}
+                        </Link>{" "}
+                      </li>
+                      <li>
+                        {" "}
+                        <Link
+                          onClick={toggleClass}
+                          activeClassName="is-active"
+                          to="/review"
+                        >
+                          {" "}
+                          Give Us Feedback{" "}
                         </Link>{" "}
                       </li>
                     </ul>

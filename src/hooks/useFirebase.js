@@ -141,7 +141,7 @@ const useFirebase = () => {
 
     const incertUser = (email, displayName, photoURL, method) => {
         const user = { email, displayName, photoURL, role: "user" };
-        fetch('https://shrouded-headland-44423.herokuapp.com/users', {
+        fetch('http://localhost:7050/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'

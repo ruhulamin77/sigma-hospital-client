@@ -41,3 +41,15 @@
   opacity: 1;
   visibility: visible;
 }
+
+@media (max-width: 992px) {
+  .conversation-name {
+    display: none;
+  }
+  .ChatOnlineFriend span {
+    display: none;
+  }
+  .open-chat {
+    font-size: 18px !important;
+  }
+}

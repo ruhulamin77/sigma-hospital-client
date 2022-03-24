@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Container } from 'react-bootstrap';
+import { useForm } from "react-hook-form";
 import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useGetNursesQuery } from '../../../../features/sigmaApi';
-import { useForm } from "react-hook-form";
 
 const NurseProfileUpdate = () => {
     const allNurse = useGetNursesQuery();
@@ -17,7 +17,7 @@ const NurseProfileUpdate = () => {
 
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        fetch(`https://shrouded-headland-44423.herokuapp.com/updateNurse/${id}`, {
+        fetch(`http://localhost:7050/updateNurse/${id}`, {
             method: 'PUT',
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data)

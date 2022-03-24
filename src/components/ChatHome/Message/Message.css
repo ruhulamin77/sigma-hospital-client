@@ -15,8 +15,8 @@
 }
 .message-text {
   padding: 14px;
-  background-color: #1877f2;
-  color: white;
+  background-color: rgb(245, 241, 241);
+  color: black;
   border-radius: 35px;
   max-width: 400px;
   text-align: justify;
@@ -29,8 +29,8 @@
   align-items: flex-end;
 }
 .message.own .message-text {
-  background-color: rgb(245, 241, 241);
-  color: black;
+  background-color: #1877f2;
+  color: white;
   text-align: justify;
 }
 /* .scrollbar-hidden {

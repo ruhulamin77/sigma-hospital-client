@@ -4,6 +4,7 @@ import { format } from 'timeago.js';
 import "./Message.css";
 
 const Message = ({ message, own, user, fd }) => {
+    console.log(message, "message");
     const handleDeleteMessage = (messageId) => {
         Swal.fire({
             title: 'Are you sure?',
