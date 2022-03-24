@@ -29,7 +29,7 @@ import AddNurse from "./components/Dashboard/NurseDashboard/AllNurse/AddNurse/Ad
 import AllNurse from "./components/Dashboard/NurseDashboard/AllNurse/AllNurse/AllNurse";
 import AppointedPatient from "./components/Dashboard/NurseDashboard/AppointedPatient/AppointedPatient/AppointedPatient";
 import NurseProfileUpdate from "./components/Dashboard/NurseDashboard/NurseProfileUpdate/NurseProfileUpdate";
-import MedicalTest from "./components/Dashboard/PatientDashboard/MedicalTest/MedicalTest";
+import PatientAccess from "./components/Dashboard/PatientAccess/PatientAccess";
 import PatientData from "./components/Dashboard/PatientDashboard/PatientData/PatientData/PatientData";
 import PatientInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/PatientInvoice/PatientInvoice";
 import SingleInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/SingleInvoice/SingleInvoice";
@@ -93,7 +93,7 @@ function App() {
           <Messenger />
           <ScrollButton />
           <Routes>
-          <Route path="*" element={<PageNotFound />} />
+            <Route path="*" element={<PageNotFound />} />
             <Route path="/" element={<Home />} />
             <Route path="/" element={<PrivateRoute />}>
               <Route path="/appointment" element={<AppointmentHeader />} />
@@ -104,7 +104,7 @@ function App() {
             </Route>
 
             <Route path="/home" element={<Home />} />
-            
+
             <Route path="/service" element={<Service />} />
             <Route path="/onlineDoctor" element={<OnlineDoctor />} />
             <Route path="/adminhome" element={<AdminHomeMain />} />
@@ -115,10 +115,10 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/team" element={<Team />} />
-            
+
             {/* <Route path="/chat" element={<ChatPage />} /> */}
             <Route path="/doctor" element={<DoctorHeader />} />
-     
+
             <Route path="/blog" element={<Blogs />} />
             <Route path="/medicineCart" element={<Cart />} />
             {/* <Route path="/contact" element={<Contact />} /> */}
@@ -202,8 +202,8 @@ function App() {
                   element={<SingleInvoice />}
                 />
                 <Route
-                  path="/dashboard/patients/medicalTest/:id"
-                  element={<MedicalTest />}
+                  path="/dashboard/patientAccess"
+                  element={<PatientAccess />}
                 />
 
                 <Route path="/dashboard/pharmacy" element={<PharmacyHome />} />
