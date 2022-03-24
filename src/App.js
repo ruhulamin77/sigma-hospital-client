@@ -34,6 +34,7 @@ import PatientData from "./components/Dashboard/PatientDashboard/PatientData/Pat
 import PatientInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/PatientInvoice/PatientInvoice";
 import SingleInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/SingleInvoice/SingleInvoice";
 import PatientPrescription from "./components/Dashboard/PatientDashboard/PatientPrescription/PatientPrescription";
+import PatientDbInfo from "./components/Dashboard/PatientDbInfo/PatientDbInfo";
 // import AdminRoute from "./components/PrivateRoute/AdminRoute";
 import AddMedicine from "./components/Dashboard/Pharmacy/AddMedicine/AddMedicine";
 import Cart from "./components/Dashboard/Pharmacy/Cart/Cart";
@@ -112,6 +113,7 @@ function App() {
             <Route path="/success/:id" element={<Success />} />
             <Route path="/adminRegister" element={<CreateAdmin />} />
             <Route path="/adminLogin" element={<AdminLoginForm />} />
+            <Route path="/patientdbinfo" element={<PatientDbInfo />} />
             <Route path="/login" element={<Login />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/team" element={<Team />} />
@@ -240,10 +242,7 @@ function App() {
                   element={<ManageBloodRequests />}
                 />
                 {/* blood bank admin */}
-                <Route
-                  path="/dashboard/blogForm"
-                  element={<BlogForm />}
-                />
+                <Route path="/dashboard/blogForm" element={<BlogForm />} />
               </Route>
             </Route>
             {/*  blood bank */}

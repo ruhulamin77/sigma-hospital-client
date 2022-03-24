@@ -33,7 +33,7 @@ const PatientAccess = () => {
                             if (data.deletedCount) {
                                 Swal.fire({
                                     icon: 'success',
-                                    title: 'The Doctor has been successfully deleted!',
+                                    title: 'The Patient has been successfully deleted!',
                                     showConfirmButton: false,
                                     timer: 2000
                                 });
