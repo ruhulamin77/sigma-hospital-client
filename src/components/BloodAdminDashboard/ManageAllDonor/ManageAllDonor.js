@@ -5,11 +5,11 @@ import Swal from "sweetalert2";
 import "./ManageAllDonor.css";
 const ManageAllDonor = () => {
   const [donorslist, setDonorslist] = useState([]);
-  // http://localhost:7050/
-  // http://localhost:7050/
+  // https://shrouded-headland-44423.herokuapp.com/
+  // https://shrouded-headland-44423.herokuapp.com/
 
   useEffect(() => {
-    fetch("http://localhost:7050/donors")
+    fetch("https://shrouded-headland-44423.herokuapp.com/donors")
       .then((res) => res.json())
       .then((data) => setDonorslist(data));
   }, [donorslist]);
@@ -31,7 +31,7 @@ const ManageAllDonor = () => {
   const handleApprovedStatus = (id) => {
     console.log(id);
     axios
-      .put(`http://localhost:7050/donors/${id}`, {
+      .put(`https://shrouded-headland-44423.herokuapp.com/donors/${id}`, {
         status: "Approved",
       })
       .then((res) => {
@@ -48,7 +48,7 @@ const ManageAllDonor = () => {
   // update rejected status
   const handleRejectedStatus = (id) => {
     axios
-      .put(`http://localhost:7050/donors/${id}`, {
+      .put(`https://shrouded-headland-44423.herokuapp.com/donors/${id}`, {
         status: "Rejected",
       })
       .then((res) => {

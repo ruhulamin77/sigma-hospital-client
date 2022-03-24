@@ -1,34 +1,23 @@
 import React, { useState } from "react";
 import { Button, NavDropdown, Offcanvas } from "react-bootstrap";
-import { GiSettingsKnobs } from "react-icons/gi";
-import { RiLogoutCircleLine, RiSearchLine, RiWechatLine } from "react-icons/ri";
-import { ImStack } from "react-icons/im";
 import {
-  AiOutlineMail,
   AiOutlineUser,
-  AiOutlineUsergroupDelete,
+  AiOutlineUsergroupDelete
 } from "react-icons/ai";
-import { MdOutlineLocalPharmacy } from "react-icons/md";
-import { MdOutlineBloodtype } from "react-icons/md";
-import { GrHome, GrLocation } from "react-icons/gr";
-import { MdOutlinePayment } from "react-icons/md";
-import {
-  HiMailOpen,
-  HiOutlineLockClosed,
-  HiOutlinePuzzle,
-} from "react-icons/hi";
-import { IoMdNotificationsOutline } from "react-icons/io";
 import { BiLogIn } from "react-icons/bi";
+import { BsChevronDown} from "react-icons/bs";
 import { FaRegCalendarAlt, FaUser } from "react-icons/fa";
-import { BsChevronDown, BsListTask } from "react-icons/bs";
-import { IoSettingsSharp } from "react-icons/io5";
-import { RiNurseLine } from "react-icons/ri";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { GrHome } from "react-icons/gr";
+import {HiMailOpen} from "react-icons/hi";
+import { IoSettingsSharp } from "react-icons/io5";
+import { MdOutlineBloodtype, MdOutlineLocalPharmacy, MdOutlinePayment } from "react-icons/md";
+import { RiLogoutCircleLine, RiNurseLine, RiSearchLine, RiWechatLine } from "react-icons/ri";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, Outlet } from "react-router-dom";
 import { logOut } from "../../../features/adminSlice";
 import "./DashboardMain.css";
 
-import { Link, Outlet } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 // import Header from "../../Share/Header/Header";
 
 const DashboardMain = () => {
@@ -38,6 +27,7 @@ const DashboardMain = () => {
   const handleShow = () => setShow(true);
   const dispatch = useDispatch();
   console.log(admin, "maindashboard");
+
 
   return (
     <>
@@ -66,7 +56,7 @@ const DashboardMain = () => {
         <Offcanvas.Body>
           <div className="dashboard_left_side_bar">
             <div className="dasboard_user">
-              <img src={admin.photoURL} alt="doctor or user" />
+              <img src={admin?.photoURL} alt="doctor or user" />
               <div>
                 <span>Welcome, </span>
                 <div>
@@ -574,12 +564,12 @@ const DashboardMain = () => {
       <div className="dashboard_main">
         <div className="dashboard_left_side_bar d-none d-md-block">
           <div className="dasboard_user">
-            <img src={admin.photoURL} alt="doctor or user" />
+            <img src={admin?.photoURL} alt="doctor or user" />
             <div>
               <span>Welcome, </span>
               <div>
                 <NavDropdown
-                  title={admin.displayName}
+                  title={admin?.displayName}
                   id="basic-nav-dropdown"
                   className="basic_nav_dropdown_custom"
                 >

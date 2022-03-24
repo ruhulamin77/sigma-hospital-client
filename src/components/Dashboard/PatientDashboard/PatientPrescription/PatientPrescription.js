@@ -58,7 +58,7 @@ const PatientPrescription = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:7050/prescriptions`, {
+    fetch(`https://shrouded-headland-44423.herokuapp.com/prescriptions`, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(newValue),
@@ -88,7 +88,7 @@ const PatientPrescription = () => {
 
   const updatePrescription = e => {
     e.preventDefault();
-    fetch(`http://localhost:7050/prescriptions/${singlePrescriptionData._id}`, {
+    fetch(`https://shrouded-headland-44423.herokuapp.com/prescriptions/${singlePrescriptionData._id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(updateValue),
@@ -119,7 +119,7 @@ const PatientPrescription = () => {
   };
   const handleAppointNurse = e => {
     e.preventDefault();
-    fetch(`http://localhost:7050/appointNurse/${singlePrescriptionData._id}`, {
+    fetch(`https://shrouded-headland-44423.herokuapp.com/appointNurse/${singlePrescriptionData._id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(appointNurse),

@@ -12,7 +12,7 @@ const BloodDonation = () => {
   const user = useSelector((state) => state.auth.auth);
 
   useEffect(() => {
-    fetch("http://localhost:7050/bloodDonation").then(
+    fetch("https://shrouded-headland-44423.herokuapp.com/bloodDonation").then(
       (res) => res.json().then((data) => setBloods(data))
     );
   }, []);
@@ -30,7 +30,7 @@ const BloodDonation = () => {
     //   });
     // }
     axios
-      .post("http://localhost:7050/bloodDonation", data)
+      .post("https://shrouded-headland-44423.herokuapp.com/bloodDonation", data)
       .then((res) => {
         if (res.data.insertedId) {
           Swal.fire({

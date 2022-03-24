@@ -12,7 +12,7 @@ const TableRow = ({ medicine, index }) => {
     const onSubmit = data => {
         reset(data)
         handleAddToCart(data)
-        axios.put(`http://localhost:7050/medicine/order/${data._id}`, {
+        axios.put(`https://shrouded-headland-44423.herokuapp.com/medicine/order/${data._id}`, {
             stock: { data },
         })
             .then((data) => {
