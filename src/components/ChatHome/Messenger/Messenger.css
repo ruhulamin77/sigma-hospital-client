@@ -43,9 +43,7 @@
 }
 .chatBoxButtom {
   margin-top: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  width: 100%;
 }
 .chatMenuInput:focus {
   outline: none;
@@ -60,7 +58,7 @@
   outline: none;
 }
 
-.chatBoxButtom button {
+/* .chatBoxButtom button {
   min-width: 125px;
   padding: 18px 0;
   display: block;
@@ -69,14 +67,23 @@
   margin-left: 10px;
   border-radius: 10px;
   border: none;
-}
+} */
 .open-chat {
   font-size: 40px;
   color: gray;
-  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  text-align: center;
+}
+.chatBoxButtom .btn {
+  width: 42px !important;
   display: inline-block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  text-align: center;
+  padding-right: 30px;
+}
+.chatBoxButtom .search input {
+  text-indent: 0px !important;
+  padding-right: 40px !important;
 }

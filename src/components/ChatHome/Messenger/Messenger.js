@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
+import { FiSend } from 'react-icons/fi';
 import { useSelector } from 'react-redux';
 import { io } from 'socket.io-client';
 import ChatOnline from "../ChatOnline/ChatOnline";
@@ -7,6 +8,7 @@ import Conversation from '../Conversation/Conversation';
 import Message from '../Message/Message';
 import Users from '../Users/Users';
 import './Messenger.css';
+
 
 const Messenger = () => {
     const [users, setUsers] = useState([])
@@ -24,16 +26,28 @@ const Messenger = () => {
 
     const admin = useSelector((state) => state.admin.admin);
     console.log(admin, "chat admin");
- 
+
 
     // find my Id form db
-    useEffect(() => {
-        axios.get(`http://localhost:7050/adminUser/${admin?.adminEmail}`).then(res => setLoginUsers(res.data))
 
+    useEffect(() => {
+
+        const getData = async () => {
+            try {
+                const res = await axios.get(`http://localhost:7050/adminUser/${admin?.adminEmail}`)
+
+                setLoginUsers(res.data)
+
+                console.log(res);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        getData()
     }, [admin?.adminEmail])
     console.log(loginUsers, "loginUsers");
     useEffect(() => {
-        socket.current = io("https://glacial-sea-16602.herokuapp.com/", {transports:["websocket"]});
+        socket.current = io("https://glacial-sea-16602.herokuapp.com/", { transports: ["websocket"] });
         socket.current.on("getMessage", (data) => {
             setArrivalMessages({
                 sender: data.senderId,
@@ -93,6 +107,8 @@ const Messenger = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (newMessages !== "" && newMessages !== " ") {
+           
         const receverId = await curremtChat?.member.find(mem => mem !== loginUsers?._id)
         const message = {
             senderId: loginUsers?._id,
@@ -113,6 +129,16 @@ const Messenger = () => {
         } catch (err) {
             console.log(err);
         }
+        }
+    }
+
+    const keyHandle = async (e) => {
+        let code = e.keyCode || e.which;
+    if(code === 13) { //13 is the enter keycode
+        //Do stuff in here
+    //13 is the enter keycode
+       handleSubmit(e)
+    } 
     }
 
     useEffect(() => {
@@ -138,10 +164,10 @@ const Messenger = () => {
         }
     }
 
-   
+
     const reserveConversation = [...conversation].reverse()
     const handleSearchDoctor = async (e) => {
-        
+
         const value = (e.target.value);
         console.log(value);
         const newData = await conversation?.filter(item => {
@@ -158,7 +184,7 @@ const Messenger = () => {
         <div className='messenger'>
             <div className="chatMenu">
                 <div className="chatMenuWrapper">
-                    <input type="text" onChange={(e)=> handleSearchDoctor(e)} placeholder='Search for Doctors' className='chatMenuInput' />
+                    <input type="text" onChange={(e) => handleSearchDoctor(e)} placeholder='Search for Doctors' className='chatMenuInput' />
                     {
                         reserveConversation.map((c) => (
                             <div onClick={() => setCurremtChat(c)}>
@@ -183,11 +209,18 @@ const Messenger = () => {
                                     }
                                 </div>
                                 <div className="chatBoxButtom">
-                                    <textarea placeholder='Write Something...'
+                                <div className="search"><input placeholder='Write Something...'
                                         onChange={(e) => setNewMessages(e?.target?.value)}
+                                        onKeyPress={keyHandle}
+                                        value={newMessages} type="text" className="form-control"/> <button
+                                        onClick={handleSubmit} className="btn btn-primary"><FiSend /></button> </div>
+
+                                    {/* <textarea placeholder='Write Something...'
+                                        onChange={(e) => setNewMessages(e?.target?.value)}
+                                        onKeyPress={keyHandle}
                                         value={newMessages}
                                     ></textarea>
-                                    <button onClick={handleSubmit}>Send</button>
+                                    <button onClick={handleSubmit}>Send</button> */}
                                 </div>
                             </>
                             : <span className='open-chat'>Open a Conversation</span>
@@ -208,7 +241,7 @@ const Messenger = () => {
                         onlineUser?.map((item) => (
                             <div onClick={() => handelesetMessage(item?.userId)} >
                                 <ChatOnline key={item._id} user={item} />
-                                </div>
+                            </div>
                         ))
                     }
                     <hr />

@@ -66,7 +66,7 @@ console.log(form.current);
               <div className="contact-item">
                 <RiMapPinLine />
                 <h6>LOCATION</h6>
-                <p>Dhaka Bangladesh</p>
+                <p>1234 North Avenue Luke, South Bend, IN 360001</p>
               </div>
             </Col>
             <Col>

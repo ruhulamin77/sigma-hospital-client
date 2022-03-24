@@ -11,7 +11,7 @@ const BloodAdminHome = () => {
   const [pendingBloodRequest, setPendingBloodRequest] = useState([]);
   const [rejectedBloodRequest, setReectedBloodRequest] = useState([]);
 
-  // https://shrouded-headland-44423.herokuapp.com/
+  // http://localhost:7050/
 
   useEffect(() => {
     fetch("http://localhost:7050/bloodDonation")

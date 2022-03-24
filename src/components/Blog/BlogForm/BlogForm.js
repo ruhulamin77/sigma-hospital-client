@@ -5,60 +5,60 @@ import Swal from 'sweetalert2';
 import "./BlogForm.css";
 const suggestionsTag = [
     "eye",
-      "health",
-      "medicien",
-      
-       
-   ]
-   const suggestions = suggestionsTag.map(country => {
-     return {
-       id: country,
-       text: country
-     };
-   });
-   
-   const KeyCodes = {
-     comma: 188,
-     enter: 13
-   };
-   
-   const delimiters = [KeyCodes.comma, KeyCodes.enter];
+    "health",
+    "medicien",
+
+
+]
+const suggestions = suggestionsTag.map(country => {
+    return {
+        id: country,
+        text: country
+    };
+});
+
+const KeyCodes = {
+    comma: 188,
+    enter: 13
+};
+
+const delimiters = [KeyCodes.comma, KeyCodes.enter];
 
 const BlogForm = () => {
     const [addBlog, setAddBlog] = useState({});
     const [image, setImage] = useState(null);
     const date = new Date().toDateString()
-    const [tags, setTags] = useState([{"id":"eye","text":"Eye"}]);
-  
+    const [tags, setTags] = useState([{ "id": "eye", "text": "Eye" }]);
+
     const handleDelete = (i) => {
-      setTags(tags.filter((tag, index) => index !== i));
+        setTags(tags.filter((tag, index) => index !== i));
     };
-  
+
     const handleAddition = (tag) => {
-      setTags([...tags, tag]);
+        setTags([...tags, tag]);
     };
-  
+
     const handleDrag = (tag, currPos, newPos) => {
-      const newTags = [...tags].slice();
-  
-      newTags.splice(currPos, 1);
-      newTags.splice(newPos, 0, tag);
-  
-      setTags(newTags);
+        const newTags = [...tags].slice();
+
+        newTags.splice(currPos, 1);
+        newTags.splice(newPos, 0, tag);
+
+        setTags(newTags);
     };
-  
+
     const handleTagClick = (index) => {
-      console.log("The tag at index " + index + " was clicked");
+        console.log("The tag at index " + index + " was clicked");
     };
-  
+
     const onClearAll = () => {
-      setTags([]);
+        setTags([]);
     };
-  
+
     const onTagUpdate = (i, newTag) => {
-      const updatedTags = tags.slice();
-      updatedTags.splice(i, 1, newTag);
-      setTags(updatedTags);
+        const updatedTags = tags.slice();
+        updatedTags.splice(i, 1, newTag);
+        setTags(updatedTags);
     };
     console.log(date);
 
@@ -70,7 +70,7 @@ const BlogForm = () => {
         setAddBlog(newBlog);
     }
 
-console.log(tags);
+    console.log(tags);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -95,9 +95,9 @@ console.log(tags);
         formData.append('date', date);
         formData.append('totalVisitor', totalVisitor);
         formData.append('tag', JSON.stringify(tag));
-  
-       
- 
+
+
+
         fetch('http://localhost:7050/addBlog', {
             method: 'POST',
             body: formData
@@ -128,9 +128,9 @@ console.log(tags);
         <div className="container-contact100">
             <div className="wrap-contact100  container">
                 <form className="contact100-form validate-form" onSubmit={handleSubmit}>
-                    <span className="contact100-form-title">
-                        Write Your Idea
-                    </span>
+                    <div class="one">
+                        <h1 className="re">Write Your Blog</h1>
+                    </div>
                     <Row>
                         <Col sm={12} md={6} lg={5}>
                             <div className="wrap-input100 validate-input">

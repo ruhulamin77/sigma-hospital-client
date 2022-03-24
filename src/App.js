@@ -60,10 +60,12 @@ import Team from "./components/Pages/Team/Team";
 import AdminRoute from "./components/PrivateRoute/AdminRoute";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Service from "./components/Service/Service";
+import PageNotFound from "./components/Share/Header/PageNotFound/PageNotFound";
 import Messenger from "./components/Share/Messenger/Messenger";
 import PaymentForm from "./components/Share/Payment/PaymentForm/PaymentForm";
 import Success from "./components/Share/Payment/Validation/Success";
 import ScrollButton from "./components/Share/ScrollButton/ScrollButton";
+import WelcomePage from "./components/Share/WelcomePage/WelcomePage";
 import SingleDoctor from "./components/SingleDoctor/SingleDoctor";
 import Audiologist from "./components/Specialization/Audiologist/Audiologist";
 import Cardiologist from "./components/Specialization/Cardiologist/Cardiologist";
@@ -91,15 +93,18 @@ function App() {
           <Messenger />
           <ScrollButton />
           <Routes>
+          <Route path="*" element={<PageNotFound />} />
             <Route path="/" element={<Home />} />
             <Route path="/" element={<PrivateRoute />}>
               <Route path="/appointment" element={<AppointmentHeader />} />
               {/* <Route path="/userDashboard" element={<UserDashboard />}></Route> */}
               {/* <Route path="/userDashboard/appointment" element={<Appointment />}></Route> */}
               <Route path="/blog/:id" element={<SingleBlog />} />
+              <Route path="/review" element={<Review />} />
             </Route>
 
             <Route path="/home" element={<Home />} />
+            
             <Route path="/service" element={<Service />} />
             <Route path="/onlineDoctor" element={<OnlineDoctor />} />
             <Route path="/adminhome" element={<AdminHomeMain />} />
@@ -110,10 +115,10 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/team" element={<Team />} />
-            <Route path="/review" element={<Review />} />
+            
             {/* <Route path="/chat" element={<ChatPage />} /> */}
             <Route path="/doctor" element={<DoctorHeader />} />
-            <Route path="/blogForm" element={<BlogForm />} />
+     
             <Route path="/blog" element={<Blogs />} />
             <Route path="/medicineCart" element={<Cart />} />
             {/* <Route path="/contact" element={<Contact />} /> */}
@@ -150,7 +155,7 @@ function App() {
                 <Route
                   path="/dashboard"
                   element={
-                    admin.role === admin ? <AdminHomeMain /> : <AllDoctors />
+                    admin.role === "admin" ? <AdminHomeMain /> : <WelcomePage />
                   }
                 ></Route>
                 <Route
@@ -235,6 +240,10 @@ function App() {
                   element={<ManageBloodRequests />}
                 />
                 {/* blood bank admin */}
+                <Route
+                  path="/dashboard/blogForm"
+                  element={<BlogForm />}
+                />
               </Route>
             </Route>
             {/*  blood bank */}

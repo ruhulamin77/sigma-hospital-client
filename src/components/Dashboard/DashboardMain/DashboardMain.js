@@ -717,6 +717,16 @@ const DashboardMain = () => {
                 </span>
               </Link>
             </li>
+            <li>
+              <Link to="/dashboard/blogForm">
+                <span className="dashboard_nav_icon">
+                  <span className="nav_icon">
+                    <RiWechatLine />
+                  </span>
+                  <span>Create Blog</span>
+                </span>
+              </Link>
+            </li>
             {admin.role === "admin" && (
               <li>
                 <Link

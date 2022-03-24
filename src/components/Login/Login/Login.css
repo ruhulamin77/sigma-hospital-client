@@ -39,6 +39,7 @@ button.ghost {
   flex-direction: column;
   padding: 50px;
   text-align: center;
+  height: 100%;
 }
 
 .login-form input {

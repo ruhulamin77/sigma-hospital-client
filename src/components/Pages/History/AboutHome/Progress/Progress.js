@@ -11,7 +11,7 @@ const Progress = () => {
     return (
         <section className="progres">
             <Container className="padding-container">
-                <Row lg={2}>
+                <Row className="align-items-center" lg={2} sm={1}>
                     <Col>
                         <div className="progres-info">
                             <div className="progres-title">
@@ -81,7 +81,7 @@ const Progress = () => {
                     </Col>
                     <Col>
                         <div className="progress-img">
-                            <img className="img-fulid" src="https://i.ibb.co/3FYfhw2/medi.jpg" alt="" />
+                            <img className="img-fluid" src="https://i.ibb.co/3FYfhw2/medi.jpg" alt="" />
                         </div>
                     </Col>
                 </Row>
