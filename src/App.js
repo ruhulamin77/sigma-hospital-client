@@ -111,7 +111,7 @@ function App() {
             <Route path="/adminhome" element={<AdminHomeMain />} />
             <Route path="/paymentForm" element={<PaymentForm />} />
             <Route path="/success/:id" element={<Success />} />
-            <Route path="/adminRegister" element={<CreateAdmin />} />
+            
             <Route path="/adminLogin" element={<AdminLoginForm />} />
             <Route path="/patientdbinfo" element={<PatientDbInfo />} />
             <Route path="/login" element={<Login />} />
@@ -243,6 +243,7 @@ function App() {
                 />
                 {/* blood bank admin */}
                 <Route path="/dashboard/blogForm" element={<BlogForm />} />
+                <Route path="/dashboard/adminRegister" element={<CreateAdmin />} />
               </Route>
             </Route>
             {/*  blood bank */}

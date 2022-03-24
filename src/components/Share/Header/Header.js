@@ -50,6 +50,7 @@ const Header = () => {
   }
   const user = useSelector((state) => state.auth.auth);
   console.log(user, "user");
+  const admin = useSelector((state) => state.admin.admin);
 
   return (
     <header className="header__middle">
@@ -298,12 +299,12 @@ const Header = () => {
                   >
                     Appointment <i className="fas fa-plus header-icon"></i>
                   </Link>
-                  <Link
+                  {(admin.role === "nurse" || admin.role === "admin" ||admin.role === "doctor" || admin.role === "recip"  )&& <Link
                     to="/dashboard"
                     className="header-btn text-decoration-none btn-hover"
                   >
                     Deshboard <i className="fas fa-plus header-icon"></i>
-                  </Link>
+                  </Link>}
                 </ul>
                 {/* <span onClick={toggleShow} className="icon">
                   <GiHamburgerMenu />

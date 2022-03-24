@@ -22,7 +22,7 @@ const Blogs = () => {
           </div>
 
         </div>
-        <Row className="blog-my gx-4 gy-5" xs={1} md={2} lg={3} >
+        <Row className="blog-my gx-4 gy-5" xs={1} md={2} lg={3} xl={4} >
           {blogCollection.isLoading ? (
             <div className="looder-my">
               <ScaleLoader color={"#7093e5"} size={150} />
