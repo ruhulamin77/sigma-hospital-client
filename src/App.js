@@ -29,7 +29,7 @@ import AddNurse from "./components/Dashboard/NurseDashboard/AllNurse/AddNurse/Ad
 import AllNurse from "./components/Dashboard/NurseDashboard/AllNurse/AllNurse/AllNurse";
 import AppointedPatient from "./components/Dashboard/NurseDashboard/AppointedPatient/AppointedPatient/AppointedPatient";
 import NurseProfileUpdate from "./components/Dashboard/NurseDashboard/NurseProfileUpdate/NurseProfileUpdate";
-import MedicalTest from "./components/Dashboard/PatientDashboard/MedicalTest/MedicalTest";
+import PatientAccess from "./components/Dashboard/PatientAccess/PatientAccess";
 import PatientData from "./components/Dashboard/PatientDashboard/PatientData/PatientData/PatientData";
 import PatientInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/PatientInvoice/PatientInvoice";
 import SingleInvoice from "./components/Dashboard/PatientDashboard/PatientInvoice/SingleInvoice/SingleInvoice";
@@ -204,8 +204,8 @@ function App() {
                   element={<SingleInvoice />}
                 />
                 <Route
-                  path="/dashboard/patients/medicalTest/:id"
-                  element={<MedicalTest />}
+                  path="/dashboard/patientAccess"
+                  element={<PatientAccess />}
                 />
 
                 <Route path="/dashboard/pharmacy" element={<PharmacyHome />} />
