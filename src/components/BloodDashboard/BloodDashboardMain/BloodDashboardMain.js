@@ -6,7 +6,6 @@ import { ImDroplet } from "react-icons/im";
 import { GrHome } from "react-icons/gr";
 import { MdSupervisedUserCircle, MdBloodtype } from "react-icons/md";
 import { BiDonateBlood } from "react-icons/bi";
-import { HiMailOpen } from "react-icons/hi";
 import { FaUser } from "react-icons/fa";
 import { BsChevronDown } from "react-icons/bs";
 import { IoSettingsSharp } from "react-icons/io5";
@@ -15,7 +14,6 @@ import { GiHamburgerMenu, GiArchiveRegister } from "react-icons/gi";
 import { Link, Outlet } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { removeUser } from "../../../features/authSlice";
-import { logOut } from "../../../features/adminSlice";
 
 const BloodDashboardMain = () => {
   const [show, setShow] = useState(false);
@@ -67,7 +65,7 @@ const BloodDashboardMain = () => {
                       className="dash_drop_item"
                     >
                       <RiLogoutCircleLine />
-                      <span onClick={() => dispatch(logOut())}>Logout</span>
+                      <span onClick={() => dispatch(removeUser())}>Logout</span>
                     </NavDropdown.Item>
                   </NavDropdown>
                 </div>
@@ -187,7 +185,7 @@ const BloodDashboardMain = () => {
             <ImDroplet />
           </div>
           <div className="right_icon_area bloodBank_header_logout">
-            <span onClick={() => dispatch(logOut())}>Logout</span>
+            <span onClick={() => dispatch(removeUser())}>Logout</span>
             <RiLogoutCircleLine />
           </div>
         </div>
@@ -207,7 +205,7 @@ const BloodDashboardMain = () => {
                 >
                   <NavDropdown.Item as={Link} to="" className="dash_drop_item">
                     <RiLogoutCircleLine />
-                    <span onClick={() => dispatch(logOut())}>Logout</span>
+                    <span onClick={() => dispatch(removeUser())}>Logout</span>
                   </NavDropdown.Item>
                 </NavDropdown>
               </div>

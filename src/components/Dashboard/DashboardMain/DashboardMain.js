@@ -3,10 +3,11 @@ import { Button, NavDropdown, Offcanvas } from "react-bootstrap";
 import { AiOutlineUser, AiOutlineUsergroupDelete } from "react-icons/ai";
 import { BiLogIn } from "react-icons/bi";
 import { BsChevronDown } from "react-icons/bs";
-import { FaRegCalendarAlt } from "react-icons/fa";
+import { FaRegCalendarAlt, FaUser } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GrHome } from "react-icons/gr";
-
+import { HiMailOpen, HiOutlineLockClosed } from "react-icons/hi";
+import { IoSettingsSharp } from "react-icons/io5";
 import {
   MdOutlineBloodtype,
   MdOutlineLocalPharmacy,
@@ -946,42 +947,36 @@ const DashboardMain = () => {
               </div>
             </li> */}
 
-            {/* <li>
-              <Link
-                data-bs-toggle="collapse"
-                to="#collapseAuthentications"
-                role="button"
-                aria-expanded="false"
-                aria-controls="collapseExample"
-              >
-                <span className="dashboard_nav_icon">
-                  <span className="nav_icon">
-                    <HiOutlineLockClosed />
-                  </span>
+            {admin.role === "admin" && (
+              <li>
+                <Link
+                  data-bs-toggle="collapse"
+                  to="#collapseAuthentications"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="collapseExample"
+                >
+                  <span className="dashboard_nav_icon">
+                    <span className="nav_icon">
+                      <HiOutlineLockClosed />
+                    </span>
 
-                  <span>Authentications</span>
-                </span>
-                <BsChevronDown />
-              </Link>
-              <div className="collapse" id="collapseAuthentications">
-                <ul className="dashboard_sub_menu">
-                  <li>
-                    <Link to="/dashboard/allDoctors">
-                      <span className="nav_icon">--</span>
-                      <span>Login</span>
-                    </Link>
-                    <Link to="/dashboard">
-                      <span className="nav_icon">--</span>
-                      <span>Register</span>
-                    </Link>
-                    <Link to="/dashboard">
-                      <span className="nav_icon">--</span>
-                      <span>Lock Screen</span>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </li> */}
+                    <span>Authentications</span>
+                  </span>
+                  <BsChevronDown />
+                </Link>
+                <div className="collapse" id="collapseAuthentications">
+                  <ul className="dashboard_sub_menu">
+                    <li>
+                      <Link to="/dashboard/adminRegister">
+                        <span className="nav_icon">--</span>
+                        <span>Register</span>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            )}
           </ul>
         </div>
         <div className="dashboard_content_area">

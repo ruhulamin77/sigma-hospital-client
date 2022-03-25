@@ -5,7 +5,7 @@ const PatientDbInfo = () => {
   const [patientDbInfoo, setpatientDbInfoo] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:7050/patients`)
+    fetch(`https://shrouded-headland-44423.herokuapp.com/patients`)
       .then((res) => res.json())
       .then((data) => setpatientDbInfoo(data));
   }, []);

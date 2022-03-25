@@ -168,7 +168,7 @@ const SingleBlog = () => {
                 </nav>
             </div>
             <Container>
-                <Row>
+                <Row >
                     <Col md={8}>
                         <div className='hover-effect'>
 
@@ -227,7 +227,7 @@ const SingleBlog = () => {
                                             <p>{item?.description}</p>
                                           
                                         </div>
-                                        <div className="info-img">
+                                        <div className="info-img ">
                                             <img className='img-fluid' src={`data:image/*;base64,${item?.photo}`} alt="" />
                                         </div>
                                     </div>
