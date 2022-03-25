@@ -1,10 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { adminRegister } from "../../../features/adminSlice";
 import "./CreateAdmin.css";
-import Header from "../../Share/Header/Header";
 
 const CreateAdmin = () => {
   const dispatch = useDispatch();
@@ -15,7 +14,7 @@ const CreateAdmin = () => {
   };
   return (
     <>
-      <Container>
+      <Container className="create_admin_container">
         <Row>
           <div class="one">
             <h1 className="text-center mb-4">Add A Admin Panel Member</h1>
