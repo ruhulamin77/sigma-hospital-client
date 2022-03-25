@@ -1,5 +1,4 @@
-.our-service{
-  margin-bottom: 5rem;
+.our-service {
 }
 .service-section {
   width: 100%;
@@ -161,7 +160,7 @@
   }
 }
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
-  .our-service{
+  .our-service {
     margin-bottom: 40rem;
   }
   .service-section {

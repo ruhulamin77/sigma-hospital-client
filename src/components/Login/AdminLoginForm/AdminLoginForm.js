@@ -1,9 +1,9 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import {adminLogin} from '../../../features/adminSlice'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { adminLogin } from '../../../features/adminSlice';
 import "./AdminLoginForm.css";
-import { useNavigate } from 'react-router-dom';
 
 const AdminLoginForm = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -42,10 +42,10 @@ const AdminLoginForm = () => {
                                     </div>
 
                                     <div className="col-lg-12 loginbttm">
-                                        <div className="col-lg-6 login-btm login-text">
-                                        </div>
-                                        <div className="col-lg-6">
+                                      
+                                        <div className="col-lg-12 d-flex justify-content-between">
                                         <button type='submit' className="pure-button fuller-button blue">ACCEPT</button>
+                                       <Link to="/home"> <button  className="pure-button fuller-button blue">Go To Home</button></Link>
                                         </div>
                                     </div>
                                 </form>

@@ -3,6 +3,7 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { FaEnvelope, FaFacebookF, FaInstagram, FaMapMarkerAlt, FaPaperPlane, FaPhone, FaTwitter } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import "./Footer.css";
@@ -35,6 +36,7 @@ const Footer = () => {
         
 
     }
+    const admin = useSelector((state) => state.admin.admin);
     return (
         <footer>
             <Container>
@@ -72,7 +74,7 @@ const Footer = () => {
                             <Link className='footer-item' to="/appointment">Appointment</Link>
                             <Link className='footer-item' to="/Service">Service</Link>
                             <Link className='footer-item' to="/contact">Contact  Us</Link>
-                            <Link className='footer-item' to="/adminLogin">Admin Login</Link>
+                          <Link className='footer-item' to="/adminLogin">Admin Login</Link>
                         </ul>
                     </Col>
                     <Col sm={6} lg={3} >
