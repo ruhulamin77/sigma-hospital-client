@@ -22,9 +22,13 @@ const PatientTable = ({ appoint }) => {
                             <Card.Text className='col-6'>Appointment Date: {date}</Card.Text>
                         </div>
                         <Card.Text className='mb-3'><b>Description:</b> {description}</Card.Text>
-                        <NavLink to={`/dashboard/prescription/${_id}`} >
-                            <Button className='doctor-delete'>Prescription</Button>
-                        </NavLink>
+                        {status === "active"
+                            ?
+                            <NavLink to={`/dashboard/prescription/${_id}`} >
+                                <Button className='doctor-delete'>Prescription</Button>
+                            </NavLink>
+                            :
+                            <Button disabled className='doctor-delete'>Prescription</Button>}
                     </Card.Body>
                 </Card>
             </Col>
