@@ -11,14 +11,16 @@ const BloodDashboardHome = () => {
 
   useEffect(() => {
     fetch(
-      `https://shrouded-headland-44423.herokuapp.com/bloodDonate/${user?.email}`
+      `https://shrouded-headland-44423.herokuapp.com/bloodDonation/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => setDonations(data));
   }, []);
 
   useEffect(() => {
-    fetch(`https://shrouded-headland-44423.herokuapp.com/${user?.email}`)
+    fetch(
+      `https://shrouded-headland-44423.herokuapp.com/bloodRequest/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setRequests(data));
   }, []);
