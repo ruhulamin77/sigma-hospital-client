@@ -3,11 +3,10 @@ import { Button, NavDropdown, Offcanvas } from "react-bootstrap";
 import { AiOutlineUser, AiOutlineUsergroupDelete } from "react-icons/ai";
 import { BiLogIn } from "react-icons/bi";
 import { BsChevronDown } from "react-icons/bs";
-import { FaRegCalendarAlt, FaUser } from "react-icons/fa";
+import { FaRegCalendarAlt } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GrHome } from "react-icons/gr";
-import { HiMailOpen, HiOutlineLockClosed } from "react-icons/hi";
-import { IoSettingsSharp } from "react-icons/io5";
+import { HiOutlineLockClosed } from "react-icons/hi";
 import {
   MdOutlineBloodtype,
   MdOutlineLocalPharmacy,
@@ -23,8 +22,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, Outlet } from "react-router-dom";
 import { logOut } from "../../../features/adminSlice";
 import "./DashboardMain.css";
-
-// import Header from "../../Share/Header/Header";
 
 const DashboardMain = () => {
   const admin = useSelector((state) => state.admin.admin);
@@ -298,9 +295,9 @@ const DashboardMain = () => {
                           <span>Add Patient</span>
                         </Link>
                         {/* <Link to="/dashboard/appointedpatient">
-                          <span className="nav_icon">--</span>
-                          <span>Appointed Patients</span>
-                        </Link> */}
+                        <span className="nav_icon">--</span>
+                        <span>Appointed Patients</span>
+                      </Link> */}
                         <Link to="/dashboard/patient/invoice">
                           <span className="nav_icon">--</span>
                           <span>Invoice</span>
@@ -336,20 +333,20 @@ const DashboardMain = () => {
                           <span>Patient Access</span>
                         </Link>
                         {/* <Link to="/dashboard">
-                          <span className="nav_icon">--</span>
-                          <span>Add Payments</span>
-                        </Link>
-                        <Link to="/dashboard">
-                          <span className="nav_icon">--</span>
-                          <span>Invoie</span>
-                        </Link> */}
+                        <span className="nav_icon">--</span>
+                        <span>Add Payments</span>
+                      </Link>
+                      <Link to="/dashboard">
+                        <span className="nav_icon">--</span>
+                        <span>Invoie</span>
+                      </Link> */}
                       </li>
                     </ul>
                   </div>
                 </li>
               )}
 
-              {admin.role === "pharma" && (
+              {(admin.role === "admin" || admin.role === "pharma") && (
                 <li>
                   <Link
                     /* className="btn btn-primary" */
@@ -464,42 +461,36 @@ const DashboardMain = () => {
               </div>
             </li> */}
 
-              {/* <li>
-              <Link
-                data-bs-toggle="collapse"
-                to="#collapseAuthentications"
-                role="button"
-                aria-expanded="false"
-                aria-controls="collapseExample"
-              >
-                <span className="dashboard_nav_icon">
-                  <span className="nav_icon">
-                    <HiOutlineLockClosed />
-                  </span>
+              {admin.role === "admin" && (
+                <li>
+                  <Link
+                    data-bs-toggle="collapse"
+                    to="#collapseAuthentications"
+                    role="button"
+                    aria-expanded="false"
+                    aria-controls="collapseExample"
+                  >
+                    <span className="dashboard_nav_icon">
+                      <span className="nav_icon">
+                        <HiOutlineLockClosed />
+                      </span>
 
-                  <span>Authentications</span>
-                </span>
-                <BsChevronDown />
-              </Link>
-              <div className="collapse" id="collapseAuthentications">
-                <ul className="dashboard_sub_menu">
-                  <li>
-                    <Link to="/dashboard/allDoctors">
-                      <span className="nav_icon">--</span>
-                      <span>Login</span>
-                    </Link>
-                    <Link to="/dashboard">
-                      <span className="nav_icon">--</span>
-                      <span>Register</span>
-                    </Link>
-                    <Link to="/dashboard">
-                      <span className="nav_icon">--</span>
-                      <span>Lock Screen</span>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </li> */}
+                      <span>Authentications</span>
+                    </span>
+                    <BsChevronDown />
+                  </Link>
+                  <div className="collapse" id="collapseAuthentications">
+                    <ul className="dashboard_sub_menu">
+                      <li>
+                        <Link to="/dashboard/adminRegister">
+                          <span className="nav_icon">--</span>
+                          <span>Register</span>
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              )}
             </ul>
           </div>
         </Offcanvas.Body>
@@ -832,7 +823,7 @@ const DashboardMain = () => {
               </li>
             )}
 
-            {admin.role === "pharma" && (
+            {(admin.role === "admin" || admin.role === "pharma") && (
               <li>
                 <Link
                   /* className="btn btn-primary" */

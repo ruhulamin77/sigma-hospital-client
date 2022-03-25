@@ -21,14 +21,6 @@ const BloodDonation = () => {
     console.log(data);
     data.status = `Pending`;
     data.email = user?.email;
-    // if (donars.map((donar) => donar.email === user.email)) {
-    //   return Swal.fire({
-    //     position: "center",
-    //     icon: "error",
-    //     title: "You are already registered as a donar",
-    //     showConfirmButton: true,
-    //   });
-    // }
     axios
       .post("https://shrouded-headland-44423.herokuapp.com/bloodDonation", data)
       .then((res) => {
