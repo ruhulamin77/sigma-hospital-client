@@ -47,5 +47,5 @@ export const {
   useGetBloodRequestQuery,
 } = sigmaApi;
 
-// http://localhost:7050
+// https://shrouded-headland-44423.herokuapp.com
 // https://shrouded-headland-44423.herokuapp.com

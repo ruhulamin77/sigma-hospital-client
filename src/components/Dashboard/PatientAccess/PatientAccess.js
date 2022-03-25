@@ -8,7 +8,7 @@ const PatientAccess = () => {
     console.log(allApoinments.data);
 
     const handleStatus = id => {
-        fetch(`http://localhost:7050/patientAccess/${id}`, {
+        fetch(`https://shrouded-headland-44423.herokuapp.com/patientAccess/${id}`, {
             method: 'PUT',
             headers: { 'content-type': 'application/json' }
         })
@@ -43,7 +43,7 @@ const PatientAccess = () => {
         })
             .then((result) => {
                 if (result.isConfirmed) {
-                    fetch(`http://localhost:7050/deletepatient/${id}`, {
+                    fetch(`https://shrouded-headland-44423.herokuapp.com/deletepatient/${id}`, {
                         method: 'DELETE',
                         headers: { 'content-type': 'application/json' },
                     })
