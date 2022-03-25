@@ -32,7 +32,7 @@ const MedicalTest = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(inputFields);
-        fetch(`http://localhost:7050/medicalTest/${id}`, {
+        fetch(`https://shrouded-headland-44423.herokuapp.com/medicalTest/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(inputFields),
