@@ -6,7 +6,6 @@ import "./ManageAllDonor.css";
 const ManageAllDonor = () => {
   const [donorslist, setDonorslist] = useState([]);
   // https://shrouded-headland-44423.herokuapp.com/
-  // https://shrouded-headland-44423.herokuapp.com/
 
   useEffect(() => {
     fetch("https://shrouded-headland-44423.herokuapp.com/donors")

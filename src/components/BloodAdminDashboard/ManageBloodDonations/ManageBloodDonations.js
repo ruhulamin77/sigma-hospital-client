@@ -7,13 +7,11 @@ const ManageBloodDonations = () => {
   const [donationRequest, setDonationRequest] = useState([]);
 
   // https://shrouded-headland-44423.herokuapp.com/
-  // https://shrouded-headland-44423.herokuapp.com/
 
   useEffect(() => {
     fetch("https://shrouded-headland-44423.herokuapp.com/bloodDonation")
       .then((res) => res.json())
       .then((data) => {
-        // const AproveRequestData =data.filter(data =>data.status ==="Approved")
         setDonationRequest(data);
       });
   }, [donationRequest]);

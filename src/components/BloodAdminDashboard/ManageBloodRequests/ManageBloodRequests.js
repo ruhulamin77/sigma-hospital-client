@@ -7,13 +7,11 @@ import "./ManageBloodRequests.css";
 const ManageBloodRequests = () => {
   const [bloodrequest, setBloodrequest] = useState([]);
   // https://shrouded-headland-44423.herokuapp.com/
-  // https://shrouded-headland-44423.herokuapp.com/
 
   useEffect(() => {
     fetch("https://shrouded-headland-44423.herokuapp.com/bloodRequest")
       .then((res) => res.json())
       .then((data) => {
-        // const AproveRequestData =data.filter(data =>data.status ==="Approved")
         setBloodrequest(data);
       });
   }, [bloodrequest]);

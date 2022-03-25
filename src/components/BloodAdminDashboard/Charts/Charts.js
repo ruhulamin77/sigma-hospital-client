@@ -13,7 +13,6 @@ const Charts = () => {
   const [abnegative, setAbnegative] = useState([]);
 
   // https://shrouded-headland-44423.herokuapp.com/
-  // https://shrouded-headland-44423.herokuapp.com/
 
   //////load data//
   useEffect(() => {

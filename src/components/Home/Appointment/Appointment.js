@@ -197,7 +197,7 @@ const Appointment = () => {
               <textarea
                 placeholder="Please type what you want..."
                 rows="5"
-                {...register("description", { required: true })}
+                {...register("description", { required: false })}
                 className="description-box"
               ></textarea>{" "}
             </div>

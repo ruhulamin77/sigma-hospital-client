@@ -6,9 +6,7 @@ import { ImDroplet } from "react-icons/im";
 import { GrHome } from "react-icons/gr";
 import { MdSupervisedUserCircle, MdBloodtype } from "react-icons/md";
 import { BiDonateBlood } from "react-icons/bi";
-import { FaUser } from "react-icons/fa";
 import { BsChevronDown } from "react-icons/bs";
-import { IoSettingsSharp } from "react-icons/io5";
 import { GiHamburgerMenu, GiArchiveRegister } from "react-icons/gi";
 
 import { Link, Outlet } from "react-router-dom";

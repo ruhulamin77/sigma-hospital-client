@@ -67,14 +67,6 @@ const RegisterDonor = () => {
                 {...register("name", { required: true, maxLength: 20 })}
               />
             </div>
-            {/* <div className="col-md-6 col-lg-4 ">
-              <input
-                placeholder="Your Email"
-                defaultValue={user?.email}
-                disabled
-                {...register("email", { required: true, maxLength: 20 })}
-              />
-            </div> */}
             <div className="col-md-6 col-lg-4">
               <input
                 placeholder="Your Age (18-60 only)"

@@ -99,8 +99,6 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/" element={<PrivateRoute />}>
               <Route path="/appointment" element={<AppointmentHeader />} />
-              {/* <Route path="/userDashboard" element={<UserDashboard />}></Route> */}
-              {/* <Route path="/userDashboard/appointment" element={<Appointment />}></Route> */}
               <Route path="/blog/:id" element={<SingleBlog />} />
               <Route path="/review" element={<Review />} />
             </Route>
@@ -112,7 +110,7 @@ function App() {
             <Route path="/adminhome" element={<AdminHomeMain />} />
             <Route path="/paymentForm" element={<PaymentForm />} />
             <Route path="/success/:id" element={<Success />} />
-            
+
             <Route path="/adminLogin" element={<AdminLoginForm />} />
             <Route path="/patientdbinfo" element={<PatientDbInfo />} />
             <Route path="/login" element={<Login />} />
@@ -228,7 +226,7 @@ function App() {
                   element={<PdfInvoice />}
                 />
                 {/* patients route end */}
-                {/* blood bank admin start */}
+                {/* blood bank admin starts */}
 
                 <Route
                   path="/dashboard/bloodBankAdmin"
@@ -246,32 +244,14 @@ function App() {
                   path="/dashboard/manageBloodRequests"
                   element={<ManageBloodRequests />}
                 />
-                {/* blood bank admin */}
+                {/* blood bank admin ends*/}
                 <Route path="/dashboard/blogForm" element={<BlogForm />} />
-                <Route path="/dashboard/adminRegister" element={<CreateAdmin />} />
+                <Route
+                  path="/dashboard/adminRegister"
+                  element={<CreateAdmin />}
+                />
               </Route>
             </Route>
-            {/*  blood bank */}
-            {/* <Route path="/bloodBank" element={<BloodDashboardMain />}>
-              <Route path="/bloodBank" element={<BloodDashboardHome />}></Route>
-              <Route path="/bloodBank/allDOnor" element={<AllDonors />}></Route>
-              <Route
-                path="/bloodBank/registerDonor"
-                element={<RegisterDonor />}
-              ></Route>
-              <Route
-                path="/bloodBank/bloodDonation"
-                element={<BloodDonation />}
-              ></Route>
-              <Route
-                path="/bloodBank/donationHistory"
-                element={<BloodDonationHistory />}
-              ></Route>
-              <Route
-                path="/bloodBank/bloodRequest"
-                element={<BloodRequest />}
-              ></Route>
-            </Route> */}
 
             {/*  blood bank user dashboard*/}
             <Route exact element={<PrivateRoute />}>

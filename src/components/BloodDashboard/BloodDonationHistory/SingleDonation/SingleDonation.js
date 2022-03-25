@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 
 const SingleDonation = (props) => {
   const { name, age, bloodGroup, disease, lastDonateDate, status } =
