@@ -74,7 +74,7 @@ const Footer = () => {
                             <Link className='footer-item' to="/appointment">Appointment</Link>
                             <Link className='footer-item' to="/Service">Service</Link>
                             <Link className='footer-item' to="/contact">Contact  Us</Link>
-                           {!admin && <Link className='footer-item' to="/adminLogin">Admin Login</Link>}
+                          <Link className='footer-item' to="/adminLogin">Admin Login</Link>
                         </ul>
                     </Col>
                     <Col sm={6} lg={3} >

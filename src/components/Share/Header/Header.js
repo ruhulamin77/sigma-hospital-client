@@ -299,7 +299,7 @@ const Header = () => {
                   >
                     Appointment <i className="fas fa-plus header-icon"></i>
                   </Link>
-                  {(admin.role === "nurse" || admin.role === "admin" ||admin.role === "doctor" || admin.role === "recip"  )&& <Link
+                  {(admin.role === "nurse" || admin.role === "admin" ||admin.role === "doctor" || admin.role === "recip" || admin.role === "pharma" )&& <Link
                     to="/dashboard"
                     className="header-btn text-decoration-none btn-hover"
                   >
