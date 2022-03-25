@@ -15,12 +15,14 @@ import { GiHamburgerMenu, GiArchiveRegister } from "react-icons/gi";
 import { Link, Outlet } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { removeUser } from "../../../features/authSlice";
+import { logOut } from "../../../features/adminSlice";
 
 const BloodDashboardMain = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+
   const user = useSelector((state) => state.auth.auth);
 
   return (
@@ -60,34 +62,12 @@ const BloodDashboardMain = () => {
                     title={user?.displayName}
                   >
                     <NavDropdown.Item
-                      href="#action/3.1"
-                      className="dash_drop_item"
-                    >
-                      <FaUser />
-                      <span>My Profile</span>
-                    </NavDropdown.Item>
-                    <NavDropdown.Item
-                      href="#action/3.2"
-                      className="dash_drop_item"
-                    >
-                      <HiMailOpen />
-                      <span>Messages</span>
-                    </NavDropdown.Item>
-                    <NavDropdown.Item
-                      href="#action/3.3"
-                      className="dash_drop_item"
-                    >
-                      <IoSettingsSharp />
-                      <span>Settings</span>
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item
                       as={Link}
                       to=""
                       className="dash_drop_item"
                     >
                       <RiLogoutCircleLine />
-                      <span onClick="">Logout</span>
+                      <span onClick={() => dispatch(logOut())}>Logout</span>
                     </NavDropdown.Item>
                   </NavDropdown>
                 </div>
@@ -207,7 +187,7 @@ const BloodDashboardMain = () => {
             <ImDroplet />
           </div>
           <div className="right_icon_area bloodBank_header_logout">
-            <span>Logout</span>
+            <span onClick={() => dispatch(logOut())}>Logout</span>
             <RiLogoutCircleLine />
           </div>
         </div>
@@ -225,31 +205,9 @@ const BloodDashboardMain = () => {
                   className="basic_nav_dropdown_custom"
                   title={user?.displayName}
                 >
-                  <NavDropdown.Item
-                    href="#action/3.1"
-                    className="dash_drop_item"
-                  >
-                    <FaUser />
-                    <span>My Profile</span>
-                  </NavDropdown.Item>
-                  <NavDropdown.Item
-                    href="#action/3.2"
-                    className="dash_drop_item"
-                  >
-                    <HiMailOpen />
-                    <span>Messages</span>
-                  </NavDropdown.Item>
-                  <NavDropdown.Item
-                    href="#action/3.3"
-                    className="dash_drop_item"
-                  >
-                    <IoSettingsSharp />
-                    <span>Settings</span>
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
                   <NavDropdown.Item as={Link} to="" className="dash_drop_item">
                     <RiLogoutCircleLine />
-                    <span>Logout</span>
+                    <span onClick={() => dispatch(logOut())}>Logout</span>
                   </NavDropdown.Item>
                 </NavDropdown>
               </div>
