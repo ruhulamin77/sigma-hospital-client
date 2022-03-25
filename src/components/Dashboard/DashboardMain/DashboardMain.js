@@ -1,18 +1,24 @@
 import React, { useState } from "react";
 import { Button, NavDropdown, Offcanvas } from "react-bootstrap";
-import {
-  AiOutlineUser,
-  AiOutlineUsergroupDelete
-} from "react-icons/ai";
+import { AiOutlineUser, AiOutlineUsergroupDelete } from "react-icons/ai";
 import { BiLogIn } from "react-icons/bi";
-import { BsChevronDown} from "react-icons/bs";
+import { BsChevronDown } from "react-icons/bs";
 import { FaRegCalendarAlt, FaUser } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GrHome } from "react-icons/gr";
-import {HiMailOpen} from "react-icons/hi";
+import { HiMailOpen, HiOutlineLockClosed } from "react-icons/hi";
 import { IoSettingsSharp } from "react-icons/io5";
-import { MdOutlineBloodtype, MdOutlineLocalPharmacy, MdOutlinePayment } from "react-icons/md";
-import { RiLogoutCircleLine, RiNurseLine, RiSearchLine, RiWechatLine } from "react-icons/ri";
+import {
+  MdOutlineBloodtype,
+  MdOutlineLocalPharmacy,
+  MdOutlinePayment,
+} from "react-icons/md";
+import {
+  RiLogoutCircleLine,
+  RiNurseLine,
+  RiSearchLine,
+  RiWechatLine,
+} from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Outlet } from "react-router-dom";
 import { logOut } from "../../../features/adminSlice";
@@ -27,7 +33,6 @@ const DashboardMain = () => {
   const handleShow = () => setShow(true);
   const dispatch = useDispatch();
   console.log(admin, "maindashboard");
-
 
   return (
     <>
@@ -65,28 +70,7 @@ const DashboardMain = () => {
                     className="basic_nav_dropdown_custom"
                     title={admin.displayName}
                   >
-                    <NavDropdown.Item
-                      href="#action/3.1"
-                      className="dash_drop_item"
-                    >
-                      <FaUser />
-                      <span>My Profile</span>
-                    </NavDropdown.Item>
-                    <NavDropdown.Item
-                      href="#action/3.2"
-                      className="dash_drop_item"
-                    >
-                      <HiMailOpen />
-                      <span>Messages</span>
-                    </NavDropdown.Item>
-                    <NavDropdown.Item
-                      href="#action/3.3"
-                      className="dash_drop_item"
-                    >
-                      <IoSettingsSharp />
-                      <span>Settings</span>
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
+                    {/* <NavDropdown.Divider /> */}
                     <NavDropdown.Item
                       as={Link}
                       to=""
@@ -573,28 +557,6 @@ const DashboardMain = () => {
                   id="basic-nav-dropdown"
                   className="basic_nav_dropdown_custom"
                 >
-                  <NavDropdown.Item
-                    href="#action/3.1"
-                    className="dash_drop_item"
-                  >
-                    <FaUser />
-                    <span>My Profile</span>
-                  </NavDropdown.Item>
-                  <NavDropdown.Item
-                    href="#action/3.2"
-                    className="dash_drop_item"
-                  >
-                    <HiMailOpen />
-                    <span>Messages</span>
-                  </NavDropdown.Item>
-                  <NavDropdown.Item
-                    href="#action/3.3"
-                    className="dash_drop_item"
-                  >
-                    <IoSettingsSharp />
-                    <span>Settings</span>
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
                   <NavDropdown.Item as={Link} to="" className="dash_drop_item">
                     <RiLogoutCircleLine />
                     <span onClick={() => dispatch(logOut())}>Logout</span>
@@ -985,42 +947,36 @@ const DashboardMain = () => {
               </div>
             </li> */}
 
-            {/* <li>
-              <Link
-                data-bs-toggle="collapse"
-                to="#collapseAuthentications"
-                role="button"
-                aria-expanded="false"
-                aria-controls="collapseExample"
-              >
-                <span className="dashboard_nav_icon">
-                  <span className="nav_icon">
-                    <HiOutlineLockClosed />
-                  </span>
+            {admin.role === "admin" && (
+              <li>
+                <Link
+                  data-bs-toggle="collapse"
+                  to="#collapseAuthentications"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="collapseExample"
+                >
+                  <span className="dashboard_nav_icon">
+                    <span className="nav_icon">
+                      <HiOutlineLockClosed />
+                    </span>
 
-                  <span>Authentications</span>
-                </span>
-                <BsChevronDown />
-              </Link>
-              <div className="collapse" id="collapseAuthentications">
-                <ul className="dashboard_sub_menu">
-                  <li>
-                    <Link to="/dashboard/allDoctors">
-                      <span className="nav_icon">--</span>
-                      <span>Login</span>
-                    </Link>
-                    <Link to="/dashboard">
-                      <span className="nav_icon">--</span>
-                      <span>Register</span>
-                    </Link>
-                    <Link to="/dashboard">
-                      <span className="nav_icon">--</span>
-                      <span>Lock Screen</span>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </li> */}
+                    <span>Authentications</span>
+                  </span>
+                  <BsChevronDown />
+                </Link>
+                <div className="collapse" id="collapseAuthentications">
+                  <ul className="dashboard_sub_menu">
+                    <li>
+                      <Link to="/dashboard/adminRegister">
+                        <span className="nav_icon">--</span>
+                        <span>Register</span>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            )}
           </ul>
         </div>
         <div className="dashboard_content_area">

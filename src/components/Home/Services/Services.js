@@ -11,7 +11,7 @@ const Services = () => {
     }, [])
     console.log((pageServices - pageServices) + 1);
     return (
-        <div className='our-service' style={{ backgroundColor: "#FDF4F4" }}>
+        <div className='our-service mb-5' style={{ backgroundColor: "#FDF4F4" }}>
             <h3 style={{ transform: `translateX(${(pageServices - 2000) * .5}px)` }}>OUR SERVICE</h3>
             <Container className='service-section'>
                 <Row className="g-0">

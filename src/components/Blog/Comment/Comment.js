@@ -13,7 +13,7 @@ const Comment = ({ blogId, loginUser }) => {
     const { register, handleSubmit} = useForm();
     const [rate, setRate] = useState(0)
     const [commentPost, setCommentPost] = useState([])
-    const [post, setPost] = useState(true)
+
 
     console.log(commentPost, "commentPost");
     const onSubmit = async (data) => {
@@ -31,7 +31,8 @@ const Comment = ({ blogId, loginUser }) => {
             console.log(res?.status);
             if (res?.status === 200) {
                 setCommentPost([...commentPost, data])
-                setPost(false)
+                
+              
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
@@ -53,23 +54,23 @@ const Comment = ({ blogId, loginUser }) => {
         }
 
     }
-    useEffect(() => {
-        setCommentPost(blogId?.comments)
-        const getComment = async () => {
-            const find = blogId?.comments?.find((i) => i?.id === loginUser?._id)
-            console.log(find);
-            if (find) {
-                setPost(false)
+    // useEffect(() => {
+    //     setCommentPost(blogId?.comments)
+    //     const getComment = async () => {
+    //         const find = blogId?.comments?.find((i) => i?.id === loginUser?._id)
+    //         console.log(find);
+    //         if (find) {
+        
 
-            } else {
-                setPost(true)
-            }
+    //         } else {
+              
+    //         }
 
-        }
-        getComment()
+    //     }
+    //     getComment()
 
 
-    }, [loginUser?._id, blogId?.comments])
+    // }, [loginUser?._id, blogId?.comments])
 
 console.log(commentPost,"commentPost");
 
@@ -77,7 +78,7 @@ console.log(commentPost,"commentPost");
         <>
             <Row className="mb-5">
                 <Col lg={8}>
-                    {post && <div className="commentForm">
+                   <div className="commentForm">
                         <h3>Write a Comment...</h3>
                         <form onSubmit={handleSubmit(onSubmit)}>
 
@@ -97,7 +98,7 @@ console.log(commentPost,"commentPost");
 
                             <button className="custom-btn btn-9" type="submit" value="Comment" >Comment </button>
                         </form>
-                    </div>}
+                    </div>
                 </Col>
                
             
