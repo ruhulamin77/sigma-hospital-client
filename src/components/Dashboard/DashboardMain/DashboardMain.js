@@ -3,11 +3,10 @@ import { Button, NavDropdown, Offcanvas } from "react-bootstrap";
 import { AiOutlineUser, AiOutlineUsergroupDelete } from "react-icons/ai";
 import { BiLogIn } from "react-icons/bi";
 import { BsChevronDown } from "react-icons/bs";
-import { FaRegCalendarAlt, FaUser } from "react-icons/fa";
+import { FaRegCalendarAlt } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GrHome } from "react-icons/gr";
-import { HiMailOpen } from "react-icons/hi";
-import { IoSettingsSharp } from "react-icons/io5";
+
 import {
   MdOutlineBloodtype,
   MdOutlineLocalPharmacy,
@@ -33,7 +32,6 @@ const DashboardMain = () => {
   const handleShow = () => setShow(true);
   const dispatch = useDispatch();
   console.log(admin, "maindashboard");
-  
 
   return (
     <>
