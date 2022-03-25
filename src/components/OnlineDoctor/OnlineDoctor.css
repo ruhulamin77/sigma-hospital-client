@@ -1,0 +1,45 @@
+.mpdel-button-btn{
+    width: 183px;
+    padding: 9px 0;
+    font-size: 18px;
+    background-color: #f68685;
+    border: none;
+    margin-left: 12px;
+
+}
+
+.model-header{
+    font-size: 21px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    color: #000000e8;
+}
+.image-online-logo{
+    width: 151px;
+    margin-top: -7px;
+
+}
+.thank-you-msg{
+    font-size: 20px;
+    color: #4874dc;
+    margin-top: 6px;
+    margin-bottom: 5px;
+}
+.model-pt-2{
+    margin-top: 16px;
+    font-size: 15px;
+    line-height: 23px;
+    color: #000000ad;
+}
+.call-btn{
+    width: 125px;
+    background-color: #4874dc;
+    border: none;
+    font-size: 17px;
+}
+.Close-btn{
+    background-color: #f68685;
+    width: 118px;
+    border: none;
+    font-size: 16px;
+}

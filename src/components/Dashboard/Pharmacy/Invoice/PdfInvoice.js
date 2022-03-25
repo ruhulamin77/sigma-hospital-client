@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Table } from 'react-bootstrap';
 import { HiLocationMarker, HiMail, HiPhoneMissedCall } from "react-icons/hi";
 import { useParams } from 'react-router-dom';
+import { useReactToPrint } from 'react-to-print';
 
 const PdfInvoice = () => {
     const [itemdata, setData] = useState({})
@@ -17,12 +18,19 @@ const PdfInvoice = () => {
             })
     }, [id])
 
-
+    const componentRef = useRef();
+    const handlePrint = useReactToPrint({
+        content: () => componentRef.current,
+    });
 
     return (
         <div className='pdfinvoice' id='pdfbody' >
-            <div className='pdf-body' >
-                <div className='container invoice-body' id='printdata'>
+            <div className='print-div'>
+                <button className='Print-btn' onClick={handlePrint}>Print</button>
+            </div>
+
+            <div className='pdf-body' ref={componentRef}  >
+                <div className='container invoice-body' id='printdata' >
                     <section className='invoice-header'>
                         <div>
                             <h4 className='invoice'>Invoice</h4>
@@ -110,6 +118,8 @@ const PdfInvoice = () => {
 
                 </div>
             </div>
+
+
 
 
         </div>

@@ -29,14 +29,14 @@ const ProductReciveData = ({ index, medicine }) => {
     }
     return (
         <>
-            <tr>
+            <tr className='medicine-brnd'>
                 <td>{index + 1}</td>
-                <td>{medicine?.name}</td>
-                <td>{medicine?.brand}</td>
+                <td className="name-medicine">{medicine?.name}</td>
+                <td className="brand">{medicine?.brand}</td>
                 <td>{medicine?.pawer}</td>
                 <td>{medicine?.type}</td>
                 <td>{medicine?.stock}</td>
-                <td>{medicine?.salePrice}</td>
+                {/* <td>{medicine?.salePrice}</td> */}
                 <td className='quantity'><input type="text" onBlur={handelvalue} className='add-stock-input' /></td>
                 <td className='quantity'><button onClick={() => handeldata(data)} className='add-stock-btn'>Add-Stock</button></td>
             </tr>
