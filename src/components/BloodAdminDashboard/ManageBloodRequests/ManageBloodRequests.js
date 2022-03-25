@@ -16,7 +16,7 @@ const ManageBloodRequests = () => {
         // const AproveRequestData =data.filter(data =>data.status ==="Approved")
         setBloodrequest(data);
       });
-  }, []);
+  }, [bloodrequest]);
   // update approved status
   const handleApproved = (id) => {
     axios
