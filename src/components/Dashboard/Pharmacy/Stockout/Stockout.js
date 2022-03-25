@@ -10,7 +10,8 @@ const Stockout = () => {
         fetch(`https://shrouded-headland-44423.herokuapp.com/medicine`)
             .then(res => res.json())
             .then(data => {
-                const stockout = data.medicine.filter(data => data?.stock === 0)
+                const stockout = data.filter(data => data?.stock === 0)
+                console.log(stockout, "hello")
                 setStockOut(stockout)
 
             })
