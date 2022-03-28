@@ -88,7 +88,7 @@ const SingleDoctor = () => {
                                 </div>
                             </div>
                             <div className="mb-4 d-flex justify-content-center align-items-center ">
-                                <NavLink to={`/dashboard/appointment`}>
+                                <NavLink to={`/appointment`}>
                                     <button style={{ margin: "0 auto" }} className="services-btn">
                                         <span>Get Appoinment</span><i className="fas fa-plus btn-icon"></i>
                                     </button>
