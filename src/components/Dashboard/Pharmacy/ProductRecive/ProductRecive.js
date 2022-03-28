@@ -30,7 +30,7 @@ const ProductRecive = () => {
 
     }
     return (
-        <div className='container mt-5 mb-5'>
+        <div className=' container mt-5 mb-5'>
 
             <div>
                 <div className='cart'>
@@ -56,7 +56,7 @@ const ProductRecive = () => {
                                         <th>Power</th>
                                         <th>Type</th>
                                         <th>Stock</th>
-                                        <th>Price</th>
+                                        {/* <th>Price</th> */}
                                         <th>Quantity</th>
                                         <th>Action</th>
                                     </tr>

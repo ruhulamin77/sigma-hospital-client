@@ -18,3 +18,16 @@
     border: 1px solid #808080;
 
 }
+
+.medicine-brnd td{
+    text-align: initial;
+
+}
+.brand{
+    
+    width: 350px;
+
+}
+.name-medicine{
+    width: 235px;
+}

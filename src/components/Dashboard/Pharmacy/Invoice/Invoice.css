@@ -2,10 +2,11 @@
     background-color: #f0f8ff;
 }
 .invoice-body{
-    width: 990px;
+    width: 750px;
     background-color: #7093e659;
     border-radius: 6px;
     padding: 0px 9px;
+    size: landscape;
 }
 
 .invoice-header{
@@ -19,6 +20,7 @@
 }
 .pdf-body{
     padding-top: 29px;
+    
 }
 
 .invoice{
@@ -104,4 +106,21 @@
     text-decoration: none;
     color: #000;
     font-family: serif;
+}
+.Print-btn{
+    background-color: #f68685;
+    border: none;
+    padding: 5px 46px;
+    display: flex;
+    border-radius: 6px;
+    color: #fff;
+    letter-spacing: 1px;
+    font-size: 19px;
+    margin-left: 25px;
+}
+.print-div{
+    display: flex;
+    justify-content: end;
+    padding-top: 34px;
+    margin-right: 55px;
 }
