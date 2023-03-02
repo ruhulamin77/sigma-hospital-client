@@ -86,7 +86,7 @@ const ChooseUs = () => {
                       random text. It has roots in a piece of classical Latin.
                     </p>
                     <button className="read-btn">
-                      READ MORE <i className="fas fa-plus btn-red"></i>
+                      READ MORE <i className="fas fa-plus btn-red "></i>
                     </button>
                   </div>
                 </div>
