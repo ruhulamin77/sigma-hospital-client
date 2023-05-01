@@ -1,0 +1,19 @@
+[debug] [2023-05-01T15:41:11.560Z] ----------------------------------------------------------------------
+[debug] [2023-05-01T15:41:11.563Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-05-01T15:41:11.564Z] CLI Version:   11.29.1
+[debug] [2023-05-01T15:41:11.564Z] Platform:      win32
+[debug] [2023-05-01T15:41:11.564Z] Node Version:  v18.15.0
+[debug] [2023-05-01T15:41:11.577Z] Time:          Mon May 01 2023 21:41:11 GMT+0600 (Bangladesh Standard Time)
+[debug] [2023-05-01T15:41:11.577Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-05-01T15:41:11.655Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-05-01T15:41:11.656Z] > authorizing via signed-in user (ruhulamin.ak47@gmail.com)
+[debug] [2023-05-01T15:41:11.656Z] [iam] checking project sigma-central-hospital for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-05-01T15:41:11.661Z] > refreshing access token with scopes: []
+[debug] [2023-05-01T15:41:11.663Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-05-01T15:41:11.663Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-05-01T15:41:12.124Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-05-01T15:41:12.125Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-05-01T15:41:12.157Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/sigma-central-hospital:testIamPermissions [none]
+[debug] [2023-05-01T15:41:12.158Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/sigma-central-hospital:testIamPermissions x-goog-quota-user=projects/sigma-central-hospital
+[debug] [2023-05-01T15:41:12.158Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/sigma-central-hospital:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}

@@ -36,7 +36,7 @@ const ChooseUs = () => {
                 <div className="paper-item">
                   <div className="paper-hover">
                     <img
-                      src="images/icon-3-1-1.png"
+                      src="/images/icon-3-1-1.png"
                       alt=""
                       className="image-icon"
                     />
@@ -56,7 +56,7 @@ const ChooseUs = () => {
                 <div className="paper-item">
                   <div className="paper-hover">
                     <img
-                      src="images/icon-2-1-1.png"
+                      src="/images/icon-2-1-1.png"
                       alt=""
                       className="image-icon"
                     />
@@ -76,7 +76,7 @@ const ChooseUs = () => {
                 <div className="paper-item">
                   <div className="paper-hover">
                     <img
-                      src="images/icon-2-1-1.png"
+                      src="/images/icon-2-1-1.png"
                       alt=""
                       className="image-icon"
                     />
