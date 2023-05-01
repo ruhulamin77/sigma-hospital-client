@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import "./BloodDashboardMain.css";
-import { Button, NavDropdown, Offcanvas } from "react-bootstrap";
-import { RiLogoutCircleLine } from "react-icons/ri";
-import { ImDroplet } from "react-icons/im";
-import { GrHome } from "react-icons/gr";
-import { MdSupervisedUserCircle, MdBloodtype } from "react-icons/md";
-import { BiDonateBlood } from "react-icons/bi";
-import { BsChevronDown } from "react-icons/bs";
-import { GiHamburgerMenu, GiArchiveRegister } from "react-icons/gi";
+import React, { useState } from 'react';
+import { Button, NavDropdown, Offcanvas } from 'react-bootstrap';
+import { BiDonateBlood } from 'react-icons/bi';
+import { BsChevronDown } from 'react-icons/bs';
+import { GiArchiveRegister, GiHamburgerMenu } from 'react-icons/gi';
+import { GrHome } from 'react-icons/gr';
+import { ImDroplet } from 'react-icons/im';
+import { MdBloodtype, MdSupervisedUserCircle } from 'react-icons/md';
+import { RiLogoutCircleLine } from 'react-icons/ri';
+import './BloodDashboardMain.css';
 
-import { Link, Outlet } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { removeUser } from "../../../features/authSlice";
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, Outlet } from 'react-router-dom';
+import { removeUser } from '../../../features/authSlice';
 
 const BloodDashboardMain = () => {
   const [show, setShow] = useState(false);
@@ -23,7 +23,7 @@ const BloodDashboardMain = () => {
 
   return (
     <>
-      {" "}
+      {' '}
       <div className="dashboard_mobile_header blood_dashboard_mobile_header">
         <div>
           <Button
@@ -127,6 +127,8 @@ const BloodDashboardMain = () => {
                         <span className="nav_icon">--</span>
                         <span>Donate Blood</span>
                       </Link>
+                    </li>
+                    <li>
                       <Link to="/bloodBank/donationHistory">
                         <span className="nav_icon">--</span>
                         <span>Donation History</span>

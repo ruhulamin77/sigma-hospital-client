@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
-import { useSelector } from "react-redux";
-import "./BloodDashboardHome.css";
+import React, { useEffect, useState } from 'react';
+import { Container } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+import './BloodDashboardHome.css';
 
 const BloodDashboardHome = () => {
   const user = useSelector((state) => state.auth.auth);
@@ -11,7 +11,7 @@ const BloodDashboardHome = () => {
 
   useEffect(() => {
     fetch(
-      `https://shrouded-headland-44423.herokuapp.com/bloodDonation/${user?.email}`
+      `https://sigma-hospital-server.onrender.com/bloodDonation/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => setDonations(data));
@@ -19,30 +19,30 @@ const BloodDashboardHome = () => {
 
   useEffect(() => {
     fetch(
-      `https://shrouded-headland-44423.herokuapp.com/bloodRequest/${user?.email}`
+      `https://sigma-hospital-server.onrender.com/bloodRequest/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => setRequests(data));
   }, []);
 
   const donationsPending = donations.filter(
-    (donate) => donate.status === "Pending"
+    (donate) => donate.status === 'Pending'
   );
   const donationsApproved = donations.filter(
-    (donate) => donate.status === "Approved"
+    (donate) => donate.status === 'Approved'
   );
   const donationsRejected = donations.filter(
-    (donate) => donate.status === "Rejected"
+    (donate) => donate.status === 'Rejected'
   );
 
   const requestsPending = requests.filter(
-    (donate) => donate.status === "Pending"
+    (donate) => donate.status === 'Pending'
   );
   const requestsApproved = requests.filter(
-    (donate) => donate.status === "Approved"
+    (donate) => donate.status === 'Approved'
   );
   const requestsRejected = requests.filter(
-    (donate) => donate.status === "Rejected"
+    (donate) => donate.status === 'Rejected'
   );
   return (
     <Container>

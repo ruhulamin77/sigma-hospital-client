@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import { ScaleLoader } from "react-spinners";
+import React, { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { ScaleLoader } from 'react-spinners';
 // import { useGetBloodRequestQuery } from "../../../../features/sigmaApi";
-import SingleDonor from "../SingleDonar/SingleDonor";
-import "./AllDonors.css";
+import SingleDonor from '../SingleDonar/SingleDonor';
+import './AllDonors.css';
 
 const AllDonors = () => {
   const [donors, setDonor] = useState([]);
@@ -18,15 +18,14 @@ const AllDonors = () => {
     setUidonor(seacredonor);
   };
 
-  // https://shrouded-headland-44423.herokuapp.com/
-  // https://shrouded-headland-44423.herokuapp.com/
+  // https://sigma-hospital-server.onrender.com/
 
   useEffect(() => {
-    fetch("https://shrouded-headland-44423.herokuapp.com/donors")
+    fetch('https://sigma-hospital-server.onrender.com/donors')
       .then((res) => res.json())
       .then((Donordata) => {
         const AproveDonorData = Donordata.filter(
-          (data) => data.status === "Approved"
+          (data) => data.status === 'Approved'
         );
         setUidonor(AproveDonorData);
         setDonor(AproveDonorData);
@@ -45,7 +44,7 @@ const AllDonors = () => {
       // </button>
 
       <div className="looder-my">
-        <ScaleLoader color={"#7093e5"} size={150} />
+        <ScaleLoader color={'#7093e5'} size={150} />
       </div>
     );
   }
@@ -61,7 +60,7 @@ const AllDonors = () => {
             <small className="smaill-css">
               Search donor by blood group &nbsp;
             </small>
-            <select {...register("bloodGroup")} className="mb-3 select-options">
+            <select {...register('bloodGroup')} className="mb-3 select-options">
               <option value="A+">A+</option>
               <option value="O+">O+</option>
               <option value="AB+">AB+</option>

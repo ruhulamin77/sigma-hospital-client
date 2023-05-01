@@ -1,14 +1,14 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Table } from "react-bootstrap";
-import Swal from "sweetalert2";
-import "./ManageAllDonor.css";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { Table } from 'react-bootstrap';
+import Swal from 'sweetalert2';
+import './ManageAllDonor.css';
 const ManageAllDonor = () => {
   const [donorslist, setDonorslist] = useState([]);
-  // https://shrouded-headland-44423.herokuapp.com/
+  // https://sigma-hospital-server.onrender.com/
 
   useEffect(() => {
-    fetch("https://shrouded-headland-44423.herokuapp.com/donors")
+    fetch('https://sigma-hospital-server.onrender.com/donors')
       .then((res) => res.json())
       .then((data) => setDonorslist(data));
   }, [donorslist]);
@@ -30,13 +30,13 @@ const ManageAllDonor = () => {
   const handleApprovedStatus = (id) => {
     console.log(id);
     axios
-      .put(`https://shrouded-headland-44423.herokuapp.com/donors/${id}`, {
-        status: "Approved",
+      .put(`https://sigma-hospital-server.onrender.com/donors/${id}`, {
+        status: 'Approved',
       })
       .then((res) => {
         console.log(res);
         if (res.data.matchedCount > 0) {
-          Swal.fire("Approved!", "Donar request has been Approved.", "success");
+          Swal.fire('Approved!', 'Donar request has been Approved.', 'success');
         }
       })
       .catch((err) => {
@@ -47,13 +47,13 @@ const ManageAllDonor = () => {
   // update rejected status
   const handleRejectedStatus = (id) => {
     axios
-      .put(`https://shrouded-headland-44423.herokuapp.com/donors/${id}`, {
-        status: "Rejected",
+      .put(`https://sigma-hospital-server.onrender.com/donors/${id}`, {
+        status: 'Rejected',
       })
       .then((res) => {
         console.log(res);
         if (res.data.matchedCount > 0) {
-          Swal.fire("Rejected!", "Donar request has been Rejected.", "success");
+          Swal.fire('Rejected!', 'Donar request has been Rejected.', 'success');
         }
       })
       .catch((err) => {

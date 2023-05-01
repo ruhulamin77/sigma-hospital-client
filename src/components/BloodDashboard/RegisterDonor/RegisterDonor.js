@@ -1,10 +1,10 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Row } from "react-bootstrap";
-import { useForm } from "react-hook-form";
-import { useSelector } from "react-redux";
-import Swal from "sweetalert2";
-import "./RegisterDonor.css";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { Row } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
+import { useSelector } from 'react-redux';
+import Swal from 'sweetalert2';
+import './RegisterDonor.css';
 
 const RegisterDonor = () => {
   const user = useSelector((state) => state.auth.auth);
@@ -13,7 +13,7 @@ const RegisterDonor = () => {
   const [donars, setDonars] = useState([]);
 
   useEffect(() => {
-    fetch("https://shrouded-headland-44423.herokuapp.com/donors").then((res) =>
+    fetch('https://sigma-hospital-server.onrender.com/donors').then((res) =>
       res.json().then((data) => setDonars(data))
     );
   }, []);
@@ -25,24 +25,24 @@ const RegisterDonor = () => {
       donars.find(
         (donar) =>
           donar.email === data.email &&
-          (data.status === "Pending" || "Approved" || "Rejected")
+          (data.status === 'Pending' || 'Approved' || 'Rejected')
       )
     ) {
       return Swal.fire({
-        position: "center",
-        icon: "error",
-        title: "You are already registered as a donar",
+        position: 'center',
+        icon: 'error',
+        title: 'You are already registered as a donar',
         showConfirmButton: true,
       });
     }
     axios
-      .post("https://shrouded-headland-44423.herokuapp.com/donors", data)
+      .post('https://sigma-hospital-server.onrender.com/donors', data)
       .then((res) => {
         if (res.data.insertedId) {
           Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Thank you for your kindness",
+            position: 'center',
+            icon: 'success',
+            title: 'Thank you for your kindness',
             showConfirmButton: true,
           });
 
@@ -64,7 +64,7 @@ const RegisterDonor = () => {
               <input
                 placeholder="Your Name"
                 defaultValue={user?.displayName}
-                {...register("name", { required: true, maxLength: 20 })}
+                {...register('name', { required: true, maxLength: 20 })}
               />
             </div>
             <div className="col-md-6 col-lg-4">
@@ -73,11 +73,11 @@ const RegisterDonor = () => {
                 type="number"
                 min="18"
                 max="60"
-                {...register("age", { min: 18, required: true })}
+                {...register('age', { min: 18, required: true })}
               />
             </div>
             <div className="col-md-6 col-lg-4">
-              <select {...register("gender", { required: true })}>
+              <select {...register('gender', { required: true })}>
                 <option value="" disabled selected hidden>
                   Gender
                 </option>
@@ -88,7 +88,7 @@ const RegisterDonor = () => {
             </div>
 
             <div className="col-md-6 col-lg-4">
-              <select {...register("bloodGroup", { required: true })}>
+              <select {...register('bloodGroup', { required: true })}>
                 <option defaultValue="" disabled selected hidden>
                   Select Your Blood Group
                 </option>
@@ -106,20 +106,20 @@ const RegisterDonor = () => {
             <div className="col-md-6 col-lg-4">
               <input
                 placeholder="Mobile Number"
-                {...register("mobile", { required: true })}
+                {...register('mobile', { required: true })}
               />
             </div>
 
             <div className="col-md-6 col-lg-4">
               <input
                 placeholder="Address"
-                {...register("address", { required: true })}
+                {...register('address', { required: true })}
               />
             </div>
             <div className="col-md-6 col-lg-4">
               <input
                 placeholder="Disease (if any, oterwise type 'no')"
-                {...register("disease", { required: true })}
+                {...register('disease', { required: true })}
               />
             </div>
 
@@ -128,7 +128,7 @@ const RegisterDonor = () => {
                 id="donate_date"
                 type="date"
                 placeholder="Last donate date"
-                {...register("lastDonateDate", {
+                {...register('lastDonateDate', {
                   required: true,
                   maxLength: 20,
                 })}

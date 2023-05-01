@@ -1,10 +1,10 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Row } from "react-bootstrap";
-import { useForm } from "react-hook-form";
-import { useSelector } from "react-redux";
-import Swal from "sweetalert2";
-import "./BloodDonation.css";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { Row } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
+import { useSelector } from 'react-redux';
+import Swal from 'sweetalert2';
+import './BloodDonation.css';
 
 const BloodDonation = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -12,7 +12,7 @@ const BloodDonation = () => {
   const user = useSelector((state) => state.auth.auth);
 
   useEffect(() => {
-    fetch("https://shrouded-headland-44423.herokuapp.com/bloodDonation").then(
+    fetch('https://sigma-hospital-server.onrender.com/bloodDonation').then(
       (res) => res.json().then((data) => setBloods(data))
     );
   }, []);
@@ -22,13 +22,13 @@ const BloodDonation = () => {
     data.status = `Pending`;
     data.email = user?.email;
     axios
-      .post("https://shrouded-headland-44423.herokuapp.com/bloodDonation", data)
+      .post('https://sigma-hospital-server.onrender.com/bloodDonation', data)
       .then((res) => {
         if (res.data.insertedId) {
           Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Thank you for your kindness",
+            position: 'center',
+            icon: 'success',
+            title: 'Thank you for your kindness',
             showConfirmButton: true,
           });
 
@@ -47,7 +47,7 @@ const BloodDonation = () => {
               <input
                 placeholder="Your Name"
                 defaultValue={user?.displayName}
-                {...register("name", { required: true, maxLength: 20 })}
+                {...register('name', { required: true, maxLength: 20 })}
               />
             </div>
             <div className="col-md-6 col-lg-4 ">
@@ -56,11 +56,11 @@ const BloodDonation = () => {
                 type="number"
                 min="18"
                 max="60"
-                {...register("age", { min: 18, required: true })}
+                {...register('age', { min: 18, required: true })}
               />
             </div>
             <div className="col-md-6 col-lg-4 ">
-              <select {...register("gender", { required: true })}>
+              <select {...register('gender', { required: true })}>
                 <option value="" disabled selected hidden>
                   Gender
                 </option>
@@ -71,7 +71,7 @@ const BloodDonation = () => {
             </div>
 
             <div className="col-md-6 col-lg-4 ">
-              <select {...register("bloodGroup", { required: true })}>
+              <select {...register('bloodGroup', { required: true })}>
                 <option defaultValue="" disabled selected hidden>
                   Blood Group
                 </option>
@@ -88,20 +88,20 @@ const BloodDonation = () => {
             <div className="col-md-6 col-lg-4 ">
               <input
                 placeholder="Mobile Number"
-                {...register("mobile", { required: true })}
+                {...register('mobile', { required: true })}
               />
             </div>
             <div className="col-md-6 col-lg-4 ">
               <input
                 placeholder="Address"
-                {...register("address", { required: true })}
+                {...register('address', { required: true })}
               />
             </div>
 
             <div className="col-md-6 col-lg-4">
               <input
                 placeholder="Disease (if any, oterwise type 'no')"
-                {...register("disease", { required: true })}
+                {...register('disease', { required: true })}
               />
             </div>
 
@@ -109,7 +109,7 @@ const BloodDonation = () => {
               <input
                 type="date"
                 placeholder="Last donate date"
-                {...register("lastDonateDate", {
+                {...register('lastDonateDate', {
                   required: true,
                   maxLength: 20,
                 })}

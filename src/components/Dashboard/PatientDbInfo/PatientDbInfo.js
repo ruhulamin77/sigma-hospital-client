@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Table } from "react-bootstrap";
+import React, { useEffect, useState } from 'react';
+import { Table } from 'react-bootstrap';
 
 const PatientDbInfo = () => {
   const [patientDbInfoo, setpatientDbInfoo] = useState([]);
 
   useEffect(() => {
-    fetch(`https://shrouded-headland-44423.herokuapp.com/patients`)
+    fetch(`https://sigma-hospital-server.onrender.com/patients`)
       .then((res) => res.json())
       .then((data) => setpatientDbInfoo(data));
   }, []);
