@@ -1,11 +1,11 @@
 import React from 'react';
 
-const UserHome = () => {
+const PatientInfo = () => {
     return (
         <div>
-            <h1>Hello</h1>
+            asdfasdf
         </div>
     );
 };
 
-export default UserHome;
+export default PatientInfo;

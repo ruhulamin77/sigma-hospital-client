@@ -2,10 +2,11 @@
     background-color: #f0f8ff;
 }
 .invoice-body{
-    width: 1090px;
+    width: 750px;
     background-color: #7093e659;
     border-radius: 6px;
     padding: 0px 9px;
+    size: landscape;
 }
 
 .invoice-header{
@@ -19,6 +20,7 @@
 }
 .pdf-body{
     padding-top: 29px;
+    
 }
 
 .invoice{
@@ -33,8 +35,9 @@
 }
 
 .hospital-info h6 {
-    font-size: 23px;
+    font-size: 19px;
     letter-spacing: 1px;
+    margin-left: -42px;
 }
 .customer-info{
     margin-top: 94px;
@@ -60,4 +63,64 @@
     margin-left: 38px;
     margin-right: 57px;
     padding-bottom: 35px;
+}
+
+.g-total-pdf{
+    font-size: 20px;
+    font-weight: 600;
+    border: none;
+    font-family: initial;
+    letter-spacing: 1px;
+}
+.thank-mas{
+    width: 432px;
+    font-size: 14px;
+    color: #000000cf;
+}
+.thank-mas p{
+    font-size: 15px;
+    font-weight: 500;
+}
+.product-info tr td{
+    text-align: end;
+    font-family: monospace;
+}
+.product-info tr th{
+    text-align: end;
+}
+
+.invoice_id{
+    background-color: #7093e69c;
+    margin-bottom: 13px;
+    padding: 6px;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.image-pdf-logo{
+    width: 132px;
+}
+
+.nav-link{
+    text-decoration: none;
+    text-decoration: none;
+    color: #000;
+    font-family: serif;
+}
+.Print-btn{
+    background-color: #f68685;
+    border: none;
+    padding: 5px 46px;
+    display: flex;
+    border-radius: 6px;
+    color: #fff;
+    letter-spacing: 1px;
+    font-size: 19px;
+    margin-left: 25px;
+}
+.print-div{
+    display: flex;
+    justify-content: end;
+    padding-top: 34px;
+    margin-right: 55px;
 }

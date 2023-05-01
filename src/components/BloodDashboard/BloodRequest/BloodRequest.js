@@ -1,27 +1,27 @@
-import axios from "axios";
-import React from "react";
-import { Row } from "react-bootstrap";
-import { useForm } from "react-hook-form";
-import { useSelector } from "react-redux";
-import Swal from "sweetalert2";
-import "./BloodRequest.css";
+import axios from 'axios';
+import React from 'react';
+import { Row } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
+import { useSelector } from 'react-redux';
+import Swal from 'sweetalert2';
+import './BloodRequest.css';
 
 const BloodRequest = () => {
-  const user = useSelector((state) => state.auth.value);
+  const user = useSelector((state) => state.auth.auth);
 
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    data.email = user.email;
+    data.email = user?.email;
     data.status = `Pending`;
     console.log(data);
     axios
-      .post("https://hidden-coast-99117.herokuapp.com/bloodRequest", data)
+      .post('https://sigma-hospital-server.onrender.com/bloodRequest', data)
       .then((res) => {
         if (res.data.insertedId) {
           Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Your request has been submitted",
+            position: 'center',
+            icon: 'success',
+            title: 'Your request has been submitted',
             showConfirmButton: true,
           });
 
@@ -38,7 +38,7 @@ const BloodRequest = () => {
             <div className="col-md-6 col-lg-4">
               <input
                 placeholder="Patient Name"
-                {...register("name", { required: true, maxLength: 20 })}
+                {...register('name', { required: true, maxLength: 20 })}
               />
             </div>
 
@@ -47,11 +47,11 @@ const BloodRequest = () => {
                 placeholder="Patient Age"
                 type="number"
                 min="0"
-                {...register("age")}
+                {...register('age')}
               />
             </div>
             <div className="col-md-6 col-lg-2">
-              <select {...register("gender", { required: true })}>
+              <select {...register('gender', { required: true })}>
                 <option value="" disabled selected hidden>
                   Gender
                 </option>
@@ -62,7 +62,7 @@ const BloodRequest = () => {
             </div>
 
             <div className="col-md-6 col-lg-2">
-              <select {...register("bloodGroup")}>
+              <select {...register('bloodGroup', { required: true })}>
                 <option defaultValue="" disabled selected hidden>
                   Blood Group
                 </option>
@@ -81,32 +81,32 @@ const BloodRequest = () => {
                 placeholder="Quantity (Bags)"
                 type="number"
                 min="1"
-                {...register("quantity")}
+                {...register('quantity', { required: true })}
               />
             </div>
             <div className="col-md-6 col-lg-6">
               <input
                 placeholder="Address"
-                {...register("address", { required: true })}
+                {...register('address', { required: true })}
               />
             </div>
             <div className="col-md-6 col-lg-3">
               <input
                 placeholder="Mobile Number"
-                {...register("mobile", { required: true })}
+                {...register('mobile', { required: true })}
               />
             </div>
             <div className="col-md-6 col-lg-4">
               <input
                 placeholder="Reason"
-                {...register("reason", { required: false, maxLength: 20 })}
+                {...register('reason', { required: false, maxLength: 20 })}
               />
             </div>
 
             <div className="col-md-6 col-lg-4">
               <input
                 placeholder="Doctor's Name"
-                {...register("doctorName", { required: false, maxLength: 20 })}
+                {...register('doctorName', { required: false, maxLength: 20 })}
               />
             </div>
 
@@ -114,8 +114,8 @@ const BloodRequest = () => {
               <input
                 type="date"
                 placeholder="Needed Date:"
-                id="request-date"
-                {...register("requestDate", { required: true, maxLength: 20 })}
+                id="needed-date"
+                {...register('neededDate', { required: true, maxLength: 20 })}
               />
             </div>
             <div className="col-md-6 col-lg-4">

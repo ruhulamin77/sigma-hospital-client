@@ -16,8 +16,7 @@ const ChooseUs = () => {
       </h2>
       <Container className="why-choose padding-container">
         <div className="outer-why-content row">
-          <div className="col-lg-2"></div>
-          <div className="why-content col-lg-10">
+          <div className="why-content col-lg-12">
             <p className="why-choose-pragraph">why choose us</p>
             <h1 className="Turst-people">Why People Trust </h1>
             <h4 className="Treatment">Sigma Treatment</h4>
@@ -28,15 +27,14 @@ const ChooseUs = () => {
           </div>
         </div>
 
-        <div className=" row mt-5">
-          <div className="col-lg-2"></div>
-          <div className="peaper col-lg-10">
+        <div className=" row mt-3">
+          <div className="peaper col-lg-12">
             <div className="row gy-5 gx-4">
               <div className="col-lg-4 col-md-6 col-sm-12">
                 <div className="paper-item">
                   <div className="paper-hover">
                     <img
-                      src="/images/icon-3-1.png"
+                      src="/images/icon-3-1-1.png"
                       alt=""
                       className="image-icon"
                     />
@@ -56,7 +54,7 @@ const ChooseUs = () => {
                 <div className="paper-item">
                   <div className="paper-hover">
                     <img
-                      src="/images/icon-2-1.png"
+                      src="/images/icon-2-1-1.png"
                       alt=""
                       className="image-icon"
                     />
@@ -76,7 +74,7 @@ const ChooseUs = () => {
                 <div className="paper-item">
                   <div className="paper-hover">
                     <img
-                      src="/images/icon-1-1.png"
+                      src="/images/icon-1-1-1.png"
                       alt=""
                       className="image-icon"
                     />

@@ -1,6 +1,7 @@
 import "./ChatOnline.css";
 
 const ChatOnline = ({ user }) => {
+    console.log(user, "userrrrr");
     return (
         <div className='ChatOnline'>
             <div className="ChatOnlineFriend">
@@ -9,7 +10,7 @@ const ChatOnline = ({ user }) => {
                     <div className="badge-online">
                     </div>
                 </div>
-                <span>{user?.userInfo?.displayName}</span>
+                <span>{user?.userInfo?.adminName}</span>
             </div>
         </div>
     );

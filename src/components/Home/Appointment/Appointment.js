@@ -1,9 +1,9 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Row } from "react-bootstrap";
-import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
-import "./Appointment.css";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { Row } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
+import Swal from 'sweetalert2';
+import './Appointment.css';
 
 const Appointment = () => {
   const [doctors, setDoctor] = useState([]);
@@ -14,7 +14,7 @@ const Appointment = () => {
   // const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
-    fetch("https://shrouded-headland-44423.herokuapp.com/doctors")
+    fetch('https://sigma-hospital-server.onrender.com/doctors')
       .then((res) => res.json())
       .then((data) => {
         setDoctor(data);
@@ -22,19 +22,19 @@ const Appointment = () => {
   }, []);
 
   const onSubmit = (data) => {
-    data.status = "pending";
+    data.status = 'pending';
     data.doctorEmail = doctorEmail;
 
     axios
-      .post("https://shrouded-headland-44423.herokuapp.com/appointments", data)
+      .post('https://sigma-hospital-server.onrender.com/appointments', data)
       .then((res) => {
         if (res.data.insertedId) {
           // successfull modal
 
           Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Your appointment has been submitted",
+            position: 'center',
+            icon: 'success',
+            title: 'Your appointment has been submitted',
             showConfirmButton: false,
             timer: 1500,
           });
@@ -82,7 +82,7 @@ const Appointment = () => {
               <input
                 type="text"
                 placeholder="First name"
-                {...register("firstName", { required: true, maxLength: 80 })}
+                {...register('firstName', { required: true, maxLength: 80 })}
                 className="input-field-name"
               />
             </div>
@@ -90,22 +90,22 @@ const Appointment = () => {
               <input
                 type="text"
                 placeholder="Last name"
-                {...register("lastName", { required: true, maxLength: 100 })}
+                {...register('lastName', { required: true, maxLength: 100 })}
                 className="input-field-name"
-              />{" "}
+              />{' '}
             </div>
             <div className="col-md-6 col-lg-2">
               <input
                 type="number"
                 placeholder="Age"
-                {...register("Age", { required: true })}
+                {...register('Age', { required: true })}
                 className="service-doctor-shift"
               />
             </div>
             <div className="col-md-6 col-lg-2">
               <select
                 aria-label="Default select example"
-                {...register("gender", { required: true })}
+                {...register('gender', { required: true })}
                 className="service-doctor"
               >
                 <option>- Gender -</option>
@@ -118,7 +118,7 @@ const Appointment = () => {
               <input
                 type="email"
                 placeholder="Email"
-                {...register("patientEmail", {
+                {...register('patientEmail', {
                   required: true,
                   pattern: /^\S+@\S+$/i,
                 })}
@@ -129,19 +129,19 @@ const Appointment = () => {
               <input
                 type="tel"
                 placeholder="Mobile number"
-                {...register("mobileNumber", {
+                {...register('mobileNumber', {
                   required: true,
                   minLength: 6,
                   maxLength: 12,
                 })}
                 className="service-doctor-shift"
-              />{" "}
+              />{' '}
             </div>
 
             <div className="col-md-6 col-lg-3">
               <select
                 aria-label="Default select example"
-                {...register("service")}
+                {...register('service')}
                 onBlur={handleOnBlurService}
                 className="service-doctor"
               >
@@ -160,7 +160,7 @@ const Appointment = () => {
             <div className="col-md-6 col-lg-3">
               <select
                 aria-label="Default select example"
-                {...register("shift", { required: true })}
+                {...register('shift', { required: true })}
                 onBlur={handleOnBlurShift}
                 className="service-doctor"
               >
@@ -174,7 +174,7 @@ const Appointment = () => {
             <div className="col-md-6 col-lg-3">
               <select
                 aria-label="Default select example"
-                {...register("doctor", { required: true })}
+                {...register('doctor', { required: true })}
                 className="service-doctor"
                 onChange={handleOnChangeEmail}
               >
@@ -188,7 +188,7 @@ const Appointment = () => {
             <div className="col-md-6 col-lg-3">
               <input
                 type="date"
-                {...register("date", { required: true })}
+                {...register('date', { required: true })}
                 className="service-doctor-shift"
               />
             </div>
@@ -197,14 +197,14 @@ const Appointment = () => {
               <textarea
                 placeholder="Please type what you want..."
                 rows="5"
-                {...register("description", { required: true })}
+                {...register('description', { required: false })}
                 className="description-box"
-              ></textarea>{" "}
+              ></textarea>{' '}
             </div>
 
             <button type="submit" className="pulse">
-              {" "}
-              Submit{" "}
+              {' '}
+              Submit{' '}
             </button>
           </Row>
         </form>

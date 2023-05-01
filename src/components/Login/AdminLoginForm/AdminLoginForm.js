@@ -1,21 +1,25 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import {adminLogin} from '../../../features/adminSlice'
-import {useDispatch,} from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { adminLogin } from '../../../features/adminSlice';
 import "./AdminLoginForm.css";
-import { useNavigate } from 'react-router-dom';
 
 const AdminLoginForm = () => {
   const { register, handleSubmit, reset } = useForm();
-  let navigate = useNavigate();  
+    const navigate = useNavigate();
   const dispatch = useDispatch()
-  const onSubmit = data =>{
+  const token = useSelector((state) => state?.admin?.admin?.token);  
+ 
+  const onSubmit = data => {
     reset()
-    dispatch(adminLogin(data)) 
-    navigate(`/dashboard`);
-  }
+    dispatch(adminLogin(data))  
+    }
+    if (token) {
+        navigate(`/dashboard`)
+    }
     return (
-        <div>
+        <div className='admin-login-section'>
             <div className="container">
                 <div className="row">
                     <div className="col-lg-3 col-md-2"></div>
@@ -26,7 +30,6 @@ const AdminLoginForm = () => {
                         <div className="col-lg-12 login-title">
                             ADMIN PANEL LOGIN
                         </div>
-      
                             <div className="col-lg-12 login-for">
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     <div className="form-group">
@@ -39,10 +42,10 @@ const AdminLoginForm = () => {
                                     </div>
 
                                     <div className="col-lg-12 loginbttm">
-                                        <div className="col-lg-6 login-btm login-text">
-                                        </div>
-                                        <div className="col-lg-6">
+                                      
+                                        <div className="col-lg-12 d-flex justify-content-between">
                                         <button type='submit' className="pure-button fuller-button blue">ACCEPT</button>
+                                       <Link to="/home"> <button  className="pure-button fuller-button blue">Go To Home</button></Link>
                                         </div>
                                     </div>
                                 </form>

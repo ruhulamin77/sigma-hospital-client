@@ -1,48 +1,48 @@
-import React, { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
-import { useSelector } from "react-redux";
-import useFirebase from "../../../hooks/useFirebase";
-import "./BloodDashboardHome.css";
+import React, { useEffect, useState } from 'react';
+import { Container } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+import './BloodDashboardHome.css';
 
 const BloodDashboardHome = () => {
-  const user = useSelector((state) => state.auth.value);
-
-  const { logout } = useFirebase();
+  const user = useSelector((state) => state.auth.auth);
   const [donations, setDonations] = useState([]);
-  const [requests, setrequests] = useState([]);
+  const [requests, setRequests] = useState([]);
+  console.log(donations, requests);
 
   useEffect(() => {
-    fetch(`https://hidden-coast-99117.herokuapp.com/${user?.email}/bloods`)
+    fetch(
+      `https://sigma-hospital-server.onrender.com/bloodDonation/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setDonations(data));
   }, []);
 
   useEffect(() => {
     fetch(
-      `https://hidden-coast-99117.herokuapp.com/${user?.email}/bloodRequest`
+      `https://sigma-hospital-server.onrender.com/bloodRequest/${user?.email}`
     )
       .then((res) => res.json())
-      .then((data) => setrequests(data));
+      .then((data) => setRequests(data));
   }, []);
 
   const donationsPending = donations.filter(
-    (donate) => donate.status === "Pending"
+    (donate) => donate.status === 'Pending'
   );
   const donationsApproved = donations.filter(
-    (donate) => donate.status === "Approved"
+    (donate) => donate.status === 'Approved'
   );
   const donationsRejected = donations.filter(
-    (donate) => donate.status === "Rejected"
+    (donate) => donate.status === 'Rejected'
   );
 
   const requestsPending = requests.filter(
-    (donate) => donate.status === "Pending"
+    (donate) => donate.status === 'Pending'
   );
   const requestsApproved = requests.filter(
-    (donate) => donate.status === "Approved"
+    (donate) => donate.status === 'Approved'
   );
   const requestsRejected = requests.filter(
-    (donate) => donate.status === "Rejected"
+    (donate) => donate.status === 'Rejected'
   );
   return (
     <Container>

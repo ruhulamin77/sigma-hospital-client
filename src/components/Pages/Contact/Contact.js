@@ -1,29 +1,44 @@
+import emailjs from "@emailjs/browser";
 import React, { useRef } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { RiMapPinLine, RiPhoneLine } from "react-icons/ri";
 import { FaEnvelopeOpen } from "react-icons/fa";
-import "./Contact.css";
+import { RiMapPinLine, RiPhoneLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
-import emailjs from "@emailjs/browser";
-import Header from "../../Share/Header/Header";
+import Swal from "sweetalert2";
 import Footer from "../../Home/Footer/Footer";
+import Header from "../../Share/Header/Header";
+import "./Contact.css";
 
 const Contact = () => {
   const form = useRef();
   const sendEmail = (e) => {
+console.log(form.current);
     e.preventDefault();
-    emailjs
-      .sendForm(
-        "service_mt82hy2",
+    emailjs.sendForm(
+        "service_5fctlnm",
         "template_c9ss9cm",
         form.current,
         "user_cKgbE80VqOVlLKlhO7S97"
       )
       .then(
         (result) => {
-          alert("okk");
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your Message has been Send',
+            showConfirmButton: false,
+            timer: 1500
+          })
         },
-        (error) => {}
+        (error) => {
+          Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: 'Something worng',
+            showConfirmButton: false,
+            timer: 1500
+          })
+         }
       );
   };
 
@@ -51,7 +66,7 @@ const Contact = () => {
               <div className="contact-item">
                 <RiMapPinLine />
                 <h6>LOCATION</h6>
-                <p>Dhaka Bangladesh</p>
+                <p>1234 North Avenue Luke, South Bend, IN 360001</p>
               </div>
             </Col>
             <Col>

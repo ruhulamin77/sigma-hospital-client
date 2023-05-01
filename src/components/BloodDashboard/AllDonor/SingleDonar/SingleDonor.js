@@ -1,14 +1,14 @@
 import React from "react";
-import "./SingleDonor.css";
 import { Card } from "react-bootstrap";
 import DonorModal from "../DonorModal/DonorModal";
+import "./SingleDonor.css";
 
 const SingleDonor = (props) => {
   const { name, gender, bloodGroup, address } = props.donordata;
 
   return (
-    <div className="col-lg-5 col-sm-12 mx-4 g-4 single-donor">
-      <Card border="info">
+      <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+      <Card>
         <Card.Header>
           {gender === "Male" ? (
             <i class="fas fa-user user-icon"></i>
@@ -18,14 +18,12 @@ const SingleDonor = (props) => {
           <small className="name-donor">{name}</small>
         </Card.Header>
         <Card.Body>
-          <Card.Title className="card-titels ">
+          <Card.Title className="card-titels">
             Blood Group <strong className="blood-grp">{bloodGroup}</strong>
           </Card.Title>
           <p>Address : {address}</p>
           <Card.Text>
-            <button className="contact-btn ">
-              <DonorModal donar={props.donordata}></DonorModal>
-            </button>
+            <DonorModal donar={props.donordata}></DonorModal>
           </Card.Text>
         </Card.Body>
       </Card>

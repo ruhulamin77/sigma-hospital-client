@@ -4,12 +4,12 @@ import { useForm } from "react-hook-form";
 import { FaFacebookF, FaGoogle, FaTwitter } from 'react-icons/fa';
 import { useLocation, useNavigate } from 'react-router-dom';
 import useFirebase from "../../../hooks/useFirebase";
+import Footer from "../../Home/Footer/Footer";
+import Header from "../../Share/Header/Header";
 import "./Login.css";
-import Header from "../../Share/Header/Header"
-import Footer from "../../Home/Footer/Footer"
 
 const Login = () => {
-    const { loginUser, registerUser, signInWithGoogle } = useFirebase();
+    const { loginUser, registerUser, signInWithGoogle, authError } = useFirebase();
     const navigate = useNavigate();
     const location = useLocation();
     const [classAdd, setClassAdd] = useState("")
@@ -36,11 +36,11 @@ const Login = () => {
         loginUser(data?.Email, data?.password, location, navigate)
     }
 
-
     return (
         <>
             <Header />
-            <Container className='padding-container'>
+            <div className="login-section">
+            <Container>
                 <div className={`con ${classAdd}`} id="container">
                     <div className="form-container sign-up-container">
                         <form onSubmit={handleSubmit(onSubmit)} className='login-form'>
@@ -87,7 +87,7 @@ const Login = () => {
                                 <button onClick={() => setClassAdd("")} className="ghost" id="signIn">Sign In</button>
                             </div>
                             <div className="overlay-panel overlay-right">
-                                <h1>Hello, Friend!</h1>
+                                <h1>Please Sign Up</h1>
                                 <p >Enter your personal details and start journey with us</p>
                                 <button className="ghost" id="signUp" onClick={() => setClassAdd("right-panel-active")}>Sign Up</button>
                             </div>
@@ -95,6 +95,8 @@ const Login = () => {
                     </div>
                 </div>
             </Container>
+            </div>
+          
             <Footer />
         </>
     );

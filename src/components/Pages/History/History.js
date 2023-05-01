@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import Footer from "../../Home/Footer/Footer";
-import Header from "../../Share/Header/Header";
 import "./History.css";
 
 const History = () => {
@@ -20,7 +18,7 @@ const History = () => {
 
   return (
     <>
-      <Header />
+
       <section className="history padding-container">
         <h4
           style={{
@@ -57,7 +55,6 @@ const History = () => {
           </Row>
         </Container>
       </section>
-      <Footer />
     </>
   );
 };

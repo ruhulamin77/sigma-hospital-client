@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-import { Offcanvas } from "react-bootstrap";
 import { FiChevronDown } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GrClose } from "react-icons/gr";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import useFirebase from "../../../hooks/useFirebase";
+import { removeUser } from "../../../features/authSlice";
 import "./Header.css";
 
 const Header = () => {
   const [show, setShow] = useState(false);
-
+  const dispatch = useDispatch();
   const handleClose = () => setShow(false);
   const toggleShow = () => setShow((s) => !s);
 
@@ -49,10 +48,9 @@ const Header = () => {
   } else {
     boxClassSubMenu.push("");
   }
-
-  /* const user = useSelector((state) => state?.auth?.value) */
-  const { logout } = useFirebase();
-  const user = useSelector((state) => state.auth.value);
+  const user = useSelector((state) => state.auth.auth);
+  console.log(user, "user");
+  const admin = useSelector((state) => state.admin.admin);
 
   return (
     <header className="header__middle">
@@ -212,17 +210,6 @@ const Header = () => {
                         <Link
                           onClick={toggleClass}
                           activeClassName="is-active"
-                          to="/"
-                        >
-                          {" "}
-                          Shop{" "}
-                        </Link>{" "}
-                      </li>
-                      <li>
-                        {" "}
-                        <Link
-                          onClick={toggleClass}
-                          activeClassName="is-active"
                           to="/about"
                         >
                           {" "}
@@ -273,12 +260,26 @@ const Header = () => {
                           Contact Us{" "}
                         </Link>{" "}
                       </li>
+                      <li>
+                        {" "}
+                        <Link
+                          onClick={toggleClass}
+                          activeClassName="is-active"
+                          to="/review"
+                        >
+                          {" "}
+                          Give Us Feedback{" "}
+                        </Link>{" "}
+                      </li>
                     </ul>
                   </li>
                   {user?.email ? (
-                    <li className="menu-item" onClick={() => logout()}>
+                    <li
+                      className="menu-item"
+                      onClick={() => dispatch(removeUser())}
+                    >
                       {" "}
-                      <a href="#"> Logout </a>{" "}
+                      <a> Logout </a>{" "}
                     </li>
                   ) : (
                     <li className="menu-item">
@@ -298,32 +299,19 @@ const Header = () => {
                   >
                     Appointment <i className="fas fa-plus header-icon"></i>
                   </Link>
-                  <Link
+                  {(admin.role === "nurse" || admin.role === "admin" ||admin.role === "doctor" || admin.role === "recip" || admin.role === "pharma" )&& <Link
                     to="/dashboard"
                     className="header-btn text-decoration-none btn-hover"
                   >
                     Deshboard <i className="fas fa-plus header-icon"></i>
-                  </Link>
+                  </Link>}
                 </ul>
-                <span onClick={toggleShow} className="icon">
+                {/* <span onClick={toggleShow} className="icon">
                   <GiHamburgerMenu />
-                </span>
-                {/* 
-              
-              <span className="icon position-relative">
-                <FaShoppingBasket />
-                <ul className="position-absolute  icon-position">
-                  <li>
-                    <FaHeart />
-                  </li>
-                  <li>
-                    <FaShoppingCart />
-                  </li>
-                  </ul>
-              </span> */}
+                </span> */}
               </nav>
 
-              <Offcanvas placement={"end"} show={show} onHide={handleClose}>
+              {/* <Offcanvas placement={"end"} show={show} onHide={handleClose}>
                 <Offcanvas.Header closeButton></Offcanvas.Header>
                 <Offcanvas.Body>
                   <div className="users-info text-center">
@@ -331,7 +319,7 @@ const Header = () => {
                     <h3>{user?.displayName}</h3>
                   </div>
                 </Offcanvas.Body>
-              </Offcanvas>
+              </Offcanvas> */}
             </div>
           </div>
         </div>

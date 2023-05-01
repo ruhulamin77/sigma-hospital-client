@@ -6,6 +6,7 @@ import SingleNurseCard from '../SingleNurseCard/SingleNurseCard';
 
 const AllNurse = () => {
     const allNurse = useGetNursesQuery();
+    console.log(allNurse.data);
     if (!allNurse?.data?.length) {
         return <Button variant="primary" disabled>
             <Spinner
@@ -17,7 +18,7 @@ const AllNurse = () => {
             />
             Loading...
         </Button>
-    }
+    };
 
     return (
         <div style={{ backgroundColor: "#F4F7F6", padding: "20px 0" }}>

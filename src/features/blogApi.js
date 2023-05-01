@@ -1,19 +1,21 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const blogApi = createApi({
-    reducerPath: 'blogApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:7050/' }),
-    endpoints: (builder) => ({
-        getBlog: builder.query({
-            query: () => ({
-                url: 'Blog',
-                method: 'GET'
-            }),
-        }),
+  reducerPath: 'blogApi',
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'https://sigma-hospital-server.onrender.com/',
+  }),
+  endpoints: (builder) => ({
+    getBlog: builder.query({
+      query: () => ({
+        url: 'Blog',
+        method: 'GET',
+      }),
     }),
-})
+  }),
+});
 
-export const { useGetBlogQuery } = blogApi
+export const { useGetBlogQuery } = blogApi;
 
-// http://localhost:7050/
-// https://shrouded-headland-44423.herokuapp.com/
+// https://sigma-hospital-server.onrender.com
+// https://sigma-hospital-server.onrender.com/

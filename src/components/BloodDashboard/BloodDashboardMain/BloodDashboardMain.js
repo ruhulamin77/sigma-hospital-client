@@ -1,48 +1,30 @@
-import React, { useState } from "react";
-import "./BloodDashboardMain.css";
-import { Button, NavDropdown, Offcanvas } from "react-bootstrap";
-import { GiSettingsKnobs } from "react-icons/gi";
-import { RiLogoutCircleLine, RiSearchLine, RiWechatLine } from "react-icons/ri";
-import { ImStack, ImDroplet } from "react-icons/im";
-import {
-  AiOutlineMail,
-  AiOutlineUser,
-  AiOutlineUsergroupDelete,
-} from "react-icons/ai";
-import { GrHome, GrLocation } from "react-icons/gr";
-import {
-  MdOutlinePayment,
-  MdSupervisedUserCircle,
-  MdBloodtype,
-} from "react-icons/md";
-import { BiDonateBlood } from "react-icons/bi";
-import {
-  HiMailOpen,
-  HiOutlineLockClosed,
-  HiOutlinePuzzle,
-} from "react-icons/hi";
-import { IoMdNotificationsOutline } from "react-icons/io";
-import { BiLogIn } from "react-icons/bi";
-import { FaRegCalendarAlt, FaUser } from "react-icons/fa";
-import { BsChevronDown, BsListTask } from "react-icons/bs";
-import { IoSettingsSharp } from "react-icons/io5";
-import { RiNurseLine } from "react-icons/ri";
-import { GiHamburgerMenu, GiArchiveRegister } from "react-icons/gi";
+import React, { useState } from 'react';
+import { Button, NavDropdown, Offcanvas } from 'react-bootstrap';
+import { BiDonateBlood } from 'react-icons/bi';
+import { BsChevronDown } from 'react-icons/bs';
+import { GiArchiveRegister, GiHamburgerMenu } from 'react-icons/gi';
+import { GrHome } from 'react-icons/gr';
+import { ImDroplet } from 'react-icons/im';
+import { MdBloodtype, MdSupervisedUserCircle } from 'react-icons/md';
+import { RiLogoutCircleLine } from 'react-icons/ri';
+import './BloodDashboardMain.css';
 
-import { Link, Outlet } from "react-router-dom";
-import useFirebase from "../../../hooks/useFirebase";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, Outlet } from 'react-router-dom';
+import { removeUser } from '../../../features/authSlice';
 
 const BloodDashboardMain = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const user = useSelector((state) => state.auth.value);
+  const dispatch = useDispatch();
 
-  const { logout } = useFirebase();
+  const user = useSelector((state) => state.auth.auth);
+
   return (
     <>
-      <div className="dashboard_mobile_header">
+      {' '}
+      <div className="dashboard_mobile_header blood_dashboard_mobile_header">
         <div>
           <Button
             className="d-block d-md-none dashboard_hamburger_btn"
@@ -59,7 +41,6 @@ const BloodDashboardMain = () => {
           </Link>
         </div>
       </div>
-
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton className="offcanvas_header">
           <Offcanvas.Title>Blood Bank</Offcanvas.Title>
@@ -77,34 +58,12 @@ const BloodDashboardMain = () => {
                     title={user?.displayName}
                   >
                     <NavDropdown.Item
-                      href="#action/3.1"
-                      className="dash_drop_item"
-                    >
-                      <FaUser />
-                      <span>My Profile</span>
-                    </NavDropdown.Item>
-                    <NavDropdown.Item
-                      href="#action/3.2"
-                      className="dash_drop_item"
-                    >
-                      <HiMailOpen />
-                      <span>Messages</span>
-                    </NavDropdown.Item>
-                    <NavDropdown.Item
-                      href="#action/3.3"
-                      className="dash_drop_item"
-                    >
-                      <IoSettingsSharp />
-                      <span>Settings</span>
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item
                       as={Link}
                       to=""
                       className="dash_drop_item"
                     >
                       <RiLogoutCircleLine />
-                      <span onClick={logout}>Logout</span>
+                      <span onClick={() => dispatch(removeUser())}>Logout</span>
                     </NavDropdown.Item>
                   </NavDropdown>
                 </div>
@@ -124,7 +83,7 @@ const BloodDashboardMain = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/bloodBank">
+                <Link to="/bloodBank/allDonor">
                   <span className="dashboard_nav_icon">
                     <span className="nav_icon">
                       <MdSupervisedUserCircle />
@@ -134,7 +93,7 @@ const BloodDashboardMain = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/bloodBank">
+                <Link to="/bloodBank/registerDonor">
                   <span className="dashboard_nav_icon">
                     <span className="nav_icon">
                       <GiArchiveRegister />
@@ -164,11 +123,13 @@ const BloodDashboardMain = () => {
                 <div className="collapse" id="collapseDonation">
                   <ul className="dashboard_sub_menu">
                     <li>
-                      <Link to="/bloodBank/">
+                      <Link to="/bloodBank/bloodDonation">
                         <span className="nav_icon">--</span>
                         <span>Donate Blood</span>
                       </Link>
-                      <Link to="/bloodBank">
+                    </li>
+                    <li>
+                      <Link to="/bloodBank/donationHistory">
                         <span className="nav_icon">--</span>
                         <span>Donation History</span>
                       </Link>
@@ -212,7 +173,6 @@ const BloodDashboardMain = () => {
           </div>
         </Offcanvas.Body>
       </Offcanvas>
-
       <div className="dashboardHeader bloodBankHeader container-fluid">
         <div className="logo_area">
           <Link to="/home">
@@ -225,12 +185,11 @@ const BloodDashboardMain = () => {
             <ImDroplet />
           </div>
           <div className="right_icon_area bloodBank_header_logout">
-            <span>Logout</span>
+            <span onClick={() => dispatch(removeUser())}>Logout</span>
             <RiLogoutCircleLine />
           </div>
         </div>
       </div>
-
       {/* left side bar */}
       <div className="dashboard_main">
         <div className="dashboard_left_side_bar d-none d-md-block">
@@ -244,31 +203,9 @@ const BloodDashboardMain = () => {
                   className="basic_nav_dropdown_custom"
                   title={user?.displayName}
                 >
-                  <NavDropdown.Item
-                    href="#action/3.1"
-                    className="dash_drop_item"
-                  >
-                    <FaUser />
-                    <span>My Profile</span>
-                  </NavDropdown.Item>
-                  <NavDropdown.Item
-                    href="#action/3.2"
-                    className="dash_drop_item"
-                  >
-                    <HiMailOpen />
-                    <span>Messages</span>
-                  </NavDropdown.Item>
-                  <NavDropdown.Item
-                    href="#action/3.3"
-                    className="dash_drop_item"
-                  >
-                    <IoSettingsSharp />
-                    <span>Settings</span>
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
                   <NavDropdown.Item as={Link} to="" className="dash_drop_item">
                     <RiLogoutCircleLine />
-                    <span onClick={logout}>Logout</span>
+                    <span onClick={() => dispatch(removeUser())}>Logout</span>
                   </NavDropdown.Item>
                 </NavDropdown>
               </div>
@@ -298,7 +235,7 @@ const BloodDashboardMain = () => {
               </Link>
             </li>
             <li>
-              <Link to="/bloodBank">
+              <Link to="/bloodBank/registerDonor">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <GiArchiveRegister />
@@ -328,11 +265,11 @@ const BloodDashboardMain = () => {
               <div className="collapse" id="collapseDonation">
                 <ul className="dashboard_sub_menu">
                   <li>
-                    <Link to="/bloodBank/">
+                    <Link to="/bloodBank/bloodDonation">
                       <span className="nav_icon">--</span>
                       <span>Donate Blood</span>
                     </Link>
-                    <Link to="/bloodBank">
+                    <Link to="/bloodBank/donationHistory">
                       <span className="nav_icon">--</span>
                       <span>Donation History</span>
                     </Link>

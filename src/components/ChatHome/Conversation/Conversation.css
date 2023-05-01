@@ -11,8 +11,8 @@
   background-color: rgb(240, 240, 240);
 }
 .conversation-img {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   object-fit: cover;
   margin-right: 5px;
@@ -22,10 +22,10 @@
 }
 .threeDot {
   text-align: center;
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  line-height: 50px;
+  line-height: 30px;
   background-color: gray;
   color: white;
   opacity: 0;
@@ -40,4 +40,16 @@
 .message:hover .threeDot {
   opacity: 1;
   visibility: visible;
+}
+
+@media (max-width: 992px) {
+  .conversation-name {
+    display: none;
+  }
+  .ChatOnlineFriend span {
+    display: none;
+  }
+  .open-chat {
+    font-size: 18px !important;
+  }
 }

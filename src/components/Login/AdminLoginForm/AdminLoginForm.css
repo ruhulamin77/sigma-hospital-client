@@ -1,6 +1,12 @@
+.admin-login-section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .login-box {
-  margin: 75px 0;
-  height: auto;
+  max-height: 100vh;
   background: #1a2226;
   text-align: center;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
@@ -14,6 +20,7 @@
   line-height: 100px;
   background: -webkit-linear-gradient(#27ef9f, #0db8de);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -103,7 +110,7 @@
   color: white;
   background: none;
   border-radius: 0;
-  padding: 1.2em 5em;
+  padding: 1em 2em;
   letter-spacing: 0.35em;
   font-size: 0.7em;
   transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;

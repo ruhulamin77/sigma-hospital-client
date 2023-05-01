@@ -5,7 +5,7 @@ const Messenger = () => {
   return (
     <div>
       <MessengerCustomerChat
-        pageId="105235712043499"
+        pageId="110280248282314"
         appId="1042568009949735"
       />
     </div>

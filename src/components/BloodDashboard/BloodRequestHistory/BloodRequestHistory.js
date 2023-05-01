@@ -1,39 +1,33 @@
-import React, { useEffect, useState } from "react";
-import { Table } from "react-bootstrap";
+import React, { useEffect, useState } from 'react';
+import { Table } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+// import { useGetBloodRequestQuery } from "../../../features/sigmaApi";
+import SingleRequest from './SingleRequest/SingleRequest';
 
-import SingleRequest from "./SingleRequest/SingleRequest";
-
-import { useSelector } from "react-redux";
 const BloodRequestHistory = () => {
   const [requests, setRequests] = useState([]);
-  const user = useSelector((state) => state.auth.value);
-
-  // useEffect(() => {
-  //   fetch(`https://hidden-coast-99117.herokuapp.com/bloodRequest/${user.email}`)
-  //     .then((res) => res.json())
-  //     .then((data) => setRequests(data));
-  // }, [requests]);
+  const user = useSelector((state) => state.auth.auth);
 
   useEffect(() => {
     fetch(
-      `https://hidden-coast-99117.herokuapp.com/${user?.email}/bloodRequest`
+      `https://sigma-hospital-server.onrender.com/bloodRequest/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => setRequests(data));
   }, [requests]);
 
-  if (!requests.length) {
-    return (
-      <button className="btn btn-danger spner-btn" type="button" disabled>
-        <span
-          className="spinner-border spinner-border-sm"
-          role="status"
-          aria-hidden="true"
-        ></span>
-        Loading...
-      </button>
-    );
-  }
+  // if (!requests.length) {
+  //   return (
+  //     <button className="btn btn-danger spner-btn" type="button" disabled>
+  //       <span
+  //         className="spinner-border spinner-border-sm"
+  //         role="status"
+  //         aria-hidden="true"
+  //       ></span>
+  //       Loading...
+  //     </button>
+  //   );
+  // }
 
   return (
     <div className="request-history-container">
