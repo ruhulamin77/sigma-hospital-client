@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import Charts from "../Charts/Charts";
+import React, { useEffect, useState } from 'react';
+import Charts from '../Charts/Charts';
 
 const BloodAdminHome = () => {
   const [donors, setDonors] = useState([]);
@@ -11,20 +11,20 @@ const BloodAdminHome = () => {
   const [pendingBloodRequest, setPendingBloodRequest] = useState([]);
   const [rejectedBloodRequest, setReectedBloodRequest] = useState([]);
 
-  // https://shrouded-headland-44423.herokuapp.com/
+  // https://sigma-hospital-server.onrender.com/
 
   useEffect(() => {
-    fetch("https://shrouded-headland-44423.herokuapp.com/bloodDonation")
+    fetch('https://sigma-hospital-server.onrender.com/bloodDonation')
       .then((res) => res.json())
       .then((data) => {
         const ApprovedDonation = data.filter(
-          (data) => data?.status === "Approved"
+          (data) => data?.status === 'Approved'
         );
         const pendingDonation = data.filter(
-          (data) => data?.status === "Pending"
+          (data) => data?.status === 'Pending'
         );
         const RejectedDonation = data.filter(
-          (data) => data?.status === "Rejected"
+          (data) => data?.status === 'Rejected'
         );
         setApproveDonation(ApprovedDonation);
         setPendingDonation(pendingDonation);
@@ -34,17 +34,17 @@ const BloodAdminHome = () => {
   }, []);
 
   useEffect(() => {
-    fetch("https://shrouded-headland-44423.herokuapp.com/bloodRequest")
+    fetch('https://sigma-hospital-server.onrender.com/bloodRequest')
       .then((res) => res.json())
       .then((data) => {
         const AproveBloodRequest = data.filter(
-          (data) => data?.status === "Approved"
+          (data) => data?.status === 'Approved'
         );
         const pendingBloodRequest = data.filter(
-          (data) => data?.status === "Pending"
+          (data) => data?.status === 'Pending'
         );
         const rejectedBloodRequest = data.filter(
-          (data) => data?.status === "Rejected"
+          (data) => data?.status === 'Rejected'
         );
         setApprovedBloodRequest(AproveBloodRequest);
         setPendingBloodRequest(pendingBloodRequest);

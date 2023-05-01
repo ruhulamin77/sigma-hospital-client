@@ -1,39 +1,39 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const sigmaApi = createApi({
-  reducerPath: "sigmaApi",
+  reducerPath: 'sigmaApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://shrouded-headland-44423.herokuapp.com/",
+    baseUrl: 'https://sigma-hospital-server.onrender.com/',
   }),
   endpoints: (builder) => ({
     getDoctors: builder.query({
       query: () => ({
-        url: "doctors",
-        method: "GET",
+        url: 'doctors',
+        method: 'GET',
       }),
     }),
     getNurses: builder.query({
       query: () => ({
-        url: "nurses",
-        method: "GET",
+        url: 'nurses',
+        method: 'GET',
       }),
     }),
     getAppointments: builder.query({
       query: () => ({
-        url: "appointments",
-        method: "GET",
+        url: 'appointments',
+        method: 'GET',
       }),
     }),
     getPrescriptions: builder.query({
       query: () => ({
-        url: "prescriptions",
-        method: "GET",
+        url: 'prescriptions',
+        method: 'GET',
       }),
     }),
     getBloodRequest: builder.query({
       query: () => ({
-        url: "bloodRequest",
-        method: "GET",
+        url: 'bloodRequest',
+        method: 'GET',
       }),
     }),
   }),
@@ -47,5 +47,5 @@ export const {
   useGetBloodRequestQuery,
 } = sigmaApi;
 
-// https://shrouded-headland-44423.herokuapp.com
-// https://shrouded-headland-44423.herokuapp.com
+// https://sigma-hospital-server.onrender.com
+// https://sigma-hospital-server.onrender.com

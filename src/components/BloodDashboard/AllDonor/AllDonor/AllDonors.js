@@ -18,10 +18,10 @@ const AllDonors = () => {
     setUidonor(seacredonor);
   };
 
-  // https://shrouded-headland-44423.herokuapp.com/
+  // https://sigma-hospital-server.onrender.com/
 
   useEffect(() => {
-    fetch('https://shrouded-headland-44423.herokuapp.com/donors')
+    fetch('https://sigma-hospital-server.onrender.com/donors')
       .then((res) => res.json())
       .then((Donordata) => {
         const AproveDonorData = Donordata.filter(

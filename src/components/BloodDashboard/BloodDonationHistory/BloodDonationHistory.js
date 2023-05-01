@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { Table } from "react-bootstrap";
-import { useSelector } from "react-redux";
-import "./BloodDonationHistory.css";
-import SingleDonation from "./SingleDonation/SingleDonation";
+import React, { useEffect, useState } from 'react';
+import { Table } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+import './BloodDonationHistory.css';
+import SingleDonation from './SingleDonation/SingleDonation';
 const BloodDonationHistory = () => {
   const [donations, setDonations] = useState([]);
   const user = useSelector((state) => state.auth.auth);
 
   useEffect(() => {
     fetch(
-      `https://shrouded-headland-44423.herokuapp.com/bloodDonation/${user?.email}`
+      `https://sigma-hospital-server.onrender.com/bloodDonation/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => setDonations(data));

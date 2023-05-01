@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { Table } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from 'react';
+import { Table } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 // import { useGetBloodRequestQuery } from "../../../features/sigmaApi";
-import SingleRequest from "./SingleRequest/SingleRequest";
+import SingleRequest from './SingleRequest/SingleRequest';
 
 const BloodRequestHistory = () => {
   const [requests, setRequests] = useState([]);
@@ -10,7 +10,7 @@ const BloodRequestHistory = () => {
 
   useEffect(() => {
     fetch(
-      `https://shrouded-headland-44423.herokuapp.com/bloodRequest/${user?.email}`
+      `https://sigma-hospital-server.onrender.com/bloodRequest/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => setRequests(data));

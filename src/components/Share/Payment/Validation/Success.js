@@ -2,36 +2,36 @@ import axios from 'axios';
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-
 const Success = () => {
-    /* let history = useHistory() */
-    const {id} = useParams()
-    /* console.log(id);
+  /* let history = useHistory() */
+  const { id } = useParams();
+  /* console.log(id);
 
      useState declare ()
 
     useEffect declare ()
     */
 
-    const validatePayment = () => {
-        const data = {
-            tran_id: id,
-            /* val_id: medicine?.val_id ( must needed ) */
+  const validatePayment = () => {
+    const data = {
+      tran_id: id,
+      /* val_id: medicine?.val_id ( must needed ) */
+    };
+    axios
+      .post(`https://sigma-hospital-server.onrender.com/validate`, data)
+      .then((res) => {
+        if (res.data) {
+          alert('Order placed successfully');
+          /* history.push('/home') */
         }
-        axios.post(`https://shrouded-headland-44423.herokuapp.com/validate`, data)
-            .then(res => {
-                if (res.data) {
-                    alert("Order placed successfully")
-                    /* history.push('/home') */
-                }
-            })
-    }
-    return (
-        <div>
-            <h2>This is success page</h2>
-            <button onClick={validatePayment}>Confirm Payment</button>
-        </div>
-    );
+      });
+  };
+  return (
+    <div>
+      <h2>This is success page</h2>
+      <button onClick={validatePayment}>Confirm Payment</button>
+    </div>
+  );
 };
 
 export default Success;
