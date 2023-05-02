@@ -69,7 +69,7 @@ const useFirebase = () => {
         dispatch(saveUser(user));
         if (user.uid) {
           Swal.fire({
-            position: 'top-end',
+            position: 'center',
             icon: 'success',
             title: 'Logged in SuccessFully',
             showConfirmButton: false,

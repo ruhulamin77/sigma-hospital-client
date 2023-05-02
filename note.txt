@@ -1,0 +1,2 @@
+old domain: https://sigmacare-hospital.netlify.app/
+new domain: https://simple-firebase-authenti-f10a3.web.app/
